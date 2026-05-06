@@ -10,4 +10,20 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* write uxp style overrides */
+/* spectrum-close-button.css v0.44.0 wraps :host(:hover) inside @media (hover:hover).
+ * UXP does not support media queries, so hover styles never apply. Repeat them
+ * unconditionally so hover colours work in UXP.
+ *
+ * .icon reads color from --mod-closebutton-icon-color-default, so override that token
+ * on :host(:hover) instead of using :host(:hover) .icon (compound descendant selectors
+ * with host pseudo-classes are unreliable in UXP). */
+:host(:not([disabled]):hover) {
+    background-color: var(--mod-closebutton-background-color-hover, var(--spectrum-closebutton-background-color-hover));
+    --mod-closebutton-icon-color-default: var(--highcontrast-closebutton-icon-color-hover, var(--mod-closebutton-icon-color-hover, var(--spectrum-closebutton-icon-color-hover)));
+}
+
+:host([static=black]:not([disabled]):hover),
+:host([static=white]:not([disabled]):hover) {
+    background-color: var(--highcontrast-closebutton-static-background-color-hover, var(--mod-closebutton-static-background-color-hover, var(--spectrum-closebutton-static-background-color-hover)));
+    --mod-closebutton-icon-color-default: var(--highcontrast-closebutton-icon-color-default, var(--mod-closebutton-icon-color-default, var(--spectrum-closebutton-icon-color-default)));
+}

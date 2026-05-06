@@ -10,9 +10,8 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* write uxp style overrides */
-
-/* Workaround for - https://jira.corp.adobe.com/browse/UXP-20869 */
+/* spectrum-action-group.css uses gap on :host (flex container) for button spacing.
+ * UXP does not support gap on flex containers (UXP-20869). */
 :host([dir='ltr']:not([vertical]):not([compact])) ::slotted(:not(:last-child)) {
     margin-right: var(
         --mod-actiongroup-horizontal-spacing-regular,
@@ -24,21 +23,6 @@ governing permissions and limitations under the License.
     margin-bottom: var(
         --mod-actiongroup-vertical-spacing-regular,
         var(--spectrum-actiongroup-vertical-spacing-regular)
-    );
-}
-
-:host {
-    min-width: var(
-        --mod-actionbutton-min-width,
-        var(--spectrum-actionbutton-min-width)
-    );
-    padding-left: var(
-        --mod-actionbutton-edge-to-text,
-        var(--spectrum-actionbutton-edge-to-text)
-    );
-    padding-right: var(
-        --mod-actionbutton-edge-to-text,
-        var(--spectrum-actionbutton-edge-to-text)
     );
 }
 

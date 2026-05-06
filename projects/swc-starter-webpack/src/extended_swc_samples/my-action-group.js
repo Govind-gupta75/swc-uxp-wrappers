@@ -15,7 +15,7 @@ import { ActionGroup } from '@spectrum-web-components/action-group';
 
 class MyActionGroup extends ActionGroup {
     static styles = [
-        ActionGroup.styles,
+        ...ActionGroup.styles,
         css`
             :host([class='my-action-group']) {
                 background-color: antiquewhite;

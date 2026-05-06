@@ -15,7 +15,7 @@ import { ActionButton } from '@spectrum-web-components/action-button';
 
 class MyActionButton extends ActionButton {
     static styles = [
-        ActionButton.styles,
+        ...ActionButton.styles,
         css`
             :host([class='my-action-button']) {
                 font-size: 20px;

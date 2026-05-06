@@ -10,4 +10,14 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* write uxp style overrides */
+/* spectrum-clear-button.css v0.44.0 wraps :host(:hover) inside @media (hover:hover).
+ * UXP does not support media queries, so hover styles never apply. Repeat them
+ * unconditionally so hover colours work in UXP.
+ *
+ * .fill reads background-color from --mod-clear-button-background-color, so override
+ * that token on :host(:hover) instead of using :host(:hover) .fill (compound descendant
+ * selectors with host pseudo-classes are unreliable in UXP). */
+:host(:hover) {
+    color: var(--highcontrast-clear-button-icon-color-hover, var(--mod-clear-button-icon-color-hover, var(--spectrum-clear-button-icon-color-hover)));
+    --mod-clear-button-background-color: var(--mod-clear-button-background-color-hover, var(--spectrum-clear-button-background-color-hover));
+}
