@@ -15,7 +15,7 @@ import { FieldLabel } from '@spectrum-web-components/field-label';
 
 class MyFieldLabel extends FieldLabel {
     static styles = [
-        FieldLabel.styles,
+        ...FieldLabel.styles,
         css`
             :host([class='my-field-label']) {
                 font-style: italic;

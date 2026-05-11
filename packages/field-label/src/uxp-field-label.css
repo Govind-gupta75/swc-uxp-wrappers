@@ -10,39 +10,17 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* write uxp style overrides */
-
-/* Workaround for - https://jira.corp.adobe.com/browse/UXP-20846 */
+/* spectrum-field-label.css uses logical properties throughout (min-block-size,
+ * padding-block, padding-inline, margin-block, margin-inline). With
+ * enableLogicalProperties:true in v0.44.0, UXP translates all of these to their
+ * physical equivalents automatically. The v0.37.0 workarounds for UXP-21381
+ * (min-height / padding), UXP-21327 (required-icon margin) and the side-aligned
+ * margin overrides are therefore no longer needed.
+ *
+ * The one remaining issue is text-align:end on :host([side-aligned='end']):
+ * UXP does not support text-align:end (UXP-20846). Override with inline-flex +
+ * justify-content:flex-end as the UXP-compatible equivalent. */
 :host([side-aligned='end']) {
     display: inline-flex;
     justify-content: flex-end;
-}
-
-:host([side-aligned]) {
-    margin-top: var(
-        --mod-fieldlabel-side-padding-top,
-        var(--spectrum-fieldlabel-side-padding-top)
-    );
-    margin-right: var(
-        --mod-fieldlabel-side-padding-right,
-        var(--spectrum-fieldlabel-side-padding-right)
-    );
-}
-
-/* Workaround for - https://jira.corp.adobe.com/browse/UXP-21327 */
-.required-icon {
-    margin-left: var(
-        --mod-fieldlabel-asterisk-gap,
-        var(--spectrum-fieldlabel-asterisk-gap)
-    );
-}
-
-/* Workaround for - https://jira.corp.adobe.com/browse/UXP-21381 */
-:host {
-    min-height: var(
-        --mod-fieldlabel-min-height,
-        var(--spectrum-fieldlabel-min-height)
-    );
-    padding: var(--spectrum-fieldlabel-top-to-text) 0px
-        var(--spectrum-fieldlabel-bottom-to-text);
 }

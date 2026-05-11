@@ -15,7 +15,7 @@ import { css } from 'lit';
 
 class MyFieldGroup extends FieldGroup {
     static styles = [
-        FieldGroup.styles,
+        ...FieldGroup.styles,
         css`
             .group {
                 background-color: aquamarine;
