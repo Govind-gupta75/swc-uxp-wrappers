@@ -1,6 +1,6 @@
 {
     "name": "@swc-uxp-wrappers/quick-actions",
-    "version": "2.0.0",
+    "version": "3.0.0",
     "publishConfig": {
         "access": "public"
     },
@@ -23,7 +23,7 @@
         "./sp-quick-actions.js": "./sp-quick-actions.js"
     },
     "dependencies": {
-        "@swc-uxp-internal/quick-actions": "npm:@spectrum-web-components/quick-actions@0.37.0"
+        "@swc-uxp-internal/quick-actions": "npm:@spectrum-web-components/quick-actions@0.44.0"
     },
     "files": [
         "**/*.js"

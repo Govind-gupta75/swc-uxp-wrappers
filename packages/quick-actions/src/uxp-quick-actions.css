@@ -10,4 +10,11 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* write uxp style overrides */
+/* No UXP overrides required.
+ *
+ * v0.44.0 spectrum-quick-actions.css uses only logical properties
+ * (block-size, padding-block, padding-inline, margin-inline-start) which are
+ * automatically translated to physical equivalents by the enableLogicalProperties
+ * mapper. No revert-layer, @layer, :is(), gap-in-flex, text-align:start/end,
+ * display:contents, or @property usage was found in this component.
+ */
