@@ -12,19 +12,16 @@ governing permissions and limitations under the License.
 
 /* write uxp style overrides */
 
-#textfield {
-    width: var(--mod-search-inline-size, var(--spectrum-search-inline-size));
-    min-width: var(
-        --mod-search-min-inline-size,
-        var(--spectrum-search-min-inline-size)
-    );
+/* left/right: 0 — positions icon flush within container; inset-block: 0 handled by mapper,
+   but inset-inline is not set in SWC source so left/right are a UXP layout fix */
+.icon-search {
+    left: 0px;
+    right: 0px;
 }
 
+/* margin-top: UXP vertical centering hack — SWC uses margin-block: auto (mapper handles it),
+   but the calc override here produces better alignment in UXP */
 :host(:not([quiet])) #textfield .icon-search {
-    left: var(
-        --mod-search-edge-to-visual,
-        var(--spectrum-search-edge-to-visual)
-    );
     margin-top: calc((var(--spectrum-textfield-height)) / 4);
 }
 
@@ -36,61 +33,18 @@ governing permissions and limitations under the License.
     margin-top: calc((var(--spectrum-textfield-height)) / 4);
 }
 
-.icon-search {
-    left: 0px;
-    top: 0px;
-    bottom: 0px;
-    right: 0px;
-    margin-bottom: auto;
-}
-
+/* padding-top override — SWC uses padding-block-start (mapper-handled) but UXP needs
+   a different calc value for correct text alignment */
 :host(:not([quiet])) #textfield .input {
-    padding-right: calc(
-        var(
-                --mod-search-button-inline-size,
-                var(--spectrum-search-button-inline-size)
-            ) -
-            var(--mod-search-border-width, var(--spectrum-search-border-width))
-    );
-    padding-left: calc(
-        var(--mod-search-edge-to-visual, var(--spectrum-search-edge-to-visual)) -
-            var(--mod-search-border-width, var(--spectrum-search-border-width)) +
-            var(--mod-search-icon-size, var(--spectrum-search-icon-size)) +
-            var(--mod-search-text-to-icon, var(--spectrum-search-text-to-icon))
-    );
     padding-top: calc((var(--spectrum-textfield-height)) / 4);
 }
 
 :host([quiet]) #textfield .input {
-    padding-right: calc(
-        var(
-                --mod-search-button-inline-size,
-                var(--spectrum-search-button-inline-size)
-            ) -
-            var(--mod-search-border-width, var(--spectrum-search-border-width))
-    );
-    padding-left: calc(
-        var(--mod-search-edge-to-visual, var(--spectrum-search-edge-to-visual)) -
-            var(--mod-search-border-width, var(--spectrum-search-border-width)) +
-            var(--mod-search-icon-size, var(--spectrum-search-icon-size)) +
-            var(--mod-search-text-to-icon, var(--spectrum-search-text-to-icon))
-    );
     padding-top: calc(var(--spectrum-textfield-height) / 4);
 }
 
-.input {
-    appearance: none;
-    height: var(--mod-search-block-size, var(--spectrum-search-block-size));
-    padding-bottom: calc(
-        var(--mod-search-bottom-to-text, var(--spectrum-search-bottom-to-text)) -
-            var(--mod-search-border-width, var(--spectrum-search-border-width))
-    );
-    padding-top: calc(
-        var(--mod-search-top-to-text, var(--spectrum-search-top-to-text)) -
-            var(--mod-search-border-width, var(--spectrum-search-border-width))
-    );
-}
-
+/* margin-left — negative offset positions clear button over the right edge of the input;
+   not a logical property (no SWC equivalent), pure UXP layout fix */
 #button,
 #button .spectrum-ClearButton-fill {
     margin-left: calc(
@@ -100,5 +54,33 @@ governing permissions and limitations under the License.
                 var(--spectrum-search-button-inline-size)
             )
     );
-    right: 0px;
+}
+
+/* @media (hover: hover) unwrap — UXP does not support the hover media query;
+   v0.44.0 moved these three icon-search hover rules inside @media (hover: hover) */
+#textfield:hover .icon-search {
+    --spectrum-search-color: var(
+        --highcontrast-search-color-hover,
+        var(--mod-search-color-hover, var(--spectrum-search-color-hover))
+    );
+}
+
+#textfield.is-focused:hover .icon-search {
+    --spectrum-search-color: var(
+        --highcontrast-search-color-focus,
+        var(
+            --mod-search-color-focus-hover,
+            var(--spectrum-search-color-focus-hover)
+        )
+    );
+}
+
+#textfield.is-disabled:hover .icon-search {
+    --spectrum-search-color: var(
+        --highcontrast-search-color-disabled,
+        var(
+            --mod-search-color-disabled,
+            var(--spectrum-search-color-disabled)
+        )
+    );
 }

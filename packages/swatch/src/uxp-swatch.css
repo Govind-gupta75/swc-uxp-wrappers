@@ -18,51 +18,8 @@ governing permissions and limitations under the License.
         var(--spectrum-swatch-border-thickness-selected) * 2
     );
 }
-:host:after {
-    top: calc(
-        var(
-                --mod-swatch-focus-indicator-gap,
-                var(--spectrum-swatch-focus-indicator-gap)
-            ) * -2
-    );
-    right: calc(
-        var(
-                --mod-swatch-focus-indicator-gap,
-                var(--spectrum-swatch-focus-indicator-gap)
-            ) * -2
-    );
-    bottom: calc(
-        var(
-                --mod-swatch-focus-indicator-gap,
-                var(--spectrum-swatch-focus-indicator-gap)
-            ) * -2
-    );
-    left: calc(
-        var(
-                --mod-swatch-focus-indicator-gap,
-                var(--spectrum-swatch-focus-indicator-gap)
-            ) * -2
-    );
-}
 
-:host:before {
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-}
-
-.fill:before {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
-
-.fill {
-    border: 1px solid black;
-}
-
+/* clip-path not supported in UXP — simulate selected state with padding inset */
 :host([selected]) {
     padding: var(--uxp-polyfill-for-clip-path);
 }
@@ -75,6 +32,12 @@ governing permissions and limitations under the License.
     border: none;
 }
 
+/* border added to show swatch boundary when no background color is set */
+.fill {
+    border: 1px solid black;
+}
+
+/* stroke override — disabled icon uses currentColor stroke which renders incorrectly in UXP */
 .disabledIcon {
     stroke: var(--uxp-spectrum-swatch-disabled-icon-color);
 }

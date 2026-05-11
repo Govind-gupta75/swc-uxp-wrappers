@@ -41,7 +41,7 @@ import '@spectrum-web-components/menu/sp-menu-group.js';
 import '@spectrum-web-components/menu/sp-menu-divider.js';
 import '@spectrum-web-components/toast/sp-toast.js';
 import '@spectrum-web-components/dialog/sp-dialog.js';
-import '@spectrum-web-components/switch/sp-switch.js';
+import '@swc-uxp-wrappers/switch/sp-switch.js';
 import '@spectrum-web-components/sidenav/sp-sidenav.js';
 import '@spectrum-web-components/sidenav/sp-sidenav-heading.js';
 import '@spectrum-web-components/sidenav/sp-sidenav-item.js';
@@ -53,8 +53,8 @@ import '@spectrum-web-components/meter/sp-meter.js';
 import '@spectrum-web-components/tags/sp-tags.js';
 import '@spectrum-web-components/tags/sp-tag.js';
 import '@spectrum-web-components/field-group/sp-field-group.js';
-import '@spectrum-web-components/swatch/sp-swatch.js';
-import '@spectrum-web-components/swatch/sp-swatch-group.js';
+import '@swc-uxp-wrappers/swatch/sp-swatch.js';
+import '@swc-uxp-wrappers/swatch/sp-swatch-group.js';
 
 import '@spectrum-web-components/table/sp-table.js';
 import '@spectrum-web-components/table/sp-table-body.js';
@@ -68,7 +68,7 @@ import '@spectrum-web-components/overlay/sp-overlay.js';
 import '@spectrum-web-components/overlay/overlay-trigger.js';
 
 import '@spectrum-web-components/number-field/sp-number-field.js';
-import '@spectrum-web-components/search/sp-search.js';
+import '@swc-uxp-wrappers/search/sp-search.js';
 import '@spectrum-web-components/textfield/sp-textfield.js';
 import '@spectrum-web-components/icons/sp-icons-medium.js';
 import '@spectrum-web-components/icons/sp-icons-large.js';
