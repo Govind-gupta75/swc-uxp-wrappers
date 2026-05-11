@@ -10,4 +10,6 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* write uxp style overrides */
+/* RadioGroup extends FieldGroup — no dedicated spectrum-radio-group.css in SWC v0.44.0.
+   All layout and spacing is governed by field-group styles and the FieldGroup UXP wrapper.
+   No additional UXP overrides required for RadioGroup at this time. */

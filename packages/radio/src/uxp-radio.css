@@ -10,45 +10,61 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* write uxp style overrides */
-
-:host {
-    max-width: 100%;
-    min-height: var(--mod-radio-height, var(--spectrum-radio-height));
-}
-
-#input {
-    height: 100%;
-    width: 100%;
-}
-
-#button {
-    height: var(
-        --mod-radio-button-control-size,
-        var(--spectrum-radio-button-control-size)
-    );
-    width: var(
-        --mod-radio-button-control-size,
-        var(--spectrum-radio-button-control-size)
-    );
-    margin-top: var(
-        --mod-radio-button-top-to-control,
-        var(--spectrum-radio-button-top-to-control)
+/* @media (hover: hover) unwrap — UXP does not support hover media query; apply hover styles unconditionally */
+:host(:hover) #button:before {
+    border-color: var(
+        --highcontrast-radio-button-border-color-hover,
+        var(
+            --mod-radio-button-border-color-hover,
+            var(--spectrum-radio-button-border-color-hover)
+        )
     );
 }
 
+/* @media (hover: hover) unwrap — UXP does not support hover media query */
+:host([checked]:hover) #input + #button:before {
+    border-color: var(
+        --highcontrast-radio-button-checked-border-color-hover,
+        var(
+            --mod-radio-button-checked-border-color-hover,
+            var(--spectrum-radio-button-checked-border-color-hover)
+        )
+    );
+}
+
+/* @media (hover: hover) unwrap — UXP does not support hover media query */
+:host(:hover) #label {
+    color: var(
+        --highcontrast-radio-neutral-content-color-hover,
+        var(
+            --mod-radio-neutral-content-color-hover,
+            var(--spectrum-radio-neutral-content-color-hover)
+        )
+    );
+}
+
+/* @media (hover: hover) unwrap — UXP does not support hover media query */
+:host([emphasized][checked]:hover) #input + #button:before {
+    border-color: var(
+        --highcontrast-radio-emphasized-accent-color-hover,
+        var(
+            --mod-radio-emphasized-accent-color-hover,
+            var(--spectrum-radio-emphasized-accent-color-hover)
+        )
+    );
+}
+
+/* text-align: start not reliably supported in UXP — use physical left */
 #label {
-    margin-bottom: var(--spectrum-radio-label-bottom-to-text);
-    margin-top: var(--spectrum-radio-label-top-to-text);
-    margin-left: var(
-        --mod-radio-text-to-control,
-        var(--spectrum-radio-text-to-control)
-    );
+    text-align: left;
 }
 
-/* workaround for missing 'box-sizing' support, fixed layouting of focus-ring by adding twice of var(--spectrum-radio-focus-indicator-thickness) to the height & width respectively */
-#input.focus-visible + #button:after,
-:host(.focus-visible) #input + #button:after {
+/* workaround for missing 'box-sizing' support: fixed layouting of focus-ring by adding
+   twice var(--spectrum-radio-focus-indicator-thickness) to the height & width respectively.
+   SWC v0.44.0 dropped the .focus-visible polyfill class; native :focus-visible only.
+   Uses physical height/width because block-size/inline-size in ::after pseudo-elements
+   inside shadow DOM are not reliably translated by the logical properties mapper. */
+#input:focus-visible + #button:after {
     height: calc(
         var(--spectrum-radio-button-control-size) +
             var(--spectrum-radio-focus-indicator-gap) * 2 +

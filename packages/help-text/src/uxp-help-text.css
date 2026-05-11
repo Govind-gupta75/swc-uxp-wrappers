@@ -10,31 +10,14 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* write uxp style overrides */
-
-/* Workaround for - https://jira.corp.adobe.com/browse/UXP-21328 */
-.icon {
-    margin-right: var(
-        --mod-helptext-text-to-visual,
-        var(--spectrum-helptext-text-to-visual)
-    );
-    margin-bottom: var(
-        --mod-helptext-bottom-to-workflow-icon,
-        var(--spectrum-helptext-bottom-to-workflow-icon)
-    );
-    margin-top: var(
-        --mod-helptext-top-to-workflow-icon,
-        var(--spectrum-helptext-top-to-workflow-icon)
-    );
-}
-
-.text {
-    padding-bottom: var(
-        --mod-helptext-bottom-to-text,
-        var(--spectrum-helptext-bottom-to-text)
-    );
-    padding-top: var(
-        --mod-helptext-top-to-text,
-        var(--spectrum-helptext-top-to-text)
-    );
-}
+/*
+ * No UXP overrides required for this component.
+ *
+ * All spacing in spectrum-help-text.css uses logical properties
+ * (margin-inline-end, padding-block-start, padding-block-end, block-size, inline-size,
+ * min-block-size) which are automatically translated to physical equivalents by the
+ * UXP enableLogicalProperties mapper.
+ *
+ * No @layer, :is(), @media (hover: hover), visibility: revert-layer,
+ * or text-align: start/end present in v0.44.0 source.
+ */
