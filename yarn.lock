@@ -3142,6 +3142,16 @@
     "@spectrum-web-components/icons-ui" "^0.37.0"
     "@spectrum-web-components/shared" "^0.37.0"
 
+"@swc-uxp-internal/checkbox@npm:@spectrum-web-components/checkbox@0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/checkbox/-/checkbox-0.44.0.tgz#dd6f72bb33d85f210bb75559463c6fcde80e7fcd"
+  integrity sha512-q8HNNcW5IOcbcHjhR81yn/MMhLEG/YhCQBo3H8lOip70Vv7BiidB/dcorsuEwIJn0A1432UijO5Ofae591VYfw==
+  dependencies:
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/icon" "^0.44.0"
+    "@spectrum-web-components/icons-ui" "^0.44.0"
+    "@spectrum-web-components/shared" "^0.44.0"
+
 "@swc-uxp-internal/dialog@npm:@spectrum-web-components/dialog@0.37.0":
   version "0.37.0"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/dialog/-/dialog-0.37.0.tgz#7d17e13d976afaaee6d7edaf70309d1e7a6e54b7"
@@ -3559,6 +3569,13 @@
   integrity sha512-gu0SktpuDntmWAyGJ3isNyNHAm2nyKiLWmkPXIZRygSHqpE36wNkeYar6Fdh+wFZcmqYYEL7lIZjqdCZuYcA0w==
   dependencies:
     "@swc-uxp-internal/button" "npm:@spectrum-web-components/button@0.37.0"
+
+"@swc-uxp-wrappers/checkbox@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@swc-uxp-wrappers/checkbox/-/checkbox-2.0.0.tgz#df30321e2aa0bfb1f73b5e330a70dcceda042cc0"
+  integrity sha512-Rgns87G9dh5LWGr3v9hx2eML8CK0WGpt5c+6KArRiMLAQ64GcbN8y7s4/pOLvrx3kivX6XcZczqpns3zFl3lDw==
+  dependencies:
+    "@swc-uxp-internal/checkbox" "npm:@spectrum-web-components/checkbox@0.37.0"
 
 "@swc-uxp-wrappers/divider@2.0.0":
   version "2.0.0"

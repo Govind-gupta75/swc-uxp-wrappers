@@ -10,18 +10,4 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-import { Checkbox } from '@swc-uxp-wrappers/checkbox';
-import { css } from 'lit';
-
-class MyCheckbox extends Checkbox {
-    static styles = [
-        Checkbox.styles,
-        css`
-            #box {
-                transform: rotate(45deg);
-            }
-        `,
-    ];
-}
-
-customElements.define('my-checkbox', MyCheckbox);
+export * from '@swc-uxp-internal/checkbox/src/CheckboxMixin.js';
