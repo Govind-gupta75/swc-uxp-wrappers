@@ -10,7 +10,7 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-import { HelpText } from '@spectrum-web-components/help-text';
+import { HelpText } from '@swc-uxp-wrappers/help-text';
 import { css } from 'lit';
 
 class MyHelpText extends HelpText {

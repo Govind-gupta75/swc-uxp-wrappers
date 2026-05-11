@@ -10,7 +10,7 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-import { Toast } from '@spectrum-web-components/toast';
+import { Toast } from '@swc-uxp-wrappers/toast';
 import { css } from 'lit';
 
 class MyToast extends Toast {
