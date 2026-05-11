@@ -24,7 +24,7 @@
     },
     "dependencies": {
         "@swc-uxp-internal/meter": "npm:@spectrum-web-components/meter@0.44.0",
-        "@swc-uxp-wrappers/field-label": "2.0.0"
+        "@swc-uxp-wrappers/field-label": "3.0.0"
     },
     "files": [
         "**/*.js"

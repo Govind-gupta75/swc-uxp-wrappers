@@ -36,6 +36,7 @@
         "@swc-uxp-wrappers/toast": "*",
         "@swc-uxp-wrappers/sidenav": "*",
         "@swc-uxp-wrappers/switch": "*",
+        "@swc-uxp-wrappers/swatch": "*",
         "@swc-uxp-wrappers/radio": "*",
         "@swc-uxp-wrappers/asset": "*",
         "@swc-uxp-wrappers/quick-actions": "*",

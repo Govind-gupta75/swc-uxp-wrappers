@@ -3071,13 +3071,20 @@
   dependencies:
     "@spectrum-web-components/base" "^0.37.0"
 
-"@swc-uxp-internal/avatar@npm:@spectrum-web-components/avatar@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/avatar/-/avatar-0.37.0.tgz#ecd6950855313c54b96b9a5db5fb8b2e014e1fa9"
-  integrity sha512-VU9qHpdQZcZ4IlatAvehBwasXZgA3sSDv+awiN3EZqXw+DyYFD1w6cKaAgtnvMH2YsXqoZnTZc1aOGvnoz6WYQ==
+"@swc-uxp-internal/asset@npm:@spectrum-web-components/asset@0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/asset/-/asset-0.44.0.tgz#b576b0a6682af84ecf1dd7d23d716f320b27a7ab"
+  integrity sha512-gn+MjJm34zy7IjLHq8gDoOa1C7wR9e18V7/Qf/56pjHmRvgQeVAxZHI2OtroSXBnRiPXYXRMIU736RsX+wdVSg==
   dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/shared" "^0.37.0"
+    "@spectrum-web-components/base" "^0.44.0"
+
+"@swc-uxp-internal/avatar@npm:@spectrum-web-components/avatar@0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/avatar/-/avatar-0.44.0.tgz#8f915e383e10203953afde166a16afe23b974ab6"
+  integrity sha512-1HqFTCZwwRLRGbNpDSDGyHCZw6CKcmZ47x0Plw9Ha8hWRITqJJSTbEy/zqzXfyYLZCm59mdvP04KrfcQ8bwcRQ==
+  dependencies:
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/shared" "^0.44.0"
 
 "@swc-uxp-internal/banner@npm:@spectrum-web-components/banner@0.44.0":
   version "0.44.0"
@@ -3210,17 +3217,6 @@
   dependencies:
     "@spectrum-web-components/base" "^0.44.0"
     "@spectrum-web-components/help-text" "^0.44.0"
-
-"@swc-uxp-internal/field-label@npm:@spectrum-web-components/field-label@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/field-label/-/field-label-0.37.0.tgz#e9c30ebde9201f0dd994079474bff11964365f87"
-  integrity sha512-QTk0IwONj1P8jnsIwr3xyxkNs2fMHBs2nNoHMrmEiW1/6a5TIjIIntmeOj1BUcP2wRbUB5CD3mnh44OWSbmbHQ==
-  dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/icon" "^0.37.0"
-    "@spectrum-web-components/icons-ui" "^0.37.0"
-    "@spectrum-web-components/reactive-controllers" "^0.37.0"
-    "@spectrum-web-components/shared" "^0.37.0"
 
 "@swc-uxp-internal/field-label@npm:@spectrum-web-components/field-label@0.44.0":
   version "0.44.0"
@@ -3579,6 +3575,13 @@
     "@swc-uxp-internal/action-button" "npm:@spectrum-web-components/action-button@0.37.0"
     "@swc-uxp-wrappers/button" "2.0.0"
 
+"@swc-uxp-wrappers/asset@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@swc-uxp-wrappers/asset/-/asset-2.0.0.tgz#423a5365aaede4282607e686beeaf1fbc7109278"
+  integrity sha512-NOrlHLLbZyNtjEYYri8GAHON9vPBXTnJ1QLLgdfJ7p++IixZBuHQ6IC/9lO4oDtwNHrwkPziUSvkZQ/8BbSyPQ==
+  dependencies:
+    "@swc-uxp-internal/asset" "npm:@spectrum-web-components/asset@0.37.0"
+
 "@swc-uxp-wrappers/button-group@2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@swc-uxp-wrappers/button-group/-/button-group-2.0.0.tgz#afc6eaac1cf4defa43446bec783ffa31d938a4e7"
@@ -3615,13 +3618,6 @@
   dependencies:
     "@swc-uxp-internal/field-group" "npm:@spectrum-web-components/field-group@0.37.0"
     "@swc-uxp-wrappers/help-text" "2.0.0"
-
-"@swc-uxp-wrappers/field-label@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@swc-uxp-wrappers/field-label/-/field-label-2.0.0.tgz#883cb8ea3639109a115222b8524b56af4e85de4d"
-  integrity sha512-tzOBQafXfxGORNQPQFajOlFolIblgApoiMzm81T8ye/U1NTzOVHozHL3RVXhepESMKu2oAgVUY/8ZQK6h71KRQ==
-  dependencies:
-    "@swc-uxp-internal/field-label" "npm:@spectrum-web-components/field-label@0.37.0"
 
 "@swc-uxp-wrappers/quick-actions@2.0.0":
   version "2.0.0"
