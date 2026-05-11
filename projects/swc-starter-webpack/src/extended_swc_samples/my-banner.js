@@ -11,7 +11,7 @@ governing permissions and limitations under the License.
 */
 
 import { css } from 'lit';
-import { Banner } from '@spectrum-web-components/banner';
+import { Banner } from '@swc-uxp-wrappers/banner';
 
 class MyBanner extends Banner {
     static styles = [

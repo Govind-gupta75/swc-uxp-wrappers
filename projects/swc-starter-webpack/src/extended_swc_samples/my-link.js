@@ -11,7 +11,7 @@ governing permissions and limitations under the License.
 */
 
 import { css } from 'lit';
-import { Link } from '@spectrum-web-components/link';
+import { Link } from '@swc-uxp-wrappers/link';
 
 class MyLink extends Link {
     static styles = [

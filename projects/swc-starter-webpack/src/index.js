@@ -16,10 +16,10 @@ import './styles.css';
 import '@spectrum-web-components/theme/sp-theme.js';
 import '@spectrum-web-components/theme/src/themes.js';
 
-import '@spectrum-web-components/banner/sp-banner.js';
-import '@spectrum-web-components/divider/sp-divider.js';
-import '@spectrum-web-components/illustrated-message/sp-illustrated-message.js';
-import '@spectrum-web-components/link/sp-link.js';
+import '@swc-uxp-wrappers/banner/sp-banner.js';
+import '@swc-uxp-wrappers/divider/sp-divider.js';
+import '@swc-uxp-wrappers/illustrated-message/sp-illustrated-message.js';
+import '@swc-uxp-wrappers/link/sp-link.js';
 import '@spectrum-web-components/avatar/sp-avatar.js';
 import '@spectrum-web-components/field-label/sp-field-label.js';
 import '@spectrum-web-components/button/sp-button.js';

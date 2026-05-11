@@ -11,7 +11,7 @@ governing permissions and limitations under the License.
 */
 
 import { css } from 'lit';
-import { Divider } from '@spectrum-web-components/divider';
+import { Divider } from '@swc-uxp-wrappers/divider';
 
 class MyDivider extends Divider {
     static styles = [

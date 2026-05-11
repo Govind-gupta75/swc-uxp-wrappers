@@ -10,14 +10,9 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* write uxp style overrides */
-
-:host {
-    height: var(--mod-divider-thickness, var(--spectrum-divider-thickness));
-    width: 100%;
-}
-
-:host([vertical]) {
-    width: var(--mod-divider-thickness, var(--spectrum-divider-thickness));
-    height: 100%;
-}
+/* spectrum-divider.css uses block-size / inline-size (logical dimensions) for the
+ * divider thickness and span, and margin-block for the vertical variant.
+ * With enableLogicalProperties:true in v0.44.0, UXP translates these automatically:
+ *   block-size  → height,  inline-size → width
+ *   margin-block → margin-top / margin-bottom
+ * The v0.37.0 physical height / width overrides are therefore no longer needed. */
