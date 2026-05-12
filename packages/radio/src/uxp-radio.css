@@ -54,11 +54,6 @@ governing permissions and limitations under the License.
     );
 }
 
-/* text-align: start not reliably supported in UXP — use physical left */
-#label {
-    text-align: left;
-}
-
 /* workaround for missing 'box-sizing' support: fixed layouting of focus-ring by adding
    twice var(--spectrum-radio-focus-indicator-thickness) to the height & width respectively.
    SWC v0.44.0 dropped the .focus-visible polyfill class; native :focus-visible only.
@@ -75,4 +70,9 @@ governing permissions and limitations under the License.
             var(--spectrum-radio-focus-indicator-gap) * 2 +
             var(--spectrum-radio-focus-indicator-thickness) * 2
     );
+}
+
+/* text-align: start not reliably supported in UXP — use physical left */
+#label {
+    text-align: left;
 }

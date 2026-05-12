@@ -12,37 +12,6 @@ governing permissions and limitations under the License.
 
 /* write uxp style overrides */
 
-/* left/right: 0 — positions icon flush within container; inset-block: 0 handled by mapper,
-   but inset-inline is not set in SWC source so left/right are a UXP layout fix */
-.icon-search {
-    left: 0px;
-    right: 0px;
-}
-
-/* margin-top: UXP vertical centering hack — SWC uses margin-block: auto (mapper handles it),
-   but the calc override here produces better alignment in UXP */
-:host(:not([quiet])) #textfield .icon-search {
-    margin-top: calc((var(--spectrum-textfield-height)) / 4);
-}
-
-:host([quiet]) #textfield .icon-search {
-    margin-top: calc(
-        var(--mod-search-top-to-text, var(--spectrum-search-top-to-text)) -
-            var(--mod-search-border-width, var(--spectrum-search-border-width))
-    );
-    margin-top: calc((var(--spectrum-textfield-height)) / 4);
-}
-
-/* padding-top override — SWC uses padding-block-start (mapper-handled) but UXP needs
-   a different calc value for correct text alignment */
-:host(:not([quiet])) #textfield .input {
-    padding-top: calc((var(--spectrum-textfield-height)) / 4);
-}
-
-:host([quiet]) #textfield .input {
-    padding-top: calc(var(--spectrum-textfield-height) / 4);
-}
-
 /* margin-left — negative offset positions clear button over the right edge of the input;
    not a logical property (no SWC equivalent), pure UXP layout fix */
 #button,
@@ -54,6 +23,13 @@ governing permissions and limitations under the License.
                 var(--spectrum-search-button-inline-size)
             )
     );
+}
+
+/* left/right: 0 — positions icon flush within container; inset-block: 0 handled by mapper,
+   but inset-inline is not set in SWC source so left/right are a UXP layout fix */
+.icon-search {
+    left: 0px;
+    right: 0px;
 }
 
 /* @media (hover: hover) unwrap — UXP does not support the hover media query;
@@ -83,4 +59,28 @@ governing permissions and limitations under the License.
             var(--spectrum-search-color-disabled)
         )
     );
+}
+
+/* margin-top: UXP vertical centering hack — SWC uses margin-block: auto (mapper handles it),
+   but the calc override here produces better alignment in UXP */
+:host(:not([quiet])) #textfield .icon-search {
+    margin-top: calc((var(--spectrum-textfield-height)) / 4);
+}
+
+/* padding-top override — SWC uses padding-block-start (mapper-handled) but UXP needs
+   a different calc value for correct text alignment */
+:host(:not([quiet])) #textfield .input {
+    padding-top: calc((var(--spectrum-textfield-height)) / 4);
+}
+
+:host([quiet]) #textfield .icon-search {
+    margin-top: calc(
+        var(--mod-search-top-to-text, var(--spectrum-search-top-to-text)) -
+            var(--mod-search-border-width, var(--spectrum-search-border-width))
+    );
+    margin-top: calc((var(--spectrum-textfield-height)) / 4);
+}
+
+:host([quiet]) #textfield .input {
+    padding-top: calc(var(--spectrum-textfield-height) / 4);
 }

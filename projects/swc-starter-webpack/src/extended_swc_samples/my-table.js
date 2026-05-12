@@ -10,13 +10,18 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-import { unsafeCSS } from '@spectrum-web-components/base';
-import swcTableHeadCellStyles from '@swc-uxp-internal/table/src/table-head-cell.css.js';
+import { Table } from '@swc-uxp-wrappers/table';
+import { css } from 'lit';
 
-import uxpTableHeadCellStyles from './uxp-table-head-cell.css.js';
+class MyTable extends Table {
+    static styles = [
+        Table.styles,
+        css`
+            :host {
+                border: 2px solid var(--spectrum-blue-600);
+            }
+        `,
+    ];
+}
 
-const combinedTableHeadCellStyles = unsafeCSS(
-    swcTableHeadCellStyles.toString() + '\n' + uxpTableHeadCellStyles.toString()
-);
-
-export default combinedTableHeadCellStyles;
+customElements.define('my-table', MyTable);

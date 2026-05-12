@@ -19,6 +19,11 @@ governing permissions and limitations under the License.
     );
 }
 
+/* border added to show swatch boundary when no background color is set */
+.fill {
+    border: 1px solid black;
+}
+
 /* clip-path not supported in UXP — simulate selected state with padding inset */
 :host([selected]) {
     padding: var(--uxp-polyfill-for-clip-path);
@@ -28,16 +33,11 @@ governing permissions and limitations under the License.
     border: none;
 }
 
-:host([border]) .fill {
-    border: none;
-}
-
-/* border added to show swatch boundary when no background color is set */
-.fill {
-    border: 1px solid black;
-}
-
 /* stroke override — disabled icon uses currentColor stroke which renders incorrectly in UXP */
 .disabledIcon {
     stroke: var(--uxp-spectrum-swatch-disabled-icon-color);
+}
+
+:host([border]) .fill {
+    border: none;
 }

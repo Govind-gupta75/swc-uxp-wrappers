@@ -10,4 +10,9 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* write uxp style overrides */
+/* UXP overrides for spectrum-table-cell.css */
+
+/* text-align: end is not supported in UXP; map to right */
+:host([align='end']) {
+    text-align: right;
+}

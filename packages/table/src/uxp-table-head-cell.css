@@ -10,4 +10,25 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* write uxp style overrides */
+/* UXP overrides for spectrum-table-head-cell.css */
+
+/* @media (hover: hover) is not supported in UXP; unwrap hover rules unconditionally */
+:host([sortable]:hover) {
+    --spectrum-table-icon-color: var(
+        --highcontrast-table-icon-color-focus,
+        var(
+            --mod-table-icon-color-hover,
+            var(--spectrum-table-icon-color-hover)
+        )
+    );
+}
+
+:host([sortable]:focus):hover {
+    --spectrum-table-icon-color: var(
+        --highcontrast-table-icon-color-focus,
+        var(
+            --mod-table-icon-color-focus-hover,
+            var(--spectrum-table-icon-color-focus-hover)
+        )
+    );
+}

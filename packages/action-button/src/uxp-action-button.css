@@ -10,6 +10,15 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
+/* spectrum-action-button.css v0.44.0 wraps :host(:hover) inside @media (hover:hover).
+ * UXP does not support media queries, so hover styles never apply. Repeat them
+ * unconditionally so hover colours work in UXP. */
+:host(:hover) {
+    background-color: var(--highcontrast-actionbutton-background-color-hover, var(--mod-actionbutton-background-color-hover, var(--spectrum-actionbutton-background-color-hover)));
+    border-color: var(--highcontrast-actionbutton-border-color-hover, var(--mod-actionbutton-border-color-hover, var(--spectrum-actionbutton-border-color-hover)));
+    color: var(--highcontrast-actionbutton-content-color-hover, var(--mod-actionbutton-content-color-hover, var(--spectrum-actionbutton-content-color-hover)));
+}
+
 /* spectrum-action-button.css spaces the icon and label via gap on :host.
  * UXP does not support gap on flex containers (UXP-21294).
  * The slotted icon also has margin-inline-end: calc(edge-to-visual-only - edge-to-text),
@@ -29,13 +38,4 @@ governing permissions and limitations under the License.
 /* Icon-only: the slot carries [icon-only], no label present so no gap needed. */
 [icon-only]::slotted([slot='icon']) {
     margin-right: 0;
-}
-
-/* spectrum-action-button.css v0.44.0 wraps :host(:hover) inside @media (hover:hover).
- * UXP does not support media queries, so hover styles never apply. Repeat them
- * unconditionally so hover colours work in UXP. */
-:host(:hover) {
-    background-color: var(--highcontrast-actionbutton-background-color-hover, var(--mod-actionbutton-background-color-hover, var(--spectrum-actionbutton-background-color-hover)));
-    border-color: var(--highcontrast-actionbutton-border-color-hover, var(--mod-actionbutton-border-color-hover, var(--spectrum-actionbutton-border-color-hover)));
-    color: var(--highcontrast-actionbutton-content-color-hover, var(--mod-actionbutton-content-color-hover, var(--spectrum-actionbutton-content-color-hover)));
 }

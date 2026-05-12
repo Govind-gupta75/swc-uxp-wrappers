@@ -14,6 +14,11 @@ governing permissions and limitations under the License.
 
 /* Workaround for - https://jira.corp.adobe.com/browse/UXP-21311 */
 
+::slotted([slot='hero']) {
+    flex-basis: 100%;
+    order: -2;
+}
+
 .grid {
     display: flex;
     flex-wrap: wrap;
@@ -21,6 +26,54 @@ governing permissions and limitations under the License.
     padding-top: var(--spectrum-dialog-confirm-padding);
     width: fit-content;
     align-items: flex-start;
+}
+
+::slotted([slot='heading']) {
+    flex-basis: 75%;
+    margin-left: var(--spectrum-dialog-confirm-padding);
+}
+
+.header {
+    flex-basis: auto;
+    margin-left: var(--spectrum-dialog-confirm-padding);
+    margin-right: var(--spectrum-dialog-confirm-padding);
+}
+
+.type-icon {
+    margin-left: auto;
+    margin-right: var(--spectrum-dialog-confirm-padding);
+}
+
+.divider {
+    flex-basis: 100%;
+    margin-left: var(--spectrum-dialog-confirm-padding);
+    margin-right: var(--spectrum-dialog-confirm-padding);
+}
+
+.content {
+    flex-basis: 100%;
+    margin-left: calc(
+        var(--spectrum-dialog-confirm-padding) +
+            var(--spectrum-dialog-confirm-description-margin)
+    );
+    margin-right: calc(
+        var(--spectrum-dialog-confirm-padding) +
+            var(--spectrum-dialog-confirm-description-margin)
+    );
+    /* Keeping this style here, will be used in dialog-wrapper once overlay is supported */
+    /* overflow: auto;
+    max-height: inherit;
+    max-height: calc(100% - calc(3 * var(--spectrum-dialog-confirm-padding))); */
+}
+
+.footer {
+    margin-left: var(--spectrum-dialog-confirm-padding);
+    justify-content: flex-start;
+}
+
+.button-group {
+    margin-left: auto;
+    margin-right: var(--spectrum-dialog-confirm-padding);
 }
 
 :host([dismissable]) .grid {
@@ -40,59 +93,6 @@ governing permissions and limitations under the License.
     min-width: 0;
     max-width: auto;
     align-items: center;
-}
-
-::slotted([slot='hero']) {
-    flex-basis: 100%;
-    order: -2;
-}
-
-::slotted([slot='heading']) {
-    flex-basis: 75%;
-    margin-left: var(--spectrum-dialog-confirm-padding);
-}
-
-.type-icon {
-    margin-left: auto;
-    margin-right: var(--spectrum-dialog-confirm-padding);
-}
-
-.header {
-    flex-basis: auto;
-    margin-left: var(--spectrum-dialog-confirm-padding);
-    margin-right: var(--spectrum-dialog-confirm-padding);
-}
-
-.content {
-    flex-basis: 100%;
-    margin-left: calc(
-        var(--spectrum-dialog-confirm-padding) +
-            var(--spectrum-dialog-confirm-description-margin)
-    );
-    margin-right: calc(
-        var(--spectrum-dialog-confirm-padding) +
-            var(--spectrum-dialog-confirm-description-margin)
-    );
-    /* Keeping this style here, will be used in dialog-wrapper once overlay is supported */
-    /* overflow: auto;
-    max-height: inherit; 
-    max-height: calc(100% - calc(3 * var(--spectrum-dialog-confirm-padding))); */
-}
-
-.divider {
-    flex-basis: 100%;
-    margin-left: var(--spectrum-dialog-confirm-padding);
-    margin-right: var(--spectrum-dialog-confirm-padding);
-}
-
-.footer {
-    margin-left: var(--spectrum-dialog-confirm-padding);
-    justify-content: flex-start;
-}
-
-.button-group {
-    margin-left: auto;
-    margin-right: var(--spectrum-dialog-confirm-padding);
 }
 
 :host([mode='fullscreenTakeover']) .grid,
@@ -145,5 +145,5 @@ governing permissions and limitations under the License.
     }
     :host([mode='fullscreen']) ::slotted([slot='heading']) {
         font-size: var(--spectrum-dialog-confirm-title-text-size);
-    } 
+    }
 }*/

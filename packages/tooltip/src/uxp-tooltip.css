@@ -10,120 +10,14 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* write uxp style overrides */
+/* UXP overrides for @swc-uxp-wrappers/tooltip */
 
-/* Workaround for - https://jira.corp.adobe.com/browse/UXP-22211 */
 
 :host {
     --uxp-swc-tooltip-factor: -0.7;
 }
 
-:host([placement*='top']) #tooltip #tip {
-    margin-top: calc(
-        var(--uxp-swc-tooltip-factor) * var(--spectrum-tooltip-tip-height)
-    );
-}
-
-:host([placement*='left']) #tooltip #tip {
-    margin-left: calc(
-        var(--uxp-swc-tooltip-factor) * var(--spectrum-tooltip-tip-height)
-    );
-}
-
-:host([placement*='right']) #tooltip #tip {
-    left: calc(
-        var(--uxp-swc-tooltip-factor) * var(--spectrum-tooltip-tip-height)
-    );
-}
-
-:host([placement*='bottom']) #tooltip #tip {
-    margin-bottom: calc(
-        var(--uxp-swc-tooltip-factor) * var(--spectrum-tooltip-tip-height)
-    );
-}
-
-:host([placement*='left']) #tooltip #tip,
-:host([placement*='right']) #tooltip #tip,
-:host([placement*='left']) #tooltip #tip[style],
-:host([placement*='right']) #tooltip #tip[style] {
-    transform: rotate(45deg) !important;
-    margin-top: calc(
-        var(
-                --spectrum-tooltip-neutral-tip-width,
-                var(--spectrum-global-dimension-size-100)
-            ) * var(--uxp-swc-tooltip-factor) * 0.5
-    );
-}
-
-:host([placement*='top']) #tooltip #tip,
-:host([placement*='bottom']) #tooltip #tip,
-:host([placement*='top']) #tooltip #tip[style],
-:host([placement*='bottom']) #tooltip #tip[style] {
-    transform: rotate(45deg) !important;
-    margin-left: calc(
-        var(
-                --spectrum-tooltip-neutral-tip-width,
-                var(--spectrum-global-dimension-size-100)
-            ) * var(--uxp-swc-tooltip-factor) * 0.5
-    );
-}
-
-#tooltip {
-    height: auto;
-    width: auto;
-    max-width: var(
-        --mod-tooltip-max-inline-size,
-        var(--spectrum-tooltip-max-inline-size)
-    );
-    min-height: var(--mod-tooltip-height, var(--spectrum-tooltip-height));
-    padding-left: var(
-        --mod-tooltip-spacing-inline,
-        var(--spectrum-tooltip-spacing-inline)
-    );
-    padding-right: var(
-        --mod-tooltip-spacing-inline,
-        var(--spectrum-tooltip-spacing-inline)
-    );
-}
-
-::slotted([slot='icon']) {
-    height: var(--mod-tooltip-icon-height, var(--spectrum-tooltip-icon-height));
-    width: var(--mod-tooltip-icon-width, var(--spectrum-tooltip-icon-width));
-    margin-top: var(
-        --mod-tooltip-icon-spacing-block-start,
-        var(--spectrum-tooltip-icon-spacing-block-start)
-    );
-    margin-right: var(
-        --mod-tooltip-icon-spacing-inline-end,
-        var(--spectrum-tooltip-icon-spacing-inline-end)
-    );
-    margin-left: calc(
-        var(
-                --mod-tooltip-icon-spacing-inline-start,
-                var(--spectrum-tooltip-icon-spacing-inline-start)
-            ) -
-            var(
-                --mod-tooltip-spacing-inline,
-                var(--spectrum-tooltip-spacing-inline)
-            )
-    );
-}
-
-#label {
-    line-height: var(
-        --mod-tooltip-line-height,
-        var(--spectrum-tooltip-line-height)
-    );
-    margin-bottom: var(
-        --mod-tooltip-spacing-block-end,
-        var(--spectrum-tooltip-spacing-block-end)
-    );
-    margin-top: var(
-        --mod-tooltip-spacing-block-start,
-        var(--spectrum-tooltip-spacing-block-start)
-    );
-}
-
+/* Disable clip-path and set physical square size for #tip */
 #tip {
     clip-path: none !important;
     height: calc(
@@ -136,6 +30,68 @@ governing permissions and limitations under the License.
     ) !important;
 }
 
+:host([placement*='top']) #tooltip #tip,
+:host([placement*='bottom']) #tooltip #tip,
+:host([placement*='top']) #tooltip #tip[style],
+:host([placement*='bottom']) #tooltip #tip[style] {
+    /* UXP-22211: rotate diamond tip and center horizontally */
+    transform: rotate(45deg) !important;
+    margin-left: calc(
+        var(
+                --spectrum-tooltip-neutral-tip-width,
+                var(--spectrum-global-dimension-size-100)
+            ) * var(--uxp-swc-tooltip-factor) * 0.5
+    );
+}
+
+/* Top placement: pull tip toward tooltip body along block axis */
+:host([placement*='top']) #tooltip #tip {
+    /* UXP-22211: compensate for missing clip-path offset */
+    margin-top: calc(
+        var(--uxp-swc-tooltip-factor) * var(--spectrum-tooltip-tip-height)
+    );
+}
+
+/* Bottom placement: pull tip toward tooltip body along block axis */
+:host([placement*='bottom']) #tooltip #tip {
+    /* UXP-22211: compensate for missing clip-path offset */
+    margin-bottom: calc(
+        var(--uxp-swc-tooltip-factor) * var(--spectrum-tooltip-tip-height)
+    );
+}
+
+/* Left/right placements: rotate tip 45deg and offset block (top) */
+:host([placement*='left']) #tooltip #tip,
+:host([placement*='right']) #tooltip #tip,
+:host([placement*='left']) #tooltip #tip[style],
+:host([placement*='right']) #tooltip #tip[style] {
+    /* UXP-22211: rotate diamond tip and center vertically */
+    transform: rotate(45deg) !important;
+    margin-top: calc(
+        var(
+                --spectrum-tooltip-neutral-tip-width,
+                var(--spectrum-global-dimension-size-100)
+            ) * var(--uxp-swc-tooltip-factor) * 0.5
+    );
+}
+
+/* Left placement: pull tip toward tooltip body along inline axis */
+:host([placement*='left']) #tooltip #tip {
+    /* UXP-22211: compensate for missing clip-path offset */
+    margin-left: calc(
+        var(--uxp-swc-tooltip-factor) * var(--spectrum-tooltip-tip-height)
+    );
+}
+
+/* Right placement: push tip away from tooltip body along inline axis */
+:host([placement*='right']) #tooltip #tip {
+    /* UXP-22211: compensate for missing clip-path offset */
+    left: calc(
+        var(--uxp-swc-tooltip-factor) * var(--spectrum-tooltip-tip-height)
+    );
+}
+
+/* Center tip horizontally when Popper injects inline style (top/bottom) */
 :host([placement*='top']) #tooltip #tip[style],
 :host([placement*='bottom']) #tooltip #tip[style] {
     left: calc(
@@ -146,6 +102,7 @@ governing permissions and limitations under the License.
     ) !important;
 }
 
+/* Center tip vertically when Popper injects inline style (left/right) */
 :host([placement*='left']) #tooltip #tip[style],
 :host([placement*='right']) #tooltip #tip[style] {
     top: calc(

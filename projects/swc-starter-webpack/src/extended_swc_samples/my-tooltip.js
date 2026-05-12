@@ -10,7 +10,7 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-import { Tooltip } from '@spectrum-web-components/tooltip';
+import { Tooltip } from '@swc-uxp-wrappers/tooltip';
 import { css } from 'lit';
 
 class MyTooltip extends Tooltip {

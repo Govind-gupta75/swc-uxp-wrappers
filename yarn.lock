@@ -1775,6 +1775,14 @@
   resolved "https://registry.yarnpkg.com/@lit-labs/ssr-dom-shim/-/ssr-dom-shim-1.5.1.tgz#3166900c0d481f03d6d4133686e0febf760d521d"
   integrity sha512-Aou5UdlSpr5whQe8AA/bZG0jMj96CoJIWbGfZ91qieWu5AWUMKw8VR/pAkQkJYvBNhmCcWnZlyyk5oze8JIqYA==
 
+"@lit-labs/virtualizer@^2.0.12":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@lit-labs/virtualizer/-/virtualizer-2.1.1.tgz#efb87a384db105af43180295a64f8bbdc5275a97"
+  integrity sha512-JWxMwnlouLdwpw8spLTuax53WMnSP3xt0dCyxAS7GJr5Otda9MGgR/ghAdfwhSY75TmjbE1T2TqChwoGCw3ggw==
+  dependencies:
+    lit "^3.2.0"
+    tslib "^2.0.3"
+
 "@lit-labs/virtualizer@^2.0.2":
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/@lit-labs/virtualizer/-/virtualizer-2.0.2.tgz#7ba1435b3c88d95b7e922eda47508e2a255770b9"
@@ -2616,7 +2624,7 @@
   dependencies:
     "@spectrum-web-components/base" "^0.44.0"
 
-"@spectrum-web-components/overlay@0.37.0", "@spectrum-web-components/overlay@^0.37.0":
+"@spectrum-web-components/overlay@0.37.0", "@spectrum-web-components/overlay@^0.37.0", "@spectrum-web-components/overlay@^0.44.0":
   version "0.37.0"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/overlay/-/overlay-0.37.0.tgz#6173da0c12b407c572acba15a0024d828e7dea07"
   integrity sha512-kMEXAWdHJ/RGLbR4GHAEvgb03uaKNJSakVYgqoxQ15Z8PTq669FZQZMvYGr5VftRaXpejm5n1GK+KxuK6Cy+uw==
@@ -3507,17 +3515,17 @@
     "@spectrum-web-components/base" "^0.44.0"
     "@spectrum-web-components/checkbox" "^0.44.0"
 
-"@swc-uxp-internal/table@npm:@spectrum-web-components/table@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/table/-/table-0.37.0.tgz#dd0424e394799e1c19579eb1c73442fe5f27de40"
-  integrity sha512-9tmkU7Li2f381TFS82KdW7lXvi4nzQeDCcyW1FgK1GW0/QkvbN/Pvtr47a0lKXROvhHUKIReMWjFEkGv1HGyOw==
+"@swc-uxp-internal/table@npm:@spectrum-web-components/table@0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/table/-/table-0.44.0.tgz#816b9a94183806a84b2add60728c6e6189cbd57d"
+  integrity sha512-fU/7Y3jwROwTLPdK7kKjTgd5VsgUdWZHsRKSyezJV4ojf80ZnnTutPyECcJnhfrIJ2T5dFcWTomLRkQ1KZNfeA==
   dependencies:
-    "@lit-labs/observers" "^2.0.0"
-    "@lit-labs/virtualizer" "^2.0.2"
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/checkbox" "^0.37.0"
-    "@spectrum-web-components/icon" "^0.37.0"
-    "@spectrum-web-components/icons-ui" "^0.37.0"
+    "@lit-labs/observers" "^2.0.2"
+    "@lit-labs/virtualizer" "^2.0.12"
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/checkbox" "^0.44.0"
+    "@spectrum-web-components/icon" "^0.44.0"
+    "@spectrum-web-components/icons-ui" "^0.44.0"
 
 "@swc-uxp-internal/tags@npm:@spectrum-web-components/tags@0.44.0":
   version "0.44.0"
@@ -3541,6 +3549,18 @@
     "@spectrum-web-components/icons-workflow" "^0.37.0"
     "@spectrum-web-components/shared" "^0.37.0"
 
+"@swc-uxp-internal/textfield@npm:@spectrum-web-components/textfield@0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/textfield/-/textfield-0.44.0.tgz#f35585f0a0b36cf67eed56e018667417a664a294"
+  integrity sha512-DuS4sDayFKMxTGBMBdj/1FwLlZcBIt3EGvPVWD0gYSXgZaQeX4WJ1D7kMU/NJFXbqoxA20plVndwwrUazqVdIA==
+  dependencies:
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/help-text" "^0.44.0"
+    "@spectrum-web-components/icon" "^0.44.0"
+    "@spectrum-web-components/icons-ui" "^0.44.0"
+    "@spectrum-web-components/icons-workflow" "^0.44.0"
+    "@spectrum-web-components/shared" "^0.44.0"
+
 "@swc-uxp-internal/theme@npm:@spectrum-web-components/theme@0.44.0":
   version "0.44.0"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/theme/-/theme-0.44.0.tgz#2cb9bd118aa8df68c90d64d4f2cea94a5a598419"
@@ -3560,14 +3580,15 @@
     "@spectrum-web-components/icons-workflow" "^0.44.0"
     "@spectrum-web-components/shared" "^0.44.0"
 
-"@swc-uxp-internal/tooltip@npm:@spectrum-web-components/tooltip@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/tooltip/-/tooltip-0.37.0.tgz#06dd1d3657d39e103d645e4e19a87458980beeef"
-  integrity sha512-xW48gNYZciP3mhevKEzK6hVxIm/nLgj+ci4EMlzP5AwU5cQGNne5O2Y3OIbUOZHO3/ROhJxG4aLx3m3XROYzwQ==
+"@swc-uxp-internal/tooltip@npm:@spectrum-web-components/tooltip@0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/tooltip/-/tooltip-0.44.0.tgz#8dfe0c2b0a7ba9f6390f36980eab1502cf726d85"
+  integrity sha512-BbOydYqBtdNF53QRJes1N0oL5x6hBPRRc1VoSVMMhAFJnYAH+eVjZE7XRa9drQqx6ZB3CayQC3BE2MfgkfRojA==
   dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/overlay" "^0.37.0"
-    "@spectrum-web-components/shared" "^0.37.0"
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/overlay" "^0.44.0"
+    "@spectrum-web-components/reactive-controllers" "^0.44.0"
+    "@spectrum-web-components/shared" "^0.44.0"
 
 "@swc-uxp-wrappers/action-button@2.0.0":
   version "2.0.0"
@@ -3626,6 +3647,14 @@
   integrity sha512-9tW/T15dJTibR5BQIUGw5i3LhIZWfU91UNBcP/Siuyv3KM6wxYAlAHcnJA+70LNeP0NE+OQuTbo9XJiGT25GjQ==
   dependencies:
     "@swc-uxp-internal/quick-actions" "npm:@spectrum-web-components/quick-actions@0.37.0"
+
+"@swc-uxp-wrappers/textfield@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@swc-uxp-wrappers/textfield/-/textfield-2.0.0.tgz#54bbed30642bc0de5993e917e969ca8150f92a04"
+  integrity sha512-gKs8rxl4y9ajV/mAiibPI1pXRcagiQSBZ1mrk0or3WU7EiFzcP//kSclL2EihtVxLLsxhLFgxwZYjfkavdSCRA==
+  dependencies:
+    "@swc-uxp-internal/textfield" "npm:@spectrum-web-components/textfield@0.37.0"
+    "@swc-uxp-wrappers/help-text" "2.0.0"
 
 "@swc/helpers@^0.5.0":
   version "0.5.12"
@@ -9771,7 +9800,7 @@ lit@2.5.0:
     lit-element "^3.2.0"
     lit-html "^2.5.0"
 
-"lit@^2.5.0 || ^3.1.3", lit@^3.1.3:
+"lit@^2.5.0 || ^3.1.3", lit@^3.1.3, lit@^3.2.0:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/lit/-/lit-3.3.2.tgz#d9230ebbf237bfd3d2091bc0b56c576a470ac4d7"
   integrity sha512-NF9zbsP79l4ao2SNrH3NkfmFgN/hBYSQo90saIVI1o5GpjAdCPVstVzO1MrLOakHoEhYkrtRjPK6Ob521aoYWQ==

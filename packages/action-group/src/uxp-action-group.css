@@ -26,6 +26,21 @@ governing permissions and limitations under the License.
     );
 }
 
+:host([compact]:not([quiet]):not([vertical])) ::slotted(:last-child) {
+    border-bottom-right-radius: var(
+        --mod-actiongroup-border-radius,
+        var(--spectrum-actiongroup-border-radius)
+    );
+    border-top-right-radius: var(
+        --mod-actiongroup-border-radius,
+        var(--spectrum-actiongroup-border-radius)
+    );
+    margin-bottom: var(
+        --mod-actiongroup-button-spacing-reset,
+        var(--spectrum-actiongroup-button-spacing-reset)
+    );
+}
+
 :host([compact]:not([quiet])[vertical]) ::slotted(:last-child) {
     border-bottom-right-radius: var(
         --mod-actiongroup-border-radius,
@@ -45,18 +60,15 @@ governing permissions and limitations under the License.
     );
 }
 
-:host([compact]:not([quiet]):not([vertical])) ::slotted(:last-child) {
-    border-bottom-right-radius: var(
+:host([compact]:not([quiet]):not([vertical]))
+    ::slotted(:nth-child(n)[tabindex='0']) {
+    border-bottom-left-radius: var(
         --mod-actiongroup-border-radius,
         var(--spectrum-actiongroup-border-radius)
     );
-    border-top-right-radius: var(
+    border-top-left-radius: var(
         --mod-actiongroup-border-radius,
         var(--spectrum-actiongroup-border-radius)
-    );
-    margin-bottom: var(
-        --mod-actiongroup-button-spacing-reset,
-        var(--spectrum-actiongroup-button-spacing-reset)
     );
 }
 
@@ -72,14 +84,14 @@ governing permissions and limitations under the License.
 }
 
 :host([compact]:not([quiet]):not([vertical]))
-    ::slotted(:nth-child(n)[tabindex='0']) {
-    border-bottom-left-radius: var(
-        --mod-actiongroup-border-radius,
-        var(--spectrum-actiongroup-border-radius)
+    ::slotted(:nth-child(n):not([tabindex='0'])) {
+    margin-right: var(
+        --mod-actiongroup-horizontal-spacing-compact,
+        var(--spectrum-actiongroup-horizontal-spacing-compact)
     );
-    border-top-left-radius: var(
-        --mod-actiongroup-border-radius,
-        var(--spectrum-actiongroup-border-radius)
+    margin-left: var(
+        --mod-actiongroup-horizontal-spacing-compact,
+        var(--spectrum-actiongroup-horizontal-spacing-compact)
     );
 }
 
@@ -100,17 +112,5 @@ governing permissions and limitations under the License.
     margin-left: var(
         --mod-actiongroup-button-spacing-reset,
         var(--spectrum-actiongroup-button-spacing-reset)
-    );
-}
-
-:host([compact]:not([quiet]):not([vertical]))
-    ::slotted(:nth-child(n):not([tabindex='0'])) {
-    margin-right: var(
-        --mod-actiongroup-horizontal-spacing-compact,
-        var(--spectrum-actiongroup-horizontal-spacing-compact)
-    );
-    margin-left: var(
-        --mod-actiongroup-horizontal-spacing-compact,
-        var(--spectrum-actiongroup-horizontal-spacing-compact)
     );
 }

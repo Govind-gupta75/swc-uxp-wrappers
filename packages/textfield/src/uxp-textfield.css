@@ -10,111 +10,44 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* write uxp style overrides */
-
-/* Workaround for - 
-    https://jira.corp.adobe.com/browse/UXP-20703
-    https://jira.corp.adobe.com/browse/UXP-21323 
+/* UXP overrides for @swc-uxp-wrappers/textfield
+   Workarounds for UXP-20703 and UXP-21323
 */
 
+/* Host layout fix — UXP does not support the SWC inline-grid-based container model correctly.
+   Use inline-flex + column so the #textfield and help-text slot stack vertically. */
 :host {
     width: var(--mod-textfield-width, var(--spectrum-textfield-width));
     display: inline-flex;
     flex-direction: column;
 }
 
-:host([invalid]) .input {
-    padding-right: calc(
-        var(
-                --mod-textfield-icon-spacing-inline-start-invalid,
-                var(--spectrum-textfield-icon-spacing-inline-start-invalid)
-            ) +
-            var(
-                --mod-textfield-icon-size-invalid,
-                var(--spectrum-textfield-icon-size-invalid)
-            ) +
-            var(
-                --mod-textfield-icon-spacing-inline-end-invalid,
-                var(--spectrum-textfield-icon-spacing-inline-end-invalid)
-            ) -
-            var(
-                --mod-textfield-border-width,
-                var(--spectrum-textfield-border-width)
-            )
-    );
-}
-
-:host([valid]) .input {
-    padding-right: calc(
-        var(
-                --mod-textfield-icon-spacing-inline-start-invalid,
-                var(--spectrum-textfield-icon-spacing-inline-start-invalid)
-            ) +
-            var(
-                --mod-textfield-icon-size-invalid,
-                var(--spectrum-textfield-icon-size-invalid)
-            ) +
-            var(
-                --mod-textfield-icon-spacing-inline-end-invalid,
-                var(--spectrum-textfield-icon-spacing-inline-end-invalid)
-            ) -
-            var(
-                --mod-textfield-border-width,
-                var(--spectrum-textfield-border-width)
-            )
-    );
-}
-
-:host([quiet][invalid]) .input {
-    padding-right: calc(
-        var(
-                --mod-textfield-icon-spacing-inline-start-invalid,
-                var(--spectrum-textfield-icon-spacing-inline-start-invalid)
-            ) +
-            var(
-                --mod-textfield-icon-size-invalid,
-                var(--spectrum-textfield-icon-size-invalid)
-            ) +
-            var(
-                --mod-textfield-icon-spacing-inline-end-invalid,
-                var(--spectrum-textfield-icon-spacing-inline-end-invalid)
-            ) -
-            var(
-                --mod-textfield-border-width,
-                var(--spectrum-textfield-border-width)
-            )
-    );
-}
-
-:host([quiet][valid]) .input {
-    padding-right: calc(
-        var(
-                --mod-textfield-icon-spacing-inline-start-invalid,
-                var(--spectrum-textfield-icon-spacing-inline-start-invalid)
-            ) +
-            var(
-                --mod-textfield-icon-size-invalid,
-                var(--spectrum-textfield-icon-size-invalid)
-            ) +
-            var(
-                --mod-textfield-icon-spacing-inline-end-invalid,
-                var(--spectrum-textfield-icon-spacing-inline-end-invalid)
-            ) -
-            var(
-                --mod-textfield-border-width,
-                var(--spectrum-textfield-border-width)
-            )
-    );
-}
-.input {
+/* #textfield container — keep as inline-flex (not inline-grid) so UXP lays out the input and
+   icon correctly. width: 100% fills the flex column host. */
+#textfield {
+    display: inline-flex;
     width: 100%;
-    appearance: none;
-    padding-left: var(--spectrum-textarea-padding-left);
-    height: var(--mod-textfield-height, var(--spectrum-textfield-height));
-    min-width: var(
-        --mod-textfield-min-width,
-        var(--spectrum-textfield-min-width)
+}
+
+/* Quiet icon margin fix — UXP needs a negative right margin to align quiet validation icons
+   with the field edge (UXP-21323). */
+:host([quiet][invalid]) #textfield .icon,
+:host([quiet][valid]) #textfield .icon {
+    margin-right: calc(
+        var(
+                --mod-textfield-icon-spacing-inline-start-invalid,
+                var(--spectrum-textfield-icon-spacing-inline-start-invalid)
+            ) * (-1)
     );
+}
+
+/* Input layout — UXP requires physical properties for some of these.
+   - appearance: none overrides SWC's `appearance: textfield` (UXP does not need the textfield affordance)
+   - padding-top/bottom: SWC uses `padding-block-start/end: calc(spacing - border-width)`.
+     UXP calculates padding differently (subtracts border-width * 2), so the value is intentionally
+     different from the logical-property mapping; this is a deliberate UXP layout adjustment. */
+.input {
+    appearance: none;
     padding-top: calc(
         var(
                 --mod-textfield-spacing-block-start,
@@ -135,147 +68,177 @@ governing permissions and limitations under the License.
                 var(--spectrum-textfield-border-width)
             ) * 2
     );
-    padding-left: calc(
+}
+
+/* @media (hover: hover) unwrap — UXP does not support the hover media query.
+   Apply hover rules unconditionally. */
+.input:hover,
+#textfield:hover .input {
+    border-color: var(
+        --highcontrast-textfield-border-color-hover,
         var(
-                --mod-textfield-spacing-inline,
-                var(--spectrum-textfield-spacing-inline)
-            ) -
-            var(
-                --mod-textfield-border-width,
-                var(--spectrum-textfield-border-width)
-            )
+            --mod-textfield-border-color-hover,
+            var(--spectrum-textfield-border-color-hover)
+        )
     );
-
-    padding-right: calc(
+    color: var(
+        --highcontrast-textfield-text-color-hover,
         var(
-                --mod-textfield-spacing-inline,
-                var(--spectrum-textfield-spacing-inline)
-            ) -
-            var(
-                --mod-textfield-border-width,
-                var(--spectrum-textfield-border-width)
-            )
+            --mod-textfield-text-color-hover,
+            var(--spectrum-textfield-text-color-hover)
+        )
     );
 }
 
-:host([valid]) #textfield .icon {
-    height: var(
-        --mod-textfield-icon-size-valid,
-        var(--spectrum-textfield-icon-size-valid)
-    );
-    width: var(
-        --mod-textfield-icon-size-valid,
-        var(--spectrum-textfield-icon-size-valid)
-    );
-    bottom: var(
-        --mod-textfield-icon-spacing-block-valid,
-        var(--spectrum-textfield-icon-spacing-block-valid)
-    );
-    top: var(
-        --mod-textfield-icon-spacing-block-valid,
-        var(--spectrum-textfield-icon-spacing-block-valid)
-    );
-    right: var(
-        --mod-textfield-icon-spacing-inline-end-valid,
-        var(--spectrum-textfield-icon-spacing-inline-end-valid)
-    );
-}
-
-:host([invalid]) #textfield .icon {
-    height: var(
-        --mod-textfield-icon-size-invalid,
-        var(--spectrum-textfield-icon-size-invalid)
-    );
-    width: var(
-        --mod-textfield-icon-size-invalid,
-        var(--spectrum-textfield-icon-size-invalid)
-    );
-    bottom: var(
-        --mod-textfield-icon-spacing-block-invalid,
-        var(--spectrum-textfield-icon-spacing-block-invalid)
-    );
-    top: var(
-        --mod-textfield-icon-spacing-block-invalid,
-        var(--spectrum-textfield-icon-spacing-block-invalid)
-    );
-    right: var(
-        --mod-textfield-icon-spacing-inline-end-invalid,
-        var(--spectrum-textfield-icon-spacing-inline-end-invalid)
-    );
-}
-
-#textfield {
-    display: inline-flex;
-    min-width: var(--spectrum-textfield-texticon-min-width);
-    width: 100%;
-}
-
-:host([quiet]) .input {
-    border-top-width: 0px;
-    border-left: 0px;
-    border-right: 0px;
-    margin-bottom: var(
-        --mod-textfield-spacing-block-quiet,
-        var(--spectrum-textfield-spacing-block-quiet)
-    );
-    padding-top: var(
-        --mod-textfield-spacing-block-start,
-        var(--spectrum-textfield-spacing-block-start)
-    );
-    padding-left: var(
-        --mod-textfield-spacing-inline-quiet,
-        var(--spectrum-textfield-spacing-inline-quiet)
-    );
-    padding-right: var(
-        --mod-textfield-spacing-inline-quiet,
-        var(--spectrum-textfield-spacing-inline-quiet)
-    );
-}
-
-:host([quiet][invalid]) #textfield .icon,
-:host([quiet][valid]) #textfield .icon {
-    margin-right: calc(
+.input:hover::placeholder,
+#textfield:hover .input::placeholder {
+    color: var(
+        --highcontrast-textfield-text-color-hover,
         var(
-                --mod-textfield-icon-spacing-inline-start-invalid,
-                var(--spectrum-textfield-icon-spacing-inline-start-invalid)
-            ) * (-1)
+            --mod-textfield-text-color-hover,
+            var(--spectrum-textfield-text-color-hover)
+        )
     );
 }
 
+:host([focused]) .input:hover,
+.input:focus:hover {
+    border-color: var(
+        --highcontrast-textfield-border-color-focus-hover,
+        var(
+            --mod-textfield-border-color-focus-hover,
+            var(--spectrum-textfield-border-color-focus-hover)
+        )
+    );
+}
+
+:host([focused]) .input:hover,
+:host([focused]) .input:hover::placeholder,
+.input:focus:hover,
+.input:focus:hover::placeholder {
+    color: var(
+        --highcontrast-textfield-text-color-focus-hover,
+        var(
+            --mod-textfield-text-color-focus-hover,
+            var(--spectrum-textfield-text-color-focus-hover)
+        )
+    );
+}
+
+:host([invalid]) .input:hover,
+:host([invalid]:hover) .input {
+    border-color: var(
+        --highcontrast-textfield-border-color-invalid-hover,
+        var(
+            --mod-textfield-border-color-invalid-hover,
+            var(--spectrum-textfield-border-color-invalid-hover)
+        )
+    );
+}
+
+:host([invalid]) .input:focus:hover,
+:host([invalid][focused]) .input:hover,
+:host([invalid]:focus) .input:hover {
+    border-color: var(
+        --highcontrast-textfield-border-color-invalid-focus-hover,
+        var(
+            --mod-textfield-border-color-invalid-focus-hover,
+            var(--spectrum-textfield-border-color-invalid-focus-hover)
+        )
+    );
+}
+
+:host([disabled]) #textfield:hover .input {
+    background-color: var(
+        --mod-textfield-background-color-disabled,
+        var(--spectrum-textfield-background-color-disabled)
+    );
+    color: var(
+        --highcontrast-textfield-text-color-disabled,
+        var(
+            --mod-textfield-text-color-disabled,
+            var(--spectrum-textfield-text-color-disabled)
+        )
+    );
+    -webkit-text-fill-color: var(
+        --highcontrast-textfield-text-color-disabled,
+        var(
+            --mod-textfield-text-color-disabled,
+            var(--spectrum-textfield-text-color-disabled)
+        )
+    );
+    resize: none;
+    opacity: 1;
+    border-color: #0000;
+}
+
+:host([disabled]) #textfield:hover .input::placeholder {
+    color: var(
+        --highcontrast-textfield-text-color-disabled,
+        var(
+            --mod-textfield-text-color-disabled,
+            var(--spectrum-textfield-text-color-disabled)
+        )
+    );
+}
+
+:host([quiet][disabled]:hover) .input {
+    background-color: initial;
+    border-color: var(
+        --mod-textfield-border-color-disabled,
+        var(--spectrum-textfield-border-color-disabled)
+    );
+    color: var(
+        --highcontrast-textfield-text-color-disabled,
+        var(
+            --mod-textfield-text-color-disabled,
+            var(--spectrum-textfield-text-color-disabled)
+        )
+    );
+}
+
+:host([quiet][disabled]:hover) .input::placeholder {
+    color: var(
+        --highcontrast-textfield-text-color-disabled,
+        var(
+            --mod-textfield-text-color-disabled,
+            var(--spectrum-textfield-text-color-disabled)
+        )
+    );
+}
+
+:host([readonly]) #textfield:hover .input {
+    background-color: initial;
+    color: var(
+        --highcontrast-textfield-text-color-readonly,
+        var(
+            --mod-textfield-text-color-readonly,
+            var(--spectrum-textfield-text-color-readonly)
+        )
+    );
+    border-color: #0000;
+    outline: none;
+}
+
+:host([readonly]) #textfield:hover .input::placeholder {
+    color: var(
+        --highcontrast-textfield-text-color-readonly,
+        var(
+            --mod-textfield-text-color-readonly,
+            var(--spectrum-textfield-text-color-readonly)
+        )
+    );
+    background-color: initial;
+}
+
+/* Multiline #textfield — also needs inline-flex (not inline-grid) in UXP. */
 :host([multiline]) #textfield {
     display: inline-flex;
 }
 
-:host([multiline]) .input {
-    min-height: var(
-        --mod-text-area-min-block-size,
-        var(--spectrum-text-area-min-block-size)
-    );
-    min-width: var(
-        --mod-text-area-min-inline-size,
-        var(--spectrum-text-area-min-inline-size)
-    );
-}
-
-/* Workaround for missing 'min-block-size' logical property  */
-:host([multiline][quiet]) .input {
-    min-height: var(
-        --mod-text-area-min-block-size-quiet,
-        var(--spectrum-text-area-min-block-size-quiet)
-    );
-}
-
-/* Workaround to fix focus-ring layouting in quiet variant, replacing relevant logical properties with trivial ones */
-:host([quiet]) #textfield:after {
-    height: var(
-        --mod-textfield-focus-indicator-width,
-        var(--spectrum-textfield-focus-indicator-width)
-    );
-    width: 100%;
-    left: 0;
-    right: 0;
-}
-
+/* Quiet focus ring — UXP does not support the SWC :after pseudo-element with
+   logical dimensions correctly; min-height here ensures the ring is at least as
+   tall as the grows area. */
 :host([grows]:not([quiet])) #textfield:after {
     min-height: calc(
         var(
@@ -289,6 +252,9 @@ governing permissions and limitations under the License.
     );
 }
 
+/* Grows layout — negative bottom margin pulls the sizer element up so the field
+   does not add extra space when growing. Physical margin-bottom is required here
+   (not a logical-prop translation). */
 :host([grows]) .input {
     margin-bottom: calc(
         (
@@ -304,10 +270,13 @@ governing permissions and limitations under the License.
     );
 }
 
+/* Sizer height — auto lets the sizer shrink to content. */
 #sizer {
     height: auto;
 }
 
+/* Disabled state — pointer-events must be set to none to prevent interaction in UXP
+   (UXP does not propagate disabled pointer-events through shadow DOM automatically). */
 :host([disabled]) #textfield {
     pointer-events: none;
 }

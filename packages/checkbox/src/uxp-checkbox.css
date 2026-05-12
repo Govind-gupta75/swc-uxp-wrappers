@@ -10,14 +10,49 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* opacity: 0 — SWC v0.44 uses 0.0001; UXP requires fully transparent input overlay */
-#input {
-    opacity: 0;
+/* :is(:active, [active]) → expanded rules (UXP: :is() not fully supported) */
+:host(:active) #box:before,
+:host([active]) #box:before {
+    border-color: var(
+        --highcontrast-checkbox-highlight-color-down,
+        var(
+            --mod-checkbox-control-color-down,
+            var(--spectrum-checkbox-control-color-down)
+        )
+    );
 }
 
-/* text-align: start → left — text-align logical values not handled by enableLogicalProperties mapper */
-#label {
-    text-align: left;
+:host(:active) #input:checked + #box:before,
+:host([active]) #input:checked + #box:before {
+    border-color: var(
+        --highcontrast-checkbox-highlight-color-down,
+        var(
+            --mod-checkbox-control-selected-color-down,
+            var(--spectrum-checkbox-control-selected-color-down)
+        )
+    );
+}
+
+:host(:active) #label,
+:host([active]) #label {
+    color: var(
+        --highcontrast-checkbox-content-color-down,
+        var(
+            --mod-checkbox-content-color-down,
+            var(--spectrum-checkbox-content-color-down)
+        )
+    );
+}
+
+:host([readonly]:active) #box:before,
+:host([readonly][active]) #box:before {
+    border-color: var(
+        --highcontrast-checkbox-selected-color-default,
+        var(
+            --mod-checkbox-control-selected-color-default,
+            var(--spectrum-checkbox-control-selected-color-default)
+        )
+    );
 }
 
 /* @media (hover: hover) unwrap — v0.44 moved all hover rules inside this media query;
@@ -129,51 +164,6 @@ governing permissions and limitations under the License.
     );
 }
 
-/* :is(:active, [active]) → expanded rules (UXP: :is() not fully supported) */
-:host(:active) #box:before,
-:host([active]) #box:before {
-    border-color: var(
-        --highcontrast-checkbox-highlight-color-down,
-        var(
-            --mod-checkbox-control-color-down,
-            var(--spectrum-checkbox-control-color-down)
-        )
-    );
-}
-
-:host(:active) #input:checked + #box:before,
-:host([active]) #input:checked + #box:before {
-    border-color: var(
-        --highcontrast-checkbox-highlight-color-down,
-        var(
-            --mod-checkbox-control-selected-color-down,
-            var(--spectrum-checkbox-control-selected-color-down)
-        )
-    );
-}
-
-:host(:active) #label,
-:host([active]) #label {
-    color: var(
-        --highcontrast-checkbox-content-color-down,
-        var(
-            --mod-checkbox-content-color-down,
-            var(--spectrum-checkbox-content-color-down)
-        )
-    );
-}
-
-:host([readonly]:active) #box:before,
-:host([readonly][active]) #box:before {
-    border-color: var(
-        --highcontrast-checkbox-selected-color-default,
-        var(
-            --mod-checkbox-control-selected-color-default,
-            var(--spectrum-checkbox-control-selected-color-default)
-        )
-    );
-}
-
 :host([emphasized][indeterminate]:active) #box:before,
 :host([emphasized][indeterminate][active]) #box:before,
 :host([emphasized][indeterminate]:active) #input:checked + #box:before,
@@ -200,6 +190,16 @@ governing permissions and limitations under the License.
             var(--spectrum-checkbox-invalid-color-down)
         )
     );
+}
+
+/* text-align: start → left — text-align logical values not handled by enableLogicalProperties mapper */
+#label {
+    text-align: left;
+}
+
+/* opacity: 0 — SWC v0.44 uses 0.0001; UXP requires fully transparent input overlay */
+#input {
+    opacity: 0;
 }
 
 /* Workaround for UXP-22441 — extra specificity to ensure invalid border-color applies */

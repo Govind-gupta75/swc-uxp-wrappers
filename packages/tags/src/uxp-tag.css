@@ -117,28 +117,6 @@ governing permissions and limitations under the License.
     );
 }
 
-:host([emphasized]:active) {
-    border-color: var(
-        --highcontrast-tag-border-color-emphasized-active,
-        var(--mod-tag-border-color-emphasized-active, var(--spectrum-tag-border-color-emphasized-active))
-    );
-    background-color: var(
-        --highcontrast-tag-background-color-emphasized-active,
-        var(--mod-tag-background-color-emphasized-active, var(--spectrum-tag-background-color-emphasized-active))
-    );
-}
-
-:host([emphasized][active]) {
-    border-color: var(
-        --highcontrast-tag-border-color-emphasized-active,
-        var(--mod-tag-border-color-emphasized-active, var(--spectrum-tag-border-color-emphasized-active))
-    );
-    background-color: var(
-        --highcontrast-tag-background-color-emphasized-active,
-        var(--mod-tag-background-color-emphasized-active, var(--spectrum-tag-background-color-emphasized-active))
-    );
-}
-
 /* @media (hover: hover) unwrap — UXP does not support hover media query;
    v0.44.0 moved all hover rules inside @media (hover: hover) — apply unconditionally */
 :host(:hover) {
@@ -209,5 +187,27 @@ governing permissions and limitations under the License.
     color: var(
         --highcontrast-tag-content-color-emphasized,
         var(--mod-tag-content-color-emphasized, var(--spectrum-tag-content-color-emphasized))
+    );
+}
+
+:host([emphasized]:active) {
+    border-color: var(
+        --highcontrast-tag-border-color-emphasized-active,
+        var(--mod-tag-border-color-emphasized-active, var(--spectrum-tag-border-color-emphasized-active))
+    );
+    background-color: var(
+        --highcontrast-tag-background-color-emphasized-active,
+        var(--mod-tag-background-color-emphasized-active, var(--spectrum-tag-background-color-emphasized-active))
+    );
+}
+
+:host([emphasized][active]) {
+    border-color: var(
+        --highcontrast-tag-border-color-emphasized-active,
+        var(--mod-tag-border-color-emphasized-active, var(--spectrum-tag-border-color-emphasized-active))
+    );
+    background-color: var(
+        --highcontrast-tag-background-color-emphasized-active,
+        var(--mod-tag-background-color-emphasized-active, var(--spectrum-tag-background-color-emphasized-active))
     );
 }

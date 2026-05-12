@@ -10,4 +10,59 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* write uxp style overrides */
+/* UXP overrides for spectrum-table-row.css */
+
+/* text-align: start is not supported in UXP; map to left */
+.spectrum-Table-row--sectionHeader ::slotted(*) {
+    text-align: left;
+}
+
+/* @media (hover: hover) is not supported in UXP; unwrap hover rules unconditionally */
+:host(:hover) {
+    --highcontrast-table-row-text-color: var(
+        --highcontrast-table-row-text-color-hover
+    );
+    --highcontrast-table-icon-color: var(
+        --highcontrast-table-row-text-color-hover
+    );
+    --spectrum-table-cell-background-color: var(
+        --highcontrast-table-row-background-color-hover,
+        var(
+            --mod-table-row-background-color-hover,
+            var(--spectrum-table-row-background-color-hover)
+        )
+    );
+}
+
+:host([selected]:hover) {
+    --highcontrast-table-row-text-color: var(
+        --highcontrast-table-selected-row-text-color-focus
+    );
+    --highcontrast-table-icon-color: var(
+        --highcontrast-table-selected-row-text-color-focus
+    );
+    --spectrum-table-cell-background-color: var(
+        --spectrum-table-selected-cell-background-color-focus
+    );
+}
+
+.spectrum-Table-row--sectionHeader:hover {
+    --highcontrast-table-row-text-color: var(
+        --highcontrast-table-section-header-text-color
+    );
+    --spectrum-table-cell-background-color: var(
+        --highcontrast-table-section-header-background-color,
+        var(
+            --mod-table-section-header-background-color,
+            var(--spectrum-table-section-header-background-color)
+        )
+    );
+}
+
+/* @media (forced-colors: active) + @media (hover: hover) nested block */
+/* Unwrap the nested hover rule unconditionally under forced-colors media query */
+@media (forced-colors: active) {
+    :host(:hover) .spectrum-Table-checkbox .spectrum-Checkbox-box:before {
+        outline: var(--highcontrast-table-row-text-color-hover) 1px solid;
+    }
+}
