@@ -11,7 +11,7 @@ governing permissions and limitations under the License.
 */
 
 import { css } from 'lit';
-import { IllustratedMessage } from '@swc-uxp-wrappers/illustrated-message';
+import { IllustratedMessage } from '@spectrum-web-components/illustrated-message';
 
 class MyIllustratedMessage extends IllustratedMessage {
     static styles = [

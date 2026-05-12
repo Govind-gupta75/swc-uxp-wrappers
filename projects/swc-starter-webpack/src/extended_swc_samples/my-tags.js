@@ -10,7 +10,7 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-import { Tags, Tag } from '@swc-uxp-wrappers/tags';
+import { Tags, Tag } from '@spectrum-web-components/tags';
 import { css } from 'lit';
 
 class MyTags extends Tags {

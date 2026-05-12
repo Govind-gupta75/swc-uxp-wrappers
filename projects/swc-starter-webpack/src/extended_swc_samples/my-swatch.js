@@ -10,7 +10,7 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-import { Swatch, SwatchGroup } from '@swc-uxp-wrappers/swatch';
+import { Swatch, SwatchGroup } from '@spectrum-web-components/swatch';
 import { css } from 'lit';
 
 class MySwatch extends Swatch {

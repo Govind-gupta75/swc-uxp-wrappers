@@ -10,7 +10,7 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-import { Search } from '@swc-uxp-wrappers/search';
+import { Search } from '@spectrum-web-components/search';
 import { css } from 'lit';
 
 class MySearch extends Search {

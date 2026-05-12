@@ -10,7 +10,7 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-import { Table } from '@swc-uxp-wrappers/table';
+import { Table } from '@spectrum-web-components/table';
 import { css } from 'lit';
 
 class MyTable extends Table {

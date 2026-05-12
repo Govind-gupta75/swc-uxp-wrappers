@@ -10,7 +10,7 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-import { Radio } from '@swc-uxp-wrappers/radio';
+import { Radio } from '@spectrum-web-components/radio';
 import { css } from 'lit';
 
 class MyRadio extends Radio {
