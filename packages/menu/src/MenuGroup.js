@@ -16,7 +16,8 @@ import styles from './uxp-menu-group.css.js';
 
 class UxpMenuGroup extends MenuGroup {
     static get styles() {
-        return [...super.styles, styles];
+        // We are combining our styles to make all super class styles available along with the transitive dependent classes styles.
+        return [super.styles, styles];
     }
 }
 

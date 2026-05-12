@@ -16,7 +16,8 @@ import styles from './uxp-menu-item.css.js';
 
 class UxpMenuItem extends MenuItem {
     static get styles() {
-        return [...super.styles, styles];
+        // We are combining our styles to make all super class styles available along with the transitive dependent classes styles.
+        return [super.styles, styles];
     }
 }
 
