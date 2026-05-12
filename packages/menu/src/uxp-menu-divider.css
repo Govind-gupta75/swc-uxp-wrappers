@@ -20,8 +20,7 @@ governing permissions and limitations under the License.
                     var(--spectrum-menu-divider-thickness)
             ) / 2
     );
-    width: auto;
-    height: var(--mod-divider-thickness, var(--spectrum-divider-thickness));
+    height: var(--mod-divider-thickness, var(--spectrum-menu-divider-thickness));
     margin-top: var(--uxp-swc-menu-divider-margin-block);
     margin-bottom: var(--uxp-swc-menu-divider-margin-block);
     margin-left: var(

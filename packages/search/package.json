@@ -25,7 +25,7 @@
     "dependencies": {
         "@swc-uxp-internal/search": "npm:@spectrum-web-components/search@0.44.0",
         "@swc-uxp-wrappers/button": "3.0.0",
-        "@swc-uxp-wrappers/textfield": "2.0.0"
+        "@swc-uxp-wrappers/textfield": "3.0.0"
     },
     "files": [
         "**/*.js"

@@ -11,3 +11,15 @@ governing permissions and limitations under the License.
 */
 
 /* write uxp style overrides */
+
+/* --spectrum-sidenav-heading-top-margin and -bottom-margin not defined in SWC v0.44.0 tokens.
+   Provide fallbacks to prevent margin collapse.
+   SWC source: #heading { margin-block-end: var(--spectrum-sidenav-heading-bottom-margin);
+                           margin-block-start: calc(var(--spectrum-sidenav-heading-top-margin) - ...) } */
+#heading {
+    margin-bottom: var(--spectrum-sidenav-heading-bottom-margin, var(--spectrum-spacing-100));
+    margin-top: calc(
+        var(--spectrum-sidenav-heading-top-margin, var(--spectrum-spacing-300)) -
+        var(--mod-sidenav-gap, var(--spectrum-sidenav-gap, 0px))
+    );
+}

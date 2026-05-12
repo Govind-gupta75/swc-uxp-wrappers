@@ -12,44 +12,65 @@ governing permissions and limitations under the License.
 
 /* write uxp style overrides */
 
-:host {
-    margin-left: 0;
-    margin-right: 0;
-}
-
+/* justify-content: start not supported in UXP — use flex-start.
+   SWC source: #item-link { justify-content: start } in spectrum-sidenav-item.css */
 #item-link {
-    width: var(--mod-sidenav-width, var(--spectrum-sidenav-width));
-    margin-bottom: var(--mod-sidenav-gap, var(--spectrum-sidenav-gap));
-    max-width: var(--mod-sidenav-max-width, var(--spectrum-sidenav-max-width));
-    min-height: var(
-        --mod-sidenav-min-height,
-        var(--spectrum-sidenav-min-height)
+    justify-content: flex-start;
+}
+
+/* @media (hover: hover) unwrap — UXP does not support hover media query;
+   SWC v0.44.0 moved hover styles into @media (hover: hover) in spectrum-sidenav-item.css */
+:host([selected]) #item-link:hover {
+    background-color: var(
+        --highcontrast-sidenav-background-hover-selected,
+        var(
+            --mod-sidenav-background-hover-selected,
+            var(--spectrum-sidenav-background-hover-selected)
+        )
     );
-    min-width: var(--mod-sidenav-min-width, var(--spectrum-sidenav-min-width));
-    padding-left: var(
-        --mod-sidenav-inline-padding,
-        var(--spectrum-sidenav-inline-padding)
-    );
-    padding-right: var(
-        --mod-sidenav-inline-padding,
-        var(--spectrum-sidenav-inline-padding)
+    color: var(
+        --mod-sidenav-content-color-hover-selected,
+        var(--spectrum-sidenav-content-color-hover-selected)
     );
 }
 
-#item-link #link-text {
-    margin-bottom: var(
-        --mod-sidenav-bottom-to-label,
-        var(--spectrum-sidenav-bottom-to-label)
+#item-link:hover {
+    background-color: var(
+        --highcontrast-sidenav-background-hover,
+        var(
+            --mod-sidenav-background-hover,
+            var(--spectrum-sidenav-background-hover)
+        )
     );
-    margin-top: var(
-        --mod-sidenav-top-to-label,
-        var(--spectrum-sidenav-top-to-label)
+    color: var(
+        --highcontrast-sidenav-content-color-hover,
+        var(
+            --mod-sidenav-content-color-hover,
+            var(--spectrum-sidenav-content-color-hover)
+        )
     );
 }
 
-#item-link ::slotted([slot='icon']) {
-    height: var(--spectrum-sidenav-icon-size);
-    width: var(--spectrum-sidenav-icon-size);
-    margin-top: var(--spectrum-sidenav-top-to-icon);
-    margin-right: var(--spectrum-sidenav-icon-spacing);
+/* --spectrum-global-dimension-size-* tokens removed in v0.44.0 — provide fallbacks.
+   SWC internal source (sidenav-item.css.js) uses these legacy tokens as the only fallback
+   for multilevel indentation padding. */
+:host([dir='ltr']) #item-link[data-level='1'] {
+    padding-left: calc(
+        var(--spectrum-sidenav-start-to-content-second-level, var(--spectrum-spacing-300))
+    );
+}
+:host([dir='ltr']) #item-link[data-level='2'] {
+    padding-left: calc(
+        var(--spectrum-sidenav-start-to-content-third-level, var(--spectrum-spacing-500))
+    );
+}
+:host([dir='rtl']) #item-link[data-level='1'] {
+    padding-right: calc(
+        var(--spectrum-sidenav-start-to-content-second-level, var(--spectrum-spacing-300))
+    );
+}
+:host([dir='rtl']) #item-link[data-level='2'] {
+    padding-right: calc(
+        var(--spectrum-sidenav-start-to-content-third-level, var(--spectrum-spacing-500))
+    );
 }

@@ -11,3 +11,9 @@ governing permissions and limitations under the License.
 */
 
 /* write uxp style overrides */
+
+/* UXP-internal layer hardcodes width: 240px, overriding --spectrum-sidenav-width: 100%.
+   Restore token-based width. */
+:host {
+    width: var(--mod-sidenav-width, var(--spectrum-sidenav-width, 100%));
+}
