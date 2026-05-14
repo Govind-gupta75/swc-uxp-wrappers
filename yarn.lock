@@ -1301,18 +1301,30 @@
   dependencies:
     "@floating-ui/utils" "^0.1.1"
 
-"@floating-ui/dom@^1.5.1":
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/@floating-ui/dom/-/dom-1.5.1.tgz#88b70defd002fe851f17b4a25efb2d3c04d7a8d7"
-  integrity sha512-KwvVcPSXg6mQygvA1TjbN/gh///36kKtllIF8SUm0qpFj8+rvYrpvlYdL1JoA71SHpDqgSSdGOSoQ0Mp3uY5aw==
+"@floating-ui/core@^1.7.5":
+  version "1.7.5"
+  resolved "https://registry.yarnpkg.com/@floating-ui/core/-/core-1.7.5.tgz#d4af157a03330af5a60e69da7a4692507ada0622"
+  integrity sha512-1Ih4WTWyw0+lKyFMcBHGbb5U5FtuHJuujoyyr5zTaWS5EYMeT6Jb2AuDeftsCsEuchO+mM2ij5+q9crhydzLhQ==
   dependencies:
-    "@floating-ui/core" "^1.4.1"
-    "@floating-ui/utils" "^0.1.1"
+    "@floating-ui/utils" "^0.2.11"
+
+"@floating-ui/dom@^1.6.1":
+  version "1.7.6"
+  resolved "https://registry.yarnpkg.com/@floating-ui/dom/-/dom-1.7.6.tgz#f915bba5abbb177e1f227cacee1b4d0634b187bf"
+  integrity sha512-9gZSAI5XM36880PPMm//9dfiEngYoC6Am2izES1FF406YFsjvyBMmeJ2g4SAju3xWwtuynNRFL2s9hgxpLI5SQ==
+  dependencies:
+    "@floating-ui/core" "^1.7.5"
+    "@floating-ui/utils" "^0.2.11"
 
 "@floating-ui/utils@^0.1.1":
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/@floating-ui/utils/-/utils-0.1.1.tgz#1a5b1959a528e374e8037c4396c3e825d6cf4a83"
   integrity sha512-m0G6wlnhm/AX0H12IOWtK8gASEMffnX08RtKkCgTdHb9JpHKGloI7icFfLg9ZmQeavcvR0PKmzxClyuFPSjKWw==
+
+"@floating-ui/utils@^0.2.1", "@floating-ui/utils@^0.2.11":
+  version "0.2.11"
+  resolved "https://registry.yarnpkg.com/@floating-ui/utils/-/utils-0.2.11.tgz#a269e055e40e2f45873bae9d1a2fdccbd314ea3f"
+  integrity sha512-RiB/yIh78pcIxl6lLMG0CgBXAZ2Y0eVHqMPYugu+9U0AeT6YBeiJpf7lbdJNIugFP5SIjwNRgo4DhR1Qxi26Gg==
 
 "@gar/promisify@^1.1.3":
   version "1.1.3"
@@ -1781,14 +1793,6 @@
   integrity sha512-JWxMwnlouLdwpw8spLTuax53WMnSP3xt0dCyxAS7GJr5Otda9MGgR/ghAdfwhSY75TmjbE1T2TqChwoGCw3ggw==
   dependencies:
     lit "^3.2.0"
-    tslib "^2.0.3"
-
-"@lit-labs/virtualizer@^2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@lit-labs/virtualizer/-/virtualizer-2.0.2.tgz#7ba1435b3c88d95b7e922eda47508e2a255770b9"
-  integrity sha512-+E+UKTbEfQC5j7FNqN1xWBdGtzfREPbqPAGsNRiz7g2orXb2y+rBy6FmfTQ+Qcly2fjkei06xRg7f/yN/hS3zQ==
-  dependencies:
-    lit "^2.7.0"
     tslib "^2.0.3"
 
 "@lit/reactive-element@^1.0.0 || ^2.0.0", "@lit/reactive-element@^2.1.0":
@@ -2374,20 +2378,20 @@
     "@spectrum-web-components/icons-workflow" "^0.44.0"
     "@spectrum-web-components/reactive-controllers" "^0.44.0"
 
-"@spectrum-web-components/asset@0.37.0", "@spectrum-web-components/asset@^0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/asset/-/asset-0.37.0.tgz#92f17644b039f467b28f0e81cdee89b5283d1913"
-  integrity sha512-nFZ4/TCHbUcNUay5NI1fLhLejtx7QJ3H+diCNsZXOvmUI+0atcNPid6j5/4CyvSd8PQooEvCgHpbHf39AM57Cg==
+"@spectrum-web-components/asset@0.44.0", "@spectrum-web-components/asset@^0.37.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/asset/-/asset-0.44.0.tgz#b576b0a6682af84ecf1dd7d23d716f320b27a7ab"
+  integrity sha512-gn+MjJm34zy7IjLHq8gDoOa1C7wR9e18V7/Qf/56pjHmRvgQeVAxZHI2OtroSXBnRiPXYXRMIU736RsX+wdVSg==
   dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
+    "@spectrum-web-components/base" "^0.44.0"
 
-"@spectrum-web-components/avatar@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/avatar/-/avatar-0.37.0.tgz#ecd6950855313c54b96b9a5db5fb8b2e014e1fa9"
-  integrity sha512-VU9qHpdQZcZ4IlatAvehBwasXZgA3sSDv+awiN3EZqXw+DyYFD1w6cKaAgtnvMH2YsXqoZnTZc1aOGvnoz6WYQ==
+"@spectrum-web-components/avatar@0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/avatar/-/avatar-0.44.0.tgz#8f915e383e10203953afde166a16afe23b974ab6"
+  integrity sha512-1HqFTCZwwRLRGbNpDSDGyHCZw6CKcmZ47x0Plw9Ha8hWRITqJJSTbEy/zqzXfyYLZCm59mdvP04KrfcQ8bwcRQ==
   dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/shared" "^0.37.0"
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/shared" "^0.44.0"
 
 "@spectrum-web-components/banner@0.44.0", "@spectrum-web-components/banner@^0.9.5-react.32+342d768c5":
   version "0.44.0"
@@ -2437,15 +2441,15 @@
     "@spectrum-web-components/shared" "^0.37.0"
     "@spectrum-web-components/styles" "^0.37.0"
 
-"@spectrum-web-components/checkbox@0.37.0", "@spectrum-web-components/checkbox@^0.37.0", "@spectrum-web-components/checkbox@^0.44.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/checkbox/-/checkbox-0.37.0.tgz#1d662bc779b4ce6f63565ac4551d183f20b1f247"
-  integrity sha512-5DV4/aTZUkKyb6U3AHn/zxqbCeb+P1dWibp4Zjvr1FcRbMKdmY782pzRSOOXygLPkLJMKPCN4r6py32gBZY+eg==
+"@spectrum-web-components/checkbox@0.44.0", "@spectrum-web-components/checkbox@^0.37.0", "@spectrum-web-components/checkbox@^0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/checkbox/-/checkbox-0.44.0.tgz#dd6f72bb33d85f210bb75559463c6fcde80e7fcd"
+  integrity sha512-q8HNNcW5IOcbcHjhR81yn/MMhLEG/YhCQBo3H8lOip70Vv7BiidB/dcorsuEwIJn0A1432UijO5Ofae591VYfw==
   dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/icon" "^0.37.0"
-    "@spectrum-web-components/icons-ui" "^0.37.0"
-    "@spectrum-web-components/shared" "^0.37.0"
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/icon" "^0.44.0"
+    "@spectrum-web-components/icons-ui" "^0.44.0"
+    "@spectrum-web-components/shared" "^0.44.0"
 
 "@spectrum-web-components/clear-button@0.44.0", "@spectrum-web-components/clear-button@^0.37.0", "@spectrum-web-components/clear-button@^0.44.0":
   version "0.44.0"
@@ -2482,7 +2486,7 @@
   dependencies:
     "@spectrum-web-components/base" "^0.44.0"
 
-"@spectrum-web-components/field-group@0.44.0", "@spectrum-web-components/field-group@^0.37.0", "@spectrum-web-components/field-group@^0.44.0":
+"@spectrum-web-components/field-group@0.44.0", "@spectrum-web-components/field-group@^0.44.0":
   version "0.44.0"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/field-group/-/field-group-0.44.0.tgz#183826e9ee6802ab5ac75827009400161a23f392"
   integrity sha512-SQYv+AAGGUsdhMlgQcQCjVkU/9iwkmMTL5/UDVUqPMlmSHhEuFYE+6v/NN6bLoqVDRbmaT3WxxfRRMWsepMDHg==
@@ -2501,13 +2505,14 @@
     "@spectrum-web-components/reactive-controllers" "^0.44.0"
     "@spectrum-web-components/shared" "^0.44.0"
 
-"@spectrum-web-components/help-text@0.37.0", "@spectrum-web-components/help-text@^0.37.0", "@spectrum-web-components/help-text@^0.44.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/help-text/-/help-text-0.37.0.tgz#fc8e792ec46bac9c878c196bda1f8cda45c26ead"
-  integrity sha512-MsBD9I/mVOKRrnTqFxzbtmcLvgIGrA6y7kPwldKSQeFBHmm1oey2dnrlu7NK4OtWUdJJ3dQDKi/REJX35USOcw==
+"@spectrum-web-components/help-text@0.44.0", "@spectrum-web-components/help-text@^0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/help-text/-/help-text-0.44.0.tgz#0cfa3953e84df78b8f7118ed2a5c312419477eca"
+  integrity sha512-YtgjlZ3ZC9dwuYjHGLzu+j1kZMJSLH/52vSbCsQ5U5vRZ7oeCrOAns+ynbpMYLJmJXYz3vCxf1T+Wv1WHssA6w==
   dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/icons-workflow" "^0.37.0"
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/icons-workflow" "^0.44.0"
+    "@spectrum-web-components/shared" "^0.44.0"
 
 "@spectrum-web-components/icon@0.44.0", "@spectrum-web-components/icon@^0.37.0", "@spectrum-web-components/icon@^0.44.0":
   version "0.44.0"
@@ -2573,28 +2578,31 @@
     "@spectrum-web-components/base" "^0.44.0"
     "@spectrum-web-components/shared" "^0.44.0"
 
-"@spectrum-web-components/menu@0.37.0", "@spectrum-web-components/menu@^0.16.9-react.54+c59ca07be", "@spectrum-web-components/menu@^0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/menu/-/menu-0.37.0.tgz#0c89a883af6c9038ceb5667945910a01e9c6bc13"
-  integrity sha512-WG7lqePUERK/xE6/DlyfNzbW8gjSkQPEwGSxbe8AFOWTImzQALAz0rxmGTzHOkoThvsSGErt/mC7WiXkL5IWjQ==
+"@spectrum-web-components/menu@0.44.0", "@spectrum-web-components/menu@^0.16.9-react.54+c59ca07be", "@spectrum-web-components/menu@^0.37.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/menu/-/menu-0.44.0.tgz#c2d7ea149629601e7db636f62623ed439ebdc1da"
+  integrity sha512-eq6cchyHJidtseWqMr/JSCr0WN+JntEduN2jEgHVvsuUUbDhzb9fpcKyOzAYQlTYS741LL9uYcQomLKXfXJJsQ==
   dependencies:
-    "@lit-labs/observers" "^2.0.0"
-    "@spectrum-web-components/action-button" "^0.37.0"
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/divider" "^0.37.0"
-    "@spectrum-web-components/icon" "^0.37.0"
-    "@spectrum-web-components/icons-ui" "^0.37.0"
-    "@spectrum-web-components/overlay" "^0.37.0"
-    "@spectrum-web-components/shared" "^0.37.0"
+    "@lit-labs/observers" "^2.0.2"
+    "@spectrum-web-components/action-button" "^0.44.0"
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/divider" "^0.44.0"
+    "@spectrum-web-components/icon" "^0.44.0"
+    "@spectrum-web-components/icons-ui" "^0.44.0"
+    "@spectrum-web-components/overlay" "^0.44.0"
+    "@spectrum-web-components/popover" "^0.44.0"
+    "@spectrum-web-components/reactive-controllers" "^0.44.0"
+    "@spectrum-web-components/shared" "^0.44.0"
 
-"@spectrum-web-components/meter@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/meter/-/meter-0.37.0.tgz#c27e01925185cef809c9f09e26129dd87eb8198d"
-  integrity sha512-MSbHCB5U7O34xYPLrKeChtx9JuCKY3IIxK6MggAqNQfsBSYk779pMP1MbOsT9e8gkgVQ0w8IQx+ttI7Ozvo7vg==
+"@spectrum-web-components/meter@0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/meter/-/meter-0.44.0.tgz#dc1dca3addfaf4d2857676392902bb2220684fa7"
+  integrity sha512-De0Wny5UVZAazfvwZi3AtOQ1uytI4FjvCqIq0c5DAcNRQHGcBwlc1+oKPKxORzrLnRfpYDOpMvnUH7B/kpeI3Q==
   dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/field-label" "^0.37.0"
-    "@spectrum-web-components/shared" "^0.37.0"
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/field-label" "^0.44.0"
+    "@spectrum-web-components/reactive-controllers" "^0.44.0"
+    "@spectrum-web-components/shared" "^0.44.0"
 
 "@spectrum-web-components/modal@0.37.0", "@spectrum-web-components/modal@^0.37.0":
   version "0.37.0"
@@ -2603,19 +2611,19 @@
   dependencies:
     "@spectrum-web-components/base" "^0.37.0"
 
-"@spectrum-web-components/number-field@0.37.0", "@spectrum-web-components/number-field@^0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/number-field/-/number-field-0.37.0.tgz#b41c265b2d2a6253fe6ee2f3e45a7016c50cbf2d"
-  integrity sha512-XJZJQGyhfnm9GY5XUBshUXb3LEgzB33D8y8hY4cSnky1a9mdpeboV+HB+z2TOkeriB9ZQTaIoT8Ev/p15Tr+ew==
+"@spectrum-web-components/number-field@0.44.0", "@spectrum-web-components/number-field@^0.37.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/number-field/-/number-field-0.44.0.tgz#b0a4843d6b38df7cf8e5a40e2bedfa518179144e"
+  integrity sha512-ZTdEgf5bW4rquL47jPt/s1UPALQz7EN9NOauFFyMzhknO1jCa5PdoCeQQW4KdpNakP4hNWwVfVYYQKmFzE+Erg==
   dependencies:
     "@internationalized/number" "^3.1.0"
-    "@spectrum-web-components/action-button" "^0.37.0"
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/icon" "^0.37.0"
-    "@spectrum-web-components/icons-ui" "^0.37.0"
-    "@spectrum-web-components/reactive-controllers" "^0.37.0"
-    "@spectrum-web-components/shared" "^0.37.0"
-    "@spectrum-web-components/textfield" "^0.37.0"
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/icon" "^0.44.0"
+    "@spectrum-web-components/icons-ui" "^0.44.0"
+    "@spectrum-web-components/infield-button" "^0.44.0"
+    "@spectrum-web-components/reactive-controllers" "^0.44.0"
+    "@spectrum-web-components/shared" "^0.44.0"
+    "@spectrum-web-components/textfield" "^0.44.0"
 
 "@spectrum-web-components/opacity-checkerboard@^0.44.0":
   version "0.44.0"
@@ -2624,18 +2632,18 @@
   dependencies:
     "@spectrum-web-components/base" "^0.44.0"
 
-"@spectrum-web-components/overlay@0.37.0", "@spectrum-web-components/overlay@^0.37.0", "@spectrum-web-components/overlay@^0.44.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/overlay/-/overlay-0.37.0.tgz#6173da0c12b407c572acba15a0024d828e7dea07"
-  integrity sha512-kMEXAWdHJ/RGLbR4GHAEvgb03uaKNJSakVYgqoxQ15Z8PTq669FZQZMvYGr5VftRaXpejm5n1GK+KxuK6Cy+uw==
+"@spectrum-web-components/overlay@0.44.0", "@spectrum-web-components/overlay@^0.37.0", "@spectrum-web-components/overlay@^0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/overlay/-/overlay-0.44.0.tgz#6e4b3b1b5abf09b6b93265489cd3a2287cb7600d"
+  integrity sha512-0edHYKYdsF0r5vjoKQ55hxcGOHPHIekX8krvoqkCXZ79Q14BvYihqvtrLLOsdpz5iHAJ7yAVav6VjZEGoatb6w==
   dependencies:
-    "@floating-ui/dom" "^1.5.1"
-    "@floating-ui/utils" "^0.1.1"
-    "@spectrum-web-components/action-button" "^0.37.0"
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/reactive-controllers" "^0.37.0"
-    "@spectrum-web-components/shared" "^0.37.0"
-    "@spectrum-web-components/theme" "^0.37.0"
+    "@floating-ui/dom" "^1.6.1"
+    "@floating-ui/utils" "^0.2.1"
+    "@spectrum-web-components/action-button" "^0.44.0"
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/reactive-controllers" "^0.44.0"
+    "@spectrum-web-components/shared" "^0.44.0"
+    "@spectrum-web-components/theme" "^0.44.0"
 
 "@spectrum-web-components/picker-button@0.37.0":
   version "0.37.0"
@@ -2687,23 +2695,23 @@
     "@spectrum-web-components/base" "^0.44.0"
     "@spectrum-web-components/shared" "^0.44.0"
 
-"@spectrum-web-components/quick-actions@0.37.0", "@spectrum-web-components/quick-actions@^0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/quick-actions/-/quick-actions-0.37.0.tgz#fdf6c4d875fa86e45e69a0b9f86907445610a6cd"
-  integrity sha512-h9KRwowJ4AQh6UpDcC+iuijm1wPxf/ZhmQgwH4CeYXXl2HU9NuW67QwVkVz7axjNdY5dDh6I2bdwFD/IcZW/ug==
+"@spectrum-web-components/quick-actions@0.44.0", "@spectrum-web-components/quick-actions@^0.37.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/quick-actions/-/quick-actions-0.44.0.tgz#cc54a02bed977c2cb8b5c36f04e95a6e5ac6680b"
+  integrity sha512-3VF8ouSQObEsYjDf60I9RIc+OwqzQQ1qC6axHkifUidG2ORvkjmifa2esVfVYYsRn3+ICA0844Y54HV3AJa37A==
   dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
+    "@spectrum-web-components/base" "^0.44.0"
 
-"@spectrum-web-components/radio@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/radio/-/radio-0.37.0.tgz#a210fce0f4097b87d82becf3ae3ebd936eb5b768"
-  integrity sha512-Rg8vXQKcOc+0S+z+Y2MiIHCQ9h9rkJuESc4ihH88UTJyqnpm7Ejy40HIbNl6zVzN5LgT1u6wovyA2ks4Jpamng==
+"@spectrum-web-components/radio@0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/radio/-/radio-0.44.0.tgz#a51247013f8b5741f27ed44fbdf3b1f647da57c7"
+  integrity sha512-+tv8EW3pzS8qnQ8iJrXnRa1kDjYzeaw0cFNOT7ei9P4HDZMmI1QE+rBZeh6zjefqcqrs/NlH4KrD+p1nL21GtA==
   dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/field-group" "^0.37.0"
-    "@spectrum-web-components/help-text" "^0.37.0"
-    "@spectrum-web-components/reactive-controllers" "^0.37.0"
-    "@spectrum-web-components/shared" "^0.37.0"
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/field-group" "^0.44.0"
+    "@spectrum-web-components/help-text" "^0.44.0"
+    "@spectrum-web-components/reactive-controllers" "^0.44.0"
+    "@spectrum-web-components/shared" "^0.44.0"
 
 "@spectrum-web-components/reactive-controllers@0.44.0", "@spectrum-web-components/reactive-controllers@^0.37.0", "@spectrum-web-components/reactive-controllers@^0.44.0":
   version "0.44.0"
@@ -2712,16 +2720,16 @@
   dependencies:
     lit "^3.1.3"
 
-"@spectrum-web-components/search@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/search/-/search-0.37.0.tgz#b98e7cce3e43cba10cd2377acd0e39d4950512a4"
-  integrity sha512-9ithHfHhMTC4SpVC04XRDP8SEJwI2aEJRbbpjODNJcpUruclweutsektMvh4Jm3Qk3+95C5QE8fZHBIfQ5Quhw==
+"@spectrum-web-components/search@0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/search/-/search-0.44.0.tgz#0fd39ef9aac521e42904ad4270d53a800b830bf3"
+  integrity sha512-mYwxoLMG90A3S8UzV2ge5jObdmFLs6T+NTexaNRhCEXp1J/UB7iTWAGt+sdULSuyvH64D2jAi4DKiSuS1ZH7Mg==
   dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/button" "^0.37.0"
-    "@spectrum-web-components/icon" "^0.37.0"
-    "@spectrum-web-components/icons-workflow" "^0.37.0"
-    "@spectrum-web-components/textfield" "^0.37.0"
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/button" "^0.44.0"
+    "@spectrum-web-components/icon" "^0.44.0"
+    "@spectrum-web-components/icons-workflow" "^0.44.0"
+    "@spectrum-web-components/textfield" "^0.44.0"
 
 "@spectrum-web-components/shared@0.44.0", "@spectrum-web-components/shared@^0.37.0", "@spectrum-web-components/shared@^0.44.0":
   version "0.44.0"
@@ -2732,14 +2740,14 @@
     "@spectrum-web-components/base" "^0.44.0"
     focus-visible "^5.1.0"
 
-"@spectrum-web-components/sidenav@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/sidenav/-/sidenav-0.37.0.tgz#fe02e1685e955dee46259e628fd85e6c9436993c"
-  integrity sha512-QnlXkIoLrwhxK99QSRAXJhQMK+Uy3fVFD0ZAFQsqxtCyze32Z50dGQQuHMvp4uCqA1XkOWlVBIJ2PcC718OYZg==
+"@spectrum-web-components/sidenav@0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/sidenav/-/sidenav-0.44.0.tgz#2a420971d7cd43c90136a0d167061ed5b5db510f"
+  integrity sha512-E424Dg6pK8G1t0l8v0O3Yly4Ul3jr/j2jl4pAQxP+1sFQOcYj8TRafTkj4vJsCqifPm6AccXxj2N4XbWi4kU9A==
   dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/reactive-controllers" "^0.37.0"
-    "@spectrum-web-components/shared" "^0.37.0"
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/reactive-controllers" "^0.44.0"
+    "@spectrum-web-components/shared" "^0.44.0"
 
 "@spectrum-web-components/slider@0.37.0":
   version "0.37.0"
@@ -2769,25 +2777,25 @@
   dependencies:
     "@spectrum-web-components/base" "^0.44.0"
 
-"@spectrum-web-components/switch@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/switch/-/switch-0.37.0.tgz#2e2da7c2f57379fddf5ae0d7f8bd6054d6a89381"
-  integrity sha512-cnGA+BvsMDJYNEVAT0nxd2UrNZ/6wzv951hIwVgUe09GDKmEWicxkZHBd8P3CojG7SAh8H4ENFfsrhbsKBvlcg==
+"@spectrum-web-components/switch@0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/switch/-/switch-0.44.0.tgz#4082714fe42993252eb65100c8fa3ec3eef0b30e"
+  integrity sha512-qPQ7n3r2k+U/pxVnmBNDSp+PbWyEgp6QJR+hLsBWPUxR6Gn4ENwLio/H7XNxEzbnWiyh0LXILYzvA4fj2zv3lw==
   dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/checkbox" "^0.37.0"
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/checkbox" "^0.44.0"
 
-"@spectrum-web-components/table@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/table/-/table-0.37.0.tgz#dd0424e394799e1c19579eb1c73442fe5f27de40"
-  integrity sha512-9tmkU7Li2f381TFS82KdW7lXvi4nzQeDCcyW1FgK1GW0/QkvbN/Pvtr47a0lKXROvhHUKIReMWjFEkGv1HGyOw==
+"@spectrum-web-components/table@0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/table/-/table-0.44.0.tgz#816b9a94183806a84b2add60728c6e6189cbd57d"
+  integrity sha512-fU/7Y3jwROwTLPdK7kKjTgd5VsgUdWZHsRKSyezJV4ojf80ZnnTutPyECcJnhfrIJ2T5dFcWTomLRkQ1KZNfeA==
   dependencies:
-    "@lit-labs/observers" "^2.0.0"
-    "@lit-labs/virtualizer" "^2.0.2"
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/checkbox" "^0.37.0"
-    "@spectrum-web-components/icon" "^0.37.0"
-    "@spectrum-web-components/icons-ui" "^0.37.0"
+    "@lit-labs/observers" "^2.0.2"
+    "@lit-labs/virtualizer" "^2.0.12"
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/checkbox" "^0.44.0"
+    "@spectrum-web-components/icon" "^0.44.0"
+    "@spectrum-web-components/icons-ui" "^0.44.0"
 
 "@spectrum-web-components/tabs@0.37.0":
   version "0.37.0"
@@ -2801,29 +2809,29 @@
     "@spectrum-web-components/reactive-controllers" "^0.37.0"
     "@spectrum-web-components/shared" "^0.37.0"
 
-"@spectrum-web-components/tags@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/tags/-/tags-0.37.0.tgz#de11d1adf5ed7d9d6425269a459496efa2bd4784"
-  integrity sha512-CdVZHdsB+7UZ23oVWzGojnPZYhEy9TKoGanCPmncEAAPBN+2Lcjry9UzcEjfhNd0SjtoEv5cD4vMThdDpv+QBg==
+"@spectrum-web-components/tags@0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/tags/-/tags-0.44.0.tgz#6004b9516196fa4f8ef43f4daecd4d7d3feebe75"
+  integrity sha512-DxwRQS+bul+cKQHMD1VUpgb7F4+rZKPimd7keMXCVLu1qlpfGLpHlg5+X6OjIzflqU6K/a7PEgLcHh5asbWMOA==
   dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/button" "^0.37.0"
-    "@spectrum-web-components/reactive-controllers" "^0.37.0"
-    "@spectrum-web-components/shared" "^0.37.0"
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/button" "^0.44.0"
+    "@spectrum-web-components/reactive-controllers" "^0.44.0"
+    "@spectrum-web-components/shared" "^0.44.0"
 
-"@spectrum-web-components/textfield@0.37.0", "@spectrum-web-components/textfield@^0.37.0", "@spectrum-web-components/textfield@^0.44.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/textfield/-/textfield-0.37.0.tgz#f35101d1967c05fcdd39fadcbbf3eb60ca2fc823"
-  integrity sha512-pDhBXQth3w3OaxXGe9tMzEHvHFoJjmf2SQzOnrPPldRYx+JOEX6/fhBGel4EVXjl81oIpR9BRGAQEOFvtIWmLg==
+"@spectrum-web-components/textfield@0.44.0", "@spectrum-web-components/textfield@^0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/textfield/-/textfield-0.44.0.tgz#f35585f0a0b36cf67eed56e018667417a664a294"
+  integrity sha512-DuS4sDayFKMxTGBMBdj/1FwLlZcBIt3EGvPVWD0gYSXgZaQeX4WJ1D7kMU/NJFXbqoxA20plVndwwrUazqVdIA==
   dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/help-text" "^0.37.0"
-    "@spectrum-web-components/icon" "^0.37.0"
-    "@spectrum-web-components/icons-ui" "^0.37.0"
-    "@spectrum-web-components/icons-workflow" "^0.37.0"
-    "@spectrum-web-components/shared" "^0.37.0"
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/help-text" "^0.44.0"
+    "@spectrum-web-components/icon" "^0.44.0"
+    "@spectrum-web-components/icons-ui" "^0.44.0"
+    "@spectrum-web-components/icons-workflow" "^0.44.0"
+    "@spectrum-web-components/shared" "^0.44.0"
 
-"@spectrum-web-components/theme@0.44.0", "@spectrum-web-components/theme@^0.14.7", "@spectrum-web-components/theme@^0.37.0":
+"@spectrum-web-components/theme@0.44.0", "@spectrum-web-components/theme@^0.14.7", "@spectrum-web-components/theme@^0.37.0", "@spectrum-web-components/theme@^0.44.0":
   version "0.44.0"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/theme/-/theme-0.44.0.tgz#2cb9bd118aa8df68c90d64d4f2cea94a5a598419"
   integrity sha512-T7JpgQMueDe2KLAGY2Vr8PWctTAyuuygcE35audqBAjt8cEhH34BoTmsO8EyIXd1n3wVAhUVF90tffH1/K2yLQ==
@@ -2831,24 +2839,26 @@
     "@spectrum-web-components/base" "^0.44.0"
     "@spectrum-web-components/styles" "^0.44.0"
 
-"@spectrum-web-components/toast@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/toast/-/toast-0.37.0.tgz#cba5ca06ebe135080b5a56e0a7f919989dfeb851"
-  integrity sha512-CgAh9321jyQytvVwAYp8Tpz6Cltgfj02/OcecCSlfcaoLqF2S/23/2aNgSYjbEuQ8xgcD63oeXIHrRpMxBceyw==
+"@spectrum-web-components/toast@0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/toast/-/toast-0.44.0.tgz#e48b2f164bcbfd918816fd1b8bc27616f3ea8511"
+  integrity sha512-hQ2D/WF4aWUCLkeTSoS8SWiZTck4Ns2OaDM+/bG/GY5AkcRLPJhaAeY9Kb+xbZfUonTIb/0DmDRYkpZwP1wOEA==
   dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/button" "^0.37.0"
-    "@spectrum-web-components/icon" "^0.37.0"
-    "@spectrum-web-components/icons-workflow" "^0.37.0"
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/button" "^0.44.0"
+    "@spectrum-web-components/icon" "^0.44.0"
+    "@spectrum-web-components/icons-workflow" "^0.44.0"
+    "@spectrum-web-components/shared" "^0.44.0"
 
-"@spectrum-web-components/tooltip@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/tooltip/-/tooltip-0.37.0.tgz#06dd1d3657d39e103d645e4e19a87458980beeef"
-  integrity sha512-xW48gNYZciP3mhevKEzK6hVxIm/nLgj+ci4EMlzP5AwU5cQGNne5O2Y3OIbUOZHO3/ROhJxG4aLx3m3XROYzwQ==
+"@spectrum-web-components/tooltip@0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/tooltip/-/tooltip-0.44.0.tgz#8dfe0c2b0a7ba9f6390f36980eab1502cf726d85"
+  integrity sha512-BbOydYqBtdNF53QRJes1N0oL5x6hBPRRc1VoSVMMhAFJnYAH+eVjZE7XRa9drQqx6ZB3CayQC3BE2MfgkfRojA==
   dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/overlay" "^0.37.0"
-    "@spectrum-web-components/shared" "^0.37.0"
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/overlay" "^0.44.0"
+    "@spectrum-web-components/reactive-controllers" "^0.44.0"
+    "@spectrum-web-components/shared" "^0.44.0"
 
 "@spectrum-web-components/tray@^0.37.0":
   version "0.37.0"
@@ -3350,21 +3360,19 @@
     lit-element "^3.2.0"
     lit-html "^2.5.0"
 
-"@swc-uxp-internal/menu@npm:@spectrum-web-components/menu@0.44.0":
-  version "0.44.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/menu/-/menu-0.44.0.tgz#c2d7ea149629601e7db636f62623ed439ebdc1da"
-  integrity sha512-eq6cchyHJidtseWqMr/JSCr0WN+JntEduN2jEgHVvsuUUbDhzb9fpcKyOzAYQlTYS741LL9uYcQomLKXfXJJsQ==
+"@swc-uxp-internal/menu@npm:@spectrum-web-components/menu@0.37.0":
+  version "0.37.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/menu/-/menu-0.37.0.tgz#0c89a883af6c9038ceb5667945910a01e9c6bc13"
+  integrity sha512-WG7lqePUERK/xE6/DlyfNzbW8gjSkQPEwGSxbe8AFOWTImzQALAz0rxmGTzHOkoThvsSGErt/mC7WiXkL5IWjQ==
   dependencies:
-    "@lit-labs/observers" "^2.0.2"
-    "@spectrum-web-components/action-button" "^0.44.0"
-    "@spectrum-web-components/base" "^0.44.0"
-    "@spectrum-web-components/divider" "^0.44.0"
-    "@spectrum-web-components/icon" "^0.44.0"
-    "@spectrum-web-components/icons-ui" "^0.44.0"
-    "@spectrum-web-components/overlay" "^0.44.0"
-    "@spectrum-web-components/popover" "^0.44.0"
-    "@spectrum-web-components/reactive-controllers" "^0.44.0"
-    "@spectrum-web-components/shared" "^0.44.0"
+    "@lit-labs/observers" "^2.0.0"
+    "@spectrum-web-components/action-button" "^0.37.0"
+    "@spectrum-web-components/base" "^0.37.0"
+    "@spectrum-web-components/divider" "^0.37.0"
+    "@spectrum-web-components/icon" "^0.37.0"
+    "@spectrum-web-components/icons-ui" "^0.37.0"
+    "@spectrum-web-components/overlay" "^0.37.0"
+    "@spectrum-web-components/shared" "^0.37.0"
 
 "@swc-uxp-internal/meter@npm:@spectrum-web-components/meter@0.44.0":
   version "0.44.0"
@@ -3390,18 +3398,18 @@
     "@spectrum-web-components/shared" "^0.44.0"
     "@spectrum-web-components/textfield" "^0.44.0"
 
-"@swc-uxp-internal/overlay@npm:@spectrum-web-components/overlay@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/overlay/-/overlay-0.37.0.tgz#6173da0c12b407c572acba15a0024d828e7dea07"
-  integrity sha512-kMEXAWdHJ/RGLbR4GHAEvgb03uaKNJSakVYgqoxQ15Z8PTq669FZQZMvYGr5VftRaXpejm5n1GK+KxuK6Cy+uw==
+"@swc-uxp-internal/overlay@npm:@spectrum-web-components/overlay@0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/overlay/-/overlay-0.44.0.tgz#6e4b3b1b5abf09b6b93265489cd3a2287cb7600d"
+  integrity sha512-0edHYKYdsF0r5vjoKQ55hxcGOHPHIekX8krvoqkCXZ79Q14BvYihqvtrLLOsdpz5iHAJ7yAVav6VjZEGoatb6w==
   dependencies:
-    "@floating-ui/dom" "^1.5.1"
-    "@floating-ui/utils" "^0.1.1"
-    "@spectrum-web-components/action-button" "^0.37.0"
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/reactive-controllers" "^0.37.0"
-    "@spectrum-web-components/shared" "^0.37.0"
-    "@spectrum-web-components/theme" "^0.37.0"
+    "@floating-ui/dom" "^1.6.1"
+    "@floating-ui/utils" "^0.2.1"
+    "@spectrum-web-components/action-button" "^0.44.0"
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/reactive-controllers" "^0.44.0"
+    "@spectrum-web-components/shared" "^0.44.0"
+    "@spectrum-web-components/theme" "^0.44.0"
 
 "@swc-uxp-internal/picker-button@npm:@spectrum-web-components/picker-button@0.37.0":
   version "0.37.0"

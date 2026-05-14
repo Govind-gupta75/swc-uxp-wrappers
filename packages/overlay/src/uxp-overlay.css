@@ -10,9 +10,19 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* write uxp style overrides */
+/* UXP overrides for @swc-uxp-wrappers/overlay */
 
-/* Workaround for - https://jira.corp.adobe.com/browse/UXP-22675 */
 .dialog {
     z-index: 1000;
+}
+
+/* v0.44.0 changed .dialog:not([is-visible]) from translate:-999em to display:none.
+   Restore the v0.37.0 mechanism: use the CSS translate property (same as
+   PlacementController's inline style) so that !important in this class rule
+   suppresses the inline translate while the dialog is not visible. When
+   [is-visible] is set, this class rule drops away and the inline positioning
+   takes over. */
+.dialog:not([is-visible]) {
+    display: flex !important;
+    translate: -999em -999em !important;
 }

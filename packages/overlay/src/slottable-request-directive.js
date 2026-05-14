@@ -10,21 +10,4 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-// Must be first — polyfills globalThis.CSS before OverlayPopover.js evaluates.
-import './css-polyfill.js';
-
-// Patches PlacementController before any Overlay instance is created.
-// Fixes autoUpdate IntersectionObserver rootMargin rejection in UXP.
-import './uxp-placement-patch.js';
-
-import { Overlay } from '@swc-uxp-internal/overlay/src/Overlay.js';
-
-import styles from './uxp-overlay.css.js';
-
-class UxpOverlay extends Overlay {
-    static get styles() {
-        return [...super.styles, styles];
-    }
-}
-
-export { UxpOverlay as Overlay };
+export * from '@swc-uxp-internal/overlay/src/slottable-request-directive.js';

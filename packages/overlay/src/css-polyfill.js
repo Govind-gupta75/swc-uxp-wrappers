@@ -10,21 +10,13 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-// Must be first — polyfills globalThis.CSS before OverlayPopover.js evaluates.
-import './css-polyfill.js';
-
-// Patches PlacementController before any Overlay instance is created.
-// Fixes autoUpdate IntersectionObserver rootMargin rejection in UXP.
-import './uxp-placement-patch.js';
-
-import { Overlay } from '@swc-uxp-internal/overlay/src/Overlay.js';
-
-import styles from './uxp-overlay.css.js';
-
-class UxpOverlay extends Overlay {
-    static get styles() {
-        return [...super.styles, styles];
-    }
+/* UXP does not expose the CSS global (CSS.supports). OverlayPopover.js in
+   @spectrum-web-components/overlay@0.44.0 calls CSS.supports() at module
+   load time, crashing the app. This shim must be imported before any overlay
+   module to prevent the ReferenceError. */
+if (typeof globalThis.CSS === 'undefined') {
+    globalThis.CSS = {
+        supports: () => false,
+        escape: (s) => String(s),
+    };
 }
-
-export { UxpOverlay as Overlay };

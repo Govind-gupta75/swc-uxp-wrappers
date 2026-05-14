@@ -12,6 +12,13 @@ governing permissions and limitations under the License.
 
 /* write uxp style overrides */
 
+/* --spectrum-dialog-confirm-padding was renamed to --spectrum-dialog-confirm-padding-grid
+   in @spectrum-css v0.44.0. All references in this file still use the old name, so
+   define an alias that pulls the new token value. Fallback 40px = medium scale value. */
+:host {
+    --spectrum-dialog-confirm-padding: var(--spectrum-dialog-confirm-padding-grid, 40px);
+}
+
 /* Workaround for - https://jira.corp.adobe.com/browse/UXP-21311 */
 
 ::slotted([slot='hero']) {
