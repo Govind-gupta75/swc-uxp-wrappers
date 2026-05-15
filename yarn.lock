@@ -2659,14 +2659,16 @@
     "@spectrum-web-components/shared" "^0.44.0"
     "@spectrum-web-components/theme" "^0.44.0"
 
-"@spectrum-web-components/picker-button@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/picker-button/-/picker-button-0.37.0.tgz#d8f097a81f83251b193c39889ede93270276f9f6"
-  integrity sha512-82d8nELxO+JNPPiP4t4v3pYe+afYVZyhnBxT/SPLOp+o5ZsjiCMO0zJ/ZBtbvItQcJBrquDp6R5vgHYyImL+4w==
+"@spectrum-web-components/picker-button@0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/picker-button/-/picker-button-0.44.0.tgz#db6b5bcaac8121004f50042df4efafde3f7540af"
+  integrity sha512-U8nrwZISCcSuiwH4Cf/783bBCibD2+AsdmUh1UPptjLXkk+3EsHRYReoKtDAxL0nlRpvehJLS00ueSSSWxcp/g==
   dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/button" "^0.37.0"
-    "@spectrum-web-components/icons-ui" "^0.37.0"
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/button" "^0.44.0"
+    "@spectrum-web-components/icon" "^0.44.0"
+    "@spectrum-web-components/icons-ui" "^0.44.0"
+    "@spectrum-web-components/shared" "^0.44.0"
 
 "@spectrum-web-components/picker@0.37.0":
   version "0.37.0"
@@ -3431,14 +3433,16 @@
     "@spectrum-web-components/shared" "^0.44.0"
     "@spectrum-web-components/theme" "^0.44.0"
 
-"@swc-uxp-internal/picker-button@npm:@spectrum-web-components/picker-button@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/picker-button/-/picker-button-0.37.0.tgz#d8f097a81f83251b193c39889ede93270276f9f6"
-  integrity sha512-82d8nELxO+JNPPiP4t4v3pYe+afYVZyhnBxT/SPLOp+o5ZsjiCMO0zJ/ZBtbvItQcJBrquDp6R5vgHYyImL+4w==
+"@swc-uxp-internal/picker-button@npm:@spectrum-web-components/picker-button@0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/picker-button/-/picker-button-0.44.0.tgz#db6b5bcaac8121004f50042df4efafde3f7540af"
+  integrity sha512-U8nrwZISCcSuiwH4Cf/783bBCibD2+AsdmUh1UPptjLXkk+3EsHRYReoKtDAxL0nlRpvehJLS00ueSSSWxcp/g==
   dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/button" "^0.37.0"
-    "@spectrum-web-components/icons-ui" "^0.37.0"
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/button" "^0.44.0"
+    "@spectrum-web-components/icon" "^0.44.0"
+    "@spectrum-web-components/icons-ui" "^0.44.0"
+    "@spectrum-web-components/shared" "^0.44.0"
 
 "@swc-uxp-internal/popover@npm:@spectrum-web-components/popover@0.37.0":
   version "0.37.0"

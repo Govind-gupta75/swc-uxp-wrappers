@@ -16,8 +16,33 @@ import styles from './uxp-picker-button.css.js';
 
 class UxpPickerButton extends PickerButton {
     static get styles() {
-        // We are combining our styles to make all super class styles available along with the transitive dependent classes styles.
-        return [super.styles, styles];
+        return [...super.styles, styles];
+    }
+
+    /**
+     * v0.44.0 changed ObserveSlotPresence to use
+     * querySelector(':scope > [slot="label"]') but UXP does not support the
+     * ':scope >' compound selector — it always returns null, causing hasText
+     * to always be false and the label to be permanently hidden.
+     * Override to use plain querySelector (v0.37.0 behaviour).
+     */
+    get hasText() {
+        return !!this.querySelector('[slot="label"]');
+    }
+
+    firstUpdated(changedProperties) {
+        super.firstUpdated(changedProperties);
+        // Re-evaluate hasText when slotted label content changes dynamically
+        // (MutationController's callback also uses ':scope >' so it never
+        // fires requestUpdate; listen to slotchange on the slot element directly).
+        const labelSlot =
+            this.shadowRoot &&
+            this.shadowRoot.querySelector('slot[name="label"]');
+        if (labelSlot) {
+            labelSlot.addEventListener('slotchange', () =>
+                this.requestUpdate()
+            );
+        }
     }
 }
 
