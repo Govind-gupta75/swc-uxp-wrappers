@@ -12,7 +12,9 @@ governing permissions and limitations under the License.
 
 /* write uxp style overrides */
 
-/* Workaround for - https://jira.corp.adobe.com/browse/UXP-21331 */
+/* UXP does not support CSS filter: drop-shadow() (used in spectrum-popover.css via
+   --spectrum-popover-filter). Replace with box-shadow as a visual equivalent.
+   Workaround for: https://jira.corp.adobe.com/browse/UXP-21331 */
 :host {
     --uxp-swc-horizontal-offset: 0px;
     --uxp-swc-vertical-offset: 2px;
@@ -21,10 +23,13 @@ governing permissions and limitations under the License.
         var(--uxp-swc-blur)
         var(
             --spectrum-popover-shadow-color,
-            var(--spectrum-alias-dropshadow-color)
+            var(--spectrum-drop-shadow-color)
         );
 }
 
+/* UXP does not size SVG elements correctly when their container uses percentage
+   dimensions. Give the tip SVG containers explicit pixel heights/widths so the
+   arrow renders at the correct size regardless of placement. */
 .block {
     height: 10px;
     width: 100%;
@@ -33,4 +38,24 @@ governing permissions and limitations under the License.
 .inline {
     height: 100%;
     width: 10px;
+}
+
+/* UXP does not support centering an absolutely positioned element via
+   inset-inline: 0 + margin: auto (used in spectrum-popover.css for #tip).
+   Explicitly center the caret for top/bottom placements using left: 50% +
+   translateX(-50%). For bottom placement the scaleY(-1) flip is preserved.
+   Only scoped to [placement*=top/bottom] to avoid bleeding into left/right
+   placements which use a different inset-inline/inset-block scheme. */
+:host([tip][placement*=top]) #tip {
+    left: 50%;
+    right: auto;
+    margin: 0;
+    transform: translateX(-50%);
+}
+
+:host([tip][placement*=bottom]) #tip {
+    left: 50%;
+    right: auto;
+    margin: 0;
+    transform: translateX(-50%) scaleY(-1);
 }

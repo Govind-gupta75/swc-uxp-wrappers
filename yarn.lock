@@ -3426,13 +3426,13 @@
     "@spectrum-web-components/button" "^0.37.0"
     "@spectrum-web-components/icons-ui" "^0.37.0"
 
-"@swc-uxp-internal/popover@npm:@spectrum-web-components/popover@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/popover/-/popover-0.37.0.tgz#0a37d0886994f9b24e70a6d6ff6da543a775a324"
-  integrity sha512-UilQj4W2HgDMopON2RG7wEYxnGViAWBJYFaTuO7dCLgEHuQMbIN6h30JvSwfz5Z0Vr/eJgSd3I7xj0K9Bl2c6Q==
+"@swc-uxp-internal/popover@npm:@spectrum-web-components/popover@0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/popover/-/popover-0.44.0.tgz#a0d873b29b855b7401cc6b692f6f57eeb34d1670"
+  integrity sha512-yrbunrvNAWknPC4lAsf+P6hZCQu1+N9jRMIJmOXlOh41AF+opW60GwJkVVGF0hXONmV2+xJY5gSChmvYI3dCrw==
   dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/overlay" "^0.37.0"
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/overlay" "^0.44.0"
 
 "@swc-uxp-internal/quick-actions@npm:@spectrum-web-components/quick-actions@0.37.0":
   version "0.37.0"
