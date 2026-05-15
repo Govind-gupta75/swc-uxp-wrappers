@@ -17,7 +17,21 @@ import styles from './uxp-dialog.css.js';
 class UxpDialog extends Dialog {
     static get styles() {
         // We are combining our styles to make all super class styles available along with the transitive dependent classes styles.
-        return [super.styles, styles];
+        return [...super.styles, styles];
+    }
+
+    // ObserveSlotPresence v0.44.0 uses querySelector(':scope > selector') which UXP does not
+    // support. Override the getters to query directly without :scope.
+    get hasButtons() {
+        return !!this.querySelector('[slot="button"]');
+    }
+
+    get hasFooter() {
+        return !!this.querySelector('[slot="footer"]');
+    }
+
+    get hasHero() {
+        return !!this.querySelector('[slot="hero"]');
     }
 }
 

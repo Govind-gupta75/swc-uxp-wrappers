@@ -2378,6 +2378,19 @@
     "@spectrum-web-components/icons-workflow" "^0.44.0"
     "@spectrum-web-components/reactive-controllers" "^0.44.0"
 
+"@spectrum-web-components/alert-dialog@^0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/alert-dialog/-/alert-dialog-0.44.0.tgz#3b4533c57f7897c50dad5c477844763e474680e6"
+  integrity sha512-Uc8wnNMi/y+WJ71CKEMzn3NkukT0kzolwFHMfQ19CW8UEtPJPldkuUFAFa0/L5SCZT362DXJDUE0GFKLLnPJNQ==
+  dependencies:
+    "@lit-labs/observers" "^2.0.2"
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/button" "^0.44.0"
+    "@spectrum-web-components/button-group" "^0.44.0"
+    "@spectrum-web-components/divider" "^0.44.0"
+    "@spectrum-web-components/icons-workflow" "^0.44.0"
+    "@spectrum-web-components/shared" "^0.44.0"
+
 "@spectrum-web-components/asset@0.44.0", "@spectrum-web-components/asset@^0.37.0":
   version "0.44.0"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/asset/-/asset-0.44.0.tgz#b576b0a6682af84ecf1dd7d23d716f320b27a7ab"
@@ -2407,7 +2420,7 @@
   dependencies:
     lit "^2.5.0 || ^3.1.3"
 
-"@spectrum-web-components/button-group@0.44.0", "@spectrum-web-components/button-group@^0.37.0":
+"@spectrum-web-components/button-group@0.44.0", "@spectrum-web-components/button-group@^0.37.0", "@spectrum-web-components/button-group@^0.44.0":
   version "0.44.0"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/button-group/-/button-group-0.44.0.tgz#b187886352db9b7ffe85dd11b9898bc6df6a8e40"
   integrity sha512-nHVBKO4IiiqbmBXbt4udUtlhfPAgsWq2T+2BwtWWxkzx/P1RWgzu3Ap3DN0PnHKeojslgvwJ+gaFYSqE6X78sg==
@@ -2604,7 +2617,7 @@
     "@spectrum-web-components/reactive-controllers" "^0.44.0"
     "@spectrum-web-components/shared" "^0.44.0"
 
-"@spectrum-web-components/modal@0.37.0", "@spectrum-web-components/modal@^0.37.0":
+"@spectrum-web-components/modal@0.37.0", "@spectrum-web-components/modal@^0.37.0", "@spectrum-web-components/modal@^0.44.0":
   version "0.37.0"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/modal/-/modal-0.37.0.tgz#546ec9ad8f17056e77c9c7ed61ae34f56219f3e4"
   integrity sha512-GXtRZdXFHZoP3UKu5oG7TQFEOShHhxGE5p7vvN7oFPm2Yz1WtpmjH2HdBFb2mI8BmEvKax/KEG5kZCrTDQpTvg==
@@ -2871,7 +2884,7 @@
     "@spectrum-web-components/shared" "^0.37.0"
     "@spectrum-web-components/underlay" "^0.37.0"
 
-"@spectrum-web-components/underlay@0.37.0", "@spectrum-web-components/underlay@^0.37.0":
+"@spectrum-web-components/underlay@0.37.0", "@spectrum-web-components/underlay@^0.37.0", "@spectrum-web-components/underlay@^0.44.0":
   version "0.37.0"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/underlay/-/underlay-0.37.0.tgz#87d0acdc9032aea31f30030b4549db57017688a9"
   integrity sha512-H3a3HmxrqGY6+N9nQwiapxXVLEIJoQ87naoXKy7ZnEmRyUnPcLjBaoXvLZKKXEDosaYxE3Mm6dnfjyKpk5PM1Q==
@@ -3118,14 +3131,6 @@
   dependencies:
     lit "^2.5.0 || ^3.1.3"
 
-"@swc-uxp-internal/button-group@npm:@spectrum-web-components/button-group@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/button-group/-/button-group-0.37.0.tgz#3f5c52d35eccc1d33c9799a0a3d645ccccce4f68"
-  integrity sha512-GpFU7LftPsfSMifWbE5u4XKVOLCCGlotnuaBfiC+SIb/pRGMQvmysK+hzgDXHDl+KiFGimgNk8bxBpHODyE9ug==
-  dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/button" "^0.37.0"
-
 "@swc-uxp-internal/button-group@npm:@spectrum-web-components/button-group@0.44.0":
   version "0.44.0"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/button-group/-/button-group-0.44.0.tgz#b187886352db9b7ffe85dd11b9898bc6df6a8e40"
@@ -3192,19 +3197,20 @@
     "@spectrum-web-components/icons-ui" "^0.44.0"
     "@spectrum-web-components/shared" "^0.44.0"
 
-"@swc-uxp-internal/dialog@npm:@spectrum-web-components/dialog@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/dialog/-/dialog-0.37.0.tgz#7d17e13d976afaaee6d7edaf70309d1e7a6e54b7"
-  integrity sha512-qHBWlKZF8MerMGrZgrnpsReI22X/xOyYr68+swJHP8rk29HYY+4Suv2w3tn5VnHhlnVLFsntgTBvmG/Gbw67qA==
+"@swc-uxp-internal/dialog@npm:@spectrum-web-components/dialog@0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/dialog/-/dialog-0.44.0.tgz#241949161565169ff629134cab60455b72eeb418"
+  integrity sha512-PAdHNUZQ+IUiUTyXP9lQu8xxf4t7VVkuY6pSnR5wNo+uyHXrhLsTe5U8dhP3v4xavHViXUypa70fFuiiFHLe9Q==
   dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/button" "^0.37.0"
-    "@spectrum-web-components/button-group" "^0.37.0"
-    "@spectrum-web-components/divider" "^0.37.0"
-    "@spectrum-web-components/icons-workflow" "^0.37.0"
-    "@spectrum-web-components/modal" "^0.37.0"
-    "@spectrum-web-components/shared" "^0.37.0"
-    "@spectrum-web-components/underlay" "^0.37.0"
+    "@spectrum-web-components/alert-dialog" "^0.44.0"
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/button" "^0.44.0"
+    "@spectrum-web-components/button-group" "^0.44.0"
+    "@spectrum-web-components/divider" "^0.44.0"
+    "@spectrum-web-components/icons-workflow" "^0.44.0"
+    "@spectrum-web-components/modal" "^0.44.0"
+    "@spectrum-web-components/shared" "^0.44.0"
+    "@spectrum-web-components/underlay" "^0.44.0"
 
 "@swc-uxp-internal/divider@npm:@spectrum-web-components/divider@0.37.0":
   version "0.37.0"
@@ -3594,14 +3600,6 @@
   integrity sha512-NOrlHLLbZyNtjEYYri8GAHON9vPBXTnJ1QLLgdfJ7p++IixZBuHQ6IC/9lO4oDtwNHrwkPziUSvkZQ/8BbSyPQ==
   dependencies:
     "@swc-uxp-internal/asset" "npm:@spectrum-web-components/asset@0.37.0"
-
-"@swc-uxp-wrappers/button-group@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@swc-uxp-wrappers/button-group/-/button-group-2.0.0.tgz#afc6eaac1cf4defa43446bec783ffa31d938a4e7"
-  integrity sha512-WBPWiy7cOZqAE6SUiPtHzcmXH612msseCOY0fuALtGSm2RizTFuGRka0a59ANe3nGYn5T+Ayie2sl3dxoUBDzg==
-  dependencies:
-    "@swc-uxp-internal/button-group" "npm:@spectrum-web-components/button-group@0.37.0"
-    "@swc-uxp-wrappers/button" "2.0.0"
 
 "@swc-uxp-wrappers/button@2.0.0":
   version "2.0.0"

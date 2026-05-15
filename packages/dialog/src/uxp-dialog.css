@@ -46,8 +46,13 @@ governing permissions and limitations under the License.
     margin-right: var(--spectrum-dialog-confirm-padding);
 }
 
+/* v0.37.0: type-icon lived inside .header; margin-left:auto worked within
+   .header's own flex context. v0.44.0: type-icon is a direct .grid flex child.
+   margin-left:auto on a flex item sharing a row with flex:1 heading in a
+   fit-content container creates a circular reference the browser resolves by
+   expanding the container to 100% of available width. Use explicit right margin only. */
 .type-icon {
-    margin-left: auto;
+    flex-shrink: 0;
     margin-right: var(--spectrum-dialog-confirm-padding);
 }
 
