@@ -16,7 +16,8 @@
         "fast-glob": "^3.2.12",
         "lerna": "^6.6.1",
         "postcss": "^8.4.14",
-        "prettier": "^2.8.8"
+        "prettier": "^2.8.8",
+        "@spectrum-web-components/action-bar": "0.44.0"
     },
     "resolutions": {
         "@spectrum-web-components/theme": "0.44.0",
@@ -40,7 +41,7 @@
         "@spectrum-web-components/action-group": "0.44.0",
         "@spectrum-web-components/field-label": "0.44.0",
         "@spectrum-web-components/card": "0.44.0",
-        "@spectrum-web-components/action-bar": "0.37.0",
+        "@spectrum-web-components/action-bar": "0.44.0",
         "@spectrum-web-components/popover": "0.44.0",
         "@spectrum-web-components/menu": "0.44.0",
         "@spectrum-web-components/modal": "0.37.0",

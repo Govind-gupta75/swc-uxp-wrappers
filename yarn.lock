@@ -2346,15 +2346,16 @@
     "@spectrum-web-components/reactive-controllers" "^0.37.0"
     "@spectrum-web-components/shared" "^0.37.0"
 
-"@spectrum-web-components/action-bar@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/action-bar/-/action-bar-0.37.0.tgz#563138be3d69e862876ece62f2093f66d01e3498"
-  integrity sha512-tf6bNCeAdJW18VbA/KCGaSVOdumFJyrtqHThJVFidrxorGaujapKW4lO3xQ1JPoLfZ67Vc0L7Z/Ubwho6wRK0w==
+"@spectrum-web-components/action-bar@0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/action-bar/-/action-bar-0.44.0.tgz#bea7ecdeab2b72a87460699bfb187a6b28e2f11f"
+  integrity sha512-QwrYuUQ0K0bRDQGu8fH5a+AHW6h59194P9R/xRBQv009+wF+uOzyp1Sbl+TwNY1PmG9by+OWV5cBYml+qRYszw==
   dependencies:
-    "@spectrum-web-components/action-group" "^0.37.0"
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/button" "^0.37.0"
-    "@spectrum-web-components/popover" "^0.37.0"
+    "@spectrum-web-components/action-group" "^0.44.0"
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/button" "^0.44.0"
+    "@spectrum-web-components/field-label" "^0.44.0"
+    "@spectrum-web-components/popover" "^0.44.0"
 
 "@spectrum-web-components/action-button@0.44.0", "@spectrum-web-components/action-button@^0.44.0":
   version "0.44.0"
@@ -2367,7 +2368,7 @@
     "@spectrum-web-components/icons-ui" "^0.44.0"
     "@spectrum-web-components/shared" "^0.44.0"
 
-"@spectrum-web-components/action-group@0.44.0", "@spectrum-web-components/action-group@^0.37.0":
+"@spectrum-web-components/action-group@0.44.0", "@spectrum-web-components/action-group@^0.44.0":
   version "0.44.0"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/action-group/-/action-group-0.44.0.tgz#ca9827b91230b4c257629b65ddc5cfd04a5d21a3"
   integrity sha512-ZKcJmqAsVovM58eIx/Jr+xQVIlTDkWqO9mh4JN4RWXlNzcV+99xNd1FOE1vTDJCiAS+7PuhTQxUIO8m108ixNw==
@@ -3056,15 +3057,16 @@
     "@lit-labs/react" "^1.1.0"
     "@spectrum-web-components/theme" "^0.14.7"
 
-"@swc-uxp-internal/action-bar@npm:@spectrum-web-components/action-bar@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/action-bar/-/action-bar-0.37.0.tgz#563138be3d69e862876ece62f2093f66d01e3498"
-  integrity sha512-tf6bNCeAdJW18VbA/KCGaSVOdumFJyrtqHThJVFidrxorGaujapKW4lO3xQ1JPoLfZ67Vc0L7Z/Ubwho6wRK0w==
+"@swc-uxp-internal/action-bar@npm:@spectrum-web-components/action-bar@0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/action-bar/-/action-bar-0.44.0.tgz#bea7ecdeab2b72a87460699bfb187a6b28e2f11f"
+  integrity sha512-QwrYuUQ0K0bRDQGu8fH5a+AHW6h59194P9R/xRBQv009+wF+uOzyp1Sbl+TwNY1PmG9by+OWV5cBYml+qRYszw==
   dependencies:
-    "@spectrum-web-components/action-group" "^0.37.0"
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/button" "^0.37.0"
-    "@spectrum-web-components/popover" "^0.37.0"
+    "@spectrum-web-components/action-group" "^0.44.0"
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/button" "^0.44.0"
+    "@spectrum-web-components/field-label" "^0.44.0"
+    "@spectrum-web-components/popover" "^0.44.0"
 
 "@swc-uxp-internal/action-button@npm:@spectrum-web-components/action-button@0.44.0":
   version "0.44.0"
@@ -3401,14 +3403,6 @@
     "@spectrum-web-components/icons-ui" "^0.44.0"
     "@spectrum-web-components/shared" "^0.44.0"
 
-"@swc-uxp-internal/popover@npm:@spectrum-web-components/popover@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/popover/-/popover-0.37.0.tgz#0a37d0886994f9b24e70a6d6ff6da543a775a324"
-  integrity sha512-UilQj4W2HgDMopON2RG7wEYxnGViAWBJYFaTuO7dCLgEHuQMbIN6h30JvSwfz5Z0Vr/eJgSd3I7xj0K9Bl2c6Q==
-  dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/overlay" "^0.37.0"
-
 "@swc-uxp-internal/popover@npm:@spectrum-web-components/popover@0.44.0":
   version "0.44.0"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/popover/-/popover-0.44.0.tgz#a0d873b29b855b7401cc6b692f6f57eeb34d1670"
@@ -3561,13 +3555,6 @@
     "@spectrum-web-components/overlay" "^0.44.0"
     "@spectrum-web-components/reactive-controllers" "^0.44.0"
     "@spectrum-web-components/shared" "^0.44.0"
-
-"@swc-uxp-wrappers/popover@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@swc-uxp-wrappers/popover/-/popover-2.0.0.tgz#1397d6dccb6deb939f68170258ec59d03c586a83"
-  integrity sha512-KZCVCo9qs3IH582ou28t/8GROYxBYl+og0OOC5nCFIBcL9DakkQHZBLviU68R29+1PzcS1EnZ6ZMAU2UrOiixw==
-  dependencies:
-    "@swc-uxp-internal/popover" "npm:@spectrum-web-components/popover@0.37.0"
 
 "@swc/helpers@^0.5.0":
   version "0.5.12"
