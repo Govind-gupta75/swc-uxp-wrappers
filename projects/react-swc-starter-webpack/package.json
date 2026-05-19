@@ -52,7 +52,7 @@
         "@spectrum-web-components/card": "0.37.0",
         "@spectrum-web-components/action-bar": "0.37.0",
         "@spectrum-web-components/popover": "0.37.0",
-        "@spectrum-web-components/menu": "0.37.0",
+        "@spectrum-web-components/menu": "0.44.0",
         "@spectrum-web-components/modal": "0.37.0",
         "@spectrum-web-components/underlay": "0.37.0",
         "@spectrum-web-components/table": "0.37.0",
