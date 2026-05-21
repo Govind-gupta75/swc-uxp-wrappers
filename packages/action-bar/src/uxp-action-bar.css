@@ -12,29 +12,15 @@ governing permissions and limitations under the License.
 
 /* write uxp style overrides */
 
-:host {
-    height: 0;
-    bottom: 0;
-    top: 0;
-    margin-top: var(--mod-closebutton-margin-top);
-    margin-left: var(--mod-closebutton-margin-inline);
-    margin-right: var(--mod-closebutton-margin-inline);
-}
+/* NOTE: block-size/inline-size on :host and :host([open]) are translated to
+   height/width automatically by enableLogicalProperties mapper — no explicit
+   height/width overrides needed here. Similarly inset-block-end → bottom is
+   handled by the mapper. The margin-* properties on .close-button, .field-label,
+   and .action-group are intentional value adjustments (not just logical→physical
+   translations) and are kept. */
 
-:host([open]) {
-    height: calc(
-        var(
-                --mod-actionbar-spacing-outer-edge,
-                var(--spectrum-actionbar-spacing-outer-edge)
-            ) + var(--mod-actionbar-height, var(--spectrum-actionbar-height))
-    );
-}
-
-#popover {
-    height: var(--mod-actionbar-height, var(--spectrum-actionbar-height));
-    width: 100%;
-}
-
+/* UXP layout requires halved top margin to correctly vertically center the close
+   button within the action bar (SWC source: margin-block-start via token). */
 .close-button {
     margin-top: calc(
         var(
@@ -52,6 +38,8 @@ governing permissions and limitations under the License.
     );
 }
 
+/* UXP layout requires adjusted top margin for correct vertical alignment of the
+   item counter label within the bar (SWC source: margin-block-start via token). */
 .field-label {
     margin-top: calc(
         var(
@@ -65,6 +53,9 @@ governing permissions and limitations under the License.
     );
 }
 
+/* UXP layout requires adjusted top margin; margin-left:auto pushes the action
+   group to the far right of the bar (SWC source: margin-inline-start:auto via
+   the mapper, but explicit physical override needed for value adjustment). */
 .action-group {
     margin-top: calc(
         var(
@@ -79,6 +70,8 @@ governing permissions and limitations under the License.
     margin-left: auto;
 }
 
+/* UXP does not apply action-group horizontal spacing automatically between
+   slotted buttons; add right margin to all but the last button. */
 .action-group ::slotted([slot='buttons']:not(:last-child)) {
     margin-right: var(
         --mod-actiongroup-horizontal-spacing-regular,
