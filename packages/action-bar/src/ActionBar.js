@@ -10,6 +10,11 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
+/* sp-close-button is registered as a side-effect of @swc-uxp-internal/action-bar (which
+   imports @spectrum-web-components/button/sp-close-button.js). Import the UXP wrapper
+   first so that UXP's first-wins customElements registration uses the wrapper class
+   (with uxp-close-button.css overrides) instead of the plain SWC CloseButton. */
+import '@swc-uxp-wrappers/button/sp-close-button.js';
 import { ActionBar } from '@swc-uxp-internal/action-bar/src/ActionBar.js';
 
 import styles from './uxp-action-bar.css.js';
