@@ -19,16 +19,6 @@ governing permissions and limitations under the License.
    and .action-group are intentional value adjustments (not just logical→physical
    translations) and are kept. */
 
-/* sp-popover has min-width:min-content in its own CSS. In UXP, intrinsic-size
-   keywords (min-content, fit-content) are re-evaluated on every hover event,
-   triggering an infinite layout loop that hangs the application. Override with
-   min-width:0 to prevent the hang. The action bar already sets an explicit
-   inline-size:100% on #popover (handled by the mapper → width:100%), so
-   min-width:0 does not affect the rendered width. */
-#popover {
-    min-width: 0;
-}
-
 /* UXP layout requires halved top margin to correctly vertically center the close
    button within the action bar (SWC source: margin-block-start via token). */
 .close-button {
