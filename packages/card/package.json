@@ -1,6 +1,6 @@
 {
     "name": "@swc-uxp-wrappers/card",
-    "version": "2.0.0",
+    "version": "3.0.0",
     "publishConfig": {
         "access": "public"
     },
@@ -23,10 +23,10 @@
         "./src/card.css.js": "./src/card.css.js"
     },
     "dependencies": {
-        "@swc-uxp-internal/card": "npm:@spectrum-web-components/card@0.37.0",
-        "@swc-uxp-wrappers/checkbox": "2.0.0",
-        "@swc-uxp-wrappers/asset": "2.0.0",
-        "@swc-uxp-wrappers/quick-actions": "2.0.0"
+        "@swc-uxp-internal/card": "npm:@spectrum-web-components/card@0.44.0",
+        "@swc-uxp-wrappers/checkbox": "3.0.0",
+        "@swc-uxp-wrappers/asset": "3.0.0",
+        "@swc-uxp-wrappers/quick-actions": "3.0.0"
     },
     "files": [
         "**/*.js"
