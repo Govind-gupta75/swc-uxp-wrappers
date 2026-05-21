@@ -16,7 +16,7 @@ import styles from './uxp-avatar.css.js';
 
 class UxpAvatar extends Avatar {
     static get styles() {
-        return [super.styles, styles];
+        return [...super.styles, styles];
     }
 }
 
