@@ -16,7 +16,7 @@ import styles from './uxp-checkbox.css.js';
 
 class UxpCheckbox extends Checkbox {
     static get styles() {
-        return [super.styles, styles];
+        return [...super.styles, styles];
     }
 }
 
