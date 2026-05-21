@@ -10,13 +10,26 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
+import { html } from '@spectrum-web-components/base';
 import { Button } from '@swc-uxp-internal/button/src/Button.js';
 
 import styles from './uxp-button.css.js';
 
 class UxpButton extends Button {
     static get styles() {
-        return [super.styles, styles];
+        return [...super.styles, styles];
+    }
+
+    // Pending state is not supported in UXP (animations unsupported, no
+    // sp-progress-circle wrapper). Render only the base button content.
+    renderButton() {
+        return html`${this.buttonContent}`;
+    }
+
+    // Bypass Button.click()'s pending guard so the button stays clickable.
+    // ButtonBase's capture-phase listener already handles the disabled case.
+    click() {
+        HTMLElement.prototype.click.call(this);
     }
 }
 

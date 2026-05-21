@@ -1,0 +1,36 @@
+{
+    "name": "@swc-uxp-wrappers/icon",
+    "version": "3.0.0",
+    "publishConfig": {
+        "access": "public"
+    },
+    "description": "UXP wrapper of the @spectrum-web-components/icon component",
+    "license": "Apache-2.0",
+    "repository": {
+        "type": "git",
+        "url": "https://git.corp.adobe.com/torq/swc-uxp-wrappers.git",
+        "directory": "packages/icon"
+    },
+    "author": "Adobe Inc",
+    "main": "src/index.js",
+    "module": "src/index.js",
+    "type": "module",
+    "exports": {
+        ".": "./src/index.js",
+        "./package.json": "./package.json",
+        "./src/IconBase.js": "./src/IconBase.js",
+        "./src/Icon.js": "./src/Icon.js",
+        "./sp-icon.js": "./sp-icon.js"
+    },
+    "dependencies": {
+        "@swc-uxp-internal/icon": "npm:@spectrum-web-components/icon@0.44.0"
+    },
+    "files": [
+        "**/*.js"
+    ],
+    "keywords": [
+        "UXP",
+        "Spectrum Web Components",
+        "@spectrum-web-components/icon"
+    ]
+}

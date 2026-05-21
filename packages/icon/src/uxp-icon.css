@@ -1,0 +1,24 @@
+/*
+Copyright 2026 Adobe. All rights reserved.
+This file is licensed to you under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License. You may obtain a copy
+of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under
+the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+OF ANY KIND, either express or implied. See the License for the specific language
+governing permissions and limitations under the License.
+*/
+
+/* icon.css v0.44.0 sets --spectrum-icon-size: inherit on :host. It wins over
+ * spectrum-icon.css's default :host rule (same specificity, later in cascade).
+ * UXP does not correctly resolve var() fallbacks when a custom property holds the
+ * inherit keyword and no ancestor provides a value — the fallback is silently skipped,
+ * collapsing the entire sizing token chain to nothing.
+ *
+ * This rule is appended last (via [...super.styles, styles]) so it wins over icon.css's
+ * inherit. Per-size :host([size=*]) rules in spectrum-icon.css still win over our plain
+ * :host due to higher attribute-selector specificity, so sized icons are unaffected. */
+:host {
+    --spectrum-icon-size: var(--spectrum-workflow-icon-size-100, 18px);
+}

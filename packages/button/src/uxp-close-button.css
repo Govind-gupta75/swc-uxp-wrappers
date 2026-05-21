@@ -10,12 +10,71 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* write uxp style overrides */
+/* spectrum-close-button.css v0.44.0 wraps hover styles for [static='white'] and
+ * [static='black'] inside @media (hover:hover). UXP does not support that media
+ * query, so those hover styles never apply.
+ *
+ * PROBLEM: the obvious fix — adding :host([static=white]:not([disabled]):hover) —
+ * causes a UXP hang. UXP's style engine enters an infinite recalculation loop when
+ * a :host compound selector combines an attribute selector ([static=white]) with a
+ * hover pseudo-state (:hover), even when the rule body is empty.
+ *
+ * FIX: decouple [static] from :hover entirely. Define the desired hover values as
+ * private custom properties inside the non-hover [static] rule (no :hover = safe),
+ * then let the generic :host(:hover) rule consume them via var() fallback. The hover
+ * rule itself uses only a plain pseudo-state selector — no attribute compound.
+ *
+ * For [static='white'/'black']: hover background → semi-transparent white/black.
+ * For [static='white'/'black']: icon color stays at its default (does not change on
+ * hover), per SWC spec. The --uxp-closebutton-hover-icon sentinel carries the
+ * correct value into the generic hover rule without self-referencing
+ * --mod-closebutton-icon-color-default (which would create a circular var() loop). */
+:host([static='white']) {
+    --uxp-closebutton-hover-bg: var(
+        --highcontrast-closebutton-static-background-color-hover,
+        var(
+            --mod-closebutton-static-background-color-hover,
+            var(--spectrum-closebutton-static-background-color-hover)
+        )
+    );
+    /* Keep icon at default white; skip the --mod- layer to avoid a circular reference
+       if a consumer sets --mod-closebutton-icon-color-default on the element. */
+    --uxp-closebutton-hover-icon: var(
+        --highcontrast-closebutton-icon-color-default,
+        var(--spectrum-closebutton-icon-color-default)
+    );
+}
 
-/* Workaround for missing inset property: https://jira.corp.adobe.com/browse/UXP-20649 */
-:host:after {
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
+:host([static='black']) {
+    --uxp-closebutton-hover-bg: var(
+        --highcontrast-closebutton-static-background-color-hover,
+        var(
+            --mod-closebutton-static-background-color-hover,
+            var(--spectrum-closebutton-static-background-color-hover)
+        )
+    );
+    --uxp-closebutton-hover-icon: var(
+        --highcontrast-closebutton-icon-color-default,
+        var(--spectrum-closebutton-icon-color-default)
+    );
+}
+
+/* @media (hover:hover) unwrap — UXP does not support hover media queries.
+ * Applies to all non-disabled close-buttons (static and non-static alike).
+ * For static variants, --uxp-closebutton-hover-bg / --uxp-closebutton-hover-icon
+ * are set above and take priority via the var() fallback chain.
+ * For non-static variants those custom properties are unset, so the chain falls
+ * through to the standard non-static hover tokens. */
+:host(:not([disabled]):hover) {
+    background-color: var(
+        --uxp-closebutton-hover-bg,
+        var(--mod-closebutton-background-color-hover, var(--spectrum-closebutton-background-color-hover))
+    );
+    --mod-closebutton-icon-color-default: var(
+        --uxp-closebutton-hover-icon,
+        var(
+            --highcontrast-closebutton-icon-color-hover,
+            var(--mod-closebutton-icon-color-hover, var(--spectrum-closebutton-icon-color-hover))
+        )
+    );
 }
