@@ -15,7 +15,7 @@ import { css } from 'lit';
 
 class MyButtonGroup extends ButtonGroup {
     static styles = [
-        ButtonGroup.styles,
+        ...ButtonGroup.styles,
         css`
             :host {
                 background-color: green;
