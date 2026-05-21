@@ -12,7 +12,19 @@ governing permissions and limitations under the License.
 
 /* write uxp style overrides */
 
+/* --spectrum-dialog-confirm-padding was renamed to --spectrum-dialog-confirm-padding-grid
+   in @spectrum-css v0.44.0. All references in this file still use the old name, so
+   define an alias that pulls the new token value. Fallback 40px = medium scale value. */
+:host {
+    --spectrum-dialog-confirm-padding: var(--spectrum-dialog-confirm-padding-grid, 40px);
+}
+
 /* Workaround for - https://jira.corp.adobe.com/browse/UXP-21311 */
+
+::slotted([slot='hero']) {
+    flex-basis: 100%;
+    order: -2;
+}
 
 .grid {
     display: flex;
@@ -21,6 +33,59 @@ governing permissions and limitations under the License.
     padding-top: var(--spectrum-dialog-confirm-padding);
     width: fit-content;
     align-items: flex-start;
+}
+
+::slotted([slot='heading']) {
+    flex-basis: 75%;
+    margin-left: var(--spectrum-dialog-confirm-padding);
+}
+
+.header {
+    flex-basis: auto;
+    margin-left: var(--spectrum-dialog-confirm-padding);
+    margin-right: var(--spectrum-dialog-confirm-padding);
+}
+
+/* v0.37.0: type-icon lived inside .header; margin-left:auto worked within
+   .header's own flex context. v0.44.0: type-icon is a direct .grid flex child.
+   margin-left:auto on a flex item sharing a row with flex:1 heading in a
+   fit-content container creates a circular reference the browser resolves by
+   expanding the container to 100% of available width. Use explicit right margin only. */
+.type-icon {
+    flex-shrink: 0;
+    margin-right: var(--spectrum-dialog-confirm-padding);
+}
+
+.divider {
+    flex-basis: 100%;
+    margin-left: var(--spectrum-dialog-confirm-padding);
+    margin-right: var(--spectrum-dialog-confirm-padding);
+}
+
+.content {
+    flex-basis: 100%;
+    margin-left: calc(
+        var(--spectrum-dialog-confirm-padding) +
+            var(--spectrum-dialog-confirm-description-margin)
+    );
+    margin-right: calc(
+        var(--spectrum-dialog-confirm-padding) +
+            var(--spectrum-dialog-confirm-description-margin)
+    );
+    /* Keeping this style here, will be used in dialog-wrapper once overlay is supported */
+    /* overflow: auto;
+    max-height: inherit;
+    max-height: calc(100% - calc(3 * var(--spectrum-dialog-confirm-padding))); */
+}
+
+.footer {
+    margin-left: var(--spectrum-dialog-confirm-padding);
+    justify-content: flex-start;
+}
+
+.button-group {
+    margin-left: auto;
+    margin-right: var(--spectrum-dialog-confirm-padding);
 }
 
 :host([dismissable]) .grid {
@@ -40,59 +105,6 @@ governing permissions and limitations under the License.
     min-width: 0;
     max-width: auto;
     align-items: center;
-}
-
-::slotted([slot='hero']) {
-    flex-basis: 100%;
-    order: -2;
-}
-
-::slotted([slot='heading']) {
-    flex-basis: 75%;
-    margin-left: var(--spectrum-dialog-confirm-padding);
-}
-
-.type-icon {
-    margin-left: auto;
-    margin-right: var(--spectrum-dialog-confirm-padding);
-}
-
-.header {
-    flex-basis: auto;
-    margin-left: var(--spectrum-dialog-confirm-padding);
-    margin-right: var(--spectrum-dialog-confirm-padding);
-}
-
-.content {
-    flex-basis: 100%;
-    margin-left: calc(
-        var(--spectrum-dialog-confirm-padding) +
-            var(--spectrum-dialog-confirm-description-margin)
-    );
-    margin-right: calc(
-        var(--spectrum-dialog-confirm-padding) +
-            var(--spectrum-dialog-confirm-description-margin)
-    );
-    /* Keeping this style here, will be used in dialog-wrapper once overlay is supported */
-    /* overflow: auto;
-    max-height: inherit; 
-    max-height: calc(100% - calc(3 * var(--spectrum-dialog-confirm-padding))); */
-}
-
-.divider {
-    flex-basis: 100%;
-    margin-left: var(--spectrum-dialog-confirm-padding);
-    margin-right: var(--spectrum-dialog-confirm-padding);
-}
-
-.footer {
-    margin-left: var(--spectrum-dialog-confirm-padding);
-    justify-content: flex-start;
-}
-
-.button-group {
-    margin-left: auto;
-    margin-right: var(--spectrum-dialog-confirm-padding);
 }
 
 :host([mode='fullscreenTakeover']) .grid,
@@ -145,5 +157,5 @@ governing permissions and limitations under the License.
     }
     :host([mode='fullscreen']) ::slotted([slot='heading']) {
         font-size: var(--spectrum-dialog-confirm-title-text-size);
-    } 
+    }
 }*/
