@@ -24,9 +24,7 @@
     },
     "dependencies": {
         "@swc-uxp-internal/action-bar": "npm:@spectrum-web-components/action-bar@0.44.0",
-        "@swc-uxp-wrappers/popover": "3.0.0",
-        "@swc-uxp-wrappers/field-label": "3.0.0",
-        "@swc-uxp-wrappers/button": "3.0.0"
+        "@swc-uxp-wrappers/popover": "3.0.0"
     },
     "files": [
         "**/*.js"

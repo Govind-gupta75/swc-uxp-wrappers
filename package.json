@@ -16,8 +16,7 @@
         "fast-glob": "^3.2.12",
         "lerna": "^6.6.1",
         "postcss": "^8.4.14",
-        "prettier": "^2.8.8",
-        "@spectrum-web-components/action-bar": "0.44.0"
+        "prettier": "^2.8.8"
     },
     "resolutions": {
         "@spectrum-web-components/theme": "0.44.0",
