@@ -3090,6 +3090,15 @@
     "@spectrum-web-components/icons-workflow" "^0.44.0"
     "@spectrum-web-components/reactive-controllers" "^0.44.0"
 
+"@swc-uxp-internal/alert-banner@npm:@spectrum-web-components/alert-banner@0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/alert-banner/-/alert-banner-0.44.0.tgz#33e58cb7279d3775d5d952f4dd2b73d42816d36e"
+  integrity sha512-tbMrhzDlxEFKsPyW3c8qcetxbUTXqVodJA9Z6yi/tP848fhbMEHXz31wIDeoEREaVuYBBquIKs1c7+ejwXrC8g==
+  dependencies:
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/button" "^0.44.0"
+    "@spectrum-web-components/icons-workflow" "^0.44.0"
+
 "@swc-uxp-internal/alert-dialog@npm:@spectrum-web-components/alert-dialog@0.44.0":
   version "0.44.0"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/alert-dialog/-/alert-dialog-0.44.0.tgz#3b4533c57f7897c50dad5c477844763e474680e6"

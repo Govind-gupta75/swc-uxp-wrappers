@@ -1,0 +1,91 @@
+<!-- 
+Copyright 2026 Adobe. All rights reserved.
+This file is licensed to you under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License. You may obtain a copy
+of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under
+the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+OF ANY KIND, either express or implied. See the License for the specific language
+governing permissions and limitations under the License. 
+-->
+
+<h3>sp-alert-banner</h3>
+<div id="content">
+    <div id="playground">
+        <div id="left">
+            <div id="subtitle">sp-alert-banner</div>
+
+            <!-- neutral (default): no variant attribute -->
+            <h4>neutral</h4>
+            <sp-alert-banner open>
+                Your trial has expired. Renew your plan to continue.
+            </sp-alert-banner>
+
+            <!-- info variant -->
+            <h4>info</h4>
+            <sp-alert-banner open variant="info">
+                Your storage is almost full.
+            </sp-alert-banner>
+
+            <!-- negative variant -->
+            <h4>negative</h4>
+            <sp-alert-banner open variant="negative">
+                Connection lost. Changes could not be saved.
+            </sp-alert-banner>
+
+            <!-- dismissible: close button is shown -->
+            <h4>dismissible</h4>
+            <sp-alert-banner open dismissible variant="info">
+                New features are available. Refresh to update.
+            </sp-alert-banner>
+
+            <!-- with action button in the action slot -->
+            <h4>with action</h4>
+            <sp-alert-banner open variant="negative">
+                Your session is about to expire.
+                <sp-button
+                    slot="action"
+                    variant="overBackground"
+                    treatment="outline"
+                    onclick="alert('Action clicked')"
+                >
+                    Stay signed in
+                </sp-button>
+            </sp-alert-banner>
+
+            <!-- dismissible + action -->
+            <h4>dismissible + action</h4>
+            <sp-alert-banner open dismissible variant="info">
+                A new version of the plugin is available.
+                <sp-button
+                    slot="action"
+                    variant="overBackground"
+                    treatment="outline"
+                    onclick="alert('Update clicked')"
+                >
+                    Update now
+                </sp-button>
+            </sp-alert-banner>
+        </div>
+        <input type="text" style="width: 2px" />
+        <div id="right">
+            <div id="subtitle">my-alert-banner</div>
+
+            <!-- custom subclass -->
+            <h4>neutral (custom)</h4>
+            <my-alert-banner open>
+                Custom alert banner with extended styles.
+            </my-alert-banner>
+
+            <h4>negative (custom)</h4>
+            <my-alert-banner open variant="negative">
+                Critical error in custom alert banner.
+            </my-alert-banner>
+        </div>
+    </div>
+    <div id="config">
+        <div style="display: inline-flex"></div>
+        <div style="display: flex; flex-direction: column"></div>
+    </div>
+</div>

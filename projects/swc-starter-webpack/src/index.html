@@ -269,6 +269,12 @@ governing permissions and limitations under the License.
                     </button>
                     <button
                         class="tablinks"
+                        onclick="openTab(event, 'sp-alert-banner')"
+                    >
+                        sp-alert-banner
+                    </button>
+                    <button
+                        class="tablinks"
                         onclick="openTab(event, 'sp-toast')"
                     >
                         sp-toast
@@ -491,6 +497,10 @@ governing permissions and limitations under the License.
 
             <div id="sp-alert-dialog" class="tabcontent">
                 <!--#include sp-alert-dialog.html -->
+            </div>
+
+            <div id="sp-alert-banner" class="tabcontent">
+                <!--#include sp-alert-banner.html -->
             </div>
 
             <div id="sp-toast" class="tabcontent">
