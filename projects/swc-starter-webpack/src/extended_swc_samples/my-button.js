@@ -15,7 +15,7 @@ import { Button } from '@spectrum-web-components/button';
 
 class MyButton extends Button {
     static styles = [
-        Button.styles,
+        ...Button.styles,
         css`
             :host([class='my-button']) {
                 font-size: 20px;
