@@ -1,0 +1,316 @@
+/*
+Copyright 2026 Adobe. All rights reserved.
+This file is licensed to you under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License. You may obtain a copy
+of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under
+the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+OF ANY KIND, either express or implied. See the License for the specific language
+governing permissions and limitations under the License.
+*/
+
+/*
+ * UXP overrides for badge.
+ *
+ * Translates LOGICAL CSS properties that UXP cannot honour into their
+ * physical equivalents (padding-block-*, padding-inline-*, min-block-size,
+ * inline-size, border-start-*-radius, etc.).
+ * Icon sizing is controlled directly via .uxp-icon-host > * selectors.
+ */
+
+:host {
+    /* min-block-size → min-height (UXP doesn't honour logical props on host).
+     * Hardcoded fallbacks match medium scale theme:
+     *   --spectrum-component-height-100 = 32px (size m/l/xl)
+     *   --spectrum-component-height-75  = 24px (size s) */
+    min-height: var(--mod-badge-height, var(--spectrum-badge-height, 32px));
+    /* inline-size: auto → width: auto (UXP: no logical props) */
+    width: auto;
+    /*
+     * UXP does not honour `gap` on flex containers, so badges placed in a
+     * row via the consumer's `display: flex; gap: 8px` end up touching each
+     * other.  Add a small inline margin on each side so adjacent badges
+     * have visible breathing room regardless of the parent layout (4px ×
+     * 2 = 8px between two adjacent badges, matching --spectrum-spacing-100).
+     * Authors can still override via --mod-badge-margin-inline.
+     */
+    margin-left: var(--mod-badge-margin-inline, 4px);
+    margin-right: var(--mod-badge-margin-inline, 4px);
+}
+
+:host([size='s']) {
+    min-height: var(--mod-badge-height, var(--spectrum-badge-height, 24px));
+}
+
+/*
+ * Icon-only badges (the `icon-only` attribute is set on the host by
+ * Badge.js's updated() hook when hasIcon && !slotHasContent).
+ *
+ * In UXP `min-height` on :host doesn't reliably pull a badge to the design
+ * height when the only content is a small icon (16-22px) — the badge
+ * collapses to the icon size and looks shorter than text / icon+text badges.
+ *
+ * Rather than hard-pinning a `height`, we let the badge size itself
+ * NATURALLY by adding vertical padding around the icon, the same way a
+ * text badge gets its height from .label padding + line-height.  The
+ * --spectrum-badge-icon-spacing-vertical-top token is per-size and is
+ * designed precisely so that icon + padding equals the badge design
+ * height:
+ *   size=s : icon 16 + 4×2 = 24 (matches --spectrum-component-height-75)
+ *   size=m : icon 18 + 7×2 = 32 (matches --spectrum-component-height-100)
+ *   size=l : icon 20 + 10×2 = 40 (upstream design intent: badge grows)
+ *   size=xl: icon 22 + 13×2 = 48 (upstream design intent: badge grows)
+ *
+ * box-sizing: border-box so :host's existing min-height includes the padding
+ * (otherwise content-box semantics would let outer = min-height + padding
+ * for short content, doubling the padding effect).
+ */
+:host([icon-only]) {
+    box-sizing: border-box;
+    /* Vertical padding uses the icon vertical-top token (matches
+     * Spectrum's per-size icon vertical breathing room). Horizontal
+     * padding uses HARDCODED smaller fallbacks so the badge renders as
+     * a rectangle narrower than it is tall (matching Chrome / Spectrum
+     * design).  Upstream's `--spectrum-badge-icon-only-spacing-
+     * horizontal` happens to resolve to the same value as vertical in
+     * UXP's environment, leaving badges square; the with-text token
+     * `--spectrum-badge-icon-spacing-horizontal` is closer to the
+     * design ratio. */
+    padding-top: var(
+        --mod-badge-icon-spacing-vertical-top,
+        var(--spectrum-badge-icon-spacing-vertical-top, 7px)
+    );
+    padding-bottom: var(
+        --mod-badge-icon-spacing-vertical-top,
+        var(--spectrum-badge-icon-spacing-vertical-top, 7px)
+    );
+    padding-left: var(
+        --mod-badge-icon-spacing-horizontal,
+        var(--spectrum-badge-icon-spacing-horizontal, 4px)
+    );
+    padding-right: var(
+        --mod-badge-icon-spacing-horizontal,
+        var(--spectrum-badge-icon-spacing-horizontal, 4px)
+    );
+}
+/* Hardcoded per-size horizontal padding fallbacks for narrower
+ * rectangular shape when tokens don't resolve. */
+:host([icon-only][size='s'])  { padding-left: 3px;  padding-right: 3px; }
+:host([icon-only][size='m'])  { padding-left: 4px;  padding-right: 4px; }
+:host([icon-only][size='l'])  { padding-left: 6px;  padding-right: 6px; }
+:host([icon-only][size='xl']) { padding-left: 8px;  padding-right: 8px; }
+
+/*
+ * .uxp-icon-host — shadow DOM container that holds the adopted icon.
+ * Badge.js moves the light-DOM icon element into this span so it becomes a
+ * real flex child, bypassing UXP ShadyDOM's flat-tree ordering issue where
+ * light-DOM children always render after shadow-DOM content.
+ */
+.uxp-icon-host {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+}
+/* Hide when empty (no icon adopted yet or no icon badge) */
+.uxp-icon-host:empty {
+    display: none;
+}
+
+/*
+ * With-text badges — horizontal margin on the icon so it doesn't touch the
+ * badge's left edge or the label's first letter.
+ */
+:host(:not([icon-only])) .uxp-icon-host > * {
+    margin-left: var(
+        --mod-badge-icon-spacing-horizontal,
+        var(--spectrum-badge-icon-spacing-horizontal)
+    );
+    margin-right: var(
+        --mod-badge-icon-text-spacing,
+        var(--spectrum-badge-icon-text-spacing)
+    );
+}
+
+/*
+ * Re-declare background-color for every variant.  In UXP ShadyCSS the upstream
+ * `:host, :host([variant=neutral]) { background: ... }` rule (which has a bare
+ * :host selector inside the comma list) can win over `:host([variant=X])` due
+ * to specificity ties resolved by source order — making all badges look gray.
+ * Our overrides come AFTER the upstream CSS in the Lit adoptedStyleSheets
+ * order, so they always win the cascade.
+ */
+:host, :host([variant=neutral]) {
+    background-color: var(--mod-badge-background-color-default, var(--spectrum-badge-background-color-default));
+}
+:host([variant=accent]) {
+    background-color: var(--mod-badge-background-color-accent, var(--spectrum-badge-background-color-accent));
+}
+:host([variant=informative]) {
+    background-color: var(--mod-badge-background-color-informative, var(--spectrum-badge-background-color-informative));
+}
+:host([variant=positive]) {
+    background-color: var(--mod-badge-background-color-positive, var(--spectrum-badge-background-color-positive));
+}
+:host([variant=negative]) {
+    background-color: var(--mod-badge-background-color-negative, var(--spectrum-badge-background-color-negative));
+}
+:host([variant=notice]) {
+    background-color: var(--mod-badge-background-color-notice, var(--spectrum-badge-background-color-notice));
+}
+:host([variant=gray]) {
+    background-color: var(--mod-badge-background-color-gray, var(--spectrum-badge-background-color-gray));
+}
+:host([variant=red]) {
+    background-color: var(--mod-badge-background-color-red, var(--spectrum-badge-background-color-red));
+}
+:host([variant=orange]) {
+    background-color: var(--mod-badge-background-color-orange, var(--spectrum-badge-background-color-orange));
+}
+:host([variant=yellow]) {
+    background-color: var(--mod-badge-background-color-yellow, var(--spectrum-badge-background-color-yellow));
+}
+:host([variant=chartreuse]) {
+    background-color: var(--mod-badge-background-color-chartreuse, var(--spectrum-badge-background-color-chartreuse));
+}
+:host([variant=celery]) {
+    background-color: var(--mod-badge-background-color-celery, var(--spectrum-badge-background-color-celery));
+}
+:host([variant=green]) {
+    background-color: var(--mod-badge-background-color-green, var(--spectrum-badge-background-color-green));
+}
+:host([variant=seafoam]) {
+    background-color: var(--mod-badge-background-color-seafoam, var(--spectrum-badge-background-color-seafoam));
+}
+:host([variant=cyan]) {
+    background-color: var(--mod-badge-background-color-cyan, var(--spectrum-badge-background-color-cyan));
+}
+:host([variant=blue]) {
+    background-color: var(--mod-badge-background-color-blue, var(--spectrum-badge-background-color-blue));
+}
+:host([variant=indigo]) {
+    background-color: var(--mod-badge-background-color-indigo, var(--spectrum-badge-background-color-indigo));
+}
+:host([variant=purple]) {
+    background-color: var(--mod-badge-background-color-purple, var(--spectrum-badge-background-color-purple));
+}
+:host([variant=fuchsia]) {
+    background-color: var(--mod-badge-background-color-fuchsia, var(--spectrum-badge-background-color-fuchsia));
+}
+:host([variant=magenta]) {
+    background-color: var(--mod-badge-background-color-magenta, var(--spectrum-badge-background-color-magenta));
+}
+
+/* [fixed] logical border-radius → physical (UXP: no logical border-radius) */
+:host([fixed='inline-start']) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+:host([fixed='inline-end']) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+:host([fixed='block-start']) {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+:host([fixed='block-end']) {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+/* deprecated fixed values — same physical override */
+:host([fixed='left']) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+:host([fixed='right']) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+:host([fixed='top']) {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+:host([fixed='bottom']) {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* .label padding-block-* / padding-inline-* → physical (UXP: no logical props) */
+/* display:flex + justify-content:center is used instead of text-align:center
+   because UXP does not honour text-align on shadow DOM elements reliably. */
+.label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: var(
+        --mod-badge-label-spacing-vertical-top,
+        var(--spectrum-badge-label-spacing-vertical-top)
+    );
+    padding-bottom: var(
+        --mod-badge-label-spacing-vertical-bottom,
+        var(--spectrum-badge-label-spacing-vertical-bottom)
+    );
+    padding-left: var(
+        --mod-badge-label-spacing-horizontal,
+        var(--spectrum-badge-label-spacing-horizontal)
+    );
+    padding-right: var(
+        --mod-badge-label-spacing-horizontal,
+        var(--spectrum-badge-label-spacing-horizontal)
+    );
+}
+
+/* Remove left padding on .label only when the icon host has content (icon+text badges).
+ * Without :not(:empty), this selector would match text-only badges too — because
+ * .uxp-icon-host is always in the DOM (display:none when empty) and the + combinator
+ * is DOM-order based, not layout-order based. That caused text to be left-aligned
+ * (padding-left:0 with text starting at the badge edge). */
+.uxp-icon-host:not(:empty) + .label {
+    padding-left: 0;
+}
+
+/* Icon-only: hide the empty label so it doesn't add right-side padding/space */
+:host([icon-only]) .label {
+    display: none;
+}
+
+/*
+ * Icon sizing — target the adopted icon via shadow DOM selector.
+ * The icon is now a direct child of .uxp-icon-host (shadow DOM), so regular
+ * CSS selectors work.  Three size signals are set per badge size:
+ *   1. --mod-icon-size — first in icon.css.js var() chain, always wins
+ *   2. width / height — physical box size fallback
+ *   3. flex: 0 0 auto — prevents flex-basis from overriding width
+ */
+:host([size='s']) .uxp-icon-host > * {
+    --mod-icon-size: var(--spectrum-workflow-icon-size-75, 16px);
+    width: var(--spectrum-workflow-icon-size-75, 16px);
+    height: var(--spectrum-workflow-icon-size-75, 16px);
+    flex: 0 0 auto;
+}
+:host([size='m']) .uxp-icon-host > * {
+    --mod-icon-size: var(--spectrum-workflow-icon-size-100, 18px);
+    width: var(--spectrum-workflow-icon-size-100, 18px);
+    height: var(--spectrum-workflow-icon-size-100, 18px);
+    flex: 0 0 auto;
+}
+:host([size='l']) .uxp-icon-host > * {
+    --mod-icon-size: var(--spectrum-workflow-icon-size-200, 20px);
+    width: var(--spectrum-workflow-icon-size-200, 20px);
+    height: var(--spectrum-workflow-icon-size-200, 20px);
+    flex: 0 0 auto;
+}
+:host([size='xl']) .uxp-icon-host > * {
+    --mod-icon-size: var(--spectrum-workflow-icon-size-300, 22px);
+    width: var(--spectrum-workflow-icon-size-300, 22px);
+    height: var(--spectrum-workflow-icon-size-300, 22px);
+    flex: 0 0 auto;
+}
+/* No explicit [size] — default to medium-scale sizing */
+.uxp-icon-host > * {
+    --mod-icon-size: var(--spectrum-workflow-icon-size-100, 18px);
+    width: var(--spectrum-workflow-icon-size-100, 18px);
+    height: var(--spectrum-workflow-icon-size-100, 18px);
+    flex: 0 0 auto;
+}

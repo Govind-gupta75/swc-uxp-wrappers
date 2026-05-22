@@ -13,6 +13,7 @@
         "serve": "webpack-dev-server"
     },
     "dependencies": {
+        "@swc-uxp-wrappers/badge": "*",
         "@swc-uxp-wrappers/banner": "*",
         "@swc-uxp-wrappers/divider": "*",
         "@swc-uxp-wrappers/link": "*",
@@ -64,6 +65,7 @@
         "@spectrum-web-components/icons-ui": "0.37.0",
         "@spectrum-web-components/icons-workflow": "0.37.0",
         "@spectrum-web-components/reactive-controllers": "0.37.0",
+        "@spectrum-web-components/badge": "0.44.0",
         "@spectrum-web-components/banner": "0.37.0",
         "@spectrum-web-components/divider": "0.37.0",
         "@spectrum-web-components/link": "0.37.0",
