@@ -341,6 +341,12 @@ governing permissions and limitations under the License.
                     </button>
                     <button
                         class="tablinks"
+                        onclick="openTab(event, 'sp-status-light')"
+                    >
+                        sp-status-light
+                    </button>
+                    <button
+                        class="tablinks"
                         onclick="openTab(event, 'sp-number-field')"
                     >
                         sp-number-field
@@ -563,6 +569,10 @@ governing permissions and limitations under the License.
 
             <div id="sp-meter" class="tabcontent">
                 <!--#include sp-meter.html -->
+            </div>
+
+            <div id="sp-status-light" class="tabcontent">
+                <!--#include sp-status-light.html -->
             </div>
 
             <div id="sp-swatch" class="tabcontent">

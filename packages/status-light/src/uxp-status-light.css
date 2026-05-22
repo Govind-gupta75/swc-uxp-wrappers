@@ -11,12 +11,3 @@ governing permissions and limitations under the License.
 */
 
 /* write uxp style overrides */
-
-/* spectrum-alert-banner.css sets gap: max(calc(text-to-button-vertical -
-   edge-to-button), 0px) on .body. UXP does not support the max() CSS value
-   function, and gap in flex containers is also unreliable in UXP (UXP-21294).
-   Override with gap: 0; the max() formula is a guard against negative values
-   and resolves to 0 in standard Spectrum token configurations. */
-.body {
-    gap: 0;
-}

@@ -10,13 +10,19 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* write uxp style overrides */
+import { StatusLight } from '@swc-uxp-wrappers/status-light';
+import { css } from 'lit';
 
-/* spectrum-alert-banner.css sets gap: max(calc(text-to-button-vertical -
-   edge-to-button), 0px) on .body. UXP does not support the max() CSS value
-   function, and gap in flex containers is also unreliable in UXP (UXP-21294).
-   Override with gap: 0; the max() formula is a guard against negative values
-   and resolves to 0 in standard Spectrum token configurations. */
-.body {
-    gap: 0;
+class MyStatusLight extends StatusLight {
+    static styles = [
+        ...StatusLight.styles,
+        css`
+            :host {
+                font-style: italic;
+                font-weight: bold;
+            }
+        `,
+    ];
 }
+
+customElements.define('my-status-light', MyStatusLight);
