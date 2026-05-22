@@ -3544,6 +3544,14 @@
     "@spectrum-web-components/base" "^0.44.0"
     "@spectrum-web-components/styles" "^0.44.0"
 
+"@swc-uxp-internal/thumbnail@npm:@spectrum-web-components/thumbnail@0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/thumbnail/-/thumbnail-0.44.0.tgz#d3a54d15a5ba2e1fd34ba8aff6a20efffac5a045"
+  integrity sha512-qBsz7/ajBxCcZbar/2bdZ4D/+Ga5CH0J8/ChC7Vvd1yeYLLX6/hs1Odnm3JXOpz9WWUI5rQQ7Hz6XDffNmmUQQ==
+  dependencies:
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/opacity-checkerboard" "^0.44.0"
+
 "@swc-uxp-internal/toast@npm:@spectrum-web-components/toast@0.44.0":
   version "0.44.0"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/toast/-/toast-0.44.0.tgz#e48b2f164bcbfd918816fd1b8bc27616f3ea8511"

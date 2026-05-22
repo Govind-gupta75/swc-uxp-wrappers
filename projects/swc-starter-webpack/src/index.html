@@ -140,6 +140,12 @@ governing permissions and limitations under the License.
                     </button>
                     <button
                         class="tablinks"
+                        onclick="openTab(event, 'sp-thumbnail')"
+                    >
+                        sp-thumbnail
+                    </button>
+                    <button
+                        class="tablinks"
                         onclick="openTab(event, 'sp-button')"
                     >
                         sp-button
@@ -413,6 +419,10 @@ governing permissions and limitations under the License.
 
             <div id="sp-avatar" class="tabcontent">
                 <!--#include sp-avatar.html -->
+            </div>
+
+            <div id="sp-thumbnail" class="tabcontent">
+                <!--#include sp-thumbnail.html -->
             </div>
 
             <div id="sp-button" class="tabcontent">
