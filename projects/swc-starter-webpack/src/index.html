@@ -269,6 +269,12 @@ governing permissions and limitations under the License.
                     </button>
                     <button
                         class="tablinks"
+                        onclick="openTab(event, 'sp-contextual-help')"
+                    >
+                        sp-contextual-help
+                    </button>
+                    <button
+                        class="tablinks"
                         onclick="openTab(event, 'sp-alert-dialog')"
                     >
                         sp-alert-dialog
@@ -509,6 +515,10 @@ governing permissions and limitations under the License.
 
             <div id="sp-dialog" class="tabcontent">
                 <!--#include sp-dialog.html -->
+            </div>
+
+            <div id="sp-contextual-help" class="tabcontent">
+                <!--#include sp-contextual-help.html -->
             </div>
 
             <div id="sp-alert-dialog" class="tabcontent">

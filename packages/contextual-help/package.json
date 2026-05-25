@@ -1,0 +1,40 @@
+{
+    "name": "@swc-uxp-wrappers/contextual-help",
+    "version": "3.0.0",
+    "publishConfig": {
+        "access": "public"
+    },
+    "description": "UXP wrapper of the @spectrum-web-components/contextual-help component",
+    "license": "Apache-2.0",
+    "repository": {
+        "type": "git",
+        "url": "https://git.corp.adobe.com/torq/swc-uxp-wrappers.git",
+        "directory": "packages/contextual-help"
+    },
+    "author": "Adobe Inc",
+    "main": "src/index.js",
+    "module": "src/index.js",
+    "type": "module",
+    "exports": {
+        ".": "./src/index.js",
+        "./package.json": "./package.json",
+        "./src/ContextualHelp.js": "./src/ContextualHelp.js",
+        "./src/contextual-help.css.js": "./src/contextual-help.css.js",
+        "./sp-contextual-help.js": "./sp-contextual-help.js"
+    },
+    "dependencies": {
+        "@swc-uxp-internal/contextual-help": "npm:@spectrum-web-components/contextual-help@0.44.0",
+        "@swc-uxp-wrappers/action-button": "3.0.0",
+        "@swc-uxp-wrappers/dialog": "3.0.0",
+        "@swc-uxp-wrappers/overlay": "3.0.0",
+        "@swc-uxp-wrappers/popover": "3.0.0"
+    },
+    "files": [
+        "**/*.js"
+    ],
+    "keywords": [
+        "UXP",
+        "Spectrum Web Components",
+        "@spectrum-web-components/contextual-help"
+    ]
+}

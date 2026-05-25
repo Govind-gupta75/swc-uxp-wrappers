@@ -1,0 +1,105 @@
+<!-- 
+Copyright 2026 Adobe. All rights reserved.
+This file is licensed to you under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License. You may obtain a copy
+of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under
+the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+OF ANY KIND, either express or implied. See the License for the specific language
+governing permissions and limitations under the License. 
+-->
+
+<h3>sp-contextual-help</h3>
+<div id="content">
+    <div id="playground">
+        <div id="left">
+            <div id="subtitle">sp-contextual-help</div>
+
+            <!-- default variant: info -->
+            <h4>info (default)</h4>
+            <div style="display: flex; align-items: center;">
+                <sp-field-label for="segment-field">Segment</sp-field-label>
+                <sp-contextual-help>
+                    <h2 slot="heading">What is a segment?</h2>
+                    Segments identify who your visitors are, what devices and services
+                    they use, where they navigate from, and much more.
+                    <sp-link slot="link" href="#">Learn more about segments</sp-link>
+                </sp-contextual-help>
+            </div>
+
+            <!-- help variant -->
+            <h4>help</h4>
+            <div style="display: flex; align-items: center;">
+                <sp-field-label for="perm-field">Permission</sp-field-label>
+                <sp-contextual-help variant="help">
+                    <h2 slot="heading">Permission required</h2>
+                    Your admin must grant you permission before you can create a segment.
+                    <sp-link slot="link" href="#">Request permission</sp-link>
+                </sp-contextual-help>
+            </div>
+
+            <!-- custom label for accessibility -->
+            <h4>custom label</h4>
+            <div style="display: flex; align-items: center;">
+                <sp-field-label>Export format</sp-field-label>
+                <sp-contextual-help label="Export format help">
+                    <h2 slot="heading">Supported formats</h2>
+                    You can export your data as CSV, JSON, or XML.
+                </sp-contextual-help>
+            </div>
+
+            <!-- without link slot -->
+            <h4>without link</h4>
+            <div style="display: flex; align-items: center;">
+                <sp-field-label>API key</sp-field-label>
+                <sp-contextual-help>
+                    <h2 slot="heading">About API keys</h2>
+                    API keys are used to authenticate requests. Keep them secure and do
+                    not share them publicly.
+                </sp-contextual-help>
+            </div>
+
+            <!-- placement: top-start -->
+            <h4>placement: top-start</h4>
+            <div style="display: flex; align-items: center; margin-top: 60px;">
+                <sp-field-label>Tags</sp-field-label>
+                <sp-contextual-help placement="top-start">
+                    <h2 slot="heading">Using tags</h2>
+                    Tags help you organise and filter your content. Separate multiple
+                    tags with commas.
+                    <sp-link slot="link" href="#">Tag guidelines</sp-link>
+                </sp-contextual-help>
+            </div>
+        </div>
+        <input type="text" style="width: 2px" />
+        <div id="right">
+            <div id="subtitle">my-contextual-help</div>
+
+            <h4>info (default)</h4>
+            <div style="display: flex; align-items: center;">
+                <sp-field-label>Segment</sp-field-label>
+                <my-contextual-help>
+                    <h2 slot="heading">What is a segment?</h2>
+                    Segments identify who your visitors are, what devices and services
+                    they use, where they navigate from, and much more.
+                    <sp-link slot="link" href="#">Learn more</sp-link>
+                </my-contextual-help>
+            </div>
+
+            <h4>help</h4>
+            <div style="display: flex; align-items: center;">
+                <sp-field-label>Permission</sp-field-label>
+                <my-contextual-help variant="help">
+                    <h2 slot="heading">Permission required</h2>
+                    Your admin must grant you permission before you can create a segment.
+                    <sp-link slot="link" href="#">Request permission</sp-link>
+                </my-contextual-help>
+            </div>
+        </div>
+    </div>
+    <div id="config">
+        <div style="display: inline-flex"></div>
+        <div style="display: flex; flex-direction: column"></div>
+    </div>
+</div>
