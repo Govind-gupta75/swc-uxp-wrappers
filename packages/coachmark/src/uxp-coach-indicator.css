@@ -1,0 +1,76 @@
+/*
+Copyright 2026 Adobe. All rights reserved.
+This file is licensed to you under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License. You may obtain a copy
+of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under
+the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+OF ANY KIND, either express or implied. See the License for the specific language
+governing permissions and limitations under the License.
+*/
+
+:host {
+    /* min-inline-size → min-width (UXP: no logical props) */
+    min-width: var(
+        --mod-coach-indicator-min-inline-size,
+        var(--spectrum-coach-indicator-min-inline-size)
+    );
+    /* min-block-size → min-height (UXP: no logical props) */
+    min-height: var(
+        --mod-coach-indicator-min-block-size,
+        var(--spectrum-coach-indicator-min-block-size)
+    );
+    /* inline-size → width (UXP: no logical props) */
+    width: var(
+        --mod-coach-indicator-inline-size,
+        var(--spectrum-coach-indicator-inline-size)
+    );
+    /* block-size → height (UXP: no logical props) */
+    height: var(
+        --mod-coach-indicator-block-size,
+        var(--spectrum-coach-indicator-block-size)
+    );
+}
+
+.ring {
+    /* inline-size → width (UXP: no logical props) */
+    width: var(
+        --mod-coach-indicator-ring-inline-size,
+        var(--spectrum-coach-indicator-ring-inline-size)
+    );
+    /* block-size → height (UXP: no logical props) */
+    height: var(
+        --mod-coach-indicator-ring-block-size,
+        var(--spectrum-coach-indicator-ring-block-size)
+    );
+    /* inset-block-start → top (UXP: no logical props) */
+    top: var(--mod-coach-indicator-top, var(--spectrum-coach-indicator-top));
+    /* inset-inline-start → left (UXP: no logical props) */
+    left: var(--mod-coach-indicator-left, var(--spectrum-coach-indicator-left));
+
+    /*
+     * UXP does not fall back to currentColor when a var() token is undefined
+     * (unlike standard browsers). Add concrete final fallbacks so the rings
+     * are always visible even when sp-theme tokens are not in scope.
+     * Spectrum light-theme defaults: rgb(20,115,230) / white / black.
+     */
+    border-color: var(
+        --mod-coach-indicator-ring-default-color,
+        var(--spectrum-coach-indicator-ring-default-color, rgb(20, 115, 230))
+    );
+}
+
+:host([static="white"]) .ring {
+    border-color: var(
+        --mod-coach-indicator-ring-light-color,
+        var(--spectrum-coach-indicator-ring-light-color, rgb(255, 255, 255))
+    );
+}
+
+:host([static="black"]) .ring {
+    border-color: var(
+        --mod-coach-indicator-ring-dark-color,
+        var(--spectrum-coach-indicator-ring-dark-color, rgb(0, 0, 0))
+    );
+}

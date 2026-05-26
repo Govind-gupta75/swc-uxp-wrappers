@@ -33,7 +33,7 @@
         "@swc-uxp-internal/focus-visible": "npm:focus-visible@5.1.0",
         "@swc-uxp-internal/lit": "npm:lit@2.5.0",
         "@swc-uxp-internal/theme": "npm:@spectrum-web-components/theme@0.37.0",
-        "@swc-uxp-internal/base": "npm:@spectrum-web-components/base@0.37.0",
+        "@swc-uxp-internal/base": "npm:@spectrum-web-components/base@0.44.0",
         "@swc-uxp-internal/styles": "npm:@spectrum-web-components/styles@0.37.0",
         "@swc-uxp-internal/shared": "npm:@spectrum-web-components/shared@0.37.0",
         "@swc-uxp-internal/reactive-controllers": "npm:@spectrum-web-components/reactive-controllers@0.37.0",

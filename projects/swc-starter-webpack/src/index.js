@@ -88,6 +88,9 @@ import '@spectrum-web-components/icons-workflow/icons/sp-icon-save-floppy.js';
 import '@spectrum-web-components/icons-workflow/icons/sp-icon-stopwatch.js';
 import '@spectrum-web-components/icons-workflow/icons/sp-icon-user-activity.js';
 
+import '@spectrum-web-components/coachmark/sp-coachmark.js';
+import '@spectrum-web-components/coachmark/sp-coach-indicator.js';
+
 // Importing custom elements (my-*) extended from the respective Spectrum Web Components
 import './extended_swc_samples/my-banner.js';
 import './extended_swc_samples/my-divider.js';
