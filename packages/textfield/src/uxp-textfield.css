@@ -43,11 +43,18 @@ governing permissions and limitations under the License.
 
 /* Input layout — UXP requires physical properties for some of these.
    - appearance: none overrides SWC's `appearance: textfield` (UXP does not need the textfield affordance)
+   - line-height: normal — v0.44.0 added `line-height: var(--spectrum-textfield-height)` to .input,
+     which sets line-height equal to the element's computed height (e.g. 32px == 32px). In UXP, when
+     line-height equals height on an <input>, the engine treats the text as a single full-height line
+     box and implicitly selects all content on every re-render cycle. The result: each typed character
+     is immediately selected, so the next character replaces it. Resetting to `normal` eliminates the
+     line-height == height condition and restores normal cursor / insert-at-caret behaviour.
    - padding-top/bottom: SWC uses `padding-block-start/end: calc(spacing - border-width)`.
      UXP calculates padding differently (subtracts border-width * 2), so the value is intentionally
      different from the logical-property mapping; this is a deliberate UXP layout adjustment. */
 .input {
     appearance: none;
+    line-height: normal;
     padding-top: calc(
         var(
                 --mod-textfield-spacing-block-start,
@@ -229,6 +236,18 @@ governing permissions and limitations under the License.
         )
     );
     background-color: initial;
+}
+
+/* ─── Quiet variant fixes ───────────────────────────────────────────────────── */
+
+/* background-color: initial — in UXP, the `initial` keyword does not reliably
+   reset a property that was previously set via a CSS custom property. The
+   token-based background (--mod-textfield-background-color) bleeds through.
+   Use explicit `transparent` to ensure the quiet input has no fill.
+   Note: SWC v0.37.0 used `background-color: #0000` directly (no UXP issue).
+   SWC v0.44.0 changed this to `background-color: initial`, introducing the issue. */
+:host([quiet]) .input {
+    background-color: transparent;
 }
 
 /* Multiline #textfield — also needs inline-flex (not inline-grid) in UXP. */
