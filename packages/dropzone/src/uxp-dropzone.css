@@ -1,0 +1,44 @@
+/*
+Copyright 2026 Adobe. All rights reserved.
+This file is licensed to you under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License. You may obtain a copy
+of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under
+the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+OF ANY KIND, either express or implied. See the License for the specific language
+governing permissions and limitations under the License.
+*/
+
+/*
+ * UXP does not support CSS logical properties.
+ * The rules below replace inline-size/block-size with width/height,
+ * and padding-block-* with padding-top/padding-bottom.
+ */
+
+/* inline-size → width (UXP: no CSS logical properties) */
+:host {
+    width: var(--mod-drop-zone-width, var(--spectrum-drop-zone-width));
+}
+
+/* block-size → height; the content overlay needs a physical height to fill the host */
+.spectrum-DropZone-content {
+    height: 100%;
+}
+
+/* .spectrum-DropZone-button uses logical block-size, max-inline-size, padding-block-* */
+.spectrum-DropZone-button {
+    /* block-size → height */
+    height: var(--mod-drop-zone-content-height, var(--spectrum-drop-zone-content-height));
+    /* max-inline-size → max-width */
+    max-width: var(--mod-drop-zone-content-max-width, var(--spectrum-drop-zone-content-max-width));
+    /* padding-block-end → padding-bottom */
+    padding-bottom: var(--mod-drop-zone-content-bottom-to-text, var(--spectrum-drop-zone-content-bottom-to-text));
+    /* padding-block-start → padding-top */
+    padding-top: var(--mod-drop-zone-content-top-to-text, var(--spectrum-drop-zone-content-top-to-text));
+}
+
+/* @media (hover: hover) → apply unconditionally (UXP: hover media query is unreliable) */
+.spectrum-DropZone-button:hover {
+    background-color: var(--mod-drop-zone-content-background-color, var(--spectrum-drop-zone-content-background-color));
+}

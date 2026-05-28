@@ -145,6 +145,104 @@ function attachEvents(tabName) {
         eval(spCheckboxReadonly);
     }
 
+    if (tabName === 'sp-dropzone') {
+        var dz = document.getElementById('dropzone-interactive');
+        var fileLabel = document.getElementById('file-select-label');
+        var statusSuffix = document.getElementById('status-suffix');
+        var draggedState = document.getElementById('dragged-state');
+        var lastEvent = document.getElementById('last-event');
+        var droppedFilename = document.getElementById('dropped-filename');
+        var dropEffectGroup = document.getElementById('drop-effect-group');
+        var acceptFilterGroup = document.getElementById('accept-filter-group');
+        var currentDropEffect = document.getElementById('current-drop-effect');
+        var currentAcceptFilter = document.getElementById('current-accept-filter');
+
+        // ── Static demo zones: lock visual state ──────────────────────────────
+        // Reject all drags so neither static zone ever changes its appearance.
+        var dzDefault = document.getElementById('dropzone-default');
+        var dzDragged = document.getElementById('dropzone-dragged');
+        [dzDefault, dzDragged].forEach(function (zone) {
+            // Cancel sp-dropzone-should-accept → base class skips isDragged=true.
+            zone.addEventListener('sp-dropzone-should-accept', function (e) {
+                e.preventDefault();
+            });
+            // Prevent sp-dropzone-drop from bubbling out of static display zones.
+            zone.addEventListener('sp-dropzone-drop', function (e) {
+                e.stopPropagation();
+            });
+        });
+        // Restore isDragged=true on dzDragged after the debounced dragleave —
+        // but NOT when a drop occurred (the browser re-fires dragleave after drop).
+        var dzDraggedDropped = false;
+        dzDragged.addEventListener('sp-dropzone-drop', function () {
+            dzDraggedDropped = true;
+        });
+        dzDragged.addEventListener('sp-dropzone-dragleave', function () {
+            if (dzDraggedDropped) { dzDraggedDropped = false; return; }
+            dzDragged.isDragged = true;
+        });
+
+        // ── dropEffect ─────────────────────────────────────────────────────────
+        dropEffectGroup.addEventListener('change', function () {
+            var val = dropEffectGroup.selected;
+            dz.dropEffect = val;
+            currentDropEffect.textContent = val;
+        });
+
+        // ── Accept filter — maps radio value to component accept property ───────
+        var ACCEPT_MAP = { all: '', image: 'image/*', text: 'text/*' };
+        acceptFilterGroup.addEventListener('change', function () {
+            var key = acceptFilterGroup.selected;
+            dz.accept = ACCEPT_MAP[key] !== undefined ? ACCEPT_MAP[key] : '';
+            currentAcceptFilter.textContent = key;
+        });
+
+        // ── File picker — delegate entirely to the component ───────────────────
+        fileLabel.addEventListener('click', function () {
+            dz.openFilePicker({ multiple: true });
+        });
+
+        // ── sp-dropzone-dragover ───────────────────────────────────────────────
+        dz.addEventListener('sp-dropzone-dragover', function () {
+            draggedState.textContent = 'true';
+            statusSuffix.textContent = ' — drop to upload';
+            lastEvent.textContent = 'sp-dropzone-dragover';
+        });
+
+        // ── sp-dropzone-dragleave ──────────────────────────────────────────────
+        dz.addEventListener('sp-dropzone-dragleave', function () {
+            draggedState.textContent = 'false';
+            statusSuffix.textContent = ' from your computer';
+            lastEvent.textContent = 'sp-dropzone-dragleave';
+        });
+
+        // ── sp-dropzone-drop ───────────────────────────────────────────────────
+        // detail: { files, source ('drop'|'picker'), rejected, dataTransfer, nativeEvent }
+        dz.addEventListener('sp-dropzone-drop', function (e) {
+            var detail = e.detail;
+            draggedState.textContent = 'false';
+
+            var label = detail.source === 'picker' ? 'file picker' : 'sp-dropzone-drop';
+
+            if (detail.rejected) {
+                statusSuffix.textContent = ' from your computer';
+                lastEvent.textContent = label + ' → rejected by filter (' + dz.accept + ')';
+                droppedFilename.textContent = '';
+                return;
+            }
+
+            var names = (detail.files || []).map(function (f) { return f.name; });
+            if (names.length === 0) {
+                droppedFilename.textContent = '';
+                lastEvent.textContent = label + ' (no files)';
+            } else {
+                droppedFilename.textContent = 'Selected: ' + names.join(', ');
+                lastEvent.textContent = label + ' (' + names.length + ' file' + (names.length !== 1 ? 's' : '') + ')';
+            }
+            statusSuffix.textContent = ' from your computer';
+        });
+    }
+
     if (tabName === 'sp-overlay') {
         const placementListener = `
             document.getElementById("placementselection").addEventListener("change", () => {

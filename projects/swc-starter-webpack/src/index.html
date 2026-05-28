@@ -181,6 +181,12 @@ governing permissions and limitations under the License.
                     </button>
                     <button
                         class="tablinks"
+                        onclick="openTab(event, 'sp-dropzone')"
+                    >
+                        sp-dropzone
+                    </button>
+                    <button
+                        class="tablinks"
                         onclick="openTab(event, 'sp-field-group')"
                     >
                         sp-field-group
@@ -436,6 +442,10 @@ governing permissions and limitations under the License.
 
             <div id="sp-divider" class="tabcontent">
                 <!--#include sp-divider.html -->
+            </div>
+
+            <div id="sp-dropzone" class="tabcontent">
+                <!--#include sp-dropzone.html -->
             </div>
 
             <div id="sp-field-group" class="tabcontent">
