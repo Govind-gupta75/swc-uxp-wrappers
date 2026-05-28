@@ -2480,6 +2480,22 @@
   dependencies:
     "@spectrum-web-components/base" "^0.44.0"
 
+"@spectrum-web-components/combobox@0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/combobox/-/combobox-0.44.0.tgz#13e0cd7621fd3e9765c591296afaeed3dda3b82e"
+  integrity sha512-FCUWM48ww1QtbGdIUrEucLWU3KqIvXgdlJgf7Hk79CUMSbyE+T8SwY5XYhtFM4eAZEdlvqyQWSQLfFGznxK5Mw==
+  dependencies:
+    "@spectrum-web-components/action-button" "^0.44.0"
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/icon" "^0.44.0"
+    "@spectrum-web-components/icons-ui" "^0.44.0"
+    "@spectrum-web-components/menu" "^0.44.0"
+    "@spectrum-web-components/overlay" "^0.44.0"
+    "@spectrum-web-components/picker-button" "^0.44.0"
+    "@spectrum-web-components/popover" "^0.44.0"
+    "@spectrum-web-components/progress-circle" "^0.44.0"
+    "@spectrum-web-components/textfield" "^0.44.0"
+
 "@spectrum-web-components/dialog@0.44.0", "@spectrum-web-components/dialog@^0.44.0":
   version "0.44.0"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/dialog/-/dialog-0.44.0.tgz#241949161565169ff629134cab60455b72eeb418"
@@ -2594,7 +2610,7 @@
     "@spectrum-web-components/base" "^0.44.0"
     "@spectrum-web-components/shared" "^0.44.0"
 
-"@spectrum-web-components/menu@0.44.0", "@spectrum-web-components/menu@^0.16.9-react.54+c59ca07be", "@spectrum-web-components/menu@^0.37.0":
+"@spectrum-web-components/menu@0.44.0", "@spectrum-web-components/menu@^0.16.9-react.54+c59ca07be", "@spectrum-web-components/menu@^0.37.0", "@spectrum-web-components/menu@^0.44.0":
   version "0.44.0"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/menu/-/menu-0.44.0.tgz#c2d7ea149629601e7db636f62623ed439ebdc1da"
   integrity sha512-eq6cchyHJidtseWqMr/JSCr0WN+JntEduN2jEgHVvsuUUbDhzb9fpcKyOzAYQlTYS741LL9uYcQomLKXfXJJsQ==
@@ -2661,7 +2677,7 @@
     "@spectrum-web-components/shared" "^0.44.0"
     "@spectrum-web-components/theme" "^0.44.0"
 
-"@spectrum-web-components/picker-button@0.44.0":
+"@spectrum-web-components/picker-button@0.44.0", "@spectrum-web-components/picker-button@^0.44.0":
   version "0.44.0"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/picker-button/-/picker-button-0.44.0.tgz#db6b5bcaac8121004f50042df4efafde3f7540af"
   integrity sha512-U8nrwZISCcSuiwH4Cf/783bBCibD2+AsdmUh1UPptjLXkk+3EsHRYReoKtDAxL0nlRpvehJLS00ueSSSWxcp/g==
@@ -3186,6 +3202,22 @@
     "@spectrum-web-components/icons-ui" "^0.44.0"
     "@spectrum-web-components/shared" "^0.44.0"
 
+"@swc-uxp-internal/combobox@npm:@spectrum-web-components/combobox@0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/combobox/-/combobox-0.44.0.tgz#13e0cd7621fd3e9765c591296afaeed3dda3b82e"
+  integrity sha512-FCUWM48ww1QtbGdIUrEucLWU3KqIvXgdlJgf7Hk79CUMSbyE+T8SwY5XYhtFM4eAZEdlvqyQWSQLfFGznxK5Mw==
+  dependencies:
+    "@spectrum-web-components/action-button" "^0.44.0"
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/icon" "^0.44.0"
+    "@spectrum-web-components/icons-ui" "^0.44.0"
+    "@spectrum-web-components/menu" "^0.44.0"
+    "@spectrum-web-components/overlay" "^0.44.0"
+    "@spectrum-web-components/picker-button" "^0.44.0"
+    "@spectrum-web-components/popover" "^0.44.0"
+    "@spectrum-web-components/progress-circle" "^0.44.0"
+    "@spectrum-web-components/textfield" "^0.44.0"
+
 "@swc-uxp-internal/contextual-help@npm:@spectrum-web-components/contextual-help@0.44.0":
   version "0.44.0"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/contextual-help/-/contextual-help-0.44.0.tgz#f49455608c398618fa0647b55e7d78ba772392cf"
@@ -3431,6 +3463,14 @@
   dependencies:
     "@spectrum-web-components/base" "^0.44.0"
     "@spectrum-web-components/overlay" "^0.44.0"
+
+"@swc-uxp-internal/progress-circle@npm:@spectrum-web-components/progress-circle@0.44.0":
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/progress-circle/-/progress-circle-0.44.0.tgz#7c3d57bdbf8addbac90b560863ed5ed3350a0025"
+  integrity sha512-dWl/lkBM8oj6vyU6ByGODyie8BOilOVeFIrJ11E26LxKgNf5Xx2Jnk9BbnoKuzAXQoyVY7IZCFrdaj9X4d0ISA==
+  dependencies:
+    "@spectrum-web-components/base" "^0.44.0"
+    "@spectrum-web-components/shared" "^0.44.0"
 
 "@swc-uxp-internal/quick-actions@npm:@spectrum-web-components/quick-actions@0.44.0":
   version "0.44.0"

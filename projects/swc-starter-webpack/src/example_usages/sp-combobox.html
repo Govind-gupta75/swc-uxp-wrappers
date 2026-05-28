@@ -1,0 +1,120 @@
+<!-- 
+Copyright 2024 Adobe. All rights reserved.
+This file is licensed to you under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License. You may obtain a copy
+of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under
+the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+OF ANY KIND, either express or implied. See the License for the specific language
+governing permissions and limitations under the License. 
+-->
+
+<h3>sp-combobox</h3>
+
+<div id="content">
+    <div id="playground">
+        <div id="left">
+            <div id="subtitle">sp-combobox</div>
+
+            <div id="variantLabel">default</div>
+            <div class="demo-example">
+                <sp-field-label for="combobox-default">Where do you live?</sp-field-label>
+                <sp-combobox id="combobox-default" value="us">
+                    <sp-menu-item value="us">United States</sp-menu-item>
+                    <sp-menu-item value="ca">Canada</sp-menu-item>
+                    <sp-menu-item value="mx">Mexico</sp-menu-item>
+                    <sp-menu-item value="gb">United Kingdom</sp-menu-item>
+                    <sp-menu-item value="de">Germany</sp-menu-item>
+                    <sp-menu-item value="fr">France</sp-menu-item>
+                    <sp-menu-item value="jp">Japan</sp-menu-item>
+                    <sp-menu-item value="au">Australia</sp-menu-item>
+                </sp-combobox>
+            </div>
+
+            <div id="variantLabel">sizes</div>
+            <div class="demo-example">
+                <sp-field-label for="combobox-s">Small</sp-field-label>
+                <sp-combobox id="combobox-s" size="s" value="apple">
+                    <sp-menu-item value="apple">Apple</sp-menu-item>
+                    <sp-menu-item value="banana">Banana</sp-menu-item>
+                    <sp-menu-item value="orange">Orange</sp-menu-item>
+                </sp-combobox>
+
+                <sp-field-label for="combobox-m">Medium</sp-field-label>
+                <sp-combobox id="combobox-m" value="apple">
+                    <sp-menu-item value="apple">Apple</sp-menu-item>
+                    <sp-menu-item value="banana">Banana</sp-menu-item>
+                    <sp-menu-item value="orange">Orange</sp-menu-item>
+                </sp-combobox>
+
+                <sp-field-label for="combobox-l">Large</sp-field-label>
+                <sp-combobox id="combobox-l" size="l" value="apple">
+                    <sp-menu-item value="apple">Apple</sp-menu-item>
+                    <sp-menu-item value="banana">Banana</sp-menu-item>
+                    <sp-menu-item value="orange">Orange</sp-menu-item>
+                </sp-combobox>
+            </div>
+
+            <div id="variantLabel">disabled</div>
+            <div class="demo-example">
+                <sp-field-label for="combobox-disabled">Country</sp-field-label>
+                <sp-combobox id="combobox-disabled" disabled value="us">
+                    <sp-menu-item value="us">United States</sp-menu-item>
+                    <sp-menu-item value="ca">Canada</sp-menu-item>
+                    <sp-menu-item value="mx">Mexico</sp-menu-item>
+                </sp-combobox>
+            </div>
+
+            <div id="variantLabel">invalid</div>
+            <div class="demo-example">
+                <sp-field-label for="combobox-invalid">Country</sp-field-label>
+                <sp-combobox id="combobox-invalid" invalid value="us">
+                    <sp-menu-item value="us">United States</sp-menu-item>
+                    <sp-menu-item value="ca">Canada</sp-menu-item>
+                    <sp-menu-item value="mx">Mexico</sp-menu-item>
+                </sp-combobox>
+            </div>
+
+            <div id="variantLabel">quiet</div>
+            <div class="demo-example">
+                <sp-field-label for="combobox-quiet">Country (quiet)</sp-field-label>
+                <sp-combobox id="combobox-quiet" quiet value="us">
+                    <sp-menu-item value="us">United States</sp-menu-item>
+                    <sp-menu-item value="ca">Canada</sp-menu-item>
+                    <sp-menu-item value="mx">Mexico</sp-menu-item>
+                </sp-combobox>
+            </div>
+
+            <div id="variantLabel">readonly</div>
+            <div class="demo-example">
+                <sp-field-label for="combobox-readonly">Country</sp-field-label>
+                <sp-combobox id="combobox-readonly" readonly value="gb">
+                    <sp-menu-item value="us">United States</sp-menu-item>
+                    <sp-menu-item value="gb">United Kingdom</sp-menu-item>
+                    <sp-menu-item value="de">Germany</sp-menu-item>
+                </sp-combobox>
+            </div>
+
+            <div id="variantLabel">autocomplete list</div>
+            <div class="demo-example">
+                <sp-field-label for="combobox-autocomplete">Fruit</sp-field-label>
+                <sp-combobox id="combobox-autocomplete" autocomplete="list">
+                    <sp-menu-item value="apple">Apple</sp-menu-item>
+                    <sp-menu-item value="apricot">Apricot</sp-menu-item>
+                    <sp-menu-item value="banana">Banana</sp-menu-item>
+                    <sp-menu-item value="blueberry">Blueberry</sp-menu-item>
+                    <sp-menu-item value="cherry">Cherry</sp-menu-item>
+                    <sp-menu-item value="grape">Grape</sp-menu-item>
+                    <sp-menu-item value="orange">Orange</sp-menu-item>
+                    <sp-menu-item value="strawberry">Strawberry</sp-menu-item>
+                </sp-combobox>
+            </div>
+        </div>
+    </div>
+
+    <div id="config">
+        <div style="display: inline-flex"></div>
+        <div style="display: flex; flex-direction: column"></div>
+    </div>
+</div>

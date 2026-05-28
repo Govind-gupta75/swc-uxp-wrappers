@@ -42,12 +42,27 @@ governing permissions and limitations under the License.
 }
 
 /* Input layout — UXP requires physical properties for some of these.
-   - appearance: none overrides SWC's `appearance: textfield` (UXP does not need the textfield affordance)
+   - appearance: none — overrides SWC's `appearance: textfield` (UXP does not need the affordance).
+   - background-color: transparent — the SWC background token chain resolves through
+     rgba(var(--spectrum-gray-50-rgb)) which UXP cannot compute (multi-value var() substitution
+     inside rgba() fails). WebKit's UA stylesheet gives <input> a default opaque white background,
+     creating a visible mismatch against the outer wrapper. Transparent makes the input inherit the
+     containing block's background so both surfaces match.
+   - color / -webkit-text-fill-color — UXP's WebKit engine uses -webkit-text-fill-color for text
+     rendering in form elements, overriding the CSS `color` property. The SWC color chain
+     (--spectrum-textfield-text-color-default → --spectrum-neutral-content-color-default →
+     --spectrum-gray-800 → rgba(var(--spectrum-gray-800-rgb))) fails in UXP for the same reason.
+     We bypass the chain and use --spectrum-gray-800-rgb directly — sp-theme sets this to a plain
+     comma-separated triplet (e.g. 34,34,34 for light; 235,235,235 for dark) without any rgba()
+     wrapper, so rgb(var(--spectrum-gray-800-rgb, 34, 34, 34)) always resolves correctly and adapts
+     when the sp-theme color attribute changes.
    - padding-top/bottom: SWC uses `padding-block-start/end: calc(spacing - border-width)`.
      UXP calculates padding differently (subtracts border-width * 2), so the value is intentionally
      different from the logical-property mapping; this is a deliberate UXP layout adjustment. */
 .input {
     appearance: none;
+    background-color: transparent;
+    color: rgb(var(--spectrum-gray-800-rgb, 34, 34, 34));
     padding-top: calc(
         var(
                 --mod-textfield-spacing-block-start,

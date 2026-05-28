@@ -1,0 +1,89 @@
+/*
+Copyright 2024 Adobe. All rights reserved.
+This file is licensed to you under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License. You may obtain a copy
+of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under
+the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+OF ANY KIND, either express or implied. See the License for the specific language
+governing permissions and limitations under the License.
+*/
+
+/* UXP overrides for @swc-uxp-wrappers/combobox */
+
+/* appearance: none on #input — SWC combobox renders <input id="input" class="input">.
+   The textfield UXP override sets .input { appearance: none } (class selector, specificity 0,1,0)
+   to fix appearance: textfield from the SWC base CSS. The combobox CSS uses the higher-specificity
+   #input selector (specificity 1,0,0) for its rules; re-apply appearance: none here to ensure it
+   wins regardless of cascade order. */
+#input {
+    appearance: none;
+}
+
+/* @media (hover: hover) unwrap — UXP does not support the hover media query.
+   Apply all button and input hover rules unconditionally.
+   The :has(:focus) selectors from the SWC media block are dropped here because the SWC CSS
+   already has equivalent [focused]-attribute rules outside the media block that cover those
+   states. The :has(:active) selector is similarly covered by the .button:active rule outside
+   the media block.
+   Note: .button:not(:disabled,.is-invalid,.spectrum-PickerButton--quiet) uses the CSS4
+   multi-arg :not() form which may not be supported in UXP. If it fails to match, the picker
+   button border color will remain at its default value in hover states (visual degradation only,
+   no functional break). */
+.button:not(:disabled, .is-invalid, .spectrum-PickerButton--quiet):hover,
+:host(:hover) .button:not(:disabled, .is-invalid, .spectrum-PickerButton--quiet) {
+    --mod-picker-button-border-color: var(
+        --highcontrast-combobox-border-color-highlight,
+        var(
+            --mod-combobox-border-color-hover,
+            var(--spectrum-combobox-border-color-hover)
+        )
+    );
+}
+
+:host([focused]) .button:not(:disabled, .is-invalid, .spectrum-PickerButton--quiet):hover,
+.button:not(:disabled, .is-invalid, .spectrum-PickerButton--quiet):focus:hover,
+:host([focused]:hover) .button:not(:disabled, .is-invalid, .spectrum-PickerButton--quiet) {
+    --mod-picker-button-border-color: var(
+        --highcontrast-combobox-border-color-highlight,
+        var(
+            --mod-combobox-border-color-focus-hover,
+            var(--spectrum-combobox-border-color-focus-hover)
+        )
+    );
+}
+
+:host([invalid]) .button:not(:disabled, .spectrum-PickerButton--quiet):hover,
+:host([invalid]:hover) .button:not(:disabled, .spectrum-PickerButton--quiet) {
+    --mod-picker-button-border-color: var(
+        --highcontrast-combobox-border-color-invalid,
+        var(
+            --mod-combobox-border-color-invalid-hover,
+            var(--spectrum-combobox-border-color-invalid-hover)
+        )
+    );
+}
+
+:host([invalid][focused]) .button:not(:disabled, .spectrum-PickerButton--quiet):hover,
+:host([invalid]) .button:not(:disabled, .spectrum-PickerButton--quiet):focus:hover,
+:host([focused][invalid]:hover) .button:not(:disabled, .spectrum-PickerButton--quiet) {
+    --mod-picker-button-border-color: var(
+        --highcontrast-combobox-border-color-invalid,
+        var(
+            --mod-combobox-border-color-invalid-focus-hover,
+            var(--spectrum-combobox-border-color-invalid-focus-hover)
+        )
+    );
+}
+
+/* Input background on hover — unwrapped from @media (hover: hover). */
+#input:hover,
+#textfield:hover #input {
+    --mod-textfield-background-color: var(--mod-combobox-background-color-hover);
+}
+
+#input:focus:hover,
+:host([focused]) #textfield #input:hover {
+    --mod-textfield-background-color: var(--mod-combobox-background-color-focus-hover);
+}

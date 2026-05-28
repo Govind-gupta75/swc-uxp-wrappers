@@ -43,6 +43,8 @@ export const aliases = {
     '@spectrum-web-components/radio': '@swc-uxp-wrappers/radio',
     '@spectrum-web-components/number-field': '@swc-uxp-wrappers/number-field',
     '@spectrum-web-components/search': '@swc-uxp-wrappers/search',
+    '@spectrum-web-components/combobox': '@swc-uxp-wrappers/combobox',
+    '@spectrum-web-components/progress-circle': '@swc-uxp-internal/progress-circle',
     '@spectrum-web-components/tags': '@swc-uxp-wrappers/tags',
     '@spectrum-web-components/asset': '@swc-uxp-wrappers/asset',
     '@spectrum-web-components/quick-actions': '@swc-uxp-wrappers/quick-actions',
