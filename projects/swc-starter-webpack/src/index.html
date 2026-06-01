@@ -71,26 +71,32 @@ governing permissions and limitations under the License.
 
         <sp-theme
             id="theme-block"
-            theme="spectrum"
-            color="light"
+            system="spectrum-two"
+            color="dark"
             scale="medium"
             dir="ltr"
         >
             <div
                 id="global"
-                style="background-color: var(--spectrum-global-color-gray-50)"
+                style="background-color: var(--spectrum-gray-50)"
             >
                 <div class="control-bar">
                     <div id="theme-control">
+                        <select
+                            name="system"
+                            onchange="handleThemeSystem(this)"
+                            id="system-select"
+                        >
+                            <option value="spectrum">Spectrum</option>
+                            <option selected value="spectrum-two">Spectrum Two</option>
+                        </select>
                         <select
                             name="color"
                             onchange="handleThemeColor(this)"
                             id="color-select"
                         >
-                            <option value="lightest">Lightest</option>
-                            <option selected value="light">Light</option>
-                            <option value="dark">Dark</option>
-                            <option value="darkest">Darkest</option>
+                            <option value="light">Light</option>
+                            <option selected value="dark">Dark</option>
                         </select>
                         <select
                             name="scale"

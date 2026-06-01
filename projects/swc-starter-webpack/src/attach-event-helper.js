@@ -167,6 +167,11 @@ function attachEvents(tabName) {
     }
 }
 
+function handleThemeSystem(selectObject) {
+    var value = selectObject.value;
+    document.querySelector('#theme-block').setAttribute('system', value);
+}
+
 function handleThemeColor(selectObject) {
     var value = selectObject.value;
     document.querySelector('#theme-block').setAttribute('color', value);
