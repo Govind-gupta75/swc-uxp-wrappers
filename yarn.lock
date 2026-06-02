@@ -2356,27 +2356,27 @@
     "@spectrum-web-components/button" "^0.37.0"
     "@spectrum-web-components/popover" "^0.37.0"
 
-"@spectrum-web-components/action-button@0.37.0", "@spectrum-web-components/action-button@^0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/action-button/-/action-button-0.37.0.tgz#45a5578b60b3ddf95206f4ae4f5048f4da9faa2c"
-  integrity sha512-cU/5sHpRSA823sHUH6jZccmizkTxWr/LJHTDJ4jj0LxCLh15OHfxKM+hu/vcc5fXYrAPma5Hp54xTBc/l/frDA==
+"@spectrum-web-components/action-button@1.12.0", "@spectrum-web-components/action-button@^0.37.0":
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/action-button/-/action-button-1.12.0.tgz#2466d3bdb1baa19d1e4ef604e896d675cb73b26f"
+  integrity sha512-JBjTbIqY9Tm1I5j9yUErn75GjQjQhWnbRyXHypYwMQdo5g71VCMeaD0IdggPhccs7UIO9i+Lahr9/YoU2K//VQ==
   dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/button" "^0.37.0"
-    "@spectrum-web-components/icon" "^0.37.0"
-    "@spectrum-web-components/icons-ui" "^0.37.0"
-    "@spectrum-web-components/shared" "^0.37.0"
+    "@spectrum-web-components/base" "1.12.0"
+    "@spectrum-web-components/button" "1.12.0"
+    "@spectrum-web-components/icon" "1.12.0"
+    "@spectrum-web-components/icons-ui" "1.12.0"
+    "@spectrum-web-components/shared" "1.12.0"
 
-"@spectrum-web-components/action-group@0.37.0", "@spectrum-web-components/action-group@^0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/action-group/-/action-group-0.37.0.tgz#7d8586f2fd57f782ae8ae887cff042768b260d6e"
-  integrity sha512-unC1SMjhWI080lfHeAMxBL1y2Vyk6fIhKdukWzqQnzMpPdogh+tvKF9kUgPLZ3rq0hFFCquT0ZZezyywvjTWZA==
+"@spectrum-web-components/action-group@1.12.0", "@spectrum-web-components/action-group@^0.37.0":
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/action-group/-/action-group-1.12.0.tgz#e451c40d16a7d5a8c9e2d9630c3c9dc27e0f99a5"
+  integrity sha512-9esw0NYUIhT/X1jzemUTF+qNfUabQzbYHWvhKUOECFnrrmlczqK/KQQtxJMbUX3cbnVeizlzlz5k+g5qmM5Zjw==
   dependencies:
-    "@lit-labs/observers" "^2.0.0"
-    "@spectrum-web-components/action-button" "^0.37.0"
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/icons-workflow" "^0.37.0"
-    "@spectrum-web-components/reactive-controllers" "^0.37.0"
+    "@lit-labs/observers" "2.0.2"
+    "@spectrum-web-components/action-button" "1.12.0"
+    "@spectrum-web-components/base" "1.12.0"
+    "@spectrum-web-components/icons-workflow" "1.12.0"
+    "@spectrum-web-components/reactive-controllers" "1.12.0"
 
 "@spectrum-web-components/asset@0.37.0", "@spectrum-web-components/asset@^0.37.0":
   version "0.37.0"
@@ -3045,16 +3045,27 @@
     "@spectrum-web-components/icons-ui" "^0.37.0"
     "@spectrum-web-components/shared" "^0.37.0"
 
-"@swc-uxp-internal/action-group@npm:@spectrum-web-components/action-group@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/action-group/-/action-group-0.37.0.tgz#7d8586f2fd57f782ae8ae887cff042768b260d6e"
-  integrity sha512-unC1SMjhWI080lfHeAMxBL1y2Vyk6fIhKdukWzqQnzMpPdogh+tvKF9kUgPLZ3rq0hFFCquT0ZZezyywvjTWZA==
+"@swc-uxp-internal/action-button@npm:@spectrum-web-components/action-button@1.12.0":
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/action-button/-/action-button-1.12.0.tgz#2466d3bdb1baa19d1e4ef604e896d675cb73b26f"
+  integrity sha512-JBjTbIqY9Tm1I5j9yUErn75GjQjQhWnbRyXHypYwMQdo5g71VCMeaD0IdggPhccs7UIO9i+Lahr9/YoU2K//VQ==
   dependencies:
-    "@lit-labs/observers" "^2.0.0"
-    "@spectrum-web-components/action-button" "^0.37.0"
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/icons-workflow" "^0.37.0"
-    "@spectrum-web-components/reactive-controllers" "^0.37.0"
+    "@spectrum-web-components/base" "1.12.0"
+    "@spectrum-web-components/button" "1.12.0"
+    "@spectrum-web-components/icon" "1.12.0"
+    "@spectrum-web-components/icons-ui" "1.12.0"
+    "@spectrum-web-components/shared" "1.12.0"
+
+"@swc-uxp-internal/action-group@npm:@spectrum-web-components/action-group@1.12.0":
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/action-group/-/action-group-1.12.0.tgz#e451c40d16a7d5a8c9e2d9630c3c9dc27e0f99a5"
+  integrity sha512-9esw0NYUIhT/X1jzemUTF+qNfUabQzbYHWvhKUOECFnrrmlczqK/KQQtxJMbUX3cbnVeizlzlz5k+g5qmM5Zjw==
+  dependencies:
+    "@lit-labs/observers" "2.0.2"
+    "@spectrum-web-components/action-button" "1.12.0"
+    "@spectrum-web-components/base" "1.12.0"
+    "@spectrum-web-components/icons-workflow" "1.12.0"
+    "@spectrum-web-components/reactive-controllers" "1.12.0"
 
 "@swc-uxp-internal/asset@npm:@spectrum-web-components/asset@0.37.0":
   version "0.37.0"
@@ -3510,6 +3521,14 @@
     "@spectrum-web-components/base" "^0.37.0"
     "@spectrum-web-components/overlay" "^0.37.0"
     "@spectrum-web-components/shared" "^0.37.0"
+
+"@swc-uxp-wrappers/action-button@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@swc-uxp-wrappers/action-button/-/action-button-2.0.0.tgz#c2fcef766ff19a73c6655c33b5d7f831713f99c1"
+  integrity sha512-MsGVtZRxY9jR8oO6X60FEVcrjLSp05YS/rFfqawr4tGKwyqRaOQ4x9THBLcVpRti6c4MuzpDs5CQ3Duz0NqqDw==
+  dependencies:
+    "@swc-uxp-internal/action-button" "npm:@spectrum-web-components/action-button@0.37.0"
+    "@swc-uxp-wrappers/button" "2.0.0"
 
 "@swc-uxp-wrappers/button-group@2.0.0":
   version "2.0.0"
