@@ -12,10 +12,20 @@ governing permissions and limitations under the License.
 
 /* write uxp style overrides */
 
-/* workaround for missing logical property 'inset', fixed layouting of focus-ring */
-:host:after {
-    top: 0px;
-    left: 0px;
-    bottom: 0px;
-    right: 0px;
+/* @media (hover:hover) unwrap — UXP does not support hover media query */
+:host(:not([disabled]):hover) {
+    background-color: var(--mod-clear-button-background-color-hover, var(--spectrum-clear-button-background-color-hover));
+}
+
+:host(:not([disabled]):hover) .icon {
+    color: var(--highcontrast-clear-button-icon-color-hover, var(--mod-clear-button-icon-color-hover, var(--spectrum-clear-button-icon-color-hover)));
+}
+
+/* :is(:active,[active]) expansion — UXP :is() support is partial */
+:host(:not([disabled]):active) {
+    background-color: var(--mod-clear-button-background-color-down, var(--spectrum-clear-button-background-color-down));
+}
+
+:host(:not([disabled])[active]) {
+    background-color: var(--mod-clear-button-background-color-down, var(--spectrum-clear-button-background-color-down));
 }

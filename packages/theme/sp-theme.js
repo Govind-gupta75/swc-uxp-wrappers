@@ -10,14 +10,6 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-import { ClearButton } from '@swc-uxp-internal/button/src/ClearButton.js';
+import { Theme } from './src/Theme.js';
 
-import styles from './uxp-clear-button.css.js';
-
-class UxpClearButton extends ClearButton {
-    static get styles() {
-        return [...super.styles, styles];
-    }
-}
-
-export { UxpClearButton as ClearButton };
+customElements.define('sp-theme', Theme);

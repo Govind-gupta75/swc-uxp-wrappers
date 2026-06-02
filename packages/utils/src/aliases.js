@@ -50,7 +50,7 @@ export const aliases = {
     '@spectrum-web-components/sidenav': '@swc-uxp-wrappers/sidenav',
     '@spectrum-web-components/swatch': '@swc-uxp-wrappers/swatch',
     '@spectrum-web-components/overlay': '@swc-uxp-wrappers/overlay',
-    '@spectrum-web-components/theme': '@swc-uxp-internal/theme',
+    '@spectrum-web-components/theme': '@swc-uxp-wrappers/theme',
     '@spectrum-web-components/base': '@swc-uxp-internal/base',
     '@spectrum-web-components/shared': '@swc-uxp-internal/shared',
     '@spectrum-web-components/styles': '@swc-uxp-internal/styles',

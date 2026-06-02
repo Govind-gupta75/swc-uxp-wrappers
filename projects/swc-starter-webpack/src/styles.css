@@ -166,6 +166,16 @@ p {
     flex-direction: column;
 }
 
+#theme-control {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#theme-control select {
+    width: 100%;
+}
+
 #global {
     overflow-y: auto;
     height: 100vh;

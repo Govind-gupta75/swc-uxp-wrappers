@@ -10,14 +10,7 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-import { ClearButton } from '@swc-uxp-internal/button/src/ClearButton.js';
-
-import styles from './uxp-clear-button.css.js';
-
-class UxpClearButton extends ClearButton {
-    static get styles() {
-        return [...super.styles, styles];
-    }
-}
-
-export { UxpClearButton as ClearButton };
+// Pass-through: loads all Spectrum 1 theme fragments and registers them with Theme.
+// The fragments call Theme.registerThemeFragment() which works via the UxpTheme class
+// since UxpTheme extends Theme and shares the same static themeFragmentsByKind Map.
+export * from '@swc-uxp-internal/theme/src/themes.js';
