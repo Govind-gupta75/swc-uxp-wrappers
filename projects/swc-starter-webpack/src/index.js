@@ -18,6 +18,7 @@ import '@spectrum-web-components/theme/src/themes.js';
 import '@spectrum-web-components/theme/src/spectrum-two/themes.js';
 
 import '@spectrum-web-components/banner/sp-banner.js';
+import '@spectrum-web-components/badge/sp-badge.js';
 import '@spectrum-web-components/divider/sp-divider.js';
 import '@spectrum-web-components/illustrated-message/sp-illustrated-message.js';
 import '@spectrum-web-components/link/sp-link.js';
@@ -81,6 +82,8 @@ import '@spectrum-web-components/icons-workflow/icons/sp-icon-add-circle.js';
 import '@spectrum-web-components/icons-workflow/icons/sp-icon-display-advert.js';
 import '@spectrum-web-components/icons-workflow/icons/sp-icon-add-to.js';
 import '@spectrum-web-components/icons-workflow/icons/sp-icon-star.js';
+import '@spectrum-web-components/icons-workflow/icons/sp-icon-checkmark-circle.js';
+import '@spectrum-web-components/icons-workflow/icons/sp-icon-settings.js';
 import '@spectrum-web-components/icons-workflow/icons/sp-icon-add-to-selection.js';
 import '@spectrum-web-components/icons-workflow/icons/sp-icon-edit.js';
 import '@spectrum-web-components/icons-workflow/icons/sp-icon-magnify.js';
@@ -93,6 +96,7 @@ import '@spectrum-web-components/icons-workflow/icons/sp-icon-user-activity.js';
 
 // Importing custom elements (my-*) extended from the respective Spectrum Web Components
 import './extended_swc_samples/my-banner.js';
+import './extended_swc_samples/my-badge.js';
 import './extended_swc_samples/my-divider.js';
 import './extended_swc_samples/my-avatar.js';
 import './extended_swc_samples/my-illustrated-message.js';

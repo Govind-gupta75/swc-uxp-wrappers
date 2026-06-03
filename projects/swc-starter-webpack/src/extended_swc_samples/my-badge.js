@@ -10,15 +10,18 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-import { HelpText } from '@swc-uxp-internal/help-text/src/HelpText.js';
+import { css } from 'lit';
+import { Badge } from '@spectrum-web-components/badge';
 
-import styles from './uxp-help-text.css.js';
-
-class UxpHelpText extends HelpText {
-    static get styles() {
-        // We are combining our styles to make all super class styles available along with the transitive dependent classes styles.
-        return [...super.styles, styles];
-    }
+class MyBadge extends Badge {
+    static styles = [
+        Badge.styles,
+        css`
+            :host([class='my-badge']) {
+                font-style: italic;
+            }
+        `,
+    ];
 }
 
-export { UxpHelpText as HelpText };
+customElements.define('my-badge', MyBadge);

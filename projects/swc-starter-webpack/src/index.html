@@ -151,6 +151,12 @@ governing permissions and limitations under the License.
                     </button>
                     <button
                         class="tablinks"
+                        onclick="openTab(event, 'sp-badge')"
+                    >
+                        sp-badge
+                    </button>
+                    <button
+                        class="tablinks"
                         onclick="openTab(event, 'sp-button')"
                     >
                         sp-button
@@ -195,7 +201,7 @@ governing permissions and limitations under the License.
                         class="tablinks"
                         onclick="openTab(event, 'sp-field-label')"
                     >
-                        sp-fieldlabel
+                        sp-field-label
                     </button>
                     <button
                         class="tablinks"
@@ -418,6 +424,10 @@ governing permissions and limitations under the License.
 
             <div id="sp-banner" class="tabcontent">
                 <!--#include sp-banner.html -->
+            </div>
+
+            <div id="sp-badge" class="tabcontent">
+                <!--#include sp-badge.html -->
             </div>
 
             <div id="sp-button" class="tabcontent">
