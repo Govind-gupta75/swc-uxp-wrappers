@@ -344,6 +344,12 @@ governing permissions and limitations under the License.
                     </button>
                     <button
                         class="tablinks"
+                        onclick="openTab(event, 'sp-thumbnail')"
+                    >
+                        sp-thumbnail
+                    </button>
+                    <button
+                        class="tablinks"
                         onclick="openTab(event, 'sp-toast')"
                     >
                         sp-toast
@@ -552,6 +558,10 @@ governing permissions and limitations under the License.
 
             <div id="sp-textfield" class="tabcontent">
                 <!--#include sp-textfield.html -->
+            </div>
+
+            <div id="sp-thumbnail" class="tabcontent">
+                <!--#include sp-thumbnail.html -->
             </div>
 
             <div id="sp-toast" class="tabcontent">

@@ -148,7 +148,7 @@ p {
 }
 
 .demo-example {
-    background: var(--spectrum-gray-100);
+    background: var(--spectrum-background-base-color);
     flex: 1 1 0%;
     max-width: 100%;
     padding: 10px 10px 10px 10px;

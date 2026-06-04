@@ -10,15 +10,4 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-import { Toast } from '@swc-uxp-internal/toast/src/Toast.js';
-
-import styles from './uxp-toast.css.js';
-
-class UxpToast extends Toast {
-    static get styles() {
-        // We are combining our styles to make all super class styles available along with the transitive dependent classes styles.
-        return [...super.styles, styles];
-    }
-}
-
-export { UxpToast as Toast };
+export * from './Thumbnail.js';
