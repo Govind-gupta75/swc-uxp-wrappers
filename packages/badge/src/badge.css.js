@@ -10,8 +10,12 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
+// Combiner: merges the upstream SWC badge stylesheet with the UXP override
+// sheet so that consumers who import ./src/badge.css.js directly receive the
+// full combined stylesheet, not just the UXP delta.
 import { unsafeCSS } from '@spectrum-web-components/base';
 import swcBadgeStyles from '@swc-uxp-internal/badge/src/badge.css.js';
+
 import uxpBadgeStyles from './uxp-badge.css.js';
 
 const combinedBadgeStyles = unsafeCSS(
