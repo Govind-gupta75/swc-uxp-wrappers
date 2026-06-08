@@ -3216,14 +3216,6 @@
   dependencies:
     "@spectrum-web-components/base" "1.12.0"
 
-"@swc-uxp-internal/field-group@npm:@spectrum-web-components/field-group@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/field-group/-/field-group-0.37.0.tgz#f127bf8227faea54122adb646c2bfc2961bc9b0b"
-  integrity sha512-dZu8h/As8GKaTsk1ceAg55VIQhIhucnzzag4u16R1F2dCVqBdL4TV88dK8lqgD9UUB5P7Mq4JeqlQw3XRVuCag==
-  dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/help-text" "^0.37.0"
-
 "@swc-uxp-internal/field-group@npm:@spectrum-web-components/field-group@1.12.0":
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/field-group/-/field-group-1.12.0.tgz#b1f4b4b047ad8085ba0e6a45f2a112c1b2090615"
@@ -3439,16 +3431,16 @@
   dependencies:
     "@spectrum-web-components/base" "^0.37.0"
 
-"@swc-uxp-internal/radio@npm:@spectrum-web-components/radio@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/radio/-/radio-0.37.0.tgz#a210fce0f4097b87d82becf3ae3ebd936eb5b768"
-  integrity sha512-Rg8vXQKcOc+0S+z+Y2MiIHCQ9h9rkJuESc4ihH88UTJyqnpm7Ejy40HIbNl6zVzN5LgT1u6wovyA2ks4Jpamng==
+"@swc-uxp-internal/radio@npm:@spectrum-web-components/radio@1.12.0":
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/radio/-/radio-1.12.0.tgz#5c86471f0851826c9c033f06a93827e2d21f2f33"
+  integrity sha512-Q45CXqiVjKCEIUV4X805j452PFYNL/RjWQDRRy+67Cig6QMmQLZGwbz1js4QqCUvfW6LB8+2HPfAhkNkR/xPPQ==
   dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/field-group" "^0.37.0"
-    "@spectrum-web-components/help-text" "^0.37.0"
-    "@spectrum-web-components/reactive-controllers" "^0.37.0"
-    "@spectrum-web-components/shared" "^0.37.0"
+    "@spectrum-web-components/base" "1.12.0"
+    "@spectrum-web-components/field-group" "1.12.0"
+    "@spectrum-web-components/help-text" "1.12.0"
+    "@spectrum-web-components/reactive-controllers" "1.12.0"
+    "@spectrum-web-components/shared" "1.12.0"
 
 "@swc-uxp-internal/reactive-controllers@npm:@spectrum-web-components/reactive-controllers@1.12.0":
   version "1.12.0"
@@ -3616,14 +3608,6 @@
   integrity sha512-HqJ7hmMgF9bfeG/N03tze1N4NQaRzlmIyN637wepB6gxOilLcDtdSIeJ7El5UDzNNEbTp2eFjUW9FuiSiYrwqg==
   dependencies:
     "@swc-uxp-internal/divider" "npm:@spectrum-web-components/divider@0.37.0"
-
-"@swc-uxp-wrappers/field-group@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@swc-uxp-wrappers/field-group/-/field-group-2.0.0.tgz#ef258687c37e0e874559d63060cbca105e1f3511"
-  integrity sha512-6RjAuSBeMkovoiRrmkq/pPgbpAGH5/lX7vB2qtMZkgZDsGHHYF9KM8yn4n6olSJhCyo1TQXqnrle1ViIh8NJqA==
-  dependencies:
-    "@swc-uxp-internal/field-group" "npm:@spectrum-web-components/field-group@0.37.0"
-    "@swc-uxp-wrappers/help-text" "2.0.0"
 
 "@swc-uxp-wrappers/field-label@2.0.0":
   version "2.0.0"

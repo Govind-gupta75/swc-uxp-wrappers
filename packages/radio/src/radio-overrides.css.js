@@ -10,15 +10,4 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-import { RadioGroup } from '@swc-uxp-internal/radio/src/RadioGroup.js';
-
-import styles from './uxp-radio-group.css.js';
-
-class UxpRadioGroup extends RadioGroup {
-    static get styles() {
-        // We are combining our styles to make all super class styles available along with the transitive dependent classes styles.
-        return [...super.styles, styles];
-    }
-}
-
-export { UxpRadioGroup as RadioGroup };
+export { default } from '@swc-uxp-internal/radio/src/radio-overrides.css.js';
