@@ -148,13 +148,27 @@ p {
 }
 
 .demo-example {
-    background: var(--spectrum-gray-100);
+    background: var(--spectrum-background-base-color);
     flex: 1 1 0%;
     max-width: 100%;
     padding: 10px 10px 10px 10px;
     margin: 10px 10px 0px 0px;
     position: relative;
     z-index: 1;
+}
+
+#theme-control {
+    display: flex;
+    flex-direction: column;
+}
+
+#theme-control select {
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+#theme-control select:last-child {
+    margin-bottom: 0;
 }
 
 .control-bar {
