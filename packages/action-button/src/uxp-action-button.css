@@ -22,11 +22,11 @@ governing permissions and limitations under the License.
     margin-right: var(--spectrum-actionbutton-text-to-visual);
 }
 
-/* Icon-only and hold-affordance: no label, so no gap is needed.
-   Restore the original margin-inline-end value (edge-to-visual-only - edge-to-text)
-   so the icon sits at the correct distance from the button edge. */
-[icon-only]::slotted([slot='icon']),
-.hold-affordance + ::slotted([slot='icon']) {
+/* Icon-only (no label): no gap needed — restore the original negative margin-inline-end
+   so the icon sits at the correct distance from the button edge.
+   Note: hold-affordance is NOT included here — hold-affordance buttons can have both icon
+   and label, in which case the icon still needs the full text-to-visual margin-right. */
+[icon-only]::slotted([slot='icon']) {
     margin-right: calc(
         var(--spectrum-actionbutton-edge-to-visual-only)
         - var(--spectrum-actionbutton-edge-to-text)

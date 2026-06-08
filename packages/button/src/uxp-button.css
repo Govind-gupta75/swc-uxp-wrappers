@@ -41,17 +41,18 @@ governing permissions and limitations under the License.
     margin-block-start: 0;
 }
 
-/* min-inline-size:unset is not translated by the UXP logical property mapper, keeping the
-   min-width constraint. SWC sizes an icon-only button to a circle by relying on the padding
-   token chain (--spectrum-button-edge-to-visual-only) balancing horizontal and vertical space
-   equally. If that chain fails in UXP the padding collapses and width ≠ height → oval.
-   Fix: force explicit equal dimensions (border-box) via the same height token, and reset
-   padding to 0 so the token-based padding does not fight the forced dimensions. */
+/* min-inline-size:unset (SWC) is translated to min-width:unset by the logical mapper, but
+   UXP does not honor the `unset` keyword — the base :host min-width persists.
+   Since min-width > --spectrum-button-height, the button is wider than tall → ellipse.
+   Fix: use min-width:0 (always honored) to clear the constraint, then force equal
+   width and height to guarantee a square that border-radius:50% renders as a circle.
+   height is also pinned explicitly because min-block-size (→ min-height) only sets a
+   minimum — if the icon's rendered height exceeds --spectrum-button-height the button
+   grows taller than wide, producing an ellipse in the other direction. */
 :host([icon-only]) {
-    min-width: unset;
-    width: var(--spectrum-button-height, 32px);
-    height: var(--spectrum-button-height, 32px);
-    padding: 0;
+    min-width: 0;
+    width: var(--mod-button-height, var(--spectrum-button-height));
+    height: var(--mod-button-height, var(--spectrum-button-height));
 }
 
 /* @media (hover:hover) unwrap — UXP does not support hover media query */
