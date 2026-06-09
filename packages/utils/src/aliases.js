@@ -26,6 +26,7 @@ export const aliases = {
     '@spectrum-web-components/button': '@swc-uxp-wrappers/button',
     '@spectrum-web-components/action-button': '@swc-uxp-wrappers/action-button',
     '@spectrum-web-components/checkbox': '@swc-uxp-wrappers/checkbox',
+    '@spectrum-web-components/coachmark': '@swc-uxp-wrappers/coachmark',
     '@spectrum-web-components/action-group': '@swc-uxp-wrappers/action-group',
     '@spectrum-web-components/action-bar': '@swc-uxp-wrappers/action-bar',
     '@spectrum-web-components/popover': '@swc-uxp-wrappers/popover',
