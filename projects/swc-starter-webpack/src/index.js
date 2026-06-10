@@ -22,6 +22,7 @@ import '@spectrum-web-components/banner/sp-banner.js';
 import '@spectrum-web-components/badge/sp-badge.js';
 import '@spectrum-web-components/breadcrumbs/sp-breadcrumbs.js';
 import '@spectrum-web-components/divider/sp-divider.js';
+import '@spectrum-web-components/dropzone/sp-dropzone.js';
 import '@spectrum-web-components/illustrated-message/sp-illustrated-message.js';
 import '@spectrum-web-components/link/sp-link.js';
 import '@spectrum-web-components/avatar/sp-avatar.js';
