@@ -1,0 +1,41 @@
+/*
+Copyright 2026 Adobe. All rights reserved.
+This file is licensed to you under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License. You may obtain a copy
+of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under
+the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+OF ANY KIND, either express or implied. See the License for the specific language
+governing permissions and limitations under the License.
+*/
+
+/*
+ * UXP overrides for @swc-uxp-wrappers/dropzone (SWC v1.12.x)
+ *
+ * Targets plugins that do NOT set enableLogicalProperties: true in their
+ * manifest. Physical-property overrides are harmless when the flag is on
+ * (same specificity, appended last via [...super.styles, styles]).
+ */
+
+/* inline-size → width (UXP: CSS logical properties not supported)
+   SWC original: inline-size: var(--mod-drop-zone-width, var(--spectrum-drop-zone-width)) */
+:host {
+    width: var(--mod-drop-zone-width, var(--spectrum-drop-zone-width));
+}
+
+/* margin-block: 0 → margin-top/bottom: 0 (UXP: margin-block shorthand not supported)
+   SWC original: margin-block: 0 */
+::slotted(*) {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* background-color: rgba(var(--rgb-triple), opacity) → literal rgba fallback
+   (UXP: CSS variables inside rgba() are not supported)
+   SWC original: background-color: rgba(var(--spectrum-drop-zone-background-color-rgb), ...)
+   Override --mod-drop-zone-background-color to match your plugin's accent color. */
+:host([dragged]),
+:host([filled]) {
+    background-color: var(--mod-drop-zone-background-color, rgba(20, 115, 230, 0.1));
+}

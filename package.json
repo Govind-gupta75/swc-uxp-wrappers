@@ -19,6 +19,7 @@
         "prettier": "^2.8.8"
     },
     "resolutions": {
+        "@spectrum-web-components/dropzone": "1.12.1",
         "@spectrum-web-components/theme": "0.37.0",
         "@spectrum-web-components/base": "0.37.0",
         "@spectrum-web-components/styles": "0.37.0",
