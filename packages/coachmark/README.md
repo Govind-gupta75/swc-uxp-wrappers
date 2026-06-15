@@ -109,5 +109,6 @@ The following UXP limitations are transparently handled by this wrapper — no c
 
 ## Known Issues
 
+-   `sp-coach-indicator` is not supported until animation support is available in UXP.
 -   Tab navigation is not supported.
 -   The `slot="asset"` image will not load if the `src` points to an external URL — UXP restricts network access to the plugin's allowed domains. Use a local asset path instead.
