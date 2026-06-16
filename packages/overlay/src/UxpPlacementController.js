@@ -64,12 +64,26 @@ export class UxpPlacementController extends PlacementController {
             applyTranslateAsTransform(this.target);
         }
 
-        // Convert on the arrow/tip element too, if present.
+        // For the tip/arrow element, clear all JS-computed inline positioning so
+        // the CSS centering rules in uxp-popover.css take over.
+        //
+        // computePlacement() sets { top/left: "0px", translate: "Xpx Ypx" } on the
+        // tip element via floating-ui's arrow middleware. In UXP the JS-computed
+        // horizontal offset is unreliable (the dialog may have been display:none
+        // when floating-ui measured it). Clearing these inline styles lets the CSS
+        // `left: 50%; transform: translateX(-50%)` centering rules apply instead,
+        // which consistently centers the caret over the popover for top/bottom
+        // placements. Left/right placements rely on `inset-block: 0; margin: auto`
+        // for vertical centering which also works without inline styles.
         const elements = this.host?.elements;
         if (elements) {
             for (const el of elements) {
                 if (el.tipElement) {
-                    applyTranslateAsTransform(el.tipElement);
+                    const tip = el.tipElement;
+                    tip.style.removeProperty('top');
+                    tip.style.removeProperty('left');
+                    tip.style.removeProperty('translate');
+                    tip.style.removeProperty('transform');
                     break;
                 }
             }
