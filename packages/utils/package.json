@@ -18,7 +18,8 @@
     "exports": {
         ".": "./src/index.js",
         "./package.json": "./package.json",
-        "./src/aliases.js": "./src/aliases.js"
+        "./src/aliases.js": "./src/aliases.js",
+        "./src/uxp-define-element.js": "./src/uxp-define-element.js"
     },
     "files": [
         "**/*.js"

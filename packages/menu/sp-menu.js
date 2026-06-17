@@ -10,6 +10,15 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
+// Pre-register sp-menu-divider with the UXP wrapper class BEFORE importing Menu.
+// @swc-uxp-internal/menu/src/Menu.js has a static side-effect:
+//   import"../sp-menu-divider.js"
+// This registers the *internal* (non-UXP) MenuDivider as sp-menu-divider.
+// By importing the wrapper's sp-menu-divider.js first, the UXP class wins the
+// registration race. The internal side-effect is then blocked by the guarded
+// defineElement() in @swc-uxp-wrappers/utils/src/uxp-define-element.js.
+import './sp-menu-divider.js';
+
 import { Menu } from './src/Menu.js';
 
 customElements.define('sp-menu', Menu);

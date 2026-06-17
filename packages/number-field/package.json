@@ -24,7 +24,7 @@
     },
     "dependencies": {
         "@swc-uxp-internal/number-field": "npm:@spectrum-web-components/number-field@0.37.0",
-        "@swc-uxp-wrappers/action-button": "2.0.0",
+        "@swc-uxp-wrappers/action-button": "3.0.0",
         "@swc-uxp-wrappers/textfield": "2.0.0"
     },
     "files": [

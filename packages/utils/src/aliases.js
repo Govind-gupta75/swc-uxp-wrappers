@@ -53,6 +53,14 @@ export const aliases = {
     '@spectrum-web-components/swatch': '@swc-uxp-wrappers/swatch',
     '@spectrum-web-components/overlay': '@swc-uxp-wrappers/overlay',
     '@spectrum-web-components/theme': '@swc-uxp-wrappers/theme',
+    // Specific subpath alias must come BEFORE the general '@spectrum-web-components/base'
+    // alias. Webpack picks the first matching alias (prefix match), so if the general
+    // entry came first it would win for every subpath import including this one.
+    // This guarded defineElement prevents duplicate customElements.define() crashes when
+    // @swc-uxp-internal packages (e.g. menu/src/Menu.js) have static side-effect imports
+    // of their own sp-*.js files (e.g. ../sp-menu-divider.js).
+    '@spectrum-web-components/base/src/define-element.js':
+        '@swc-uxp-wrappers/utils/src/uxp-define-element.js',
     '@spectrum-web-components/base': '@swc-uxp-internal/base',
     '@spectrum-web-components/shared': '@swc-uxp-internal/shared',
     '@spectrum-web-components/styles': '@swc-uxp-internal/styles',
