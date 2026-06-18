@@ -10,9 +10,4 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-export * from './Overlay.js';
-export * from './OverlayTrigger.js';
-export * from './overlay-types.js';
-export * from './VirtualTrigger.js';
-export * from './loader.js';
-export * from './overlay-trigger-directive.js';
+export * from '@swc-uxp-internal/overlay/src/slottable-request-event.js';
