@@ -15,4 +15,36 @@ governing permissions and limitations under the License.
 /* Workaround for - https://jira.corp.adobe.com/browse/UXP-22675 */
 .dialog {
     z-index: 1000;
+    /* dvh unit not supported in UXP */
+    max-height: calc(100vh - 16px);
+    /* v1.12.0 uses `inset: 0 auto auto 0` which has no UXP browsers entry.
+       Override with explicit physical properties (supported since UXP 2.0). */
+    top: 0;
+    left: 0;
+}
+
+/* v1.12.0 adds placement-direction margins as CSS animation entry offsets:
+   the overlay is intentionally displaced by --swc-overlay-animation-distance
+   (= --spectrum-spacing-100, typically 4 px) from its floating-ui-computed
+   position, and a CSS transition slides it into place in browsers.
+   UXP has no such transition (the @supports (overlay: auto) block that
+   defines it does not apply), so these margins permanently shift the overlay
+   by a few pixels. Zero them out so floating-ui's computed position is used
+   exactly as returned. The padding-block/padding-inline rules (which reserve
+   space for the arrow tip) are left intact. */
+.dialog[actual-placement*="top"],
+.dialog:not([actual-placement])[placement*="top"] {
+    margin-top: 0;
+}
+.dialog[actual-placement*="bottom"],
+.dialog:not([actual-placement])[placement*="bottom"] {
+    margin-top: 0;
+}
+.dialog[actual-placement*="right"],
+.dialog:not([actual-placement])[placement*="right"] {
+    margin-left: 0;
+}
+.dialog[actual-placement*="left"],
+.dialog:not([actual-placement])[placement*="left"] {
+    margin-left: 0;
 }
