@@ -54,7 +54,7 @@ export const aliases = {
     '@spectrum-web-components/overlay': '@swc-uxp-wrappers/overlay',
     '@spectrum-web-components/theme': '@swc-uxp-wrappers/theme',
     '@spectrum-web-components/base': '@swc-uxp-internal/base',
-    '@spectrum-web-components/shared': '@swc-uxp-internal/shared',
+    '@spectrum-web-components/shared': '@swc-uxp-wrappers/shared',
     '@spectrum-web-components/styles': '@swc-uxp-internal/styles',
     '@spectrum-web-components/reactive-controllers':
         '@swc-uxp-internal/reactive-controllers',

@@ -1,4 +1,4 @@
-# Overlay Upgrade Analysis: v0.37.0 → v1.12.0
+# Overlay Upgrade Analysis: 0.37.0 → 1.12.0
 
 ## Summary
 

@@ -1310,7 +1310,7 @@
 
 "@floating-ui/dom@1.7.4":
   version "1.7.4"
-  resolved "https://registry.npmjs.org/@floating-ui/dom/-/dom-1.7.4.tgz"
+  resolved "https://registry.yarnpkg.com/@floating-ui/dom/-/dom-1.7.4.tgz#ee667549998745c9c3e3e84683b909c31d6c9a77"
   integrity sha512-OOchDgh4F2CchOX94cRVqhvy7b3AFb+/rQXyswmzmGakRfkMgoWVjfnLWkRirfLEfuD4ysVW16eXzwt3jHIzKA==
   dependencies:
     "@floating-ui/core" "^1.7.3"
@@ -1326,7 +1326,7 @@
 
 "@floating-ui/utils@0.2.10":
   version "0.2.10"
-  resolved "https://registry.npmjs.org/@floating-ui/utils/-/utils-0.2.10.tgz"
+  resolved "https://registry.yarnpkg.com/@floating-ui/utils/-/utils-0.2.10.tgz#a2a1e3812d14525f725d011a73eceb41fef5bc1c"
   integrity sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ==
 
 "@floating-ui/utils@^0.1.1":
@@ -2466,14 +2466,14 @@
     "@spectrum-web-components/icons-ui" "^0.37.0"
     "@spectrum-web-components/shared" "^0.37.0"
 
-"@spectrum-web-components/clear-button@1.12.0":
+"@spectrum-web-components/clear-button@1.12.0", "@spectrum-web-components/clear-button@^0.37.0":
   version "1.12.0"
   resolved "https://registry.npmjs.org/@spectrum-web-components/clear-button/-/clear-button-1.12.0.tgz"
   integrity sha512-JeTxqe/wMX3BR8g5Pe2llGFFFl5n+R6rhvKcC5yFMtiryupJLM/t3D0VeeIGpS6JgBcfyga7Aw4BZvfPxgLXVQ==
   dependencies:
     "@spectrum-web-components/base" "1.12.0"
 
-"@spectrum-web-components/close-button@1.12.0":
+"@spectrum-web-components/close-button@1.12.0", "@spectrum-web-components/close-button@^0.37.0":
   version "1.12.0"
   resolved "https://registry.npmjs.org/@spectrum-web-components/close-button/-/close-button-1.12.0.tgz"
   integrity sha512-RV4RYyrb3ifC6Z8rawEHS485MCLfmVeDFpwr1WDtNXssrZDAenzgfv/9z1ET379fhR2IyrciwD/BLUJQlEW4QA==
@@ -3066,6 +3066,17 @@
     "@spectrum-web-components/button" "^0.37.0"
     "@spectrum-web-components/popover" "^0.37.0"
 
+"@swc-uxp-internal/action-button@npm:@spectrum-web-components/action-button@0.37.0":
+  version "0.37.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/action-button/-/action-button-0.37.0.tgz#45a5578b60b3ddf95206f4ae4f5048f4da9faa2c"
+  integrity sha512-cU/5sHpRSA823sHUH6jZccmizkTxWr/LJHTDJ4jj0LxCLh15OHfxKM+hu/vcc5fXYrAPma5Hp54xTBc/l/frDA==
+  dependencies:
+    "@spectrum-web-components/base" "^0.37.0"
+    "@spectrum-web-components/button" "^0.37.0"
+    "@spectrum-web-components/icon" "^0.37.0"
+    "@spectrum-web-components/icons-ui" "^0.37.0"
+    "@spectrum-web-components/shared" "^0.37.0"
+
 "@swc-uxp-internal/action-button@npm:@spectrum-web-components/action-button@1.12.0":
   version "1.12.0"
   resolved "https://registry.npmjs.org/@spectrum-web-components/action-button/-/action-button-1.12.0.tgz"
@@ -3132,6 +3143,18 @@
   dependencies:
     "@spectrum-web-components/base" "1.12.0"
     "@spectrum-web-components/button" "1.12.0"
+
+"@swc-uxp-internal/button@npm:@spectrum-web-components/button@0.37.0":
+  version "0.37.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/button/-/button-0.37.0.tgz#ea20f663b05f6ca8ddb56e8206c56c051c5153f6"
+  integrity sha512-Cz69UtdNDqNVAMUjz2i1RjZ4LetR+bTnUvaDlj8heQHYR/ZHKdnMWaxS1DnZjlu7+osFo57XJPLyhlEEgYT1Ig==
+  dependencies:
+    "@spectrum-web-components/base" "^0.37.0"
+    "@spectrum-web-components/clear-button" "^0.37.0"
+    "@spectrum-web-components/close-button" "^0.37.0"
+    "@spectrum-web-components/icon" "^0.37.0"
+    "@spectrum-web-components/icons-ui" "^0.37.0"
+    "@spectrum-web-components/shared" "^0.37.0"
 
 "@swc-uxp-internal/button@npm:@spectrum-web-components/button@1.12.0":
   version "1.12.0"
@@ -3373,7 +3396,7 @@
 
 "@swc-uxp-internal/overlay@npm:@spectrum-web-components/overlay@1.12.0":
   version "1.12.0"
-  resolved "https://registry.npmjs.org/@spectrum-web-components/overlay/-/overlay-1.12.0.tgz"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/overlay/-/overlay-1.12.0.tgz#23c474f1d2b021049e5f11889233ee448ae42951"
   integrity sha512-9QcTo5KDfSElq/RiQKMA3y3HL1Zw1kezcSWgR/9qAEaH1PM2Q6N89FibVav0e3Rci+QDAj2FjWmuGm6l+uMI+g==
   dependencies:
     "@floating-ui/dom" "1.7.4"
@@ -3564,6 +3587,21 @@
     "@spectrum-web-components/overlay" "1.12.0"
     "@spectrum-web-components/reactive-controllers" "1.12.0"
     "@spectrum-web-components/shared" "1.12.0"
+
+"@swc-uxp-wrappers/action-button@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@swc-uxp-wrappers/action-button/-/action-button-2.0.0.tgz#c2fcef766ff19a73c6655c33b5d7f831713f99c1"
+  integrity sha512-MsGVtZRxY9jR8oO6X60FEVcrjLSp05YS/rFfqawr4tGKwyqRaOQ4x9THBLcVpRti6c4MuzpDs5CQ3Duz0NqqDw==
+  dependencies:
+    "@swc-uxp-internal/action-button" "npm:@spectrum-web-components/action-button@0.37.0"
+    "@swc-uxp-wrappers/button" "2.0.0"
+
+"@swc-uxp-wrappers/button@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@swc-uxp-wrappers/button/-/button-2.0.0.tgz#bd1addf53f86f8b84f3082c529ba82530ed4a867"
+  integrity sha512-gu0SktpuDntmWAyGJ3isNyNHAm2nyKiLWmkPXIZRygSHqpE36wNkeYar6Fdh+wFZcmqYYEL7lIZjqdCZuYcA0w==
+  dependencies:
+    "@swc-uxp-internal/button" "npm:@spectrum-web-components/button@0.37.0"
 
 "@swc-uxp-wrappers/divider@2.0.0":
   version "2.0.0"
@@ -7326,7 +7364,7 @@ flatted@^3.2.9:
 
 focus-trap@7.6.5:
   version "7.6.5"
-  resolved "https://registry.npmjs.org/focus-trap/-/focus-trap-7.6.5.tgz"
+  resolved "https://registry.yarnpkg.com/focus-trap/-/focus-trap-7.6.5.tgz#56f0814286d43c1a2688e9bc4f31f17ae047fb76"
   integrity sha512-7Ke1jyybbbPZyZXFxEftUtxFGLMpE2n6A+z//m4CRDlj0hW+o3iYSmh8nFlYMurOiJVDmJRilUQtJr08KfIxlg==
   dependencies:
     tabbable "^6.2.0"
@@ -13670,7 +13708,7 @@ symbol-tree@^3.2.4:
 
 tabbable@^6.2.0:
   version "6.4.0"
-  resolved "https://registry.npmjs.org/tabbable/-/tabbable-6.4.0.tgz"
+  resolved "https://registry.yarnpkg.com/tabbable/-/tabbable-6.4.0.tgz#36eb7a06d80b3924a22095daf45740dea3bf5581"
   integrity sha512-05PUHKSNE8ou2dwIxTngl4EzcnsCDZGJ/iCLtDflR/SHB/ny14rXc+qU5P4mG9JkusiV7EivzY9Mhm55AzAvCg==
 
 tailwindcss@^3.0.2:
