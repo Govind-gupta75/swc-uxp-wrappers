@@ -10,18 +10,4 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-import { Slider } from '@spectrum-web-components/slider';
-import { css } from 'lit';
-
-class MySlider extends Slider {
-    static styles = [
-        ...Slider.styles,
-        css`
-            :host {
-                --spectrum-slider-handle-border-color: coral;
-            }
-        `,
-    ];
-}
-
-customElements.define('my-slider', MySlider);
+export { default } from '@swc-uxp-internal/checkbox/src/checkbox-overrides.css.js';

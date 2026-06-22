@@ -1368,13 +1368,6 @@
   resolved "https://registry.npmjs.org/@hutson/parse-repository-url/-/parse-repository-url-3.0.2.tgz"
   integrity sha512-H9XAx3hc0BQHY6l+IFSWHDySypcXsvsuLhgYLUGywmJ5pswRVQJUHpOsobnLYp2ZUaUlKiKDrgWWhosOwAEM8Q==
 
-"@internationalized/number@3.6.5":
-  version "3.6.5"
-  resolved "https://registry.yarnpkg.com/@internationalized/number/-/number-3.6.5.tgz#1103f2832ca8d9dd3e4eecf95733d497791dbbbe"
-  integrity sha512-6hY4Kl4HPBvtfS62asS/R22JzNNy8vi/Ssev7x6EobfCp+9QIB2hKvI2EtbdJ0VSQacxVNtqhE/NmF/NZ0gm6g==
-  dependencies:
-    "@swc/helpers" "^0.5.0"
-
 "@internationalized/number@^3.1.0":
   version "3.5.3"
   resolved "https://registry.npmjs.org/@internationalized/number/-/number-3.5.3.tgz"
@@ -2624,7 +2617,7 @@
   dependencies:
     "@spectrum-web-components/base" "^0.37.0"
 
-"@spectrum-web-components/number-field@0.37.0", "@spectrum-web-components/number-field@1.12.0":
+"@spectrum-web-components/number-field@0.37.0", "@spectrum-web-components/number-field@^0.37.0":
   version "0.37.0"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/number-field/-/number-field-0.37.0.tgz#b41c265b2d2a6253fe6ee2f3e45a7016c50cbf2d"
   integrity sha512-XJZJQGyhfnm9GY5XUBshUXb3LEgzB33D8y8hY4cSnky1a9mdpeboV+HB+z2TOkeriB9ZQTaIoT8Ev/p15Tr+ew==
@@ -2765,19 +2758,19 @@
     "@spectrum-web-components/reactive-controllers" "^0.37.0"
     "@spectrum-web-components/shared" "^0.37.0"
 
-"@spectrum-web-components/slider@1.12.0":
-  version "1.12.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/slider/-/slider-1.12.0.tgz#2197c0f3ecac658418acdaeeb73b20d55d50d741"
-  integrity sha512-GarQUbDkx+0ZSkqlUXYLKy1aL8CSoHqmNLYDMGcSum30ooKhIAsZ7Clya4fzssTgt+m8XV3OrtqAKFNTJ/yrYw==
+"@spectrum-web-components/slider@0.37.0":
+  version "0.37.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/slider/-/slider-0.37.0.tgz#bcb9fe706991c6fbd7f0260c6764b2fc3ede6712"
+  integrity sha512-/tc+ubracSbCgbZiR15lYibP52Dg+n7OmroSrI92rkqYhFspecNlmkjV+M6JdbTonYGyK4a+/Ilab1GCJYAwKw==
   dependencies:
-    "@internationalized/number" "3.6.5"
-    "@lit-labs/observers" "2.0.2"
-    "@spectrum-web-components/base" "1.12.0"
-    "@spectrum-web-components/field-label" "1.12.0"
-    "@spectrum-web-components/number-field" "1.12.0"
-    "@spectrum-web-components/reactive-controllers" "1.12.0"
-    "@spectrum-web-components/shared" "1.12.0"
-    "@spectrum-web-components/theme" "1.12.0"
+    "@internationalized/number" "^3.1.0"
+    "@lit-labs/observers" "^2.0.0"
+    "@spectrum-web-components/base" "^0.37.0"
+    "@spectrum-web-components/field-label" "^0.37.0"
+    "@spectrum-web-components/number-field" "^0.37.0"
+    "@spectrum-web-components/reactive-controllers" "^0.37.0"
+    "@spectrum-web-components/shared" "^0.37.0"
+    "@spectrum-web-components/theme" "^0.37.0"
 
 "@spectrum-web-components/split-view@0.37.0":
   version "0.37.0"
@@ -3208,6 +3201,16 @@
     "@spectrum-web-components/icons-ui" "^0.37.0"
     "@spectrum-web-components/shared" "^0.37.0"
 
+"@swc-uxp-internal/checkbox@npm:@spectrum-web-components/checkbox@1.12.0":
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/checkbox/-/checkbox-1.12.0.tgz#c0ed765b5281dc455cb2dfd142b3450f34582390"
+  integrity sha512-EplB6BBTG7wJgtMKclekouZ6G4ODU8Touqg0fLJl44+CpuHx/PuQaCk62LV9NQEZgxn7KSAUbEKKoQKATBP6ow==
+  dependencies:
+    "@spectrum-web-components/base" "1.12.0"
+    "@spectrum-web-components/icon" "1.12.0"
+    "@spectrum-web-components/icons-ui" "1.12.0"
+    "@spectrum-web-components/shared" "1.12.0"
+
 "@swc-uxp-internal/dialog@npm:@spectrum-web-components/dialog@0.37.0":
   version "0.37.0"
   resolved "https://registry.npmjs.org/@spectrum-web-components/dialog/-/dialog-0.37.0.tgz"
@@ -3505,20 +3508,6 @@
     "@spectrum-web-components/reactive-controllers" "^0.37.0"
     "@spectrum-web-components/shared" "^0.37.0"
 
-"@swc-uxp-internal/slider@npm:@spectrum-web-components/slider@1.12.0":
-  version "1.12.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/slider/-/slider-1.12.0.tgz#2197c0f3ecac658418acdaeeb73b20d55d50d741"
-  integrity sha512-GarQUbDkx+0ZSkqlUXYLKy1aL8CSoHqmNLYDMGcSum30ooKhIAsZ7Clya4fzssTgt+m8XV3OrtqAKFNTJ/yrYw==
-  dependencies:
-    "@internationalized/number" "3.6.5"
-    "@lit-labs/observers" "2.0.2"
-    "@spectrum-web-components/base" "1.12.0"
-    "@spectrum-web-components/field-label" "1.12.0"
-    "@spectrum-web-components/number-field" "1.12.0"
-    "@spectrum-web-components/reactive-controllers" "1.12.0"
-    "@spectrum-web-components/shared" "1.12.0"
-    "@spectrum-web-components/theme" "1.12.0"
-
 "@swc-uxp-internal/status-light@npm:@spectrum-web-components/status-light@1.12.0":
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/status-light/-/status-light-1.12.0.tgz#d3ea5926a924e54e576390a0893033b7972897e5"
@@ -3639,6 +3628,13 @@
   integrity sha512-gu0SktpuDntmWAyGJ3isNyNHAm2nyKiLWmkPXIZRygSHqpE36wNkeYar6Fdh+wFZcmqYYEL7lIZjqdCZuYcA0w==
   dependencies:
     "@swc-uxp-internal/button" "npm:@spectrum-web-components/button@0.37.0"
+
+"@swc-uxp-wrappers/checkbox@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@swc-uxp-wrappers/checkbox/-/checkbox-2.0.0.tgz#df30321e2aa0bfb1f73b5e330a70dcceda042cc0"
+  integrity sha512-Rgns87G9dh5LWGr3v9hx2eML8CK0WGpt5c+6KArRiMLAQ64GcbN8y7s4/pOLvrx3kivX6XcZczqpns3zFl3lDw==
+  dependencies:
+    "@swc-uxp-internal/checkbox" "npm:@spectrum-web-components/checkbox@0.37.0"
 
 "@swc-uxp-wrappers/divider@2.0.0":
   version "2.0.0"

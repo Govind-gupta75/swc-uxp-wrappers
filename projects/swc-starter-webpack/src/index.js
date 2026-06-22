@@ -68,9 +68,6 @@ import '@spectrum-web-components/table/sp-table-row.js';
 
 import '@spectrum-web-components/overlay/sp-overlay.js';
 import '@spectrum-web-components/overlay/overlay-trigger.js';
-import '@swc-uxp-wrappers/status-light/sp-status-light.js';
-import '@swc-uxp-wrappers/slider/sp-slider.js';
-import '@swc-uxp-wrappers/slider/sp-slider-handle.js';
 
 import '@spectrum-web-components/number-field/sp-number-field.js';
 import '@spectrum-web-components/search/sp-search.js';
@@ -138,5 +135,3 @@ import './extended_swc_samples/my-quick-actions.js';
 import './extended_swc_samples/my-meter.js';
 import './extended_swc_samples/my-swatch.js';
 import './extended_swc_samples/my-overlay.js';
-import './extended_swc_samples/my-status-light.js';
-import './extended_swc_samples/my-slider.js';
