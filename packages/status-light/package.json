@@ -1,15 +1,15 @@
 {
-    "name": "@swc-uxp-wrappers/switch",
+    "name": "@swc-uxp-wrappers/status-light",
     "version": "3.0.0",
     "publishConfig": {
         "access": "public"
     },
-    "description": "UXP wrapper of the @spectrum-web-components/switch component",
+    "description": "UXP wrapper of the @spectrum-web-components/status-light component",
     "license": "Apache-2.0",
     "repository": {
         "type": "git",
         "url": "https://git.corp.adobe.com/torq/swc-uxp-wrappers.git",
-        "directory": "packages/switch"
+        "directory": "packages/status-light"
     },
     "author": "Adobe Inc",
     "main": "src/index.js",
@@ -18,16 +18,14 @@
     "exports": {
         ".": "./src/index.js",
         "./package.json": "./package.json",
-        "./src/Switch.js": "./src/Switch.js",
+        "./src/StatusLight.js": "./src/StatusLight.js",
+        "./sp-status-light.js": "./sp-status-light.js",
         "./src/index.js": "./src/index.js",
-        "./src/switch.css.js": "./src/switch.css.js",
-        "./src/switch-legacy.css.js": "./src/switch-legacy.css.js",
-        "./src/switch-overrides.css.js": "./src/switch-overrides.css.js",
-        "./sp-switch.js": "./sp-switch.js"
+        "./src/status-light-overrides.css.js": "./src/status-light-overrides.css.js",
+        "./src/status-light.css.js": "./src/status-light.css.js"
     },
     "dependencies": {
-        "@swc-uxp-internal/switch": "npm:@spectrum-web-components/switch@1.12.0",
-        "@swc-uxp-wrappers/checkbox": "2.0.0"
+        "@swc-uxp-internal/status-light": "npm:@spectrum-web-components/status-light@1.12.0"
     },
     "files": [
         "**/*.js"
@@ -35,6 +33,6 @@
     "keywords": [
         "UXP",
         "Spectrum Web Components",
-        "@spectrum-web-components/switch"
+        "@spectrum-web-components/status-light"
     ]
 }
