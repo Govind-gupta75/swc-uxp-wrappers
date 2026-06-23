@@ -3107,6 +3107,19 @@
     "@spectrum-web-components/icons-workflow" "1.12.0"
     "@spectrum-web-components/reactive-controllers" "1.12.0"
 
+"@swc-uxp-internal/alert-dialog@npm:@spectrum-web-components/alert-dialog@1.12.0":
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/alert-dialog/-/alert-dialog-1.12.0.tgz#ba79a2ad3d5aaf0465b3dffc8214a26d3b665c1a"
+  integrity sha512-ZTHW8OoF3gF0v6esNGJrNNNAV0Hvhb/LYfsYYJYOTqpRdC8RzVZjkFfqpDzKTIcLDq8yMPlojM0nfU1r0JBEEA==
+  dependencies:
+    "@lit-labs/observers" "2.0.2"
+    "@spectrum-web-components/base" "1.12.0"
+    "@spectrum-web-components/button" "1.12.0"
+    "@spectrum-web-components/button-group" "1.12.0"
+    "@spectrum-web-components/divider" "1.12.0"
+    "@spectrum-web-components/icons-workflow" "1.12.0"
+    "@spectrum-web-components/shared" "1.12.0"
+
 "@swc-uxp-internal/asset@npm:@spectrum-web-components/asset@0.37.0":
   version "0.37.0"
   resolved "https://registry.npmjs.org/@spectrum-web-components/asset/-/asset-0.37.0.tgz"

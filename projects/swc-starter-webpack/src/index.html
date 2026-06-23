@@ -133,6 +133,12 @@ governing permissions and limitations under the License.
                     </button>
                     <button
                         class="tablinks"
+                        onclick="openTab(event, 'sp-alert-dialog')"
+                    >
+                        sp-alert-dialog
+                    </button>
+                    <button
+                        class="tablinks"
                         onclick="openTab(event, 'sp-asset')"
                     >
                         sp-asset
@@ -420,6 +426,9 @@ governing permissions and limitations under the License.
                 <!--#include sp-action-group.html -->
             </div>
 
+            <div id="sp-alert-dialog" class="tabcontent">
+                <!--#include sp-alert-dialog.html -->
+            </div>
             <div id="sp-asset" class="tabcontent">
                 <!--#include sp-asset.html -->
             </div>
