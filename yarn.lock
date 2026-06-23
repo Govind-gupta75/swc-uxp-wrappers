@@ -2384,6 +2384,15 @@
     "@spectrum-web-components/icons-workflow" "1.12.0"
     "@spectrum-web-components/reactive-controllers" "1.12.0"
 
+"@spectrum-web-components/alert-banner@1.12.0":
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/alert-banner/-/alert-banner-1.12.0.tgz#afa4b5e6b0d8d29ec0e37d647a161aad4e7f1683"
+  integrity sha512-L41jtSjdfC4uRxvjififSwPb8qcPFqqYeP7sRL7EOrS6YFDaX80oT+0bEjOyIC/1/dYLghsUa62ccmXCE/7gnA==
+  dependencies:
+    "@spectrum-web-components/base" "1.12.0"
+    "@spectrum-web-components/button" "1.12.0"
+    "@spectrum-web-components/icons-workflow" "1.12.0"
+
 "@spectrum-web-components/asset@0.37.0", "@spectrum-web-components/asset@^0.37.0":
   version "0.37.0"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/asset/-/asset-0.37.0.tgz#92f17644b039f467b28f0e81cdee89b5283d1913"
@@ -3106,6 +3115,15 @@
     "@spectrum-web-components/base" "1.12.0"
     "@spectrum-web-components/icons-workflow" "1.12.0"
     "@spectrum-web-components/reactive-controllers" "1.12.0"
+
+"@swc-uxp-internal/alert-banner@npm:@spectrum-web-components/alert-banner@1.12.0":
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/alert-banner/-/alert-banner-1.12.0.tgz#afa4b5e6b0d8d29ec0e37d647a161aad4e7f1683"
+  integrity sha512-L41jtSjdfC4uRxvjififSwPb8qcPFqqYeP7sRL7EOrS6YFDaX80oT+0bEjOyIC/1/dYLghsUa62ccmXCE/7gnA==
+  dependencies:
+    "@spectrum-web-components/base" "1.12.0"
+    "@spectrum-web-components/button" "1.12.0"
+    "@spectrum-web-components/icons-workflow" "1.12.0"
 
 "@swc-uxp-internal/alert-dialog@npm:@spectrum-web-components/alert-dialog@1.12.0":
   version "1.12.0"
