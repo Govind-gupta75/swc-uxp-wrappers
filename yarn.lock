@@ -2393,6 +2393,19 @@
     "@spectrum-web-components/button" "1.12.0"
     "@spectrum-web-components/icons-workflow" "1.12.0"
 
+"@spectrum-web-components/alert-dialog@1.12.0":
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/alert-dialog/-/alert-dialog-1.12.0.tgz#ba79a2ad3d5aaf0465b3dffc8214a26d3b665c1a"
+  integrity sha512-ZTHW8OoF3gF0v6esNGJrNNNAV0Hvhb/LYfsYYJYOTqpRdC8RzVZjkFfqpDzKTIcLDq8yMPlojM0nfU1r0JBEEA==
+  dependencies:
+    "@lit-labs/observers" "2.0.2"
+    "@spectrum-web-components/base" "1.12.0"
+    "@spectrum-web-components/button" "1.12.0"
+    "@spectrum-web-components/button-group" "1.12.0"
+    "@spectrum-web-components/divider" "1.12.0"
+    "@spectrum-web-components/icons-workflow" "1.12.0"
+    "@spectrum-web-components/shared" "1.12.0"
+
 "@spectrum-web-components/asset@0.37.0", "@spectrum-web-components/asset@^0.37.0":
   version "0.37.0"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/asset/-/asset-0.37.0.tgz#92f17644b039f467b28f0e81cdee89b5283d1913"
@@ -2619,7 +2632,7 @@
     "@spectrum-web-components/reactive-controllers" "1.12.0"
     "@spectrum-web-components/shared" "1.12.0"
 
-"@spectrum-web-components/modal@0.37.0", "@spectrum-web-components/modal@^0.37.0":
+"@spectrum-web-components/modal@0.37.0", "@spectrum-web-components/modal@1.12.0", "@spectrum-web-components/modal@^0.37.0":
   version "0.37.0"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/modal/-/modal-0.37.0.tgz#546ec9ad8f17056e77c9c7ed61ae34f56219f3e4"
   integrity sha512-GXtRZdXFHZoP3UKu5oG7TQFEOShHhxGE5p7vvN7oFPm2Yz1WtpmjH2HdBFb2mI8BmEvKax/KEG5kZCrTDQpTvg==
@@ -2905,7 +2918,7 @@
     "@spectrum-web-components/shared" "^0.37.0"
     "@spectrum-web-components/underlay" "^0.37.0"
 
-"@spectrum-web-components/underlay@0.37.0", "@spectrum-web-components/underlay@^0.37.0":
+"@spectrum-web-components/underlay@0.37.0", "@spectrum-web-components/underlay@1.12.0", "@spectrum-web-components/underlay@^0.37.0":
   version "0.37.0"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/underlay/-/underlay-0.37.0.tgz#87d0acdc9032aea31f30030b4549db57017688a9"
   integrity sha512-H3a3HmxrqGY6+N9nQwiapxXVLEIJoQ87naoXKy7ZnEmRyUnPcLjBaoXvLZKKXEDosaYxE3Mm6dnfjyKpk5PM1Q==
@@ -3242,21 +3255,22 @@
     "@spectrum-web-components/icons-ui" "1.12.0"
     "@spectrum-web-components/shared" "1.12.0"
 
-"@swc-uxp-internal/dialog@npm:@spectrum-web-components/dialog@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.npmjs.org/@spectrum-web-components/dialog/-/dialog-0.37.0.tgz"
-  integrity sha512-qHBWlKZF8MerMGrZgrnpsReI22X/xOyYr68+swJHP8rk29HYY+4Suv2w3tn5VnHhlnVLFsntgTBvmG/Gbw67qA==
+"@swc-uxp-internal/dialog@npm:@spectrum-web-components/dialog@1.12.0":
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/dialog/-/dialog-1.12.0.tgz#4cf86cd0025a7ed683136005e87b3978bab464d8"
+  integrity sha512-L3ATskdMcG/+AI67JTRFHkLpN7qnjPhnkrPWF3E7tndAFnllVk/CwJJATv3mpHIOw/dMaziGzkXIhuE6CEEPjQ==
   dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/button" "^0.37.0"
-    "@spectrum-web-components/button-group" "^0.37.0"
-    "@spectrum-web-components/divider" "^0.37.0"
-    "@spectrum-web-components/icons-workflow" "^0.37.0"
-    "@spectrum-web-components/modal" "^0.37.0"
-    "@spectrum-web-components/shared" "^0.37.0"
-    "@spectrum-web-components/underlay" "^0.37.0"
+    "@spectrum-web-components/alert-dialog" "1.12.0"
+    "@spectrum-web-components/base" "1.12.0"
+    "@spectrum-web-components/button" "1.12.0"
+    "@spectrum-web-components/button-group" "1.12.0"
+    "@spectrum-web-components/divider" "1.12.0"
+    "@spectrum-web-components/icons-workflow" "1.12.0"
+    "@spectrum-web-components/modal" "1.12.0"
+    "@spectrum-web-components/shared" "1.12.0"
+    "@spectrum-web-components/underlay" "1.12.0"
 
-"@swc-uxp-internal/divider@npm:@spectrum-web-components/divider@0.37.0", "@swc-uxp-internal/divider@npm:@spectrum-web-components/divider@1.12.0":
+"@swc-uxp-internal/divider@npm:@spectrum-web-components/divider@1.12.0":
   version "1.12.0"
   resolved "https://registry.npmjs.org/@spectrum-web-components/divider/-/divider-1.12.0.tgz"
   integrity sha512-uILZwZPIskqZNi0fwr9Z4T195zdUqSA4lF+7Uv33B9HUTPTaf4BWPR0TlKnvO3MGzUsWlSZM7fFSkfrv6Qjvtw==
@@ -3666,13 +3680,6 @@
   integrity sha512-Rgns87G9dh5LWGr3v9hx2eML8CK0WGpt5c+6KArRiMLAQ64GcbN8y7s4/pOLvrx3kivX6XcZczqpns3zFl3lDw==
   dependencies:
     "@swc-uxp-internal/checkbox" "npm:@spectrum-web-components/checkbox@0.37.0"
-
-"@swc-uxp-wrappers/divider@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.npmjs.org/@swc-uxp-wrappers/divider/-/divider-2.0.0.tgz"
-  integrity sha512-HqJ7hmMgF9bfeG/N03tze1N4NQaRzlmIyN637wepB6gxOilLcDtdSIeJ7El5UDzNNEbTp2eFjUW9FuiSiYrwqg==
-  dependencies:
-    "@swc-uxp-internal/divider" "npm:@spectrum-web-components/divider@0.37.0"
 
 "@swc-uxp-wrappers/help-text@2.0.0":
   version "2.0.0"

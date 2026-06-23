@@ -16,7 +16,7 @@ export * from '@swc-uxp-internal/shared/src/focusable.js';
 export * from './focusable-selectors.js';
 export * from '@swc-uxp-internal/shared/src/get-active-element.js';
 export * from '@swc-uxp-internal/shared/src/like-anchor.js';
-export * from '@swc-uxp-internal/shared/src/observe-slot-presence.js';
+export * from './observe-slot-presence.js';
 export * from '@swc-uxp-internal/shared/src/observe-slot-text.js';
 export * from '@swc-uxp-internal/shared/src/platform.js';
 export * from '@swc-uxp-internal/shared/src/reparent-children.js';

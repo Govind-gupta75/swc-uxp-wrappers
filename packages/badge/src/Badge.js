@@ -11,29 +11,12 @@ governing permissions and limitations under the License.
 */
 
 import { Badge } from '@swc-uxp-internal/badge/src/Badge.js';
-import { html } from '@spectrum-web-components/base';
 
 import styles from './uxp-badge.css.js';
 
 class UxpBadge extends Badge {
     static get styles() {
         return [...super.styles, styles];
-    }
-
-    /**
-     * UXP: ObserveSlotPresence uses a MutationObserver to set hasIcon, which
-     * does not fire reliably in UXP. As a result, hasIcon stays false and the
-     * conditional `${this.hasIcon ? html`<slot name="icon">` : nothing}` never
-     * adds the slot to the shadow DOM, dropping any slotted icon entirely.
-     * Fix: always render <slot name="icon"> unconditionally.
-     */
-    render() {
-        return html`
-            <slot name="icon" ?icon-only=${!this.slotHasContent}></slot>
-            <div class="label">
-                <slot></slot>
-            </div>
-        `;
     }
 }
 

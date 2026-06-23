@@ -10,13 +10,4 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-import { unsafeCSS } from '@spectrum-web-components/base';
-import swcDialogStyles from '@swc-uxp-internal/dialog/src/dialog.css.js';
-
-import uxpDialogStyles from './uxp-dialog.css.js';
-
-const combinedDialogStyles = unsafeCSS(
-    swcDialogStyles.toString() + '\n' + uxpDialogStyles.toString()
-);
-
-export default combinedDialogStyles;
+export { default } from '@swc-uxp-internal/dialog/src/dialog-overrides.css.js';
