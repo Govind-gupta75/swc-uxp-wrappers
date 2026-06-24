@@ -7,7 +7,8 @@
     "featureFlags": {
         "enableSWCSupport": true,
         "enableLogicalProperties": true,
-        "unhandledRejection": true 
+        "unhandledRejection": true,
+        "uncaughtException": true
     },
     "entrypoints": [
         {
