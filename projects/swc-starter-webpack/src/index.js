@@ -59,6 +59,7 @@ import '@spectrum-web-components/thumbnail/sp-thumbnail.js';
 import '@spectrum-web-components/field-group/sp-field-group.js';
 import '@spectrum-web-components/swatch/sp-swatch.js';
 import '@spectrum-web-components/swatch/sp-swatch-group.js';
+import '@spectrum-web-components/contextual-help/sp-contextual-help.js';
 
 import '@spectrum-web-components/table/sp-table.js';
 import '@spectrum-web-components/table/sp-table-body.js';
@@ -139,3 +140,4 @@ import './extended_swc_samples/my-quick-actions.js';
 import './extended_swc_samples/my-meter.js';
 import './extended_swc_samples/my-swatch.js';
 import './extended_swc_samples/my-overlay.js';
+import './extended_swc_samples/my-contextual-help.js';

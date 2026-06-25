@@ -53,6 +53,8 @@ export const aliases = {
     '@spectrum-web-components/meter': '@swc-uxp-wrappers/meter',
     '@spectrum-web-components/status-light': '@swc-uxp-wrappers/status-light',
     '@spectrum-web-components/slider': '@swc-uxp-wrappers/slider',
+    '@spectrum-web-components/contextual-help':
+        '@swc-uxp-wrappers/contextual-help',
     '@spectrum-web-components/sidenav': '@swc-uxp-wrappers/sidenav',
     '@spectrum-web-components/swatch': '@swc-uxp-wrappers/swatch',
     '@spectrum-web-components/overlay': '@swc-uxp-wrappers/overlay',
