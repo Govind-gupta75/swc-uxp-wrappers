@@ -165,6 +165,76 @@ function attachEvents(tabName) {
 
         eval(offsetListener);
     }
+
+    if (tabName === 'sp-picker') {
+        // Change-icons button: rotates icon sets across sp-menu-items
+        var iconSets = [
+            ['sp-icon-save-floppy',  'sp-icon-stopwatch',  'sp-icon-user-activity'],
+            ['sp-icon-edit',         'sp-icon-magnify',    'sp-icon-star'],
+            ['sp-icon-delete',       'sp-icon-add-circle', 'sp-icon-more'],
+        ];
+        var iconSetIndex = 0;
+        var changeIconsBtn = document.getElementById('btn-change-icons');
+        var dynPicker      = document.getElementById('picker-dyn-icons');
+        if (changeIconsBtn && dynPicker) {
+            changeIconsBtn.addEventListener('click', function () {
+                iconSetIndex = (iconSetIndex + 1) % iconSets.length;
+                var currentValue = dynPicker.value;
+                var items = dynPicker.querySelectorAll('sp-menu-item');
+                items.forEach(function (item, i) {
+                    var old = item.querySelector('[slot="icon"]');
+                    if (old) old.remove();
+                    var icon = document.createElement(iconSets[iconSetIndex][i]);
+                    icon.setAttribute('slot', 'icon');
+                    icon.setAttribute('size', 's');
+                    item.prepend(icon);
+                    if (typeof item.breakItemChildrenCache === 'function') {
+                        item.breakItemChildrenCache();
+                    }
+                });
+                dynPicker.value = '';
+                requestAnimationFrame(function () { dynPicker.value = currentValue; });
+            });
+        }
+
+        // Interactive controls
+        var interactivePickers = [
+            document.getElementById('picker-interactive'),
+            document.getElementById('picker-icons-only'),
+            document.getElementById('picker-icons-none'),
+        ].filter(Boolean);
+
+        var valueDisplay = document.getElementById('picker-selected-value');
+        if (interactivePickers[0] && valueDisplay) {
+            interactivePickers[0].addEventListener('change', function (e) {
+                valueDisplay.textContent = e.target.value;
+            });
+        }
+
+        var sizeGroup = document.getElementById('picker-size-group');
+        if (sizeGroup) {
+            // sp-radio-group exposes .selected, not .value
+            sizeGroup.addEventListener('change', function () {
+                interactivePickers.forEach(function (p) { p.setAttribute('size', sizeGroup.selected); });
+            });
+        }
+
+        function togglePickerAttr(checkboxId, attr) {
+            var cb = document.getElementById(checkboxId);
+            if (!cb) return;
+            cb.addEventListener('change', function () {
+                interactivePickers.forEach(function (p) {
+                    if (cb.checked) p.setAttribute(attr, '');
+                    else p.removeAttribute(attr);
+                });
+            });
+        }
+
+        togglePickerAttr('picker-toggle-quiet',    'quiet');
+        togglePickerAttr('picker-toggle-disabled', 'disabled');
+        togglePickerAttr('picker-toggle-invalid',  'invalid');
+        togglePickerAttr('picker-toggle-readonly', 'readonly');
+    }
 }
 
 function handleThemeSystem(selectObject) {
