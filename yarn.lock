@@ -3643,6 +3643,20 @@
     "@spectrum-web-components/icons-workflow" "^0.37.0"
     "@spectrum-web-components/shared" "^0.37.0"
 
+"@swc-uxp-internal/textfield@npm:@spectrum-web-components/textfield@1.12.0":
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/textfield/-/textfield-1.12.0.tgz#90011cb417e3ac8faa4fe91ee98e68eb154f73b5"
+  integrity sha512-se8Wbuu6pt2dDkrdrNxgwe5YcNjsVWBfhP8DKyE+Kba11TjsSbol9Ue8TNW6UQA1IN2pa68iYOODVxBc9ptM4g==
+  dependencies:
+    "@spectrum-web-components/base" "1.12.0"
+    "@spectrum-web-components/help-text" "1.12.0"
+    "@spectrum-web-components/icon" "1.12.0"
+    "@spectrum-web-components/icons-ui" "1.12.0"
+    "@spectrum-web-components/icons-workflow" "1.12.0"
+    "@spectrum-web-components/overlay" "1.12.0"
+    "@spectrum-web-components/shared" "1.12.0"
+    "@spectrum-web-components/tooltip" "1.12.0"
+
 "@swc-uxp-internal/theme@npm:@spectrum-web-components/theme@1.12.0":
   version "1.12.0"
   resolved "https://registry.npmjs.org/@spectrum-web-components/theme/-/theme-1.12.0.tgz"
@@ -3722,6 +3736,14 @@
   integrity sha512-KZCVCo9qs3IH582ou28t/8GROYxBYl+og0OOC5nCFIBcL9DakkQHZBLviU68R29+1PzcS1EnZ6ZMAU2UrOiixw==
   dependencies:
     "@swc-uxp-internal/popover" "npm:@spectrum-web-components/popover@0.37.0"
+
+"@swc-uxp-wrappers/textfield@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@swc-uxp-wrappers/textfield/-/textfield-2.0.0.tgz#54bbed30642bc0de5993e917e969ca8150f92a04"
+  integrity sha512-gKs8rxl4y9ajV/mAiibPI1pXRcagiQSBZ1mrk0or3WU7EiFzcP//kSclL2EihtVxLLsxhLFgxwZYjfkavdSCRA==
+  dependencies:
+    "@swc-uxp-internal/textfield" "npm:@spectrum-web-components/textfield@0.37.0"
+    "@swc-uxp-wrappers/help-text" "2.0.0"
 
 "@swc/helpers@^0.5.0":
   version "0.5.12"
