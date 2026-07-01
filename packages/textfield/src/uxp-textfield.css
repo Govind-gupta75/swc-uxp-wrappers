@@ -16,7 +16,6 @@ governing permissions and limitations under the License.
 */
 
 :host {
-    width: var(--mod-textfield-width, var(--spectrum-textfield-width));
     display: inline-flex;
     flex-direction: column;
 }
@@ -60,7 +59,6 @@ governing permissions and limitations under the License.
 /* SWC uses inline-grid; UXP needs inline-flex for layout compatibility (UXP-20703) */
 #textfield {
     display: inline-flex;
-    width: 100%;
 }
 
 :host([quiet][invalid]) #textfield .icon,

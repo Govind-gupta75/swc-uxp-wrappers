@@ -1,5 +1,5 @@
 /*
-Copyright 2024 Adobe. All rights reserved.
+Copyright 2026 Adobe. All rights reserved.
 This file is licensed to you under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License. You may obtain a copy
 of the License at http://www.apache.org/licenses/LICENSE-2.0
@@ -10,15 +10,6 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-import { Search } from '@swc-uxp-internal/search/src/Search.js';
+import { InfieldButton } from './src/InfieldButton.js';
 
-import styles from './uxp-search.css.js';
-
-class UxpSearch extends Search {
-    static get styles() {
-        // We are combining our styles to make all super class styles available along with the transitive dependent classes styles.
-        return [...super.styles, styles];
-    }
-}
-
-export { UxpSearch as Search };
+customElements.define('sp-infield-button', InfieldButton);
