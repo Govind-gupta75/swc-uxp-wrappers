@@ -1,0 +1,54 @@
+<h2>sp-slider</h2>
+
+<h3>Default (medium, 0–100)</h3>
+<sp-slider label="Volume" value="50" size="m"></sp-slider>
+
+<h3>Sizes</h3>
+<sp-slider label="Small" value="30" size="s"></sp-slider>
+<sp-slider label="Medium" value="50" size="m"></sp-slider>
+<sp-slider label="Large" value="70" size="l"></sp-slider>
+<sp-slider label="XL" value="90" size="xl"></sp-slider>
+
+<h3>Min / Max / Step</h3>
+<sp-slider label="Step 10" min="0" max="100" step="10" value="40" size="m"></sp-slider>
+
+<h3>Disabled</h3>
+<sp-slider label="Disabled" value="60" size="m" disabled></sp-slider>
+
+<h3>Label Visibility</h3>
+<sp-slider label="Value only" value="50" size="m" label-visibility="value"></sp-slider>
+<sp-slider label="No label" value="50" size="m" label-visibility="none"></sp-slider>
+
+<h3>Variant: filled</h3>
+<sp-slider label="Filled" value="60" size="m" variant="filled"></sp-slider>
+
+<h3>Variant: tick</h3>
+<sp-slider label="Tick" min="0" max="5" step="1" tick-step="1" tick-labels value="3" size="m" variant="tick"></sp-slider>
+
+<h3>Variant: ramp</h3>
+<sp-slider label="Ramp" value="50" size="m" variant="ramp"></sp-slider>
+
+<h3>Variant: range (two handles)</h3>
+<sp-slider
+    label="Range"
+    min="0"
+    max="100"
+    size="m"
+    variant="range"
+>
+    <sp-slider-handle slot="handle" name="start" value="20" label="Start"></sp-slider-handle>
+    <sp-slider-handle slot="handle" name="end" value="80" label="End"></sp-slider-handle>
+</sp-slider>
+
+<h3>Editable (with number field)</h3>
+<!-- Known issue: @swc-uxp-wrappers/number-field targets SWC 0.37.0 but slider@1.12.0
+     requires number-field@1.12.0. The editable slider renders but the number field
+     may not function correctly until the number-field wrapper is upgraded to 1.12.0. -->
+<sp-slider label="Editable" value="50" min="0" max="100" step="1" size="m" editable></sp-slider>
+
+<h3>Indeterminate</h3>
+<sp-slider label="Indeterminate" size="m" indeterminate></sp-slider>
+
+<h3>Change event log</h3>
+<sp-slider id="log-slider" label="Drag me" value="50" size="m"></sp-slider>
+<div id="slider-log" style="margin-top:8px;font-size:12px;color:#666">—</div>

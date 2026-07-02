@@ -42,6 +42,7 @@ export const aliases = {
     '@spectrum-web-components/switch': '@swc-uxp-wrappers/switch',
     '@spectrum-web-components/radio': '@swc-uxp-wrappers/radio',
     '@spectrum-web-components/number-field': '@swc-uxp-wrappers/number-field',
+    '@spectrum-web-components/slider': '@swc-uxp-wrappers/slider',
     '@spectrum-web-components/search': '@swc-uxp-wrappers/search',
     '@spectrum-web-components/tags': '@swc-uxp-wrappers/tags',
     '@spectrum-web-components/asset': '@swc-uxp-wrappers/asset',
