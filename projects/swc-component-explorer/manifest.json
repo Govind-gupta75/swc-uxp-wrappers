@@ -1,0 +1,48 @@
+{
+    "name": "SWC Component explorer",
+    "id": "swc-component-explorer",
+    "version": "1.0.0",
+    "main": "index.html",
+    "manifestVersion": 4,
+    "featureFlags": {
+        "enableSWCSupport": true,
+        "enableLogicalProperties": true,
+        "unhandledRejection": true,
+        "uncaughtException": true
+    },
+    "entrypoints": [
+        {
+            "type": "panel",
+            "id": "vanilla",
+            "minimumSize": {
+                "width": 230,
+                "height": 200
+            },
+            "maximumSize": {
+                "width": 2000,
+                "height": 2000
+            },
+            "preferredDockedSize": {
+                "width": 230,
+                "height": 300
+            },
+            "preferredFloatingSize": {
+                "width": 230,
+                "height": 300
+            },
+            "label": {
+                "default": "SWC Component explorer"
+            }
+        }
+    ],
+    "host": [
+        {
+            "app": "PS",
+            "minVersion": "24.4.0"
+        },
+        {
+            "app": "UXPS",
+            "minVersion": "1.0.0"
+        }
+    ]
+}

@@ -1,0 +1,117 @@
+<!-- 
+Copyright 2023 Adobe. All rights reserved.
+This file is licensed to you under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License. You may obtain a copy
+of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under
+the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+OF ANY KIND, either express or implied. See the License for the specific language
+governing permissions and limitations under the License. 
+-->
+
+<!DOCTYPE html>
+<html style="height: 1024px">
+    <head>
+        <meta charset="utf-8" />
+        <title>Spectrum Web Components in UXP</title>
+        <link rel="stylesheet" type="text/css" href="main.bundle.css" />
+        <script src="attach-event-helper.js"></script>
+        <script>
+            function loadComponentSampleUsageFile(tabName) {
+                if (
+                    document
+                        .getElementById(tabName)
+                        .innerHTML.includes(
+                            '<!--#include ' + tabName + '.html' + ' -->'
+                        )
+                ) {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            document.getElementById(tabName).innerHTML =
+                                this.responseText;
+                        }
+                    };
+                    xhttp.open(
+                        'GET',
+                        'example_usages/' + tabName + '.html',
+                        true
+                    );
+                    xhttp.send();
+                }
+            }
+
+            function openTab(evt, tabName) {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName('tabcontent');
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = 'none';
+                }
+                tablinks = document.getElementsByClassName('tablinks');
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(
+                        ' active',
+                        ''
+                    );
+                }
+                document.getElementById(tabName).style.display = 'block';
+                evt.currentTarget.className += ' active';
+
+                loadComponentSampleUsageFile(tabName);
+            }
+        </script>
+    </head>
+
+    <body>
+        <script defer src="main.bundle.js"></script>
+
+        <sp-theme
+        id="theme-block"
+        system="spectrum-two"
+        color="dark"
+        scale="medium"
+        dir="ltr"
+    >
+            <div
+                id="global"
+                style="background-color: var(--spectrum-gray-50)"
+            >
+                <div class="control-bar">
+                    <div id="theme-control">
+                        <select
+                            name="color"
+                            onchange="handleThemeColor(this)"
+                            id="color-select"
+                        >
+                            <option value="lightest">Lightest</option>
+                            <option selected value="light">Light</option>
+                            <option value="dark">Dark</option>
+                            <option value="darkest">Darkest</option>
+                        </select>
+                        <select
+                            name="scale"
+                            onchange="handleThemeScale(this)"
+                            id="scale-select"
+                        >
+                            <option selected value="medium">Medium</option>
+                            <option value="large">Large</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="tab">
+                    <button
+                        class="tablinks"
+                        onclick="openTab(event, 'sp-button')"
+                    >
+                        sp-button
+                    </button>
+                </div>
+            </div>
+
+            <div id="sp-button" class="tabcontent">
+                <!--#include sp-button.html -->
+            </div>
+        </sp-theme>
+    </body>
+</html>
