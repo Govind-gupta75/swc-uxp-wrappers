@@ -43,6 +43,7 @@
         "@swc-uxp-wrappers/asset": "*",
         "@swc-uxp-wrappers/quick-actions": "*",
         "@swc-uxp-wrappers/meter": "*",
+        "@swc-uxp-wrappers/progress-bar": "*",
         "@swc-uxp-wrappers/tags": "*",
         "@swc-uxp-wrappers/thumbnail": "*",
         "@swc-uxp-wrappers/help-text": "*",
