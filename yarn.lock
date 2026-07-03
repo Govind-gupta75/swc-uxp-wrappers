@@ -3644,6 +3644,19 @@
     "@spectrum-web-components/icon" "1.12.0"
     "@spectrum-web-components/icons-ui" "1.12.0"
 
+"@swc-uxp-internal/tabs@npm:@spectrum-web-components/tabs@1.12.0":
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/tabs/-/tabs-1.12.0.tgz#da6f6961f07d82626d1d3eb6a6e6f4f8766339fd"
+  integrity sha512-5xq/SvE1BhhVT1noyDx2/JwB6Zk3S9FgH1rAb35BZrWoH4dFagqPw6yA+HAQinIIY8PH9BtTtakAfTd2a65z0w==
+  dependencies:
+    "@lit-labs/observers" "2.0.2"
+    "@spectrum-web-components/action-button" "1.12.0"
+    "@spectrum-web-components/base" "1.12.0"
+    "@spectrum-web-components/icon" "1.12.0"
+    "@spectrum-web-components/icons-ui" "1.12.0"
+    "@spectrum-web-components/reactive-controllers" "1.12.0"
+    "@spectrum-web-components/shared" "1.12.0"
+
 "@swc-uxp-internal/tags@npm:@spectrum-web-components/tags@1.12.0":
   version "1.12.0"
   resolved "https://registry.npmjs.org/@spectrum-web-components/tags/-/tags-1.12.0.tgz"

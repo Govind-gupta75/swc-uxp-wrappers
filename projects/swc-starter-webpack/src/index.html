@@ -344,6 +344,12 @@ governing permissions and limitations under the License.
                     </button>
                     <button
                         class="tablinks"
+                        onclick="openTab(event, 'sp-tabs')"
+                    >
+                        sp-tabs
+                    </button>
+                    <button
+                        class="tablinks"
                         onclick="openTab(event, 'sp-tags')"
                     >
                         sp-tags
@@ -575,6 +581,10 @@ governing permissions and limitations under the License.
 
             <div id="sp-table" class="tabcontent">
                 <!--#include sp-table.html -->
+            </div>
+
+            <div id="sp-tabs" class="tabcontent">
+                <!--#include sp-tabs.html -->
             </div>
 
             <div id="sp-tags" class="tabcontent">
