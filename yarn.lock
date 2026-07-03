@@ -3101,15 +3101,17 @@
     "@lit-labs/react" "^1.1.0"
     "@spectrum-web-components/theme" "^0.14.7"
 
-"@swc-uxp-internal/action-bar@npm:@spectrum-web-components/action-bar@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.npmjs.org/@spectrum-web-components/action-bar/-/action-bar-0.37.0.tgz"
-  integrity sha512-tf6bNCeAdJW18VbA/KCGaSVOdumFJyrtqHThJVFidrxorGaujapKW4lO3xQ1JPoLfZ67Vc0L7Z/Ubwho6wRK0w==
+"@swc-uxp-internal/action-bar@npm:@spectrum-web-components/action-bar@1.12.0":
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/action-bar/-/action-bar-1.12.0.tgz#ad9a839ea5a1c25867d1eef71e03b2eeeef1f586"
+  integrity sha512-QvtW1LDqyilTRmQNALXuNqfBkrI05RF0p3gT7PlqqXqvdOSrwCS+2Jn8lofexxmm9+K3UeNpSPS7U+D8N8Onlg==
   dependencies:
-    "@spectrum-web-components/action-group" "^0.37.0"
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/button" "^0.37.0"
-    "@spectrum-web-components/popover" "^0.37.0"
+    "@spectrum-web-components/action-group" "1.12.0"
+    "@spectrum-web-components/base" "1.12.0"
+    "@spectrum-web-components/button" "1.12.0"
+    "@spectrum-web-components/field-label" "1.12.0"
+    "@spectrum-web-components/popover" "1.12.0"
+    "@spectrum-web-components/shared" "1.12.0"
 
 "@swc-uxp-internal/action-button@npm:@spectrum-web-components/action-button@0.37.0":
   version "0.37.0"
@@ -3524,14 +3526,6 @@
     "@spectrum-web-components/button" "^0.37.0"
     "@spectrum-web-components/icons-ui" "^0.37.0"
 
-"@swc-uxp-internal/popover@npm:@spectrum-web-components/popover@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.npmjs.org/@spectrum-web-components/popover/-/popover-0.37.0.tgz"
-  integrity sha512-UilQj4W2HgDMopON2RG7wEYxnGViAWBJYFaTuO7dCLgEHuQMbIN6h30JvSwfz5Z0Vr/eJgSd3I7xj0K9Bl2c6Q==
-  dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/overlay" "^0.37.0"
-
 "@swc-uxp-internal/popover@npm:@spectrum-web-components/popover@1.12.0":
   version "1.12.0"
   resolved "https://registry.npmjs.org/@spectrum-web-components/popover/-/popover-1.12.0.tgz"
@@ -3746,13 +3740,6 @@
   integrity sha512-Rgns87G9dh5LWGr3v9hx2eML8CK0WGpt5c+6KArRiMLAQ64GcbN8y7s4/pOLvrx3kivX6XcZczqpns3zFl3lDw==
   dependencies:
     "@swc-uxp-internal/checkbox" "npm:@spectrum-web-components/checkbox@0.37.0"
-
-"@swc-uxp-wrappers/popover@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.npmjs.org/@swc-uxp-wrappers/popover/-/popover-2.0.0.tgz"
-  integrity sha512-KZCVCo9qs3IH582ou28t/8GROYxBYl+og0OOC5nCFIBcL9DakkQHZBLviU68R29+1PzcS1EnZ6ZMAU2UrOiixw==
-  dependencies:
-    "@swc-uxp-internal/popover" "npm:@spectrum-web-components/popover@0.37.0"
 
 "@swc/helpers@^0.5.0":
   version "0.5.12"
