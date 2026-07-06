@@ -88,6 +88,7 @@ import '@swc-uxp-wrappers/action-menu/sp-action-menu.js';
 import '@spectrum-web-components/picker/sp-picker.js';
 
 import '@spectrum-web-components/number-field/sp-number-field.js';
+import '@spectrum-web-components/progress-circle/sp-progress-circle.js';
 import '@spectrum-web-components/search/sp-search.js';
 import '@spectrum-web-components/textfield/sp-textfield.js';
 import '@spectrum-web-components/icons/sp-icons-medium.js';

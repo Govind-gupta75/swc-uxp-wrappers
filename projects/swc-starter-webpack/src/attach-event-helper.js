@@ -346,6 +346,24 @@ function attachEvents(tabName) {
                 output.textContent = 'change event: value = "' + (e.detail && e.detail.value) + '"';
             });
         }
+    if (tabName === 'sp-progress-circle') {
+        const eventListener = `
+            const circle = document.getElementById('interactive-circle');
+            const slider = document.getElementById('progress-slider');
+            const label = document.getElementById('progress-value');
+            if (slider && circle && label) {
+                slider.addEventListener('input', function() {
+                    const val = Math.round(Number(this.value));
+                    circle.progress = val;
+                    label.textContent = val + '%';
+                });
+            }
+            const s2Indeterminate = document.getElementById('indeterminate-s2');
+            if (s2Indeterminate) {
+                s2Indeterminate.progress = null;
+            }
+        `;
+        eval(eventListener);
     }
 }
 
