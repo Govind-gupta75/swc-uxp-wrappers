@@ -74,6 +74,7 @@ import '@spectrum-web-components/table/sp-table-row.js';
 
 import '@spectrum-web-components/overlay/sp-overlay.js';
 import '@spectrum-web-components/overlay/overlay-trigger.js';
+import '@spectrum-web-components/combobox/sp-combobox.js';
 
 import '@spectrum-web-components/number-field/sp-number-field.js';
 import '@spectrum-web-components/search/sp-search.js';

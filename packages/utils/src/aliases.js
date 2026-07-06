@@ -35,6 +35,7 @@ export const aliases = {
     '@spectrum-web-components/popover': '@swc-uxp-wrappers/popover',
     '@spectrum-web-components/tooltip': '@swc-uxp-wrappers/tooltip',
     '@spectrum-web-components/picker-button': '@swc-uxp-wrappers/picker-button',
+    '@spectrum-web-components/combobox': '@swc-uxp-wrappers/combobox',
     '@spectrum-web-components/menu': '@swc-uxp-wrappers/menu',
     '@spectrum-web-components/table': '@swc-uxp-wrappers/table',
     '@spectrum-web-components/textfield': '@swc-uxp-wrappers/textfield',

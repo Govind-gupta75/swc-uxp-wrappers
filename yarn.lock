@@ -2337,7 +2337,7 @@
     "@spectrum-web-components/button" "^0.37.0"
     "@spectrum-web-components/popover" "^0.37.0"
 
-"@spectrum-web-components/action-button@1.12.0":
+"@spectrum-web-components/action-button@1.12.0", "@spectrum-web-components/action-button@1.12.1":
   version "1.12.0"
   resolved "https://registry.npmjs.org/@spectrum-web-components/action-button/-/action-button-1.12.0.tgz"
   integrity sha512-JBjTbIqY9Tm1I5j9yUErn75GjQjQhWnbRyXHypYwMQdo5g71VCMeaD0IdggPhccs7UIO9i+Lahr9/YoU2K//VQ==
@@ -2477,6 +2477,23 @@
   dependencies:
     "@spectrum-web-components/base" "1.12.0"
 
+"@spectrum-web-components/combobox@1.12.1":
+  version "1.12.1"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/combobox/-/combobox-1.12.1.tgz#686ce30bb602828a9fa53d02d377f1588de55f76"
+  integrity sha512-delHWKBR7+1TerSloA2YYN1KIGwOzWvmzpdZXkaH07dVFZAbMI5L8LsBvYuGKJ60MDqEafWsg6MK/SdFXFlb7Q==
+  dependencies:
+    "@spectrum-web-components/action-button" "1.12.1"
+    "@spectrum-web-components/base" "1.12.1"
+    "@spectrum-web-components/icon" "1.12.1"
+    "@spectrum-web-components/icons-ui" "1.12.1"
+    "@spectrum-web-components/menu" "1.12.1"
+    "@spectrum-web-components/overlay" "1.12.1"
+    "@spectrum-web-components/picker-button" "1.12.1"
+    "@spectrum-web-components/popover" "1.12.1"
+    "@spectrum-web-components/progress-circle" "1.12.1"
+    "@spectrum-web-components/reactive-controllers" "1.12.1"
+    "@spectrum-web-components/textfield" "1.12.1"
+
 "@spectrum-web-components/contextual-help@1.12.0":
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/contextual-help/-/contextual-help-1.12.0.tgz#ebf6fe81355f803985775aaed21ca47c48a545e5"
@@ -2605,7 +2622,7 @@
     "@spectrum-web-components/base" "1.12.0"
     "@spectrum-web-components/shared" "1.12.0"
 
-"@spectrum-web-components/menu@1.12.0", "@spectrum-web-components/menu@^0.16.9-react.54+c59ca07be", "@spectrum-web-components/menu@^0.37.0":
+"@spectrum-web-components/menu@1.12.0", "@spectrum-web-components/menu@1.12.1", "@spectrum-web-components/menu@^0.16.9-react.54+c59ca07be", "@spectrum-web-components/menu@^0.37.0":
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/menu/-/menu-1.12.0.tgz#37e5ae0d2a00d807e4ec34c9fd10277684973f09"
   integrity sha512-4TV0ndC09FTjXgir+y1vuHG3MH7TghETbQYLakPjygVvEMQzzPdSmY0c+ATUQGpgDvNlsluOtei+KfEaUOgsCw==
@@ -2659,7 +2676,7 @@
   dependencies:
     "@spectrum-web-components/base" "1.12.0"
 
-"@spectrum-web-components/overlay@1.12.0", "@spectrum-web-components/overlay@^0.37.0":
+"@spectrum-web-components/overlay@1.12.0", "@spectrum-web-components/overlay@1.12.1", "@spectrum-web-components/overlay@^0.37.0":
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/overlay/-/overlay-1.12.0.tgz#23c474f1d2b021049e5f11889233ee448ae42951"
   integrity sha512-9QcTo5KDfSElq/RiQKMA3y3HL1Zw1kezcSWgR/9qAEaH1PM2Q6N89FibVav0e3Rci+QDAj2FjWmuGm6l+uMI+g==
@@ -2673,14 +2690,16 @@
     "@spectrum-web-components/theme" "1.12.0"
     focus-trap "7.6.5"
 
-"@spectrum-web-components/picker-button@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/picker-button/-/picker-button-0.37.0.tgz#d8f097a81f83251b193c39889ede93270276f9f6"
-  integrity sha512-82d8nELxO+JNPPiP4t4v3pYe+afYVZyhnBxT/SPLOp+o5ZsjiCMO0zJ/ZBtbvItQcJBrquDp6R5vgHYyImL+4w==
+"@spectrum-web-components/picker-button@1.12.1":
+  version "1.12.1"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/picker-button/-/picker-button-1.12.1.tgz#ff77a25e82a1caa86a767fcd59ea627e576997ac"
+  integrity sha512-r70rsSuZ+lrj34MH+dz2E/vr8y2PhX3B1PV3xp1psm1mE7sU944/tsV7kvnDKtUqhdcR/liSYYzjdQsRT0FzUQ==
   dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/button" "^0.37.0"
-    "@spectrum-web-components/icons-ui" "^0.37.0"
+    "@spectrum-web-components/base" "1.12.1"
+    "@spectrum-web-components/button" "1.12.1"
+    "@spectrum-web-components/icon" "1.12.1"
+    "@spectrum-web-components/icons-ui" "1.12.1"
+    "@spectrum-web-components/shared" "1.12.1"
 
 "@spectrum-web-components/picker@0.37.0":
   version "0.37.0"
@@ -2699,7 +2718,7 @@
     "@spectrum-web-components/shared" "^0.37.0"
     "@spectrum-web-components/tray" "^0.37.0"
 
-"@spectrum-web-components/popover@1.12.0", "@spectrum-web-components/popover@^0.37.0":
+"@spectrum-web-components/popover@1.12.0", "@spectrum-web-components/popover@1.12.1", "@spectrum-web-components/popover@^0.37.0":
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/popover/-/popover-1.12.0.tgz#795e984f6a7edd5a73a17ffd24816d258eae5b59"
   integrity sha512-nnHOETMuq2DayZPZMn3wEBRHHovAq7exNAv/XW/YJTOa5JI4ZljrYe8dKS3NI8EE0Q7jUi8PMnyme4pbmGhy7Q==
@@ -2715,7 +2734,7 @@
     "@spectrum-web-components/base" "^0.37.0"
     "@spectrum-web-components/field-label" "^0.37.0"
 
-"@spectrum-web-components/progress-circle@1.12.0":
+"@spectrum-web-components/progress-circle@1.12.0", "@spectrum-web-components/progress-circle@1.12.1":
   version "1.12.0"
   resolved "https://registry.npmjs.org/@spectrum-web-components/progress-circle/-/progress-circle-1.12.0.tgz"
   integrity sha512-5zM/hpWFph1ayvdrAnHUjI51/n3SBgxnPCm+fSxTiugEaZMFd8DXuAiUhv8Tsa31mlTYz1Hg+wsl0ZUvfANFEA==
@@ -2742,7 +2761,7 @@
     "@spectrum-web-components/reactive-controllers" "1.12.0"
     "@spectrum-web-components/shared" "1.12.0"
 
-"@spectrum-web-components/reactive-controllers@1.12.0", "@spectrum-web-components/reactive-controllers@^0.37.0":
+"@spectrum-web-components/reactive-controllers@1.12.0", "@spectrum-web-components/reactive-controllers@1.12.1", "@spectrum-web-components/reactive-controllers@^0.37.0":
   version "1.12.0"
   resolved "https://registry.npmjs.org/@spectrum-web-components/reactive-controllers/-/reactive-controllers-1.12.0.tgz"
   integrity sha512-GAZDepIfH96D5Tdzxlcl0Czummt+i6QGuQljTA+3fQvuHylQt+pWha1bTBRCqrTTaUVzLi+AwmmJF5quZO4kFQ==
@@ -2871,7 +2890,7 @@
     "@spectrum-web-components/reactive-controllers" "1.12.0"
     "@spectrum-web-components/shared" "1.12.0"
 
-"@spectrum-web-components/textfield@1.12.0":
+"@spectrum-web-components/textfield@1.12.0", "@spectrum-web-components/textfield@1.12.1":
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/textfield/-/textfield-1.12.0.tgz#90011cb417e3ac8faa4fe91ee98e68eb154f73b5"
   integrity sha512-se8Wbuu6pt2dDkrdrNxgwe5YcNjsVWBfhP8DKyE+Kba11TjsSbol9Ue8TNW6UQA1IN2pa68iYOODVxBc9ptM4g==
@@ -3239,6 +3258,23 @@
     "@spectrum-web-components/icon" "1.12.0"
     "@spectrum-web-components/icons-ui" "1.12.0"
     "@spectrum-web-components/shared" "1.12.0"
+
+"@swc-uxp-internal/combobox@npm:@spectrum-web-components/combobox@1.12.1":
+  version "1.12.1"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/combobox/-/combobox-1.12.1.tgz#686ce30bb602828a9fa53d02d377f1588de55f76"
+  integrity sha512-delHWKBR7+1TerSloA2YYN1KIGwOzWvmzpdZXkaH07dVFZAbMI5L8LsBvYuGKJ60MDqEafWsg6MK/SdFXFlb7Q==
+  dependencies:
+    "@spectrum-web-components/action-button" "1.12.1"
+    "@spectrum-web-components/base" "1.12.1"
+    "@spectrum-web-components/icon" "1.12.1"
+    "@spectrum-web-components/icons-ui" "1.12.1"
+    "@spectrum-web-components/menu" "1.12.1"
+    "@spectrum-web-components/overlay" "1.12.1"
+    "@spectrum-web-components/picker-button" "1.12.1"
+    "@spectrum-web-components/popover" "1.12.1"
+    "@spectrum-web-components/progress-circle" "1.12.1"
+    "@spectrum-web-components/reactive-controllers" "1.12.1"
+    "@spectrum-web-components/textfield" "1.12.1"
 
 "@swc-uxp-internal/contextual-help@npm:@spectrum-web-components/contextual-help@1.12.0":
   version "1.12.0"
