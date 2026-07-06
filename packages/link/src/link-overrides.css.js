@@ -1,5 +1,5 @@
 /*
-Copyright 2023 Adobe. All rights reserved.
+Copyright 2026 Adobe. All rights reserved.
 This file is licensed to you under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License. You may obtain a copy
 of the License at http://www.apache.org/licenses/LICENSE-2.0
@@ -10,14 +10,4 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-import { Link } from '@swc-uxp-internal/link/src/Link.js';
-
-import styles from './uxp-link.css.js';
-
-class UxpLink extends Link {
-    static get styles() {
-        return [...super.styles, styles];
-    }
-}
-
-export { UxpLink as Link };
+export { default } from '@swc-uxp-internal/link/src/link-overrides.css.js';
