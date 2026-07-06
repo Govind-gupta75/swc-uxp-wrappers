@@ -2463,14 +2463,14 @@
     "@spectrum-web-components/icons-ui" "1.12.0"
     "@spectrum-web-components/shared" "1.12.0"
 
-"@spectrum-web-components/clear-button@1.12.0", "@spectrum-web-components/clear-button@^0.37.0":
+"@spectrum-web-components/clear-button@1.12.0":
   version "1.12.0"
   resolved "https://registry.npmjs.org/@spectrum-web-components/clear-button/-/clear-button-1.12.0.tgz"
   integrity sha512-JeTxqe/wMX3BR8g5Pe2llGFFFl5n+R6rhvKcC5yFMtiryupJLM/t3D0VeeIGpS6JgBcfyga7Aw4BZvfPxgLXVQ==
   dependencies:
     "@spectrum-web-components/base" "1.12.0"
 
-"@spectrum-web-components/close-button@1.12.0", "@spectrum-web-components/close-button@^0.37.0":
+"@spectrum-web-components/close-button@1.12.0":
   version "1.12.0"
   resolved "https://registry.npmjs.org/@spectrum-web-components/close-button/-/close-button-1.12.0.tgz"
   integrity sha512-RV4RYyrb3ifC6Z8rawEHS485MCLfmVeDFpwr1WDtNXssrZDAenzgfv/9z1ET379fhR2IyrciwD/BLUJQlEW4QA==
@@ -3113,17 +3113,6 @@
     "@spectrum-web-components/popover" "1.12.0"
     "@spectrum-web-components/shared" "1.12.0"
 
-"@swc-uxp-internal/action-button@npm:@spectrum-web-components/action-button@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/action-button/-/action-button-0.37.0.tgz#45a5578b60b3ddf95206f4ae4f5048f4da9faa2c"
-  integrity sha512-cU/5sHpRSA823sHUH6jZccmizkTxWr/LJHTDJ4jj0LxCLh15OHfxKM+hu/vcc5fXYrAPma5Hp54xTBc/l/frDA==
-  dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/button" "^0.37.0"
-    "@spectrum-web-components/icon" "^0.37.0"
-    "@spectrum-web-components/icons-ui" "^0.37.0"
-    "@spectrum-web-components/shared" "^0.37.0"
-
 "@swc-uxp-internal/action-button@npm:@spectrum-web-components/action-button@1.12.0":
   version "1.12.0"
   resolved "https://registry.npmjs.org/@spectrum-web-components/action-button/-/action-button-1.12.0.tgz"
@@ -3167,13 +3156,6 @@
     "@spectrum-web-components/divider" "1.12.0"
     "@spectrum-web-components/icons-workflow" "1.12.0"
     "@spectrum-web-components/shared" "1.12.0"
-
-"@swc-uxp-internal/asset@npm:@spectrum-web-components/asset@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.npmjs.org/@spectrum-web-components/asset/-/asset-0.37.0.tgz"
-  integrity sha512-nFZ4/TCHbUcNUay5NI1fLhLejtx7QJ3H+diCNsZXOvmUI+0atcNPid6j5/4CyvSd8PQooEvCgHpbHf39AM57Cg==
-  dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
 
 "@swc-uxp-internal/asset@npm:@spectrum-web-components/asset@1.12.0":
   version "1.12.0"
@@ -3220,18 +3202,6 @@
     "@spectrum-web-components/base" "1.12.0"
     "@spectrum-web-components/button" "1.12.0"
 
-"@swc-uxp-internal/button@npm:@spectrum-web-components/button@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-web-components/button/-/button-0.37.0.tgz#ea20f663b05f6ca8ddb56e8206c56c051c5153f6"
-  integrity sha512-Cz69UtdNDqNVAMUjz2i1RjZ4LetR+bTnUvaDlj8heQHYR/ZHKdnMWaxS1DnZjlu7+osFo57XJPLyhlEEgYT1Ig==
-  dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/clear-button" "^0.37.0"
-    "@spectrum-web-components/close-button" "^0.37.0"
-    "@spectrum-web-components/icon" "^0.37.0"
-    "@spectrum-web-components/icons-ui" "^0.37.0"
-    "@spectrum-web-components/shared" "^0.37.0"
-
 "@swc-uxp-internal/button@npm:@spectrum-web-components/button@1.12.0":
   version "1.12.0"
   resolved "https://registry.npmjs.org/@spectrum-web-components/button/-/button-1.12.0.tgz"
@@ -3246,28 +3216,19 @@
     "@spectrum-web-components/reactive-controllers" "1.12.0"
     "@spectrum-web-components/shared" "1.12.0"
 
-"@swc-uxp-internal/card@npm:@spectrum-web-components/card@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.npmjs.org/@spectrum-web-components/card/-/card-0.37.0.tgz"
-  integrity sha512-NNwdXU4O7aI4gkLA2xOSHqYc/DDMoefp0YL2PFHjkxdEMW1G0cL4G7TTvow11yWmIyrtysra8sqTikNohW8Rmw==
+"@swc-uxp-internal/card@npm:@spectrum-web-components/card@1.12.0":
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/card/-/card-1.12.0.tgz#0b1b5a2d70d5ae4e2be955757c9a30e27f43fabc"
+  integrity sha512-AT0ePFfkGwOjlum6NpKnFADmeQahOMms77njQZsp2SIWhiAQDu8GTkDlZwNTW7h/aD/3uZFiNEkE1akxUa85lg==
   dependencies:
-    "@spectrum-web-components/asset" "^0.37.0"
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/checkbox" "^0.37.0"
-    "@spectrum-web-components/icons-workflow" "^0.37.0"
-    "@spectrum-web-components/quick-actions" "^0.37.0"
-    "@spectrum-web-components/shared" "^0.37.0"
-    "@spectrum-web-components/styles" "^0.37.0"
-
-"@swc-uxp-internal/checkbox@npm:@spectrum-web-components/checkbox@0.37.0":
-  version "0.37.0"
-  resolved "https://registry.npmjs.org/@spectrum-web-components/checkbox/-/checkbox-0.37.0.tgz"
-  integrity sha512-5DV4/aTZUkKyb6U3AHn/zxqbCeb+P1dWibp4Zjvr1FcRbMKdmY782pzRSOOXygLPkLJMKPCN4r6py32gBZY+eg==
-  dependencies:
-    "@spectrum-web-components/base" "^0.37.0"
-    "@spectrum-web-components/icon" "^0.37.0"
-    "@spectrum-web-components/icons-ui" "^0.37.0"
-    "@spectrum-web-components/shared" "^0.37.0"
+    "@spectrum-web-components/asset" "1.12.0"
+    "@spectrum-web-components/base" "1.12.0"
+    "@spectrum-web-components/checkbox" "1.12.0"
+    "@spectrum-web-components/divider" "1.12.0"
+    "@spectrum-web-components/icons-workflow" "1.12.0"
+    "@spectrum-web-components/popover" "1.12.0"
+    "@spectrum-web-components/shared" "1.12.0"
+    "@spectrum-web-components/styles" "1.12.0"
 
 "@swc-uxp-internal/checkbox@npm:@spectrum-web-components/checkbox@1.12.0":
   version "1.12.0"
@@ -3711,35 +3672,6 @@
     "@spectrum-web-components/overlay" "1.12.0"
     "@spectrum-web-components/reactive-controllers" "1.12.0"
     "@spectrum-web-components/shared" "1.12.0"
-
-"@swc-uxp-wrappers/action-button@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@swc-uxp-wrappers/action-button/-/action-button-2.0.0.tgz#c2fcef766ff19a73c6655c33b5d7f831713f99c1"
-  integrity sha512-MsGVtZRxY9jR8oO6X60FEVcrjLSp05YS/rFfqawr4tGKwyqRaOQ4x9THBLcVpRti6c4MuzpDs5CQ3Duz0NqqDw==
-  dependencies:
-    "@swc-uxp-internal/action-button" "npm:@spectrum-web-components/action-button@0.37.0"
-    "@swc-uxp-wrappers/button" "2.0.0"
-
-"@swc-uxp-wrappers/asset@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@swc-uxp-wrappers/asset/-/asset-2.0.0.tgz#423a5365aaede4282607e686beeaf1fbc7109278"
-  integrity sha512-NOrlHLLbZyNtjEYYri8GAHON9vPBXTnJ1QLLgdfJ7p++IixZBuHQ6IC/9lO4oDtwNHrwkPziUSvkZQ/8BbSyPQ==
-  dependencies:
-    "@swc-uxp-internal/asset" "npm:@spectrum-web-components/asset@0.37.0"
-
-"@swc-uxp-wrappers/button@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@swc-uxp-wrappers/button/-/button-2.0.0.tgz#bd1addf53f86f8b84f3082c529ba82530ed4a867"
-  integrity sha512-gu0SktpuDntmWAyGJ3isNyNHAm2nyKiLWmkPXIZRygSHqpE36wNkeYar6Fdh+wFZcmqYYEL7lIZjqdCZuYcA0w==
-  dependencies:
-    "@swc-uxp-internal/button" "npm:@spectrum-web-components/button@0.37.0"
-
-"@swc-uxp-wrappers/checkbox@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@swc-uxp-wrappers/checkbox/-/checkbox-2.0.0.tgz#df30321e2aa0bfb1f73b5e330a70dcceda042cc0"
-  integrity sha512-Rgns87G9dh5LWGr3v9hx2eML8CK0WGpt5c+6KArRiMLAQ64GcbN8y7s4/pOLvrx3kivX6XcZczqpns3zFl3lDw==
-  dependencies:
-    "@swc-uxp-internal/checkbox" "npm:@spectrum-web-components/checkbox@0.37.0"
 
 "@swc/helpers@^0.5.0":
   version "0.5.12"

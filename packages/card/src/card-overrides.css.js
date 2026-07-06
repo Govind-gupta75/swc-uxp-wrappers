@@ -1,5 +1,5 @@
 /*
-Copyright 2023 Adobe. All rights reserved.
+Copyright 2026 Adobe. All rights reserved.
 This file is licensed to you under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License. You may obtain a copy
 of the License at http://www.apache.org/licenses/LICENSE-2.0
@@ -11,12 +11,10 @@ governing permissions and limitations under the License.
 */
 
 import { unsafeCSS } from '@spectrum-web-components/base';
-import swcDividerStyles from '@swc-uxp-internal/divider/src/divider.css.js';
+import swcCardOverridesStyles from '@swc-uxp-internal/card/src/card-overrides.css.js';
 
-import uxpDividerStyles from './uxp-divider.css.js';
-
-const combinedDividerStyles = unsafeCSS(
-    swcDividerStyles.toString() + '\n' + uxpDividerStyles.toString()
+const combinedCardOverridesStyles = unsafeCSS(
+    swcCardOverridesStyles.toString()
 );
 
-export default combinedDividerStyles;
+export default combinedCardOverridesStyles;
