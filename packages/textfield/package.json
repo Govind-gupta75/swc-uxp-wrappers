@@ -24,7 +24,7 @@
         "./sp-textfield.js": "./sp-textfield.js"
     },
     "dependencies": {
-        "@swc-uxp-internal/textfield": "npm:@spectrum-web-components/textfield@1.12.0",
+        "@swc-uxp-internal/textfield": "npm:@spectrum-web-components/textfield@1.12.1",
         "@swc-uxp-wrappers/help-text": "3.0.0",
         "@swc-uxp-wrappers/overlay": "3.0.0",
         "@swc-uxp-wrappers/tooltip": "3.0.0"

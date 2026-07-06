@@ -28,7 +28,7 @@
         "./sp-swatch-group.js": "./sp-swatch-group.js"
     },
     "dependencies": {
-        "@swc-uxp-internal/swatch": "npm:@spectrum-web-components/swatch@1.12.0"
+        "@swc-uxp-internal/swatch": "npm:@spectrum-web-components/swatch@1.12.1"
     },
     "files": [
         "**/*.js"
