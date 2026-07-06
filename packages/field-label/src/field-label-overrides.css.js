@@ -1,5 +1,5 @@
 /*
-Copyright 2023 Adobe. All rights reserved.
+Copyright 2026 Adobe. All rights reserved.
 This file is licensed to you under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License. You may obtain a copy
 of the License at http://www.apache.org/licenses/LICENSE-2.0
@@ -10,14 +10,4 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-import { FieldLabel } from '@swc-uxp-internal/field-label/src/FieldLabel.js';
-
-import styles from './uxp-field-label.css.js';
-
-class UxpFieldLabel extends FieldLabel {
-    static get styles() {
-        return [...super.styles, styles];
-    }
-}
-
-export { UxpFieldLabel as FieldLabel };
+export { default } from '@swc-uxp-internal/field-label/src/field-label-overrides.css.js';
