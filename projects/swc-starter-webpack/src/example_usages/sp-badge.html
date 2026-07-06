@@ -1,0 +1,109 @@
+<!-- 
+Copyright 2023 Adobe. All rights reserved.
+This file is licensed to you under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License. You may obtain a copy
+of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under
+the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+OF ANY KIND, either express or implied. See the License for the specific language
+governing permissions and limitations under the License. 
+-->
+
+<h3>sp-badge</h3>
+
+<div id="content">
+    <div id="playground">
+        <div id="left">
+            <div id="subtitle">sp-badge</div>
+            <p>
+                Badges display a small amount of color-categorized metadata to
+                get a user's attention.
+            </p>
+
+            <div id="variantLabel">Anatomy</div>
+            <div class="demo-example demo-flex-row">
+                <sp-badge size="s">Label only</sp-badge>
+                <sp-badge size="s">
+                    <sp-icon-checkmark-circle
+                        label="Icon-only badge"
+                        slot="icon"
+                    ></sp-icon-checkmark-circle>
+                </sp-badge>
+                <sp-badge size="s">
+                    <sp-icon-settings slot="icon"></sp-icon-settings>
+                    Icon and label
+                </sp-badge>
+            </div>
+
+            <div id="variantLabel">Sizes</div>
+            <div class="demo-example demo-flex-row">
+                <sp-badge size="s">Small</sp-badge>
+                <sp-badge size="m">Medium</sp-badge>
+                <sp-badge size="l">Large</sp-badge>
+                <sp-badge size="xl">Extra large</sp-badge>
+            </div>
+
+            <div id="variantLabel">Semantic variants</div>
+            <div class="demo-example demo-flex-row">
+                <sp-badge variant="accent">Accent</sp-badge>
+                <sp-badge variant="neutral">Neutral</sp-badge>
+                <sp-badge variant="informative">Informative</sp-badge>
+                <sp-badge variant="positive">Positive</sp-badge>
+                <sp-badge variant="negative">Negative</sp-badge>
+                <sp-badge variant="notice">Notice</sp-badge>
+            </div>
+
+            <div id="variantLabel">Fixed positioning</div>
+            <div
+                class="demo-example"
+                style="
+                    position: relative;
+                    width: 400px;
+                    height: 200px;
+                    background: var(--spectrum-gray-200);
+                    max-width: 100%;
+                "
+            >
+                <sp-badge>None</sp-badge>
+                <sp-badge
+                    fixed="block-start"
+                    style="position: absolute; top: 0; left: 200px"
+                >
+                    block-start
+                </sp-badge>
+                <sp-badge
+                    fixed="inline-end"
+                    style="position: absolute; right: 0; top: 100px"
+                >
+                    inline-end
+                </sp-badge>
+                <sp-badge
+                    fixed="block-end"
+                    style="position: absolute; bottom: 0; left: 200px"
+                >
+                    block-end
+                </sp-badge>
+                <sp-badge
+                    fixed="inline-start"
+                    style="position: absolute; left: 0; top: 100px"
+                >
+                    inline-start
+                </sp-badge>
+            </div>
+        </div>
+        <input type="text" style="width: 2px" />
+        <div id="right">
+            <div id="subtitle">my-badge</div>
+            <my-badge class="my-badge" size="m" variant="positive">
+                Custom badge
+            </my-badge>
+        </div>
+    </div>
+
+    <div id="config">
+        <div style="display: inline-flex"></div>
+
+        <div style="display: flex; flex-direction: column"></div>
+    </div>
+</div>

@@ -157,6 +157,17 @@ p {
     z-index: 1;
 }
 
+/* UXP: flex gap and --spectrum-spacing-* tokens are unreliable; use margins */
+.demo-flex-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+.demo-flex-row > * {
+    margin: 8px;
+}
+
 #theme-control {
     display: flex;
     flex-direction: column;
@@ -178,6 +189,20 @@ p {
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
+}
+
+#theme-control {
+    display: flex;
+    flex-direction: column;
+}
+
+#theme-control select {
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+#theme-control select:last-child {
+    margin-bottom: 0;
 }
 
 #global {

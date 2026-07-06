@@ -1,5 +1,5 @@
 /*
-Copyright 2024 Adobe. All rights reserved.
+Copyright 2026 Adobe. All rights reserved.
 This file is licensed to you under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License. You may obtain a copy
 of the License at http://www.apache.org/licenses/LICENSE-2.0
@@ -10,21 +10,18 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-import { NumberField } from '@spectrum-web-components/number-field';
+import { StatusLight } from '@spectrum-web-components/status-light';
 import { css } from 'lit';
 
-class MyNumberField extends NumberField {
+class MyStatusLight extends StatusLight {
     static styles = [
-        NumberField.styles,
+        ...StatusLight.styles,
         css`
-            .input {
-                background-color: aquamarine;
-            }
-            .buttons {
-                background-color: yellow;
+            :host {
+                font-weight: bold;
             }
         `,
     ];
 }
 
-customElements.define('my-number-field', MyNumberField);
+customElements.define('my-status-light', MyStatusLight);
