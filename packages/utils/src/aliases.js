@@ -41,6 +41,7 @@ export const aliases = {
     '@spectrum-web-components/field-group': '@swc-uxp-wrappers/field-group',
     '@spectrum-web-components/switch': '@swc-uxp-wrappers/switch',
     '@spectrum-web-components/radio': '@swc-uxp-wrappers/radio',
+    '@spectrum-web-components/infield-button': '@swc-uxp-wrappers/infield-button',
     '@spectrum-web-components/number-field': '@swc-uxp-wrappers/number-field',
     '@spectrum-web-components/search': '@swc-uxp-wrappers/search',
     '@spectrum-web-components/tags': '@swc-uxp-wrappers/tags',
