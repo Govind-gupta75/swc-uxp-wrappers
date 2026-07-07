@@ -38,7 +38,7 @@
         "./src/menu-sectionHeading-overrides.css.js": "./src/menu-sectionHeading-overrides.css.js"
     },
     "dependencies": {
-        "@swc-uxp-internal/menu": "npm:@spectrum-web-components/menu@1.12.1",
+        "@swc-uxp-internal/menu": "npm:@spectrum-web-components/menu@1.12.2",
         "@swc-uxp-wrappers/divider": "3.0.0",
         "@swc-uxp-wrappers/action-button": "3.0.0"
     },
