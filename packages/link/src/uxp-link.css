@@ -45,19 +45,6 @@ governing permissions and limitations under the License.
     text-decoration: underline;
 }
 
-/* Static-color hover — specificity 0-2-1 beats :host(:hover) a (0-1-1).
-   SWC pre-sets --mod-link-text-color-hover via :host([static-color]) a, but UXP
-   cannot inherit custom properties set on shadow-DOM descendants via compound
-   selectors (IACVT). Without these rules, :host(:hover) a above would win on
-   hover and apply the accent color instead of the static white/black. */
-:host([static-color=white]:hover) a {
-    color: var(--mod-link-text-color-white, var(--spectrum-white));
-}
-
-:host([static-color=black]:hover) a {
-    color: var(--mod-link-text-color-black, var(--spectrum-black));
-}
-
 /* text-decoration-skip: objects is not supported in UXP — reset to avoid
    potential rendering issues on the anchor element. */
 a {
