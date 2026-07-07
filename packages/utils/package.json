@@ -18,8 +18,7 @@
     "exports": {
         ".": "./src/index.js",
         "./package.json": "./package.json",
-        "./src/aliases.js": "./src/aliases.js",
-        "./src/webpack-plugins.js": "./src/webpack-plugins.js"
+        "./src/aliases.js": "./src/aliases.js"
     },
     "files": [
         "**/*.js"
