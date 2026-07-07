@@ -47,6 +47,7 @@ export const aliases = {
     '@spectrum-web-components/asset': '@swc-uxp-wrappers/asset',
     '@spectrum-web-components/quick-actions': '@swc-uxp-wrappers/quick-actions',
     '@spectrum-web-components/meter': '@swc-uxp-wrappers/meter',
+    '@spectrum-web-components/status-light': '@swc-uxp-wrappers/status-light',
     '@spectrum-web-components/sidenav': '@swc-uxp-wrappers/sidenav',
     '@spectrum-web-components/swatch': '@swc-uxp-wrappers/swatch',
     '@spectrum-web-components/overlay': '@swc-uxp-wrappers/overlay',
