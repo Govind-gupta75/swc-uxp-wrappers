@@ -45,17 +45,6 @@ governing permissions and limitations under the License.
     text-decoration: underline;
 }
 
-/* Static-color hover — specificity 0-2-1 beats :host(:hover) a (0-1-1).
-   UXP IACVT prevents the SWC token chain :host([static-color]) a { --mod-link-text-color: ... }
-   from cascading into a, so color must be set directly. */
-:host([static-color=white]:hover) a {
-    color: var(--mod-link-text-color-white, var(--spectrum-white));
-}
-
-:host([static-color=black]:hover) a {
-    color: var(--mod-link-text-color-black, var(--spectrum-black));
-}
-
 /* text-decoration-skip: objects is not supported in UXP — reset to avoid
    potential rendering issues on the anchor element. */
 a {
