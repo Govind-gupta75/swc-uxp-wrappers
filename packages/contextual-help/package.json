@@ -24,7 +24,7 @@
         "./sp-contextual-help.js": "./sp-contextual-help.js"
     },
     "dependencies": {
-        "@swc-uxp-internal/contextual-help": "npm:@spectrum-web-components/contextual-help@1.12.0"
+        "@swc-uxp-internal/contextual-help": "npm:@spectrum-web-components/contextual-help@1.12.1"
     },
     "files": [
         "**/*.js"

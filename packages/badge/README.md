@@ -43,3 +43,21 @@ import { Badge } from '@swc-uxp-wrappers/badge';
 ```html
 <sp-badge variant="informative">Informative</sp-badge>
 ```
+
+## Known Issues
+
+---
+
+### Icon-only variant: incorrect icon size
+
+When using `<sp-badge>` with an icon but no label text (icon-only mode), the slotted icon renders at the wrong size regardless of the badge's `size` attribute.
+
+**Root cause:** The icon component (`sp-icon-*`) declares `--spectrum-icon-size` on its own `:host` (defaulting to medium/100). In UXP, the inner shadow DOM's `:host` rule takes higher cascade priority than `::slotted()` rules from the outer badge shadow DOM and also than custom properties cascaded from the badge's `:host`. As a result, the icon always renders at medium size regardless of the badge size variant.
+
+**Workaround:** Manually set the `size` attribute on the slotted icon element to match the badge size:
+
+```html
+<sp-badge size="s">
+    <sp-icon-checkmark-circle size="s" slot="icon"></sp-icon-checkmark-circle>
+</sp-badge>
+```

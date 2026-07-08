@@ -24,7 +24,7 @@
         "./src/action-group-overrides.css.js": "./src/action-group-overrides.css.js"
     },
     "dependencies": {
-        "@swc-uxp-internal/action-group": "npm:@spectrum-web-components/action-group@1.12.0",
+        "@swc-uxp-internal/action-group": "npm:@spectrum-web-components/action-group@1.12.1",
         "@swc-uxp-wrappers/action-button": "3.0.0"
     },
     "files": [

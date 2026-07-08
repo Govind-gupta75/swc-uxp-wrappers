@@ -23,9 +23,13 @@ governing permissions and limitations under the License.
     display: none;
 }
 
-/* text-align:start is unreliable in UXP — SWC v1.12.0 sets this on [name=icon]+#label */
+/* text-align:start is unreliable in UXP — SWC v1.12.0 sets this on [name=icon]+#label.
+   gap is not supported in UXP flex containers (UXP-21294) — SWC sets
+   gap:var(--spectrum-button-padding-label-to-icon) on :host to space the icon from the
+   label. Replace with margin-inline-start on #label as the equivalent. */
 [name='icon'] + #label {
     text-align: left;
+    margin-inline-start: var(--spectrum-button-padding-label-to-icon);
 }
 
 /* visibility:revert-layer not supported in UXP — preserve inherited value instead.

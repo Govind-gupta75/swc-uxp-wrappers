@@ -55,6 +55,9 @@ import '@spectrum-web-components/quick-actions/sp-quick-actions.js';
 import '@spectrum-web-components/meter/sp-meter.js';
 import '@spectrum-web-components/tags/sp-tags.js';
 import '@spectrum-web-components/tags/sp-tag.js';
+import '@spectrum-web-components/tabs/sp-tabs.js';
+import '@spectrum-web-components/tabs/sp-tab.js';
+import '@spectrum-web-components/tabs/sp-tab-panel.js';
 import '@spectrum-web-components/thumbnail/sp-thumbnail.js';
 import '@spectrum-web-components/field-group/sp-field-group.js';
 import '@spectrum-web-components/swatch/sp-swatch.js';
@@ -71,6 +74,7 @@ import '@spectrum-web-components/table/sp-table-row.js';
 
 import '@spectrum-web-components/overlay/sp-overlay.js';
 import '@spectrum-web-components/overlay/overlay-trigger.js';
+import '@spectrum-web-components/combobox/sp-combobox.js';
 
 import '@spectrum-web-components/picker/sp-picker.js';
 
