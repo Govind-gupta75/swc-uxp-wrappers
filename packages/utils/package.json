@@ -41,10 +41,7 @@
         "@swc-uxp-internal/icons": "npm:@spectrum-web-components/icons@1.12.1",
         "@swc-uxp-internal/iconset": "npm:@spectrum-web-components/iconset@1.12.1",
         "@swc-uxp-internal/icons-ui": "npm:@spectrum-web-components/icons-ui@1.12.1",
-        "@swc-uxp-internal/icons-workflow": "npm:@spectrum-web-components/icons-workflow@1.12.1",
-        "@swc-uxp-internal/alert-dialog": "npm:@spectrum-web-components/alert-dialog@1.12.1",
-        "@swc-uxp-internal/alert-banner": "npm:@spectrum-web-components/alert-banner@1.12.1",
-        "@swc-uxp-internal/dialog": "npm:@spectrum-web-components/dialog@1.12.1"
+        "@swc-uxp-internal/icons-workflow": "npm:@spectrum-web-components/icons-workflow@1.12.1"
     },
     "keywords": [
         "UXP",
