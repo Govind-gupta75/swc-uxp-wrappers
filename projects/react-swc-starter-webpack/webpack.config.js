@@ -14,7 +14,7 @@ import { resolve } from 'path';
 import webpack from 'webpack';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import { aliases, createWebpackPlugins } from '@swc-uxp-wrappers/utils';
+import { aliases } from '@swc-uxp-wrappers/utils';
 
 const OUTPUT_PATH = resolve('dist');
 
@@ -48,7 +48,6 @@ export default (_env, argv) => {
                 template: 'src/index.html',
             }),
             new CopyWebpackPlugin(copyStatics),
-            ...createWebpackPlugins(webpack),
         ],
         devServer: {
             port: 3030,

@@ -17,7 +17,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
-import { aliases, createWebpackPlugins } from '@swc-uxp-wrappers/utils';
+import { aliases } from '@swc-uxp-wrappers/utils';
 
 const ENV = process.argv.find((arg) => arg.includes('NODE_ENV=production'))
     ? 'production'
@@ -74,8 +74,7 @@ const plugins = [
     // the dev server writes to dist-dev/.
     ...(!IS_DEV_SERVER ? [new CleanWebpackPlugin()] : []),
     new CopyWebpackPlugin(copyStatics),
-    new MiniCssExtractPlugin({ filename: '[name].bundle.css' }),
-    ...createWebpackPlugins(webpack),
+    new MiniCssExtractPlugin({ filename: '[name].bundle.css' })
 ];
 
 const shared = (env) => {

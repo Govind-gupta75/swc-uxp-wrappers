@@ -26,7 +26,7 @@
         "./sp-meter.js": "./sp-meter.js"
     },
     "dependencies": {
-        "@swc-uxp-internal/meter": "npm:@spectrum-web-components/meter@1.12.0",
+        "@swc-uxp-internal/meter": "npm:@spectrum-web-components/meter@1.12.1",
         "@swc-uxp-wrappers/field-label": "3.0.0",
         "@swc-uxp-wrappers/shared": "3.0.0"
     },
