@@ -15,8 +15,7 @@ import swcBadgeStyles from '@swc-uxp-internal/badge/src/badge.css.js';
 import uxpBadgeStyles from './uxp-badge.css.js';
 
 const combinedBadgeStyles = unsafeCSS(
-    swcBadgeStyles.toString(),
-    uxpBadgeStyles.toString()
+    swcBadgeStyles.toString() + '\n' + uxpBadgeStyles.toString()
 );
 
 export default combinedBadgeStyles;
