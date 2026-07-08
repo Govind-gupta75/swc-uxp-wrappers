@@ -23,7 +23,7 @@ governing permissions and limitations under the License.
 // UxpPicker itself imports './uxp-picker.css.js' directly instead.
 import { unsafeCSS } from '@spectrum-web-components/base';
 import swcStyles from '@swc-uxp-internal/picker/src/picker.css.js';
-import uxpStyles from './uxp-picker.css.js';
+import uxpStyles from './picker-overrides.css.js';
 
 const styles = unsafeCSS(swcStyles.toString() + '\n' + uxpStyles.toString());
 export default styles;

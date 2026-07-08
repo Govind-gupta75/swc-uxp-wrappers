@@ -22,7 +22,7 @@ import { Picker as PickerUpstream, DESCRIPTION_ID } from '@swc-uxp-internal/pick
 import { html, nothing } from '@spectrum-web-components/base';
 import { ifDefined } from '@spectrum-web-components/base/src/directives.js';
 
-import styles from './uxp-picker.css.js';
+import styles from './picker-overrides.css.js';
 
 class UxpPickerBase extends PickerUpstream {
     static get styles() {
