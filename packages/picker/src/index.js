@@ -11,4 +11,4 @@ governing permissions and limitations under the License.
 */
 
 export * from './Picker.js';
-export { DESCRIPTION_ID } from '@swc-uxp-internal/picker/src/Picker.js';
+export { DESCRIPTION_ID, ExpandableElement } from '@swc-uxp-internal/picker/src/Picker.js';
