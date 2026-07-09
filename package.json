@@ -38,6 +38,7 @@
     "@spectrum-web-components/close-button": "1.12.1",
     "@spectrum-web-components/action-button": "1.12.1",
     "@spectrum-web-components/action-group": "1.12.1",
+    "@spectrum-web-components/action-menu": "1.12.2",
     "@spectrum-web-components/field-label": "1.12.1",
     "@spectrum-web-components/card": "1.12.1",
     "@spectrum-web-components/action-bar": "1.12.1",
