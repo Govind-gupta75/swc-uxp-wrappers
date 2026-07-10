@@ -62,6 +62,7 @@ import '@spectrum-web-components/thumbnail/sp-thumbnail.js';
 import '@spectrum-web-components/field-group/sp-field-group.js';
 import '@spectrum-web-components/swatch/sp-swatch.js';
 import '@spectrum-web-components/swatch/sp-swatch-group.js';
+import '@spectrum-web-components/breadcrumbs/sp-breadcrumbs.js';
 import '@spectrum-web-components/contextual-help/sp-contextual-help.js';
 
 import '@spectrum-web-components/table/sp-table.js';

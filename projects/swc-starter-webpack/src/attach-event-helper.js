@@ -269,6 +269,16 @@ function attachEvents(tabName) {
         togglePickerAttr('picker-toggle-invalid',  'invalid');
         togglePickerAttr('picker-toggle-readonly', 'readonly');
     }
+
+    if (tabName === 'sp-breadcrumbs') {
+        var el = document.getElementById('breadcrumbs-event-demo');
+        var output = document.getElementById('breadcrumbs-event-output');
+        if (el && output) {
+            el.addEventListener('change', function (e) {
+                output.textContent = 'change event: value = "' + (e.detail && e.detail.value) + '"';
+            });
+        }
+    }
 }
 
 function handleThemeSystem(selectObject) {
