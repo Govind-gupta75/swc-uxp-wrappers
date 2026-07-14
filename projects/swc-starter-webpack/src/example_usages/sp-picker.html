@@ -65,6 +65,18 @@ governing permissions and limitations under the License.
             </sp-picker>
         </div>
 
+        <div style="display: flex; flex-direction: column; margin-left: 24px; margin-bottom: 8px;">
+            <sp-field-label>Pending</sp-field-label>
+            <sp-picker label="Pending" pending pending-label="Loading...">
+                <sp-menu-item value="deselect">Deselect</sp-menu-item>
+                <sp-menu-item value="inverse">Select Inverse</sp-menu-item>
+                <sp-menu-item value="feather">Feather...</sp-menu-item>
+            </sp-picker>
+            <span style="font-size: var(--spectrum-font-size-75, 12px); color: gray; margin-top: 4px;">
+                Note: <code>sp-progress-circle</code> is not shown in UXP (CSS animations unsupported).
+            </span>
+        </div>
+
     </div>
 
     <div style="height: 32px; flex-shrink: 0;"></div>
@@ -296,7 +308,7 @@ governing permissions and limitations under the License.
                 <sp-menu-item disabled value="durian">Durian</sp-menu-item>
             </sp-picker>
         </div>
-        <div style="display: flex; flex-direction: column;">
+        <div style="display: flex; flex-direction: column; margin-left: 40px;">
             <span style="font-size: var(--spectrum-font-size-75, 12px); color: gray; margin-bottom: 4px;">Slotted (sp-field-label slot="label")</span>
             <sp-picker label="Select a fruit">
                 <sp-field-label slot="label">Favorite fruit?</sp-field-label>

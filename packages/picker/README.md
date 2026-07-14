@@ -6,7 +6,7 @@
 This is UXP wrapper for `@spectrum-web-components/picker` package
 <br />
 
--   For detailed README regarding `@spectrum-web-components/picker` [refer this link](https://www.npmjs.com/package/@spectrum-web-components/picker/v/1.12.0)
+-   For detailed README regarding `@spectrum-web-components/picker` [refer this link](https://www.npmjs.com/package/@spectrum-web-components/picker/v/1.12.2)
 
 -   Detailed specification regarding `@spectrum-web-components/picker` support in UXP through `@swc-uxp-wrappers/picker` [refer this link](https://developer.adobe.com/photoshop/uxp/2022/uxp-api/reference-spectrum/swc/)
 
