@@ -76,6 +76,9 @@ import '@spectrum-web-components/overlay/sp-overlay.js';
 import '@spectrum-web-components/overlay/overlay-trigger.js';
 import '@spectrum-web-components/combobox/sp-combobox.js';
 
+// sp-overlay must be imported BEFORE sp-action-menu (DependencyManagerController pre-registration)
+import '@swc-uxp-wrappers/action-menu/sp-action-menu.js';
+
 import '@spectrum-web-components/picker/sp-picker.js';
 
 import '@spectrum-web-components/number-field/sp-number-field.js';

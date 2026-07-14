@@ -14,7 +14,6 @@ import { unsafeCSS } from '@spectrum-web-components/base';
 import swcThumbnailStyles from '@swc-uxp-internal/thumbnail/src/thumbnail.css.js';
 import uxpThumbnailStyles from './uxp-thumbnail.css.js';
 const combinedThumbnailStyles = unsafeCSS(
-    swcThumbnailStyles.toString(),
-    uxpThumbnailStyles.toString()
+    swcThumbnailStyles.toString() + '\n' + uxpThumbnailStyles.toString()
 );
 export default combinedThumbnailStyles;

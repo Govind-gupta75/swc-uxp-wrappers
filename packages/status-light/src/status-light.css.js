@@ -15,8 +15,7 @@ import swcStatusLightStyles from '@swc-uxp-internal/status-light/src/status-ligh
 import uxpStatusLightStyles from './uxp-status-light.css.js';
 
 const combinedStatusLightStyles = unsafeCSS(
-    swcStatusLightStyles.toString(),
-    uxpStatusLightStyles.toString()
+    swcStatusLightStyles.toString() + '\n' + uxpStatusLightStyles.toString()
 );
 
 export default combinedStatusLightStyles;
