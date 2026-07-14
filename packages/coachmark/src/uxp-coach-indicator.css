@@ -31,8 +31,16 @@ governing permissions and limitations under the License.
  *   - variant property removed; use staticColor instead
  */
 
-/* quiet variant: upstream :host([quiet]) overrides sizing tokens. Physical
- * fallback ensures UXP honours the quiet dimensions if tokens fail to cascade. */
+/* quiet variant: upstream :host([quiet]) sets --mod-coach-indicator-inline-size /
+ * --mod-coach-indicator-block-size as custom properties; the actual sizing is applied
+ * on :host via inline-size / block-size, which enableLogicalProperties translates to
+ * width / height at parse time.
+ *
+ * This rule adds an explicit physical width/height directly on :host([quiet]) as a
+ * safety net in case UXP's token cascade does not propagate the custom properties set
+ * in :host([quiet]) to the translated physical rule on :host.
+ * TODO: verify whether this rule is still needed in the next upgrade cycle — if
+ * enableLogicalProperties correctly handles the cascade, this block can be removed. */
 :host([quiet]) {
     width: var(--mod-coach-indicator-inline-size, var(--spectrum-coach-indicator-inline-size));
     height: var(--mod-coach-indicator-block-size, var(--spectrum-coach-indicator-block-size));

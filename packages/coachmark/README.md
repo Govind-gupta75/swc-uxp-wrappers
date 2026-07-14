@@ -3,7 +3,7 @@
 ---
 
 <br />
-This is UXP wrapper for `@spectrum-web-components/coachmark` package (v1.12.x).
+This is UXP wrapper for `@spectrum-web-components/coachmark` package (v1.12.2).
 <br />
 
 -   For detailed README regarding `@spectrum-web-components/coachmark` [refer this link](https://www.npmjs.com/package/@spectrum-web-components/coachmark)
@@ -109,6 +109,6 @@ The following UXP limitations are transparently handled by this wrapper — no c
 
 ## Known Issues
 
--   `sp-coach-indicator` is not supported until animation support is available in UXP.
--   Tab navigation is not supported.
+-   `sp-coach-indicator` renders as static concentric rings — the pulsing animation does not work because UXP does not support CSS `animation` or `@keyframes`. The component will animate automatically once UXP adds animation support; no markup changes are required.
+-   Keyboard focus on the injected nav buttons and the three-dot action button works via `tabindex`. However, tab traversal order within the shadow DOM may differ from the upstream SWC behavior, and arrow-key navigation within the button group is not supported.
 -   The `slot="asset"` image will not load if the `src` points to an external URL — UXP restricts network access to the plugin's allowed domains. Use a local asset path instead.

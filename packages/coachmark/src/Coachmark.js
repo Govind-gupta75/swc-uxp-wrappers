@@ -204,7 +204,7 @@ class UxpCoachmark extends Coachmark {
             const dotColorDefault  = isDark ? 'rgb(255,255,255)' : 'rgb(34,34,34)';
             const dotColorOpen     = isDark ? 'rgb(34,34,34)'    : 'rgb(255,255,255)';
             btn.style.color = dotColorDefault;
-            const btnRadius = this._uxpBtnRadius || '4px';
+            const btnRadius = this._uxpBtnRadius || '8px';
 
             let isHovering = false;
             const _updateBtnBg = () => {
@@ -232,7 +232,7 @@ class UxpCoachmark extends Coachmark {
             dropdown.setAttribute('data-uxp-native-dropdown', '');
             dropdown.style.cssText = [
                 'display:none', 'position:absolute', 'right:0', 'top:100%',
-                'margin-top:4px', 'width:auto', 'min-width:140px', 'z-index:2000',
+                'margin-top:4px', 'min-width:140px', 'z-index:2000',
                 'background-color:' + menuBg,
                 'border:1px solid ' + menuBorder,
                 'border-radius:8px', 'padding:4px 0',
@@ -348,6 +348,9 @@ class UxpCoachmark extends Coachmark {
             this._registerThemeObs();
             clearTimeout(this._uxpConnectTimer);
             this._uxpConnectTimer = setTimeout(() => {
+                // Re-sync colors in case theme changed while disconnected
+                // (the MutationObserver was paused during disconnect).
+                this._injectColorStyles(this._root);
                 this._injectNativeActionButton();
                 this._injectNativeNavButtons();
             }, 0);
@@ -405,6 +408,8 @@ class UxpCoachmark extends Coachmark {
 
         // Store nav-button hover bg as a live instance property so hover handlers
         // always read the current theme value without recreating sp-button elements.
+        // The empty-string fallbacks are intentionally in the opposite-theme branch
+        // that is never reached given the outer isDark split — not a bug.
         this._uxpNavHoverBg = isDark
             ? tok('--spectrum-gray-100-rgb', 'rgb(50,50,50)',   '')
             : tok('--spectrum-gray-200-rgb', '',   'rgb(230,230,230)');
@@ -445,10 +450,12 @@ class UxpCoachmark extends Coachmark {
                 '--mod-button-border-color-down:'    + priBorderHover + ';' +
                 '--mod-button-border-color-focus:'   + priBorder      + ';' +
             '}' +
-            // border-radius applied via JS hover only — a transparent div with border-radius
-            // creates a visible "box" in UXP due to background-clip on the parent.
-            '[data-uxp-native-btn]{width:var(--uxp-cm-btn-size);height:var(--uxp-cm-btn-size);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:background-color 0.15s;}' +
-            '[data-uxp-native-dropdown]>div{display:block;padding:6px 12px;margin:0 4px;cursor:pointer;font-size:var(--uxp-cm-font-size);white-space:nowrap;color:inherit;border-radius:6px;}';
+            // border-radius applied via JS hover only — a static border-radius on a
+            // transparent div creates a visible box in UXP due to background-clip.
+            // transition is not in uxp-css-data.json (silent no-op in UXP); kept for
+            // standard-browser demo aesthetics — gracefully ignored in UXP.
+            '[data-uxp-native-btn]{width:var(--uxp-cm-btn-size);height:var(--uxp-cm-btn-size);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:background-color 0.15s;/* UXP: no-op */}' +
+            '[data-uxp-native-dropdown]>div{padding:6px 12px;margin:0 4px;cursor:pointer;font-size:var(--uxp-cm-font-size);white-space:nowrap;color:inherit;border-radius:6px;}';
     }
 
     firstUpdated(changedProperties) {
@@ -457,13 +464,17 @@ class UxpCoachmark extends Coachmark {
             const root = this._root;
             if (root) this._injectColorStyles(root);
 
-            // Cache border-radius once — it is a design token that doesn't change between
-            // themes, so there is no need to call getComputedStyle(this) on every theme change.
-            const cs = getComputedStyle(this);
-            this._uxpBtnRadius =
-                cs.getPropertyValue('--mod-coachmark-border-radius').trim() ||
-                cs.getPropertyValue('--spectrum-coachmark-border-radius').trim() ||
-                '4px';
+            // Cache border-radius once — it does not change between themes.
+            // MUST-5: getComputedStyle(el).getPropertyValue('--custom-prop') returns the raw
+            // declared value (e.g. "var(--mod-popover-corner-radius)"), NOT the resolved pixel
+            // value. Using that string as an inline style would be a var() in a JS inline style.
+            // Instead, read the RESOLVED regular property borderRadius from the host element —
+            // getComputedStyle resolves all var() chains for non-custom properties, returning
+            // the concrete pixel value (e.g. "8px") that is safe to assign as an inline style.
+            // If the cascade hasn't settled yet and borderRadius returns "", fall back to 8px
+            // (the Spectrum 2 --system-coach-mark-popover-corner-radius spec value).
+            const resolvedRadius = getComputedStyle(this).borderRadius;
+            this._uxpBtnRadius = (resolvedRadius && resolvedRadius.split(' ')[0]) || '8px';
 
             // Register theme observer. Re-inject all theme-dependent colors when
             // sp-theme[color] changes. disconnectedCallback disconnects (but preserves)
