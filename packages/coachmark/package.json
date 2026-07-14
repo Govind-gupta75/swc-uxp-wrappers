@@ -22,11 +22,15 @@
         "./sp-coach-indicator.js": "./sp-coach-indicator.js",
         "./src/Coachmark.js": "./src/Coachmark.js",
         "./sp-coachmark.js": "./sp-coachmark.js",
+        "./src/coachmark.css.js": "./src/coachmark.css.js",
+        "./src/coach-indicator.css.js": "./src/coach-indicator.css.js",
+        "./src/coachmark-overrides.css.js": "./src/coachmark-overrides.css.js",
+        "./src/coach-indicator-overrides.css.js": "./src/coach-indicator-overrides.css.js",
         "./src/uxp-coachmark.css.js": "./src/uxp-coachmark.css.js",
         "./src/uxp-coach-indicator.css.js": "./src/uxp-coach-indicator.css.js"
     },
     "dependencies": {
-        "@swc-uxp-internal/coachmark": "npm:@spectrum-web-components/coachmark@1.12.0"
+        "@swc-uxp-internal/coachmark": "npm:@spectrum-web-components/coachmark@1.12.2"
     },
     "files": [
         "**/*.js",
