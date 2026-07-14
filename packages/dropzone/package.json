@@ -1,6 +1,6 @@
 {
     "name": "@swc-uxp-wrappers/dropzone",
-    "version": "1.0.0",
+    "version": "3.0.0",
     "publishConfig": {
         "access": "public"
     },
@@ -20,13 +20,16 @@
         "./package.json": "./package.json",
         "./src/Dropzone.js": "./src/Dropzone.js",
         "./src/dropzone.css.js": "./src/dropzone.css.js",
+        "./src/dropzone-overrides.css.js": "./src/dropzone-overrides.css.js",
+        "./src/uxp-dropzone.css.js": "./src/uxp-dropzone.css.js",
         "./sp-dropzone.js": "./sp-dropzone.js"
     },
     "dependencies": {
-        "@swc-uxp-internal/dropzone": "npm:@spectrum-web-components/dropzone@1.12.1"
+        "@swc-uxp-internal/dropzone": "npm:@spectrum-web-components/dropzone@1.12.2"
     },
     "files": [
-        "**/*.js"
+        "**/*.js",
+        "**/*.css"
     ],
     "keywords": [
         "UXP",

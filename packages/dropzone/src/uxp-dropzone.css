@@ -12,30 +12,16 @@ governing permissions and limitations under the License.
 
 /*
  * UXP overrides for @swc-uxp-wrappers/dropzone (SWC v1.12.x)
- *
- * Targets plugins that do NOT set enableLogicalProperties: true in their
- * manifest. Physical-property overrides are harmless when the flag is on
- * (same specificity, appended last via [...super.styles, styles]).
+ * Requires enableLogicalProperties: true in manifest (logical properties handled by UXP mapper).
  */
 
-/* inline-size → width (UXP: CSS logical properties not supported)
-   SWC original: inline-size: var(--mod-drop-zone-width, var(--spectrum-drop-zone-width)) */
-:host {
-    width: var(--mod-drop-zone-width, var(--spectrum-drop-zone-width));
+/* UXP: rgba(var()) is not supported — use literal fallback.
+   Tokens: --spectrum-blue-800-rgb light=20,122,243 dark=84,163,246
+   For dark theme set --mod-drop-zone-background-color manually:
+     dragged: rgba(84,163,246,0.1)  filled: rgba(84,163,246,0.3) */
+:host([dragged]) {
+    background-color: var(--mod-drop-zone-background-color, rgba(20, 122, 243, 0.1));
 }
-
-/* margin-block: 0 → margin-top/bottom: 0 (UXP: margin-block shorthand not supported)
-   SWC original: margin-block: 0 */
-::slotted(*) {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-/* background-color: rgba(var(--rgb-triple), opacity) → literal rgba fallback
-   (UXP: CSS variables inside rgba() are not supported)
-   SWC original: background-color: rgba(var(--spectrum-drop-zone-background-color-rgb), ...)
-   Override --mod-drop-zone-background-color to match your plugin's accent color. */
-:host([dragged]),
 :host([filled]) {
-    background-color: var(--mod-drop-zone-background-color, rgba(20, 115, 230, 0.1));
+    background-color: var(--mod-drop-zone-background-color, rgba(20, 122, 243, 0.3));
 }
