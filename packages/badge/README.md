@@ -6,7 +6,7 @@
 This is UXP wrapper for `@spectrum-web-components/badge` package 
 <br />
 
--   For detailed README regarding `@spectrum-web-components/badge` [refer this link](https://www.npmjs.com/package/@spectrum-web-components/badge/v/1.12.1)
+-   For detailed README regarding `@spectrum-web-components/badge` [refer this link](https://www.npmjs.com/package/@spectrum-web-components/badge/v/1.12.2)
 
 -   Detailed specification regarding `@spectrum-web-components/badge` support in UXP through `@swc-uxp-wrappers/badge` [refer this link](https://developer.adobe.com/photoshop/uxp/2022/uxp-api/reference-spectrum/swc/)
 
@@ -48,16 +48,10 @@ import { Badge } from '@swc-uxp-wrappers/badge';
 
 ---
 
-### Icon-only variant: incorrect icon size
+<br />
 
-When using `<sp-badge>` with an icon but no label text (icon-only mode), the slotted icon renders at the wrong size regardless of the badge's `size` attribute.
+### 2-line label cap not enforced
 
-**Root cause:** The icon component (`sp-icon-*`) declares `--spectrum-icon-size` on its own `:host` (defaulting to medium/100). In UXP, the inner shadow DOM's `:host` rule takes higher cascade priority than `::slotted()` rules from the outer badge shadow DOM and also than custom properties cascaded from the badge's `:host`. As a result, the icon always renders at medium size regardless of the badge size variant.
+Upstream SWC applies `.label slot { max-height: calc(line-height × font-size × 2) }` to cap badge labels at two lines. Because the UXP wrapper adopts text nodes directly into a `.label` div (no `<slot>` element), this rule never matches and the badge grows to fit text of any length.
 
-**Workaround:** Manually set the `size` attribute on the slotted icon element to match the badge size:
-
-```html
-<sp-badge size="s">
-    <sp-icon-checkmark-circle size="s" slot="icon"></sp-icon-checkmark-circle>
-</sp-badge>
-```
+**Root cause:** UXP ShadyDOM renders light-DOM children after all shadow-DOM content, so a slotted icon would appear to the right of the label. The adopt pattern is necessary to fix icon ordering, but eliminates the `<slot>` element that the upstream cap relies on.

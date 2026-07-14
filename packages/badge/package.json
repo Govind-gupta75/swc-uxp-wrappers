@@ -25,7 +25,7 @@
         "./src/badge-overrides.css.js": "./src/badge-overrides.css.js"
     },
     "dependencies": {
-        "@swc-uxp-internal/badge": "npm:@spectrum-web-components/badge@1.12.1"
+        "@swc-uxp-internal/badge": "npm:@spectrum-web-components/badge@1.12.2"
     },
     "files": [
         "**/*.js",

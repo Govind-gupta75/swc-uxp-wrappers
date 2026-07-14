@@ -26,9 +26,9 @@ governing permissions and limitations under the License.
  */
 
 /* ── Icon-only: vertical and horizontal padding ─────────────────────────────
- * Without text the badge height is determined by icon + this padding.
- * upstream uses padding-block-* / padding-inline-* (logical, UXP-unsupported)
- * on ::slotted([slot="icon"]) — we replicate as physical padding on :host. */
+ * Upstream applies these paddings to ::slotted([slot="icon"]), which does not
+ * fire after icon adoption into shadow DOM. We replicate as physical padding
+ * on :host([icon-only]) instead. */
 :host([icon-only]) {
     box-sizing: border-box;
     padding-top: var(
@@ -63,8 +63,8 @@ governing permissions and limitations under the License.
 }
 
 /* ── Icon-to-label gap (icon + text badges only) ────────────────────────────
- * Upstream: padding-inline-end on ::slotted([slot="icon"]).
- * We apply equivalent physical margins to the adopted icon element. */
+ * Upstream: padding-inline-start/end on ::slotted([slot="icon"]) does not
+ * fire after adoption. We apply equivalent physical margins instead. */
 :host(:not([icon-only])) .uxp-icon-host > * {
     margin-left: var(
         --mod-badge-icon-spacing-horizontal,
@@ -77,8 +77,9 @@ governing permissions and limitations under the License.
 }
 
 /* ── .label adjustments ─────────────────────────────────────────────────────
- * Remove left padding when icon is present (upstream equivalent:
- * [name="icon"] + .label { padding-inline-start: 0 }, logical, UXP-unsupported). */
+ * Upstream: [name="icon"] + .label { padding-inline-start: 0 } — the
+ * [name] selector targets <slot name="icon">, which does not exist in our
+ * render(). We use .uxp-icon-host as the equivalent selector. */
 .uxp-icon-host:not(:empty) + .label {
     padding-left: 0;
 }
