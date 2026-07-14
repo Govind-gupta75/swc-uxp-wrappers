@@ -13,6 +13,7 @@
         "serve": "webpack-dev-server"
     },
     "dependencies": {
+        "@swc-uxp-wrappers/badge": "*",
         "@swc-uxp-wrappers/banner": "*",
         "@swc-uxp-wrappers/divider": "*",
         "@swc-uxp-wrappers/link": "*",

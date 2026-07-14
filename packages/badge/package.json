@@ -1,6 +1,6 @@
 {
     "name": "@swc-uxp-wrappers/badge",
-    "version": "1.0.0",
+    "version": "3.0.0",
     "publishConfig": {
         "access": "public"
     },
@@ -21,10 +21,11 @@
         "./src/Badge.js": "./src/Badge.js",
         "./sp-badge.js": "./sp-badge.js",
         "./src/badge.css.js": "./src/badge.css.js",
-        "./src/uxp-badge.css.js": "./src/uxp-badge.css.js"
+        "./src/uxp-badge.css.js": "./src/uxp-badge.css.js",
+        "./src/badge-overrides.css.js": "./src/badge-overrides.css.js"
     },
     "dependencies": {
-        "@swc-uxp-internal/badge": "npm:@spectrum-web-components/badge@1.12.1"
+        "@swc-uxp-internal/badge": "npm:@spectrum-web-components/badge@1.12.2"
     },
     "files": [
         "**/*.js",
