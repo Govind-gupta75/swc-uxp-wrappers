@@ -16,8 +16,12 @@
 <sp-slider label="Disabled" value="60" size="m" disabled></sp-slider>
 
 <h3>Label Visibility</h3>
-<sp-slider label="Value only" value="50" size="m" label-visibility="value"></sp-slider>
-<sp-slider label="No label" value="50" size="m" label-visibility="none"></sp-slider>
+<!-- "text": shows text label only, hides numeric value -->
+<sp-slider label="Text label visible" value="50" size="m" label-visibility="text"></sp-slider>
+<!-- "value": shows numeric value only, hides text label -->
+<sp-slider label="Value visible" value="50" size="m" label-visibility="value"></sp-slider>
+<!-- "none": hides both labels, label area collapses -->
+<sp-slider label="Both hidden" value="50" size="m" label-visibility="none"></sp-slider>
 
 <h3>Variant: filled</h3>
 <sp-slider label="Filled" value="60" size="m" variant="filled"></sp-slider>
@@ -40,10 +44,26 @@
     <sp-slider-handle slot="handle" name="end" value="80" label="End"></sp-slider-handle>
 </sp-slider>
 
+<h3>Variant: range with value tooltip (hover to see)</h3>
+<!-- v1.12.0: multi-handle sliders with label-visibility="none" show per-handle value
+     tooltips on hover. In UXP, :focus-within is not supported so tooltips do not appear
+     on keyboard focus — hover-triggered tooltips work correctly. -->
+<sp-slider
+    label="Range tooltip"
+    min="0"
+    max="100"
+    size="m"
+    variant="range"
+    label-visibility="none"
+>
+    <sp-slider-handle slot="handle" name="start" value="25" label="Start"></sp-slider-handle>
+    <sp-slider-handle slot="handle" name="end" value="75" label="End"></sp-slider-handle>
+</sp-slider>
+
 <h3>Editable (with number field)</h3>
-<!-- Known issue: @swc-uxp-wrappers/number-field targets SWC 0.37.0 but slider@1.12.0
-     requires number-field@1.12.0. The editable slider renders but the number field
-     may not function correctly until the number-field wrapper is upgraded to 1.12.0. -->
+<!-- Note: editable mode requires @swc-uxp-wrappers/number-field v3.0.0 which wraps
+     number-field@1.12.2. If the number field does not render correctly, verify the
+     number-field wrapper version. Use sync/sp-slider.js entry for UXP (no lazy import). -->
 <sp-slider label="Editable" value="50" min="0" max="100" step="1" size="m" editable></sp-slider>
 
 <h3>Indeterminate</h3>

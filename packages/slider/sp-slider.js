@@ -10,6 +10,11 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-import './sp-slider-handle.js';
+// UXP: use package import (not relative) so the alias resolver maps this to
+// @swc-uxp-wrappers/slider/sp-slider-handle.js and guarantees a single module
+// instance. A relative './sp-slider-handle.js' resolves to a different instance
+// in alias-based bundlers, causing 'NotSupportedError: already defined' for
+// sp-slider-handle. This pattern mirrors the v1.12.2 upstream fix (PR #6467).
+import '@spectrum-web-components/slider/sp-slider-handle.js';
 import { Slider } from './src/Slider.js';
 customElements.define('sp-slider', Slider);

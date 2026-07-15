@@ -10,11 +10,11 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* UXP: user-select is not in UXP CSS data. -webkit-user-select is also absent from
-   uxp-css-data.json (unverified UXP support). The upstream spectrum-slider.css already
-   declares both unconditionally. This rule is a defensive duplicate in case upstream
-   ever moves them into a @media (hover:hover) block. Verify -webkit-user-select support
-   status on next UXP runtime upgrade and remove if upstream coverage is sufficient. */
+/* UXP: user-select is not in UXP CSS data. -webkit-user-select is also confirmed not
+   in uxp-css-data.json. The upstream spectrum-slider.css already declares both
+   unconditionally. This rule is a defensive duplicate in case upstream ever moves them
+   into a @media (hover:hover) block. Re-verify -webkit-user-select on each UXP runtime
+   upgrade and remove if upstream coverage is sufficient. */
 :host {
     -webkit-user-select: none;
 }
@@ -39,6 +39,17 @@ governing permissions and limitations under the License.
    handle-highlight is never set, (c) :focus-within is not in uxp-css-data. */
 .handle::before {
     display: none !important;
+}
+
+/* UXP: clip-path is not in uxp-css-data. The upstream .visually-hidden pattern uses
+   clip-path:inset(50%) + width:1px + height:1px to hide elements while keeping them
+   in the accessibility tree. Without clip-path, the 1px element remains visible and
+   appears as a small mark at the left edge (e.g. when label-visibility="value"/"none"
+   hides the text/value label). visibility:hidden is supported in UXP and removes the
+   visual artifact. The slider's inputs carry aria-label/aria-labelledby directly,
+   so hiding these clipped label elements does not break UXP accessibility. */
+.visually-hidden {
+    visibility: hidden;
 }
 
 /* @media (hover: hover) unwrap */
@@ -196,6 +207,32 @@ governing permissions and limitations under the License.
     /* Chrome only: same padding-inline/right reasoning as .uxp-fill above. */
     padding-inline: 0 !important;
     right: auto !important;
+}
+
+/* UXP: .value-tooltip (added in v1.12.0) uses inset-inline-start:50% for centering.
+   Like .handle's margin-inline-start and .trackContainer's margin-inline, logical
+   properties are not applied correctly in UXP shadow DOM even with
+   enableLogicalProperties:true. Without the physical left: fallback the tooltip
+   anchors at left:0 and appears misaligned. */
+.value-tooltip {
+    left: 50%;
+}
+
+/* UXP: .value-tooltip::after is the triangular caret rendered via the CSS border trick
+   (border-color: gray transparent transparent; width:0; height:0).
+   UXP forces ::after background to rgb(175,175,175) — the same issue as ::before —
+   causing the zero-size border triangle to appear as a gray filled square block.
+   Fix: hide by default; restore only in Chrome via @supports.
+   @supports is NOT in uxp-css-data — UXP ignores the entire @supports block,
+   so display:none applies in UXP only. Chrome evaluates @supports and overrides
+   with display:block, restoring the correct triangular caret. */
+.value-tooltip::after {
+    display: none !important;
+}
+@supports (display: block) {
+    .value-tooltip::after {
+        display: block !important;
+    }
 }
 
 /* Chrome: --spectrum-slider-ramp-handle-background-color is not defined in any

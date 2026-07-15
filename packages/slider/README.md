@@ -3,10 +3,10 @@
 ---
 
 <br />
-This is UXP wrapper for `@spectrum-web-components/slider` package (`v1.12.0`)
+This is UXP wrapper for `@spectrum-web-components/slider` package (`v1.12.2`)
 <br />
 
-- For detailed README regarding `@spectrum-web-components/slider` [refer this link](https://www.npmjs.com/package/@spectrum-web-components/slider/v/1.12.0)
+- For detailed README regarding `@spectrum-web-components/slider` [refer this link](https://www.npmjs.com/package/@spectrum-web-components/slider/v/1.12.2)
 
 ## Usage
 
@@ -79,7 +79,7 @@ The slider uses `transform: var(--spectrum-logical-rotation, )` on the ramp SVG,
 
 **Dynamic import fails in UXP** — The `editable` attribute triggers `import('@spectrum-web-components/number-field/sp-number-field.js')` at runtime. UXP does not support lazy chunk loading. Use `sync/sp-slider.js` (see above) to pre-bundle number-field.
 
-**Version mismatch** — `slider@1.12.0` depends on `number-field@1.12.0`, but `@swc-uxp-wrappers/number-field` (v2.0.0) internally wraps `number-field@0.37.0`. If `editable` behaviour is incorrect, wait for a `@swc-uxp-wrappers/number-field` release that wraps `number-field@1.12.0`.
+**Version mismatch** — `slider@1.12.2` depends on `number-field@1.12.2`. Verify that `@swc-uxp-wrappers/number-field` v3.0.0 wraps `number-field@1.12.2` — if the internal version is lower, `editable` behaviour may be incorrect.
 
 ### 3. `variant="filled"` with `fill-start` attribute not supported
 
@@ -97,4 +97,19 @@ Keyboard focus on the slider handle produces no visible focus indicator in UXP. 
 
 Keyboard navigation (arrow keys) still moves the handle correctly. Hover and drag styling are unaffected.
 
-Value tooltips (`show-value-tooltip`) on multi-handle sliders with `label-visibility="none"` or `"text"` appear on hover but not on keyboard focus — `:focus-within` is not supported in UXP.
+Value tooltips on multi-handle sliders with `label-visibility="none"` or `"text"` appear on hover but not on keyboard focus — `:focus-within` is not supported in UXP. The tooltip centering (`inset-inline-start: 50%`) is overridden by a physical `left: 50%` rule in `uxp-slider.css` because logical properties are not applied correctly in UXP shadow DOM stylesheets.
+
+### 6. Value tooltip caret (triangle arrow) not rendered in UXP
+
+The `.value-tooltip::after` element creates the triangular caret via the CSS border trick (`border-color: darkColor transparent transparent; width:0; height:0`). In UXP this fails due to two combined limitations:
+
+1. **`::after` background forced to `rgb(175,175,175)`** — UXP always renders pseudo-elements with this background regardless of CSS rules in shadow DOM stylesheets (same root cause as Known Issue 5 / `.handle::before`). `background: transparent !important` cannot override it.
+2. **`rgba(var(--spectrum-gray-N-rgb))` token unresolvable** — the arrow's border color `var(--spectrum-gray-900)` resolves internally to `rgba(var(--spectrum-gray-900-rgb))`, which UXP cannot parse (CSS variable inside `rgba()`). The visible border color becomes transparent, leaving only the forced gray background square.
+
+**Workaround applied:** `.value-tooltip::after { display: none !important }` hides the square artifact in UXP. Chrome is restored via `@supports (display: block) { ... }` (UXP ignores `@supports` blocks entirely since `@supports` is not in `uxp-css-data`). The tooltip body remains fully functional; only the decorative arrow is absent in UXP.
+
+**Not fixable via** `@swc-uxp-wrappers/tooltip` — the `.value-tooltip` is a plain `<span>` rendered inside the slider's own shadow DOM by `HandleController`, not an `<sp-tooltip>` component.
+
+**JS workaround is theoretically possible** (inject an SVG arrow via MutationObserver in `firstUpdated()`) but the complexity/maintenance cost is high relative to the value of a decorative element.
+
+**Fix required in:** UXP platform — honour `::after` background CSS rules in shadow DOM stylesheets and support `rgba(var())` token syntax.
