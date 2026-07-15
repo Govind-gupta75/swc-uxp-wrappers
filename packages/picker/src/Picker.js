@@ -10,7 +10,7 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-// picker@1.12.0 class hierarchy:
+// picker@1.12.2 class hierarchy:
 //   PickerBase — all behaviour, NO static styles
 //   Picker     — extends PickerBase, adds static styles + handleKeydown
 //
@@ -95,6 +95,11 @@ class UxpPickerBase extends PickerUpstream {
     }
 
     _hoverBgColor() {
+        // Approximates --spectrum-alias-highlight-hover:
+        //   light: rgba(0,0,0,0.07)  (--spectrum-global-color-opacity-7 = 0.07)
+        //   dark:  rgba(255,255,255,0.10)  (--spectrum-alias-highlight-hover dark variant)
+        // CSS custom property via style.setProperty cannot propagate into shadow DOM in UXP,
+        // so the hover background is driven via JS pointerenter/leave instead of CSS var().
         return this._isDark() ? 'rgba(255, 255, 255, 0.10)' : 'rgba(0, 0, 0, 0.07)';
     }
 

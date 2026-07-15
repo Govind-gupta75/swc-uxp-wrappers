@@ -13,14 +13,14 @@ governing permissions and limitations under the License.
 // ── Usage note ─────────────────────────────────────────────────────────────
 // This file (exported as "./src/picker.css.js") provides the FULL combined
 // stylesheet (upstream base + UXP overrides) as a single CSSResult.
-// It is intended for STANDALONE consumers that do NOT extend UxpPicker.
+// It is intended for STANDALONE consumers that do NOT extend UxpPickerBase.
 //
-// ⚠ Do NOT use this inside a component that extends UxpPicker.
+// ⚠ Do NOT use this inside a component that extends UxpPickerBase.
 // The upstream base CSS already arrives via super.styles; including this file
 // on top would duplicate those rules, because unsafeCSS creates a new
 // CSSResult instance that Lit cannot deduplicate by identity.
 //
-// UxpPicker itself imports './uxp-picker.css.js' directly instead.
+// UxpPickerBase itself imports './picker-overrides.css.js' (UXP delta only) directly.
 import { unsafeCSS } from '@spectrum-web-components/base';
 import swcStyles from '@swc-uxp-internal/picker/src/picker.css.js';
 import uxpStyles from './picker-overrides.css.js';
