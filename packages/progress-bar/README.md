@@ -3,10 +3,10 @@
 ---
 
 <br />
-This is UXP wrapper for `@spectrum-web-components/progress-bar` package (v1.12.0)
+This is UXP wrapper for `@spectrum-web-components/progress-bar` package (v1.12.2)
 <br />
 
--   For detailed README regarding `@spectrum-web-components/progress-bar` [refer this link](https://www.npmjs.com/package/@spectrum-web-components/progress-bar/v/1.12.0)
+-   For detailed README regarding `@spectrum-web-components/progress-bar` [refer this link](https://www.npmjs.com/package/@spectrum-web-components/progress-bar/v/1.12.2)
 
 -   Detailed specification regarding `@spectrum-web-components/progress-bar` support in UXP through `@swc-uxp-wrappers/progress-bar` [refer this link](https://developer.adobe.com/photoshop/uxp/2022/uxp-api/reference-spectrum/swc/)
 
@@ -60,6 +60,6 @@ import { ProgressBar } from '@swc-uxp-wrappers/progress-bar';
 
 -   **RTL not supported**: `:dir(rtl)` pseudo-class is not available in UXP. In RTL layouts the fill always grows from the left edge instead of the right.
 
--   **`over-background` attribute deprecated**: Use `static-color="white"` instead. The `over-background` setter in v1.12.0 automatically converts to `static-color="white"` and removes the attribute.
+-   **`over-background` attribute deprecated**: Use `static-color="white"` instead. The `over-background` setter in v1.12.2 automatically converts to `static-color="white"` and removes the attribute.
 
 -   **Forced colors / High Contrast mode not adapted**: `@media (forced-colors: active)` is not supported in UXP; track and fill colors will not adapt in Windows High Contrast mode.

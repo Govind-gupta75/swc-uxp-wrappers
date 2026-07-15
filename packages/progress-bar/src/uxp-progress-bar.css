@@ -22,7 +22,7 @@ governing permissions and limitations under the License.
 
 /* [UXP] --system-progress-bar-corner-radius and --system-progress-bar-fill-size-indeterminate
    exist in theme-core-tokens but do not resolve at shadow DOM child level in UXP
-   (v1.12.0 token chain: --spectrum-progressbar-* → --system-progress-bar-* → concrete value).
+   (v1.12.2 token chain: --spectrum-progressbar-* → --system-progress-bar-* → concrete value).
    Override both with values derived from reliably-available tokens set per size
    in progress-bar-overrides.css.
    corner-radius: thickness/2 = 4px (size m) — visual semicircle, same appearance as 12px
