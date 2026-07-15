@@ -10,6 +10,10 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
+// UXP does not support :focus-visible / :focus-within in element.matches() /
+// querySelector() — SyntaxError is thrown. Import shim before any SWC module runs.
+import '@swc-uxp-wrappers/utils/src/focus-visible-uxp.js';
+
 import { Picker } from './src/Picker.js';
 
 customElements.define('sp-picker', Picker);

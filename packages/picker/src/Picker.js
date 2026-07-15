@@ -50,6 +50,35 @@ class UxpPickerBase extends PickerUpstream {
         // polyfill above and the controllers are never queried again.
         this.isMobile = { matches: false };
         this.isTouchDevice = { matches: false };
+
+        // UXP: upstream handleBeforetoggle uses optionsMenu.matches(':focus-within')
+        // which throws SyntaxError. Re-assign after super() (it's a constructor-level
+        // arrow function) using DOM containment instead of the unsupported selector.
+        const _origHandleBeforetoggle = this.handleBeforetoggle;
+        this.handleBeforetoggle = (event) => {
+            if (event.composedPath()[0] !== event.target) return;
+            if (event.newState === 'closed') {
+                const active = this.shadowRoot?.activeElement ?? document.activeElement;
+                const menuHasFocus = this.optionsMenu?.contains(active) ?? false;
+                const btnHasFocus = active === this.button;
+                const shouldRestoreFocus = menuHasFocus && !btnHasFocus;
+
+                if (!this.open) {
+                    if (this.strategy) this.strategy.open = false;
+                } else if (this.strategy?.preventNextToggle === 'no') {
+                    this.open = false;
+                } else if (!this.strategy?.pointerdownState) {
+                    this.overlayElement?.manuallyKeepOpen();
+                }
+                if (shouldRestoreFocus && !this.open) {
+                    this.button?.focus();
+                }
+            }
+            if (!this.open) {
+                this.optionsMenu?.updateSelectedItemIndex();
+                this.optionsMenu?.closeDescendentOverlays();
+            }
+        };
     }
 
     // ── Eager overlay render ───────────────────────────────────────────
