@@ -65,6 +65,9 @@ import '@spectrum-web-components/table/sp-table-row.js';
 import '@spectrum-web-components/overlay/sp-overlay.js';
 import '@spectrum-web-components/overlay/overlay-trigger.js';
 
+// sp-overlay must be imported BEFORE sp-action-menu (DependencyManagerController pre-registration)
+import '@swc-uxp-wrappers/action-menu/sp-action-menu.js';
+
 import '@spectrum-web-components/number-field/sp-number-field.js';
 import '@spectrum-web-components/search/sp-search.js';
 import '@spectrum-web-components/textfield/sp-textfield.js';
