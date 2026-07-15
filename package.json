@@ -73,6 +73,7 @@
     "@spectrum-web-components/progress-bar": "0.37.0",
     "@spectrum-web-components/progress-circle": "1.12.1",
     "@spectrum-web-components/badge": "1.12.1",
+    "@spectrum-web-components/breadcrumbs": "1.12.2",
     "@spectrum-web-components/thumbnail": "1.12.1",
     "@spectrum-web-components/status-light": "1.12.1",
     "@spectrum-web-components/alert-banner": "1.12.1",

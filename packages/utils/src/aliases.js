@@ -24,6 +24,7 @@ export const aliases = {
     '@spectrum-web-components/alert-banner': '@swc-uxp-wrappers/alert-banner',
     '@spectrum-web-components/alert-dialog': '@swc-uxp-wrappers/alert-dialog',
     '@spectrum-web-components/badge': '@swc-uxp-wrappers/badge',
+    '@spectrum-web-components/breadcrumbs': '@swc-uxp-wrappers/breadcrumbs',
     '@spectrum-web-components/thumbnail': '@swc-uxp-wrappers/thumbnail',
     '@spectrum-web-components/field-label': '@swc-uxp-wrappers/field-label',
     '@spectrum-web-components/card': '@swc-uxp-wrappers/card',
