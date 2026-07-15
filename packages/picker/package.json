@@ -20,11 +20,11 @@
         "./package.json": "./package.json",
         "./src/Picker.js": "./src/Picker.js",
         "./src/picker.css.js": "./src/picker.css.js",
-        "./src/uxp-picker.css.js": "./src/uxp-picker.css.js",
+        "./src/picker-overrides.css.js": "./src/picker-overrides.css.js",
         "./sp-picker.js": "./sp-picker.js"
     },
     "dependencies": {
-        "@swc-uxp-internal/picker": "npm:@spectrum-web-components/picker@1.12.0",
+        "@swc-uxp-internal/picker": "npm:@spectrum-web-components/picker@1.12.2",
         "@swc-uxp-wrappers/button": "3.0.0",
         "@swc-uxp-wrappers/menu": "3.0.0",
         "@swc-uxp-wrappers/overlay": "3.0.0",

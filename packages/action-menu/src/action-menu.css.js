@@ -10,8 +10,10 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-import { ActionMenu } from './src/ActionMenu.js';
+import { unsafeCSS } from '@spectrum-web-components/base';
+import swcActionMenuStyles from '@swc-uxp-internal/action-menu/src/action-menu.css.js';
+import uxpActionMenuStyles from './uxp-action-menu.css.js';
 
-if (!customElements.get('sp-action-menu')) {
-    customElements.define('sp-action-menu', ActionMenu);
-}
+export default unsafeCSS(
+    swcActionMenuStyles.toString() + '\n' + uxpActionMenuStyles.toString()
+);

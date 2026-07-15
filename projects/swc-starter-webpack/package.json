@@ -106,7 +106,7 @@
         "@spectrum-web-components/meter": "1.12.1",
         "@spectrum-web-components/tags": "1.12.1",
         "@spectrum-web-components/help-text": "1.12.1",
-        "@spectrum-web-components/picker": "1.12.1",
+        "@spectrum-web-components/picker": "1.12.2",
         "@spectrum-web-components/picker-button": "1.12.1",
         "@spectrum-web-components/dialog": "1.12.1",
         "@spectrum-web-components/field-group": "1.12.1",

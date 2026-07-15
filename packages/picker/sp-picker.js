@@ -10,15 +10,9 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-// UXP: toggleAttribute missing on ShadyDOM wrapper objects — remove when UXP fixes ShadyDOM
-if (typeof Element !== 'undefined' && !Element.prototype.toggleAttribute) {
-    Element.prototype.toggleAttribute = function (name, force) {
-        const has = this.hasAttribute(name);
-        const on = force !== undefined ? !!force : !has;
-        if (on !== has) on ? this.setAttribute(name, '') : this.removeAttribute(name);
-        return on;
-    };
-}
+// UXP does not support :focus-visible / :focus-within in element.matches() /
+// querySelector() — SyntaxError is thrown. Import shim before any SWC module runs.
+import '@swc-uxp-wrappers/utils/src/focus-visible-uxp.js';
 
 import { Picker } from './src/Picker.js';
 

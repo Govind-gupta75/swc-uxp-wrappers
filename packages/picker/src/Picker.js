@@ -10,7 +10,7 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-// picker@1.12.0 class hierarchy:
+// picker@1.12.2 class hierarchy:
 //   PickerBase — all behaviour, NO static styles
 //   Picker     — extends PickerBase, adds static styles + handleKeydown
 //
@@ -50,6 +50,35 @@ class UxpPickerBase extends PickerUpstream {
         // polyfill above and the controllers are never queried again.
         this.isMobile = { matches: false };
         this.isTouchDevice = { matches: false };
+
+        // UXP: upstream handleBeforetoggle uses optionsMenu.matches(':focus-within')
+        // which throws SyntaxError. Re-assign after super() (it's a constructor-level
+        // arrow function) using DOM containment instead of the unsupported selector.
+        const _origHandleBeforetoggle = this.handleBeforetoggle;
+        this.handleBeforetoggle = (event) => {
+            if (event.composedPath()[0] !== event.target) return;
+            if (event.newState === 'closed') {
+                const active = this.shadowRoot?.activeElement ?? document.activeElement;
+                const menuHasFocus = this.optionsMenu?.contains(active) ?? false;
+                const btnHasFocus = active === this.button;
+                const shouldRestoreFocus = menuHasFocus && !btnHasFocus;
+
+                if (!this.open) {
+                    if (this.strategy) this.strategy.open = false;
+                } else if (this.strategy?.preventNextToggle === 'no') {
+                    this.open = false;
+                } else if (!this.strategy?.pointerdownState) {
+                    this.overlayElement?.manuallyKeepOpen();
+                }
+                if (shouldRestoreFocus && !this.open) {
+                    this.button?.focus();
+                }
+            }
+            if (!this.open) {
+                this.optionsMenu?.updateSelectedItemIndex();
+                this.optionsMenu?.closeDescendentOverlays();
+            }
+        };
     }
 
     // ── Eager overlay render ───────────────────────────────────────────
@@ -95,6 +124,11 @@ class UxpPickerBase extends PickerUpstream {
     }
 
     _hoverBgColor() {
+        // Approximates --spectrum-alias-highlight-hover:
+        //   light: rgba(0,0,0,0.07)  (--spectrum-global-color-opacity-7 = 0.07)
+        //   dark:  rgba(255,255,255,0.10)  (--spectrum-alias-highlight-hover dark variant)
+        // CSS custom property via style.setProperty cannot propagate into shadow DOM in UXP,
+        // so the hover background is driven via JS pointerenter/leave instead of CSS var().
         return this._isDark() ? 'rgba(255, 255, 255, 0.10)' : 'rgba(0, 0, 0, 0.07)';
     }
 

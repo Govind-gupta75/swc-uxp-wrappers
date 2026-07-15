@@ -84,13 +84,11 @@ governing permissions and limitations under the License.
 /* action-menu.css uses ::slotted([slot="icon"]:dir(ltr)) / .icon:dir(ltr)
    for the negative left margin; UXP does not support :dir() so we apply
    the LTR value unconditionally.  flex-shrink:0 is already set by the
-   upstream ::slotted([slot="icon"]),.icon rule and is not repeated here. */
+   upstream ::slotted([slot="icon"]),.icon rule and is not repeated here.
+   Note: the slot[icon-only] margin-inline rule is intentionally omitted —
+   the upstream already declares it without :dir(), and enableLogicalProperties
+   translates margin-inline automatically. No UXP override is needed. */
 ::slotted([slot="icon"]),
 .icon {
     margin-left: calc(-1 * (var(--spectrum-actionbutton-textonly-padding-left-adjusted) - var(--spectrum-actionbutton-padding-left-adjusted)));
-}
-
-slot[icon-only]::slotted([slot="icon"]),
-slot[icon-only] .icon {
-    margin-inline: calc((var(--custom-actionbutton-edge-to-text, var(--spectrum-actionbutton-edge-to-text)) - var(--custom-actionbutton-edge-to-visual-only, var(--spectrum-actionbutton-edge-to-visual-only))) * -1);
 }
