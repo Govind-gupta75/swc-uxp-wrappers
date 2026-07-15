@@ -14,7 +14,10 @@ import { BreadcrumbItem } from '@swc-uxp-internal/breadcrumbs/src/BreadcrumbItem
 
 import styles from './uxp-breadcrumb-item.css.js';
 
-// Evaluated at module load — before ActionMenu constructor installs the matchMedia stub.
+// Evaluated at module load — before any module in the dependency tree can install
+// a window.matchMedia stub (the action-menu module does this in its constructor).
+// In UXP: window.matchMedia is not a native function → _isUXP = true.
+// DO NOT move this check inside a method or lifecycle hook.
 const _isUXP = typeof window.matchMedia !== 'function';
 
 class UxpBreadcrumbItem extends BreadcrumbItem {

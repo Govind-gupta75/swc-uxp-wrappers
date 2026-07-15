@@ -22,6 +22,8 @@
         "./src/BreadcrumbItem.js": "./src/BreadcrumbItem.js",
         "./src/uxp-breadcrumbs.css.js": "./src/uxp-breadcrumbs.css.js",
         "./src/uxp-breadcrumb-item.css.js": "./src/uxp-breadcrumb-item.css.js",
+        "./src/breadcrumbs-overrides.css.js": "./src/breadcrumbs-overrides.css.js",
+        "./src/breadcrumbs-item-overrides.css.js": "./src/breadcrumbs-item-overrides.css.js",
         "./sp-breadcrumbs.js": "./sp-breadcrumbs.js",
         "./sp-breadcrumb-item.js": "./sp-breadcrumb-item.js"
     },

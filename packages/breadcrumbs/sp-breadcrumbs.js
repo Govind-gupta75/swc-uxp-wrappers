@@ -10,19 +10,6 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-// UXP: toggleAttribute is missing on ShadyDOM wrapper objects — Breadcrumbs.updated()
-// calls el.toggleAttribute('hidden', ...) on sp-breadcrumb-item children to show/hide
-// overflow items. Add the method to Element.prototype if absent.
-// — remove when UXP fixes ShadyDOM to expose toggleAttribute
-if (typeof Element !== 'undefined' && !Element.prototype.toggleAttribute) {
-    Element.prototype.toggleAttribute = function (name, force) {
-        const has = this.hasAttribute(name);
-        const on = force !== undefined ? !!force : !has;
-        if (on !== has) on ? this.setAttribute(name, '') : this.removeAttribute(name);
-        return on;
-    };
-}
-
 // Register sp-breadcrumb-item before sp-breadcrumbs to satisfy the pre-registration
 // requirement: Breadcrumbs.js has a side-effect import of sp-breadcrumb-item.js which
 // would otherwise attempt to re-define the element after our UXP wrapper is already set.

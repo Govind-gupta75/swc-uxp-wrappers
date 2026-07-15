@@ -14,12 +14,11 @@ governing permissions and limitations under the License.
    by UXP's CSSLogicalPropertyMapper (manifest.json "enableLogicalProperties": true)
    — no physical property overrides needed for #separator or #item-link margins. */
 
-/* UXP: @media (hover: hover) always evaluates to true — the upstream wraps
-   the hover underline rule in this media query to exclude touch devices. Since
-   it is always true in UXP the rule is always active, and :hover is reliable.
-   Re-declare it outside the media query so UXP's own styling pipeline picks it
-   up directly rather than through a media query that UXP may or may not process
-   in the same render pass as the element styles. */
+/* UXP: @media (hover: hover) is unreliable — the upstream wraps the hover
+   underline rule in this media query to exclude touch devices. In UXP the
+   media query may not be processed in the same render pass as element styles,
+   causing the rule to never apply. Re-declare it unconditionally so UXP's
+   styling pipeline always picks it up. */
 :host(:not([is-last-of-type])) #item-link:hover {
     text-decoration: underline;
 }

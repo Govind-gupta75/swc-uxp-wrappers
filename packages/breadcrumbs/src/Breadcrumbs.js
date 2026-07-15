@@ -168,6 +168,10 @@ class UxpBreadcrumbs extends Breadcrumbs {
             }
             await Promise.all(this.breadcrumbsElements.map((el) => el.updateComplete));
             await new Promise((resolve) => requestAnimationFrame(resolve));
+            // calculateBreadcrumbItemsWidth() sets el.offsetWidth on each item.
+            // In UXP these measurements return 0, so the results are unused by
+            // adjustOverflow() (which is count-based). Called for upstream API
+            // consistency and to ensure items array is initialized.
             this.calculateBreadcrumbItemsWidth();
             this.visibleItems = 0;
             this.adjustOverflow();
@@ -184,9 +188,9 @@ class UxpBreadcrumbs extends Breadcrumbs {
     // propagate the host element's width to the inner shadow <ul>. Fall back to
     // count-based overflow using maxVisibleItems.
     //
-    // UXP: href on sp-menu-item triggers navigation at overlay-render time (when the
-    // overflow menu opens), causing an infinite change event loop. Strip href from
-    // items so sp-menu-item elements have no href. Navigation is handled via
+    // UXP: href on sp-menu-item triggers immediate navigation at overlay-render
+    // time (when the overflow menu opens), before any user interaction. Strip href
+    // from items so sp-menu-item elements have no href. Navigation is handled via
     // the capture-phase click listener in updated().
     // — remove when UXP propagates host width to inner shadow <ul> and stops
     //   auto-navigating on overlay-rendered sp-menu-item hrefs.
@@ -195,13 +199,20 @@ class UxpBreadcrumbs extends Breadcrumbs {
             const n = this.breadcrumbsElements?.length ?? 0;
             if (n === 0) return;
             const limit = Math.max(this.maxVisibleItems, 1);
-            const newItems = this.breadcrumbsElements.map((el, i) => ({
-                label: el.innerText,
-                value: el.value || i.toString(),
-                offsetWidth: 0,
-                href: undefined, // UXP: strip href — prevent auto-navigation in sp-menu-item
-                isVisible: i >= n - limit,
-            }));
+            const newItems = this.breadcrumbsElements.map((el, i) => {
+                // UXP: el.innerText returns '' for display:none elements (used to
+                // hide overflow items). Use textContent which is unaffected by CSS
+                // display so labels are readable even for previously-hidden items
+                // (e.g. on slotchange after initial overflow, or maxVisibleItems change).
+                const label = el.textContent?.trim() ?? '';
+                return {
+                    label,
+                    value: el.value || i.toString(),
+                    offsetWidth: 0,
+                    href: undefined, // UXP: strip href — prevent auto-navigation in sp-menu-item
+                    isVisible: i >= n - limit,
+                };
+            });
             newItems.forEach((item, i) => {
                 const el = this.breadcrumbsElements[i];
                 if (!el) return;
