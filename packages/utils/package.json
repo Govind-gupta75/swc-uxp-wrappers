@@ -18,7 +18,8 @@
     "exports": {
         ".": "./src/index.js",
         "./package.json": "./package.json",
-        "./src/aliases.js": "./src/aliases.js"
+        "./src/aliases.js": "./src/aliases.js",
+        "./src/focus-visible-uxp.js": "./src/focus-visible-uxp.js"
     },
     "files": [
         "**/*.js"
