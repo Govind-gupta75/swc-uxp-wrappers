@@ -19,10 +19,11 @@
         ".": "./src/index.js",
         "./package.json": "./package.json",
         "./src/ProgressCircle.js": "./src/ProgressCircle.js",
-        "./sp-progress-circle.js": "./sp-progress-circle.js"
+        "./sp-progress-circle.js": "./sp-progress-circle.js",
+        "./src/progress-circle-overrides.css.js": "./src/progress-circle-overrides.css.js"
     },
     "dependencies": {
-        "@swc-uxp-internal/progress-circle": "npm:@spectrum-web-components/progress-circle@1.12.0"
+        "@swc-uxp-internal/progress-circle": "npm:@spectrum-web-components/progress-circle@1.12.2"
     },
     "files": [
         "**/*.js",
