@@ -1,21 +1,19 @@
-<h2>sp-slider</h2>
-
-<h3>Default (medium, 0–100)</h3>
+<p class="sub-heading">Default (medium, 0–100)</p>
 <sp-slider label="Volume" value="50" size="m"></sp-slider>
 
-<h3>Sizes</h3>
+<p class="sub-heading">Sizes</p>
 <sp-slider label="Small" value="30" size="s"></sp-slider>
 <sp-slider label="Medium" value="50" size="m"></sp-slider>
 <sp-slider label="Large" value="70" size="l"></sp-slider>
 <sp-slider label="XL" value="90" size="xl"></sp-slider>
 
-<h3>Min / Max / Step</h3>
+<p class="sub-heading">Min / Max / Step</p>
 <sp-slider label="Step 10" min="0" max="100" step="10" value="40" size="m"></sp-slider>
 
-<h3>Disabled</h3>
+<p class="sub-heading">Disabled</p>
 <sp-slider label="Disabled" value="60" size="m" disabled></sp-slider>
 
-<h3>Label Visibility</h3>
+<p class="sub-heading">Label Visibility</p>
 <!-- "text": shows text label only, hides numeric value -->
 <sp-slider label="Text label visible" value="50" size="m" label-visibility="text"></sp-slider>
 <!-- "value": shows numeric value only, hides text label -->
@@ -23,16 +21,16 @@
 <!-- "none": hides both labels, label area collapses -->
 <sp-slider label="Both hidden" value="50" size="m" label-visibility="none"></sp-slider>
 
-<h3>Variant: filled</h3>
+<p class="sub-heading">Variant: filled</p>
 <sp-slider label="Filled" value="60" size="m" variant="filled"></sp-slider>
 
-<h3>Variant: tick</h3>
+<p class="sub-heading">Variant: tick</p>
 <sp-slider label="Tick" min="0" max="5" step="1" tick-step="1" tick-labels value="3" size="m" variant="tick"></sp-slider>
 
-<h3>Variant: ramp</h3>
+<p class="sub-heading">Variant: ramp</p>
 <sp-slider label="Ramp" value="50" size="m" variant="ramp"></sp-slider>
 
-<h3>Variant: range (two handles)</h3>
+<p class="sub-heading">Variant: range (two handles)</p>
 <sp-slider
     label="Range"
     min="0"
@@ -44,7 +42,7 @@
     <sp-slider-handle slot="handle" name="end" value="80" label="End"></sp-slider-handle>
 </sp-slider>
 
-<h3>Variant: range with value tooltip (hover to see)</h3>
+<p class="sub-heading">Variant: range with value tooltip (hover to see)</p>
 <!-- v1.12.0: multi-handle sliders with label-visibility="none" show per-handle value
      tooltips on hover. In UXP, :focus-within is not supported so tooltips do not appear
      on keyboard focus — hover-triggered tooltips work correctly. -->
@@ -60,15 +58,15 @@
     <sp-slider-handle slot="handle" name="end" value="75" label="End"></sp-slider-handle>
 </sp-slider>
 
-<h3>Editable (with number field)</h3>
+<p class="sub-heading">Editable (with number field)</p>
 <!-- Note: editable mode requires @swc-uxp-wrappers/number-field v3.0.0 which wraps
      number-field@1.12.2. If the number field does not render correctly, verify the
      number-field wrapper version. Use sync/sp-slider.js entry for UXP (no lazy import). -->
 <sp-slider label="Editable" value="50" min="0" max="100" step="1" size="m" editable></sp-slider>
 
-<h3>Indeterminate</h3>
+<p class="sub-heading">Indeterminate</p>
 <sp-slider label="Indeterminate" size="m" indeterminate></sp-slider>
 
-<h3>Change event log</h3>
+<p class="sub-heading">Change event log</p>
 <sp-slider id="log-slider" label="Drag me" value="50" size="m"></sp-slider>
 <div id="slider-log" style="margin-top:8px;font-size:12px;color:#666">—</div>

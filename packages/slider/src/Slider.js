@@ -162,6 +162,22 @@ class UxpSlider extends SliderUpstream {
                 this._applyPixelPositions();
             });
         }
+        // UXP: .value-tooltip::after uses the CSS border-color triangle trick which fails in
+        // UXP for two reasons: (a) ::after background is forced to rgb(175,175,175) regardless
+        // of CSS rules in shadow DOM stylesheets, and (b) the border-color token
+        // var(--spectrum-gray-900) internally resolves to rgba(var(...)) which UXP cannot parse.
+        // Fix: inject a real <div class="uxp-tip"> into each .value-tooltip and style it with
+        // transform:rotate(45deg) — mirrors the @swc-uxp-wrappers/tooltip #tip pattern where
+        // a real DOM element's background-color works correctly and clip-path is bypassed.
+        // In Chrome, .uxp-tip is hidden via @supports (Chrome's native ::after works fine).
+        const tooltips = this.shadowRoot?.querySelectorAll('.value-tooltip');
+        tooltips?.forEach((tooltip) => {
+            if (!tooltip.querySelector('.uxp-tip')) {
+                const tip = document.createElement('div');
+                tip.className = 'uxp-tip';
+                tooltip.appendChild(tip);
+            }
+        });
     }
 
     _applyPixelPositions() {
@@ -374,12 +390,15 @@ class UxpSlider extends SliderUpstream {
             hc.handlePointerup = (e) => {
                 const { input, model } = hc.extractDataFromEvent(e);
                 delete hc._activePointerEventData;
-                if (!model) return;
                 const isDragging = !!hc.draggingHandle;
-                hc.cancelDrag(model);
+                // Resolve model even if extractDataFromEvent returned null — pointer
+                // may have landed on an unexpected target in UXP (e.g. outside #track
+                // when pointer capture silently failed), so fall back to activeHandle.
+                const dragModel = model ?? hc.model?.find((m) => m.name === hc.activeHandle);
+                if (dragModel) hc.cancelDrag(dragModel);
                 hc.requestUpdate();
-                this.track.releasePointerCapture(e.pointerId);
-                if (isDragging) hc.dispatchChangeEvent(input, model.handle);
+                try { this.track.releasePointerCapture(e.pointerId); } catch (_) { /* UXP may throw if capture already released */ }
+                if (isDragging && input && model) hc.dispatchChangeEvent(input, model.handle);
             };
         }
 

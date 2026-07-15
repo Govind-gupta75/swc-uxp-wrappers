@@ -235,6 +235,30 @@ governing permissions and limitations under the License.
     }
 }
 
+/* UXP: .uxp-tip is a real <div> injected by updated() as a replacement for the
+   ::after caret in UXP. Mirrors the @swc-uxp-wrappers/tooltip #tip pattern:
+   clip-path is not in uxp-css-data, but background-color on a real DOM element
+   works correctly. A square rotated 45° appears as a diamond/triangle, giving
+   the same visual result as the upstream CSS border trick.
+   Positioned at the bottom-center of .value-tooltip, peeking 3px below the edge,
+   matching the ::after approach (border-width: 4px, top: 100%).
+   Chrome: hidden via @supports since Chrome's native ::after caret works correctly. */
+.value-tooltip > .uxp-tip {
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    background-color: var(--spectrum-gray-900, #1d1d1d);
+    transform: translateX(-50%) rotate(45deg);
+    pointer-events: none;
+}
+@supports (display: block) {
+    .value-tooltip > .uxp-tip {
+        display: none;
+    }
+}
+
 /* Chrome: --spectrum-slider-ramp-handle-background-color is not defined in any
    sp-theme file, so the ramp handle background resolves to transparent. The gray ramp
    SVG then shows through the transparent handle, making it appear gray in all themes.

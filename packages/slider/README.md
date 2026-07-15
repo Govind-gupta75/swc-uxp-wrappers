@@ -99,17 +99,29 @@ Keyboard navigation (arrow keys) still moves the handle correctly. Hover and dra
 
 Value tooltips on multi-handle sliders with `label-visibility="none"` or `"text"` appear on hover but not on keyboard focus — `:focus-within` is not supported in UXP. The tooltip centering (`inset-inline-start: 50%`) is overridden by a physical `left: 50%` rule in `uxp-slider.css` because logical properties are not applied correctly in UXP shadow DOM stylesheets.
 
-### 6. Value tooltip caret (triangle arrow) not rendered in UXP
+### 6. Value tooltip caret (triangle arrow) — UXP workaround applied
 
 The `.value-tooltip::after` element creates the triangular caret via the CSS border trick (`border-color: darkColor transparent transparent; width:0; height:0`). In UXP this fails due to two combined limitations:
 
 1. **`::after` background forced to `rgb(175,175,175)`** — UXP always renders pseudo-elements with this background regardless of CSS rules in shadow DOM stylesheets (same root cause as Known Issue 5 / `.handle::before`). `background: transparent !important` cannot override it.
 2. **`rgba(var(--spectrum-gray-N-rgb))` token unresolvable** — the arrow's border color `var(--spectrum-gray-900)` resolves internally to `rgba(var(--spectrum-gray-900-rgb))`, which UXP cannot parse (CSS variable inside `rgba()`). The visible border color becomes transparent, leaving only the forced gray background square.
 
-**Workaround applied:** `.value-tooltip::after { display: none !important }` hides the square artifact in UXP. Chrome is restored via `@supports (display: block) { ... }` (UXP ignores `@supports` blocks entirely since `@supports` is not in `uxp-css-data`). The tooltip body remains fully functional; only the decorative arrow is absent in UXP.
+**Workaround applied** (mirrors `@swc-uxp-wrappers/tooltip` `#tip` pattern):
 
-**Not fixable via** `@swc-uxp-wrappers/tooltip` — the `.value-tooltip` is a plain `<span>` rendered inside the slider's own shadow DOM by `HandleController`, not an `<sp-tooltip>` component.
+- `::after` is hidden in UXP via `display: none !important`; restored in Chrome via `@supports (display: block) { ... }` (UXP ignores `@supports` since it is not in `uxp-css-data`).
+- `updated()` injects a real `<div class="uxp-tip">` into each `.value-tooltip`. A real DOM element's `background-color` works correctly in UXP (unlike `::after`). The div is styled with `transform: rotate(45deg)` to produce a diamond shape matching the caret position.
+- In Chrome, `.uxp-tip` is hidden via `@supports` so the native `::after` triangle is used instead.
 
-**JS workaround is theoretically possible** (inject an SVG arrow via MutationObserver in `firstUpdated()`) but the complexity/maintenance cost is high relative to the value of a decorative element.
+**Background:** `@swc-uxp-wrappers/tooltip` v3.0.0 uses the identical pattern for `sp-tooltip #tip` (real `<div>` + `clip-path: none + rotate(45deg)`). The slider's `.value-tooltip` is a plain `<span>` rendered by `HandleController` — not an `<sp-tooltip>` — so the tooltip wrapper's CSS does not reach it. This in-wrapper JS injection achieves the same result independently.
 
-**Fix required in:** UXP platform — honour `::after` background CSS rules in shadow DOM stylesheets and support `rgba(var())` token syntax.
+**Fix required in upstream:** UXP platform — honour `::after` background CSS rules in shadow DOM stylesheets and support `rgba(var())` token syntax.
+
+### 7. Ghost drag state when pointer released outside plugin window
+
+If the user starts dragging a handle and releases the mouse button outside the plugin window (e.g. over the OS desktop or another application), UXP may not deliver the `pointerup` event to the slider's `#track` element even though `setPointerCapture` was called. The drag state is never cancelled, and the handle continues to track subsequent mouse movements (ghost drag).
+
+**Symptom:** After dragging outside the window and returning, the handle moves without the mouse button held down. The value tooltip remains visible (`.dragging` class stays on the handle).
+
+**Partial workaround in wrapper:** `handlePointerup` falls back to `activeHandle` resolution if the event target cannot be matched, so releases within the plugin window are reliably cleaned up. Releases outside the window are not recoverable without platform support.
+
+**Fix required in:** UXP platform — deliver `pointerup` to the pointer-capture owner regardless of where the release occurs (standard pointer events spec behaviour).
