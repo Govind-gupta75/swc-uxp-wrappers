@@ -10,4 +10,16 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-export { Badge } from './Badge.js';
+export * from './Badge.js';
+
+// Re-export upstream public constants so that consumers who import via the
+// @spectrum-web-components/badge alias get the same public API surface.
+// BADGE_VARIANTS and FIXED_VALUES are deprecated by upstream but still shipped
+// in Badge.js exports and must be available for backward compatibility.
+// BADGE_VALID_SIZES lists the supported size values ('s'|'m'|'l'|'xl').
+export { BADGE_VARIANTS, FIXED_VALUES } from '@swc-uxp-internal/badge/src/Badge.js';
+
+// BADGE_VALID_SIZES is defined in @swc-uxp-internal/badge/src/Badge.types.js,
+// which is not listed in that package's exports field and therefore cannot be
+// imported directly. We re-declare the same value here for API compatibility.
+export const BADGE_VALID_SIZES = ['s', 'm', 'l', 'xl'];

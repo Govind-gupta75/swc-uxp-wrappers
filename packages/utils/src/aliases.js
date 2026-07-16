@@ -64,6 +64,7 @@ export const aliases = {
     '@spectrum-web-components/swatch': '@swc-uxp-wrappers/swatch',
     '@spectrum-web-components/overlay': '@swc-uxp-wrappers/overlay',
     '@spectrum-web-components/tabs': '@swc-uxp-wrappers/tabs',
+    '@spectrum-web-components/badge': '@swc-uxp-wrappers/badge',
     '@spectrum-web-components/theme': '@swc-uxp-wrappers/theme',
     '@spectrum-web-components/base': '@swc-uxp-internal/base',
     '@spectrum-web-components/shared': '@swc-uxp-wrappers/shared',
