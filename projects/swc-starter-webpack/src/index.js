@@ -58,6 +58,7 @@ import '@spectrum-web-components/radio/sp-radio-group.js';
 import '@spectrum-web-components/asset/sp-asset.js';
 import '@spectrum-web-components/quick-actions/sp-quick-actions.js';
 import '@spectrum-web-components/meter/sp-meter.js';
+import '@spectrum-web-components/progress-bar/sp-progress-bar.js';
 import '@spectrum-web-components/tags/sp-tags.js';
 import '@spectrum-web-components/tags/sp-tag.js';
 import '@spectrum-web-components/tabs/sp-tabs.js';
@@ -87,6 +88,7 @@ import '@swc-uxp-wrappers/action-menu/sp-action-menu.js';
 import '@spectrum-web-components/picker/sp-picker.js';
 
 import '@spectrum-web-components/number-field/sp-number-field.js';
+import '@spectrum-web-components/progress-circle/sp-progress-circle.js';
 import '@spectrum-web-components/search/sp-search.js';
 import '@spectrum-web-components/textfield/sp-textfield.js';
 import '@spectrum-web-components/icons/sp-icons-medium.js';

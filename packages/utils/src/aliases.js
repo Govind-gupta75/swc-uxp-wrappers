@@ -63,6 +63,8 @@ export const aliases = {
     '@spectrum-web-components/slider': '@swc-uxp-wrappers/slider',
     '@spectrum-web-components/contextual-help':
         '@swc-uxp-wrappers/contextual-help',
+    '@spectrum-web-components/progress-bar': '@swc-uxp-wrappers/progress-bar',
+    '@spectrum-web-components/progress-circle': '@swc-uxp-wrappers/progress-circle',
     '@spectrum-web-components/sidenav': '@swc-uxp-wrappers/sidenav',
     '@spectrum-web-components/swatch': '@swc-uxp-wrappers/swatch',
     '@spectrum-web-components/overlay': '@swc-uxp-wrappers/overlay',
