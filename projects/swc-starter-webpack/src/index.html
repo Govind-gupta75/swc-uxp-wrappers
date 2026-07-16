@@ -312,6 +312,12 @@ governing permissions and limitations under the License.
                         sp-progress-bar
                     </button>
                     <button
+                        class="tablinks"
+                        onclick="openTab(event, 'sp-progress-circle')"
+                    >
+                        sp-progress-circle
+                    </button>
+                    <button
                         id="trigger-imperative"
                         class="tablinks"
                         onclick="openTab(event, 'sp-overlay')"
@@ -341,12 +347,6 @@ governing permissions and limitations under the License.
                         onclick="openTab(event, 'sp-popover')"
                     >
                         sp-popover
-                    </button>
-                    <button
-                        class="tablinks"
-                        onclick="openTab(event, 'sp-progress-circle')"
-                    >
-                        sp-progress-circle
                     </button>
                     <button
                         class="tablinks"
@@ -617,6 +617,10 @@ governing permissions and limitations under the License.
                 <!--#include sp-progress-bar.html -->
             </div>
 
+            <div id="sp-progress-circle" class="tabcontent">
+                <!--#include sp-progress-circle.html -->
+            </div>
+
             <div id="sp-overlay" class="tabcontent">
                 <!--#include sp-overlay.html -->
             </div>
@@ -635,10 +639,6 @@ governing permissions and limitations under the License.
 
             <div id="sp-popover" class="tabcontent">
                 <!--#include sp-popover.html -->
-            </div>
-
-            <div id="sp-progress-circle" class="tabcontent">
-                <!--#include sp-progress-circle.html -->
             </div>
 
             <div id="sp-quick-actions" class="tabcontent">

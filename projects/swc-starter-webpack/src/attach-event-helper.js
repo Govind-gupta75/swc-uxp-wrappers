@@ -346,6 +346,8 @@ function attachEvents(tabName) {
                 output.textContent = 'change event: value = "' + (e.detail && e.detail.value) + '"';
             });
         }
+    }
+
     if (tabName === 'sp-progress-circle') {
         const eventListener = `
             const circle = document.getElementById('interactive-circle');
