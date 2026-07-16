@@ -18,4 +18,8 @@ export * from './Badge.js';
 // in Badge.js exports and must be available for backward compatibility.
 // BADGE_VALID_SIZES lists the supported size values ('s'|'m'|'l'|'xl').
 export { BADGE_VARIANTS, FIXED_VALUES } from '@swc-uxp-internal/badge/src/Badge.js';
-export { BADGE_VALID_SIZES } from '@swc-uxp-internal/badge/src/Badge.types.js';
+
+// BADGE_VALID_SIZES is defined in @swc-uxp-internal/badge/src/Badge.types.js,
+// which is not listed in that package's exports field and therefore cannot be
+// imported directly. We re-declare the same value here for API compatibility.
+export const BADGE_VALID_SIZES = ['s', 'm', 'l', 'xl'];
