@@ -19,7 +19,7 @@ For example:
 
 ```json
 "dependencies": {
-    "@swc-uxp-wrappers/banner": "^0.0.1"
+    "@swc-uxp-wrappers/avatar": "^0.0.1"
 }
 ```
 

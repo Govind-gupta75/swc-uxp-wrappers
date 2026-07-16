@@ -16,7 +16,6 @@ governing permissions and limitations under the License.
  */
 export const aliases = {
     '@spectrum-web-components/dropzone': '@swc-uxp-wrappers/dropzone',
-    '@spectrum-web-components/banner': '@swc-uxp-wrappers/banner',
     '@spectrum-web-components/divider': '@swc-uxp-wrappers/divider',
     '@spectrum-web-components/illustrated-message':
         '@swc-uxp-wrappers/illustrated-message',
@@ -57,7 +56,6 @@ export const aliases = {
     '@spectrum-web-components/search': '@swc-uxp-wrappers/search',
     '@spectrum-web-components/tags': '@swc-uxp-wrappers/tags',
     '@spectrum-web-components/asset': '@swc-uxp-wrappers/asset',
-    '@spectrum-web-components/quick-actions': '@swc-uxp-wrappers/quick-actions',
     '@spectrum-web-components/meter': '@swc-uxp-wrappers/meter',
     '@spectrum-web-components/status-light': '@swc-uxp-wrappers/status-light',
     '@spectrum-web-components/slider': '@swc-uxp-wrappers/slider',

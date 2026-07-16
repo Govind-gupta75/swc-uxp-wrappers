@@ -21,8 +21,8 @@ For example:
 
 ```json
 "dependencies": {
-    "@swc-uxp-wrappers/banner": "^0.0.1",
-    "@swc-react/banner": "0.9.5-react.3120",
+    "@swc-uxp-wrappers/card": "^0.0.1",
+    "@swc-react/card": "0.13.4-react.2993",
 }
 ```
 
