@@ -19,7 +19,6 @@ import '@spectrum-web-components/theme/src/spectrum-two/themes.js';
 
 import '@spectrum-web-components/badge/sp-badge.js';
 import '@spectrum-web-components/banner/sp-banner.js';
-import '@spectrum-web-components/badge/sp-badge.js';
 import '@spectrum-web-components/breadcrumbs/sp-breadcrumbs.js';
 import '@spectrum-web-components/divider/sp-divider.js';
 import '@spectrum-web-components/dropzone/sp-dropzone.js';
@@ -53,6 +52,7 @@ import '@spectrum-web-components/switch/sp-switch.js';
 import '@spectrum-web-components/sidenav/sp-sidenav.js';
 import '@spectrum-web-components/sidenav/sp-sidenav-heading.js';
 import '@spectrum-web-components/sidenav/sp-sidenav-item.js';
+import '@spectrum-web-components/slider/sp-slider.js';
 import '@spectrum-web-components/radio/sp-radio.js';
 import '@spectrum-web-components/radio/sp-radio-group.js';
 import '@spectrum-web-components/asset/sp-asset.js';
