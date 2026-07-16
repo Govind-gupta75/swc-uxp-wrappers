@@ -19,7 +19,6 @@ import '@spectrum-web-components/theme/src/spectrum-two/themes.js';
 
 import '@spectrum-web-components/badge/sp-badge.js';
 import '@spectrum-web-components/banner/sp-banner.js';
-import '@spectrum-web-components/badge/sp-badge.js';
 import '@spectrum-web-components/breadcrumbs/sp-breadcrumbs.js';
 import '@spectrum-web-components/divider/sp-divider.js';
 import '@spectrum-web-components/dropzone/sp-dropzone.js';

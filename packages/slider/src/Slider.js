@@ -170,14 +170,24 @@ class UxpSlider extends SliderUpstream {
         // transform:rotate(45deg) — mirrors the @swc-uxp-wrappers/tooltip #tip pattern where
         // a real DOM element's background-color works correctly and clip-path is bypassed.
         // In Chrome, .uxp-tip is hidden via @supports (Chrome's native ::after works fine).
-        const tooltips = this.shadowRoot?.querySelectorAll('.value-tooltip');
-        tooltips?.forEach((tooltip) => {
-            if (!tooltip.querySelector('.uxp-tip')) {
-                const tip = document.createElement('div');
-                tip.className = 'uxp-tip';
-                tooltip.appendChild(tip);
-            }
-        });
+        //
+        // Defer to setTimeout(0): querySelectorAll() triggers a global CSS recalculation in UXP.
+        // Deferring until after all pending Lit microtasks settle avoids redundant recalculations
+        // when multiple slider instances update concurrently during initial render.
+        if (!this._uxpTipPending) {
+            this._uxpTipPending = true;
+            setTimeout(() => {
+                this._uxpTipPending = false;
+                const tooltips = this.shadowRoot?.querySelectorAll('.value-tooltip');
+                tooltips?.forEach((tooltip) => {
+                    if (!tooltip.querySelector('.uxp-tip')) {
+                        const tip = document.createElement('div');
+                        tip.className = 'uxp-tip';
+                        tooltip.appendChild(tip);
+                    }
+                });
+            }, 0);
+        }
     }
 
     _applyPixelPositions() {
