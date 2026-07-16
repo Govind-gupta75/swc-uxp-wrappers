@@ -179,6 +179,74 @@ function attachEvents(tabName) {
         eval(spCheckboxReadonly);
     }
 
+    if (tabName === 'sp-dropzone') {
+        (function () {
+            var dz       = document.getElementById('dropzone-interactive');
+            var stateEl  = document.getElementById('dz-dragged-state');
+            var eventEl  = document.getElementById('dz-last-event');
+            var fileEl   = document.getElementById('dz-dropped-filename');
+            var selectEl = document.getElementById('dz-file-select-label');
+            var effectEl = document.getElementById('dz-current-drop-effect');
+            var acceptEl = document.getElementById('dz-current-accept-filter');
+            if (!dz) return;
+
+            var effectGroup = document.getElementById('dz-drop-effect-group');
+            if (effectGroup) {
+                effectGroup.addEventListener('change', function () {
+                    var val = effectGroup.selected;
+                    if (val) { dz.dropEffect = val; effectEl.textContent = val; }
+                });
+            }
+
+            var acceptGroup = document.getElementById('dz-accept-filter-group');
+            if (acceptGroup) {
+                acceptGroup.addEventListener('change', function () {
+                    var val = acceptGroup.selected;
+                    var map = { all: '', image: 'image/*', text: 'text/*' };
+                    dz.accept = map[val] !== undefined ? map[val] : '';
+                    acceptEl.textContent = val;
+                });
+            }
+
+            var rejectCheck = document.getElementById('dz-reject-all-check');
+            dz.addEventListener('sp-dropzone-should-accept', function (e) {
+                eventEl.textContent = 'sp-dropzone-should-accept';
+                if (rejectCheck && rejectCheck.checked) { e.preventDefault(); }
+            });
+
+            var updateDragState = function () {
+                stateEl.textContent = dz.hasAttribute('dragged') ? 'true' : 'false';
+            };
+            var obs = new MutationObserver(updateDragState);
+            obs.observe(dz, { attributes: true, attributeFilter: ['dragged'] });
+            dz.addEventListener('sp-dropzone-dragover',  function () { eventEl.textContent = 'sp-dropzone-dragover';  updateDragState(); });
+            dz.addEventListener('sp-dropzone-dragleave', function () { eventEl.textContent = 'sp-dropzone-dragleave'; updateDragState(); });
+
+            dz.addEventListener('sp-dropzone-drop', function (e) {
+                updateDragState();
+                var files    = e.detail.files;
+                var source   = e.detail.source;
+                var rejected = e.detail.rejected;
+                eventEl.textContent = 'sp-dropzone-drop';
+                if (rejected) {
+                    fileEl.textContent = 'Rejected by accept filter';
+                    fileEl.style.color = 'rgb(211,21,16)';
+                } else if (!files || files.length === 0) {
+                    fileEl.textContent = '(no files)';
+                    fileEl.style.color = '';
+                } else {
+                    var names = files.map(function (f) { return f.name || f.nativePath || '(unknown)'; }).join(', ');
+                    fileEl.textContent = '[' + source + '] ' + names;
+                    fileEl.style.color = '';
+                }
+            });
+
+            if (selectEl) {
+                selectEl.addEventListener('click', function () { dz.openFilePicker({ multiple: true }); });
+            }
+        }());
+    }
+
     if (tabName === 'sp-overlay') {
         const placementListener = `
             document.getElementById("placementselection").addEventListener("change", () => {
