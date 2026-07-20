@@ -320,6 +320,28 @@ governing permissions and limitations under the License.
         }'
                 ></sp-number-field>
             </div>
+            <div id="variantLabel">invalid / required</div>
+            <div class="demo-example">
+                <sp-field-label for="invalid-nf">Invalid</sp-field-label>
+                <sp-number-field id="invalid-nf" value="5" invalid style="width: 150px"></sp-number-field>
+
+                <sp-field-label for="required-nf" required>Required</sp-field-label>
+                <sp-number-field id="required-nf" required style="width: 150px"></sp-number-field>
+            </div>
+
+            <!-- step-modifier scales the step amount when a modifier key (e.g. Shift) is held
+                 while using the stepper buttons or arrow keys -->
+            <div id="variantLabel">step-modifier / focused / keyboard-focused</div>
+            <div class="demo-example">
+                <sp-field-label for="step-modifier-nf">step="1", step-modifier="10" (hold Shift)</sp-field-label>
+                <sp-number-field id="step-modifier-nf" step="1" step-modifier="10" value="0" style="width: 150px"></sp-number-field>
+
+                <sp-field-label for="focused-nf">focused (visual state)</sp-field-label>
+                <sp-number-field id="focused-nf" focused value="1" style="width: 150px"></sp-number-field>
+
+                <sp-field-label for="keyboard-focused-nf">keyboard-focused (visual state)</sp-field-label>
+                <sp-number-field id="keyboard-focused-nf" keyboard-focused value="1" style="width: 150px"></sp-number-field>
+            </div>
         </div>
         <input type="text" style="width: 2px" />
         <div id="right">

@@ -23,10 +23,32 @@ governing permissions and limitations under the License.
                 </div>
 
                 <div style="display: flex; flex-direction: column">
+                    <h4 class="spectrum-Heading--subtitle1">Medium Size</h4>
+                    <sp-switch size="m">Medium</sp-switch>
+                </div>
+
+                <div style="display: flex; flex-direction: column">
+                    <h4 class="spectrum-Heading--subtitle1">Large Size</h4>
+                    <sp-switch size="l">Large</sp-switch>
+                </div>
+
+                <div style="display: flex; flex-direction: column">
                     <h4 class="spectrum-Heading--subtitle1">
                         Extra Large Size
                     </h4>
                     <sp-switch size="xl">Extra Large</sp-switch>
+                </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+                <div style="display: flex; flex-direction: column">
+                    <h4 class="spectrum-Heading--subtitle1">readonly / name</h4>
+                    <sp-switch name="notifications" checked readonly>
+                        Readonly, checked
+                    </sp-switch>
+                    <sp-switch name="notifications-off" readonly>
+                        Readonly, unchecked
+                    </sp-switch>
                 </div>
             </div>
 

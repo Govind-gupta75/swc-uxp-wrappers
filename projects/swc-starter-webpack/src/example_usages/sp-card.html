@@ -281,6 +281,43 @@ governing permissions and limitations under the License.
                     <div slot="footer">Footer</div>
                 </sp-card>
             </div>
+            <div id="variantLabel">asset (placeholder icon when no image is provided)</div>
+            <div class="demo-example">
+                <sp-card heading="File Card" subheading="No preview" size="m" asset="file">
+                    <div slot="footer">Footer</div>
+                </sp-card>
+                <sp-card heading="Folder Card" subheading="No preview" size="m" asset="folder">
+                    <div slot="footer">Footer</div>
+                </sp-card>
+            </div>
+
+            <div id="variantLabel">selected / focused</div>
+            <div class="demo-example">
+                <sp-card heading="Selected Card" subheading="JPG Photo" size="m" selected>
+                    <img slot="cover-photo" src="https://picsum.photos/200/300" alt="Demo Image" />
+                    <div slot="footer">Footer</div>
+                </sp-card>
+                <sp-card heading="Focused Card" subheading="JPG Photo" size="m" focused>
+                    <img slot="cover-photo" src="https://picsum.photos/200/300" alt="Demo Image" />
+                    <div slot="footer">Footer</div>
+                </sp-card>
+            </div>
+
+            <div id="variantLabel">value / rel / download (LikeAnchor)</div>
+            <div class="demo-example">
+                <sp-card
+                    heading="Card with value"
+                    subheading="JPG Photo"
+                    size="m"
+                    value="card-1"
+                    href="https://opensource.adobe.com/spectrum-web-components"
+                    rel="noopener"
+                    download="card-asset"
+                >
+                    <img slot="cover-photo" src="https://picsum.photos/200/300" alt="Demo Image" />
+                    <div slot="footer">Footer</div>
+                </sp-card>
+            </div>
         </div>
         <input type="text" style="width: 2px" />
         <div id="right">

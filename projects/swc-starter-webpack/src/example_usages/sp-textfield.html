@@ -199,6 +199,52 @@ governing permissions and limitations under the License.
                     </sp-help-text>
                 </sp-textfield>
             </div>
+
+            <div id="variantLabel">type ("url" / "tel" / "email")</div>
+            <div class="demo-example">
+                <sp-field-label for="type-url">URL</sp-field-label>
+                <sp-textfield id="type-url" type="url" placeholder="https://example.com"></sp-textfield>
+                <sp-field-label for="type-tel">Telephone</sp-field-label>
+                <sp-textfield id="type-tel" type="tel" placeholder="555-0100"></sp-textfield>
+                <sp-field-label for="type-email">Email</sp-field-label>
+                <sp-textfield id="type-email" type="email" placeholder="you@example.com"></sp-textfield>
+            </div>
+
+            <div id="variantLabel">required / readonly / name / autocomplete</div>
+            <div class="demo-example">
+                <sp-field-label for="required-field" required>Required field</sp-field-label>
+                <sp-textfield id="required-field" required placeholder="Cannot be empty"></sp-textfield>
+                <sp-field-label for="readonly-field">Readonly field</sp-field-label>
+                <sp-textfield id="readonly-field" readonly value="Cannot be edited"></sp-textfield>
+                <sp-field-label for="named-field">Named field (name="username")</sp-field-label>
+                <sp-textfield id="named-field" name="username" autocomplete="username" placeholder="Username"></sp-textfield>
+            </div>
+
+            <!-- allowed-keys restricts which characters can be typed via a regex character set -->
+            <div id="variantLabel">allowed-keys (digits only)</div>
+            <div class="demo-example">
+                <sp-field-label for="allowed-keys-field">Digits only</sp-field-label>
+                <sp-textfield id="allowed-keys-field" allowed-keys="0-9" placeholder="123"></sp-textfield>
+            </div>
+
+            <!-- tooltip-placement controls where the truncated-value tooltip appears when the
+                 field's content overflows and is truncated -->
+            <div id="variantLabel">tooltip-placement (shown when the value is truncated)</div>
+            <div class="demo-example">
+                <sp-field-label for="tooltip-placement-field">Long value, narrow field</sp-field-label>
+                <sp-textfield
+                    id="tooltip-placement-field"
+                    tooltip-placement="bottom"
+                    value="This value is intentionally long enough to be truncated"
+                    style="width: 120px;"
+                ></sp-textfield>
+            </div>
+
+            <div id="variantLabel">focused (visual state)</div>
+            <div class="demo-example">
+                <sp-field-label for="focused-field">Focused</sp-field-label>
+                <sp-textfield id="focused-field" focused placeholder="Shows focus ring"></sp-textfield>
+            </div>
         </div>
         <input type="text" style="width: 2px" />
         <div id="right">

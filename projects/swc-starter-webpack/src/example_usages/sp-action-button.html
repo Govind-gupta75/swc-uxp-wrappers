@@ -615,6 +615,41 @@ governing permissions and limitations under the License.
                     </div>
                 </div>
             </div>
+            <div id="variantLabel">static-color</div>
+            <div class="demo-example" style="display: flex; background: var(--spectrum-seafoam-600, #1b959a); padding: 12px;">
+                <sp-action-button static-color="black">
+                    <sp-icon-edit slot="icon"></sp-icon-edit>
+                    static-color="black"
+                </sp-action-button>
+            </div>
+            <div class="demo-example" style="display: flex; background: #1a1a1a; padding: 12px;">
+                <sp-action-button static-color="white">
+                    <sp-icon-edit slot="icon"></sp-icon-edit>
+                    static-color="white"
+                </sp-action-button>
+            </div>
+
+            <!-- value/role come from ActionButton's own API; active/type/href/target/rel/
+                 download are inherited from ButtonBase (Focusable + LikeAnchor) -->
+            <div id="variantLabel">value / role / active</div>
+            <div class="demo-example" style="display: flex">
+                <sp-action-button value="edit-action" role="button" active>
+                    value="edit-action", role="button", active
+                </sp-action-button>
+            </div>
+
+            <div id="variantLabel">href / target / rel / download (LikeAnchor, via ButtonBase)</div>
+            <div class="demo-example" style="display: flex">
+                <sp-action-button
+                    href="https://opensource.adobe.com/spectrum-web-components"
+                    target="_blank"
+                    rel="noopener"
+                >Link action button</sp-action-button>
+                <sp-action-button
+                    href="https://opensource.adobe.com/spectrum-web-components"
+                    download="swc-docs"
+                >Download action button</sp-action-button>
+            </div>
         </div>
         <input type="text" style="width: 2px" />
         <div id="right">

@@ -327,4 +327,82 @@ governing permissions and limitations under the License.
 
     </div>
 
+    <!-- ═══════════════════════════════════════════════════════
+         invalid / pending / pending-label / static-color / icons="only"
+         ═══════════════════════════════════════════════════════ -->
+    <div id="subtitle">invalid / pending / static-color / icons="only"</div>
+    <div class="demo-row">
+
+        <div style="display: flex; flex-direction: column; align-items: flex-start;">
+            <sp-field-label>Invalid</sp-field-label>
+            <sp-action-menu label="More actions" invalid>
+                <sp-menu-item>Deselect</sp-menu-item>
+                <sp-menu-item>Select Inverse</sp-menu-item>
+            </sp-action-menu>
+        </div>
+
+        <div style="display: flex; flex-direction: column; align-items: flex-start;">
+            <sp-field-label>Pending</sp-field-label>
+            <sp-action-menu label="More actions" pending pending-label="Loading actions">
+                <sp-menu-item>Deselect</sp-menu-item>
+                <sp-menu-item>Select Inverse</sp-menu-item>
+            </sp-action-menu>
+        </div>
+
+        <div style="display: flex; flex-direction: column; align-items: flex-start; background: #1a1a1a; padding: 8px;">
+            <sp-field-label style="color: white;">static-color="white"</sp-field-label>
+            <sp-action-menu label="More actions" static-color="white">
+                <sp-menu-item>Deselect</sp-menu-item>
+                <sp-menu-item>Select Inverse</sp-menu-item>
+            </sp-action-menu>
+        </div>
+
+        <div style="display: flex; flex-direction: column; align-items: flex-start;">
+            <sp-field-label>icons="only" (menu items show icons, hide text)</sp-field-label>
+            <sp-action-menu label="More actions" icons="only">
+                <sp-menu-item>
+                    <sp-icon-edit slot="icon"></sp-icon-edit>
+                    Edit
+                </sp-menu-item>
+                <sp-menu-item>
+                    <sp-icon-delete slot="icon"></sp-icon-delete>
+                    Delete
+                </sp-menu-item>
+            </sp-action-menu>
+        </div>
+
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         placement / open (initially open) / force-popover
+         (inherited from ExpandableElement, via the picker package)
+         ═══════════════════════════════════════════════════════ -->
+    <div id="subtitle">placement / open / force-popover (ExpandableElement)</div>
+    <div class="demo-row">
+
+        <div style="display: flex; flex-direction: column; align-items: flex-start;">
+            <sp-field-label>placement="right-start"</sp-field-label>
+            <sp-action-menu label="More actions" placement="right-start">
+                <sp-menu-item>Deselect</sp-menu-item>
+                <sp-menu-item>Select Inverse</sp-menu-item>
+            </sp-action-menu>
+        </div>
+
+        <div style="display: flex; flex-direction: column; align-items: flex-start;">
+            <sp-field-label>open (initially open)</sp-field-label>
+            <sp-action-menu label="More actions" open>
+                <sp-menu-item>Deselect</sp-menu-item>
+                <sp-menu-item>Select Inverse</sp-menu-item>
+            </sp-action-menu>
+        </div>
+
+        <div style="display: flex; flex-direction: column; align-items: flex-start;">
+            <sp-field-label>force-popover (single item still renders as a popover menu)</sp-field-label>
+            <sp-action-menu label="More actions" force-popover>
+                <sp-menu-item>Only Option</sp-menu-item>
+            </sp-action-menu>
+        </div>
+
+    </div>
+
 </div>

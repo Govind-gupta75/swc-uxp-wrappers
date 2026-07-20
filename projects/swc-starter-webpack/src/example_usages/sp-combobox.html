@@ -88,6 +88,68 @@ governing permissions and limitations under the License.
                     <sp-menu-item value="c">Option C</sp-menu-item>
                 </sp-combobox>
             </div>
+
+            <div id="variantLabel">readonly / required</div>
+            <div class="demo-example">
+                <sp-field-label for="combo-readonly">Readonly</sp-field-label>
+                <sp-combobox id="combo-readonly" readonly value="a">
+                    <sp-menu-item value="a">Option A</sp-menu-item>
+                    <sp-menu-item value="b">Option B</sp-menu-item>
+                </sp-combobox>
+
+                <sp-field-label for="combo-required" required>Required</sp-field-label>
+                <sp-combobox id="combo-required" required placeholder="Required combobox">
+                    <sp-menu-item value="a">Option A</sp-menu-item>
+                    <sp-menu-item value="b">Option B</sp-menu-item>
+                </sp-combobox>
+            </div>
+
+            <!-- autocomplete="none" disables filtering the menu against the typed value -->
+            <div id="variantLabel">autocomplete="none"</div>
+            <div class="demo-example">
+                <sp-field-label for="combo-autocomplete-none">autocomplete="none"</sp-field-label>
+                <sp-combobox id="combo-autocomplete-none" autocomplete="none" placeholder="Type to see full list">
+                    <sp-menu-item value="a">Option A</sp-menu-item>
+                    <sp-menu-item value="b">Option B</sp-menu-item>
+                    <sp-menu-item value="c">Option C</sp-menu-item>
+                </sp-combobox>
+            </div>
+
+            <div id="variantLabel">open (initially open) / value (pre-selected)</div>
+            <div class="demo-example">
+                <sp-field-label for="combo-open">open</sp-field-label>
+                <sp-combobox id="combo-open" open>
+                    <sp-menu-item value="a">Option A</sp-menu-item>
+                    <sp-menu-item value="b">Option B</sp-menu-item>
+                    <sp-menu-item value="c">Option C</sp-menu-item>
+                </sp-combobox>
+
+                <sp-field-label for="combo-value">value (pre-selected)</sp-field-label>
+                <sp-combobox id="combo-value" value="Option B">
+                    <sp-menu-item value="a">Option A</sp-menu-item>
+                    <sp-menu-item value="b">Option B</sp-menu-item>
+                    <sp-menu-item value="c">Option C</sp-menu-item>
+                </sp-combobox>
+            </div>
+
+            <div id="variantLabel">pending / pending-label</div>
+            <div class="demo-example">
+                <sp-field-label for="combo-pending">Loading options</sp-field-label>
+                <sp-combobox id="combo-pending" pending pending-label="Loading options">
+                    <sp-menu-item value="a">Option A</sp-menu-item>
+                </sp-combobox>
+            </div>
+
+            <div id="variantLabel">help text</div>
+            <div class="demo-example">
+                <sp-field-label for="combo-help">With help text</sp-field-label>
+                <sp-combobox id="combo-help" placeholder="Select a country">
+                    <sp-menu-item value="us">United States</sp-menu-item>
+                    <sp-menu-item value="ca">Canada</sp-menu-item>
+                    <sp-help-text slot="help-text">Choose your country of residence.</sp-help-text>
+                    <sp-help-text slot="negative-help-text" icon>A country is required.</sp-help-text>
+                </sp-combobox>
+            </div>
         </div>
     </div>
 </div>

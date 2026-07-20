@@ -50,10 +50,19 @@ governing permissions and limitations under the License.
             <sp-toast open variant="info">
                 This is information that you should read.
             </sp-toast>
+            <sp-toast open variant="error">
+                This is error information that you should read, soon.
+            </sp-toast>
+            <sp-toast open variant="warning">
+                This is warning information that you should read, soon.
+            </sp-toast>
             <sp-toast open timeout="1000">
                 When a timeout is provided it represents the number of
                 milliseconds from when the Toast was placed on the page before
                 it will automatically dismiss itself.
+            </sp-toast>
+            <sp-toast open variant="negative" icon-label="Custom negative icon label">
+                icon-label overrides the accessible name announced for this toast's icon.
             </sp-toast>
         </div>
         <input type="text" style="width: 2px" />

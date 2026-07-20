@@ -537,6 +537,76 @@
                                     </sp-overlay>
                                 </div> -->
 
+                                <!-- disabled / receives-focus / allow-outside-click / tip-padding -->
+                                <div class="demo-example">
+                                    <sp-button id="trigger-disabled">
+                                        Disabled overlay (never opens)
+                                    </sp-button>
+                                    <sp-overlay
+                                        class="overlay"
+                                        trigger="trigger-disabled@click"
+                                        placement="top"
+                                        disabled
+                                    >
+                                        <sp-popover>
+                                            <div style="background-color: skyblue;">
+                                                <p>You should never see this.</p>
+                                            </div>
+                                        </sp-popover>
+                                    </sp-overlay>
+
+                                    <sp-button id="trigger-receives-focus">
+                                        receives-focus="false"
+                                    </sp-button>
+                                    <sp-overlay
+                                        class="overlay"
+                                        trigger="trigger-receives-focus@click"
+                                        placement="top"
+                                        receives-focus="false"
+                                    >
+                                        <sp-popover>
+                                            <div style="background-color: skyblue;">
+                                                <p>Focus is not trapped/moved into this overlay.</p>
+                                            </div>
+                                        </sp-popover>
+                                    </sp-overlay>
+
+                                    <!-- allow-outside-click is deprecated upstream but still a
+                                         real attribute at this pinned version -->
+                                    <sp-button id="trigger-outside-click">
+                                        allow-outside-click (deprecated)
+                                    </sp-button>
+                                    <sp-overlay
+                                        class="overlay"
+                                        trigger="trigger-outside-click@click"
+                                        placement="top"
+                                        allow-outside-click
+                                    >
+                                        <sp-popover>
+                                            <div style="background-color: skyblue;">
+                                                <p>Clicking outside this popover closes it.</p>
+                                            </div>
+                                        </sp-popover>
+                                    </sp-overlay>
+
+                                    <sp-button id="trigger-tippadding">
+                                        tip-padding="20"
+                                    </sp-button>
+                                    <sp-overlay
+                                        class="overlay"
+                                        trigger="trigger-tippadding@click"
+                                        placement="top"
+                                        tip-padding="20"
+                                    >
+                                        <sp-popover tip>
+                                            <div style="background-color: skyblue;">
+                                                <p>tip-padding shifts the pointer tip's minimum
+                                                    distance from the popover's corner.</p>
+                                            </div>
+                                        </sp-popover>
+                                    </sp-overlay>
+                                </div>
+
                                 <div id="longpress" class="demo-example">
                                     <sp-button id="trigger-long">
                                         Long Press here

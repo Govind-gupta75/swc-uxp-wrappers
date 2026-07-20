@@ -264,6 +264,26 @@ governing permissions and limitations under the License.
     </div>
 
     <!-- ═══════════════════════════════════════════════════════
+         open (initially open) / force-popover (inherited from ExpandableElement)
+         ═══════════════════════════════════════════════════════ -->
+    <div id="subtitle">open / force-popover</div>
+    <div style="display: inline-flex; flex-direction: row; align-items: flex-start; flex-wrap: wrap; padding-bottom: 32px;">
+        <div style="display: flex; flex-direction: column; margin-right: 24px; margin-bottom: 8px;">
+            <sp-field-label>open (initially open)</sp-field-label>
+            <sp-picker label="Choose" open>
+                <sp-menu-item value="1">Option 1</sp-menu-item>
+                <sp-menu-item value="2">Option 2</sp-menu-item>
+            </sp-picker>
+        </div>
+        <div style="display: flex; flex-direction: column; margin-bottom: 8px;">
+            <sp-field-label>force-popover (single item still renders as a popover)</sp-field-label>
+            <sp-picker label="Choose" force-popover>
+                <sp-menu-item value="1">Only Option</sp-menu-item>
+            </sp-picker>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
          1.12.x features
          ═══════════════════════════════════════════════════════ -->
     <div id="subtitle">1.12.x features</div>
@@ -274,8 +294,10 @@ governing permissions and limitations under the License.
         <code>side-aligned="start"</code> on <code>sp-field-label</code> places the label
         to the left of the picker instead of above it.
     </p>
-    <div style="display: flex; align-items: center; gap: 8px; padding-bottom: 32px;">
-        <sp-field-label side-aligned="start" for="picker-side-label" size="m">
+    <!-- UXP does not support `gap` on flex containers (UXP-21294); fixed here from a
+         pre-existing `gap` usage found during this audit -->
+    <div style="display: flex; align-items: center; padding-bottom: 32px;">
+        <sp-field-label side-aligned="start" for="picker-side-label" size="m" style="margin-right: 8px;">
             Favorite fruit?
         </sp-field-label>
         <sp-picker id="picker-side-label" label="Select a fruit">
@@ -295,7 +317,9 @@ governing permissions and limitations under the License.
         <code>slot="label"</code> instead of as an external sibling with <code>for=</code>.
         Visual output is identical — the difference is DOM structure.
     </p>
-    <div style="display: flex; align-items: flex-start; gap: 40px; padding-bottom: 32px;">
+    <!-- UXP does not support `gap` (UXP-21294); the second child's margin-left already
+         provides the intended spacing -->
+    <div style="display: flex; align-items: flex-start; padding-bottom: 32px;">
         <div style="display: flex; flex-direction: column;">
             <span style="font-size: var(--spectrum-font-size-75, 12px); color: gray; margin-bottom: 4px;">External (sp-field-label for=)</span>
             <sp-field-label for="picker-label-ext">Favorite fruit?</sp-field-label>
@@ -327,7 +351,8 @@ governing permissions and limitations under the License.
     <p style="margin: 4px 0 8px; font-size: var(--spectrum-font-size-75, 12px); color: gray;">
         Hover over the picker to see the tooltip.
     </p>
-    <div style="display: flex; align-items: flex-end; gap: 24px; padding-bottom: 32px;">
+    <!-- UXP does not support `gap` (UXP-21294); only one child here so it had no visual effect -->
+    <div style="display: flex; align-items: flex-end; padding-bottom: 32px;">
         <div style="display: flex; flex-direction: column;">
             <sp-field-label for="picker-tooltip">Font size</sp-field-label>
             <sp-picker id="picker-tooltip" label="Select size">

@@ -682,6 +682,36 @@ governing permissions and limitations under the License.
                     </sp-picker-button>
                 </div>
             </div>
+            <div id="variantLabel">active / href / target / rel / download (inherited from ButtonBase)</div>
+            <div class="demo-example" style="display: flex">
+                <div class="size-div" style="display: block">
+                    <sp-field-label for="active">active</sp-field-label>
+                    <sp-picker-button active size="m">
+                        <span slot="label">Active</span>
+                    </sp-picker-button>
+                </div>
+                <div class="size-div" style="display: block; margin-left: 10px">
+                    <sp-field-label for="linked">href / target / rel</sp-field-label>
+                    <sp-picker-button
+                        size="m"
+                        href="https://opensource.adobe.com/spectrum-web-components"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <span slot="label">Link</span>
+                    </sp-picker-button>
+                </div>
+                <div class="size-div" style="display: block; margin-left: 10px">
+                    <sp-field-label for="download">download</sp-field-label>
+                    <sp-picker-button
+                        size="m"
+                        href="https://opensource.adobe.com/spectrum-web-components"
+                        download="picker-doc"
+                    >
+                        <span slot="label">Download</span>
+                    </sp-picker-button>
+                </div>
+            </div>
         </div>
         <input type="text" style="width: 2px" />
         <div id="right">

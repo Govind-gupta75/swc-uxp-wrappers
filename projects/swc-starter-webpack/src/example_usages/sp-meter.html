@@ -59,6 +59,17 @@ governing permissions and limitations under the License.
                     Positive
                 </sp-meter>
             </div>
+            <h4 class="spectrum-Heading--subtitle1">label attribute (vs. slotted text)</h4>
+            <div style="margin-bottom: 16px;">
+                <sp-meter label="Set via label attribute" progress="65" style="width: 240px;"></sp-meter>
+            </div>
+
+            <h4 class="spectrum-Heading--subtitle1">static-color (on a colored background)</h4>
+            <div style="background: var(--spectrum-seafoam-600, #1b959a); padding: 12px;">
+                <sp-meter static-color="white" progress="65" style="width: 240px;">
+                    Static White
+                </sp-meter>
+            </div>
         </div>
         <input type="text" style="width: 2px" />
         <div id="right">

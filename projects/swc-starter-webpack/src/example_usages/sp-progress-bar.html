@@ -20,14 +20,17 @@ governing permissions and limitations under the License.
             <!-- Sizes -->
             <div style="margin: 16px 20px 4px; font-weight: bold; font-size: 12px; color: #6e6e6e;">SIZES</div>
 
-            <div style="margin: 8px 20px; display: flex; flex-direction: column; gap: 16px;">
-                <div>
+            <!-- UXP does not support `gap` on flex containers (UXP-21294); use margin-bottom
+                 on children instead (fixed here from a pre-existing `gap` usage found during
+                 this audit) -->
+            <div style="margin: 8px 20px; display: flex; flex-direction: column;">
+                <div style="margin-bottom: 16px;">
                     <sp-progress-bar label="Small" progress="65" size="s" style="width: 240px"></sp-progress-bar>
                 </div>
-                <div>
+                <div style="margin-bottom: 16px;">
                     <sp-progress-bar label="Medium" progress="65" size="m" style="width: 240px"></sp-progress-bar>
                 </div>
-                <div>
+                <div style="margin-bottom: 16px;">
                     <sp-progress-bar label="Large" progress="65" size="l" style="width: 240px"></sp-progress-bar>
                 </div>
                 <div>
@@ -38,19 +41,25 @@ governing permissions and limitations under the License.
             <!-- Variants -->
             <div style="margin: 20px 20px 4px; font-weight: bold; font-size: 12px; color: #6e6e6e;">VARIANTS</div>
 
-            <div style="margin: 8px 20px; display: flex; flex-direction: column; gap: 16px;">
-                <div>
+            <div style="margin: 8px 20px; display: flex; flex-direction: column;">
+                <div style="margin-bottom: 16px;">
                     <div style="font-size: 11px; color: #6e6e6e; margin-bottom: 4px;">Indeterminate</div>
                     <sp-progress-bar label="Loading" indeterminate style="width: 240px"></sp-progress-bar>
                 </div>
-                <div>
+                <div style="margin-bottom: 16px;">
                     <div style="font-size: 11px; color: #6e6e6e; margin-bottom: 4px;">Side label</div>
                     <sp-progress-bar label="Uploading" progress="42" side-label style="width: 240px"></sp-progress-bar>
                 </div>
-                <div>
+                <div style="margin-bottom: 16px;">
                     <div style="font-size: 11px; color: #6e6e6e; margin-bottom: 4px;">Static white</div>
                     <div style="background-color: #1473e6; padding: 12px 16px; display: inline-block; border-radius: 4px;">
                         <sp-progress-bar label="Saving" progress="55" static-color="white" style="width: 200px"></sp-progress-bar>
+                    </div>
+                </div>
+                <div>
+                    <div style="font-size: 11px; color: #6e6e6e; margin-bottom: 4px;">over-background</div>
+                    <div style="background-color: var(--spectrum-seafoam-600, #1b959a); padding: 12px 16px; display: inline-block; border-radius: 4px;">
+                        <sp-progress-bar label="Uploading" progress="70" over-background style="width: 200px"></sp-progress-bar>
                     </div>
                 </div>
             </div>

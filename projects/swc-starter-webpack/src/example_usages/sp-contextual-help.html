@@ -55,6 +55,48 @@ governing permissions and limitations under the License.
                 <span style="margin-left: 8px">Custom label</span>
             </div>
 
+            <div id="variantLabel">placement variants</div>
+            <div class="demo-example demo-flex-row">
+                <sp-contextual-help placement="right-start">
+                    <h2 slot="heading">placement="right-start"</h2>
+                    <p>Popover opens to the right-start of the trigger.</p>
+                </sp-contextual-help>
+                <sp-contextual-help placement="bottom">
+                    <h2 slot="heading">placement="bottom"</h2>
+                    <p>Popover opens below the trigger.</p>
+                </sp-contextual-help>
+                <sp-contextual-help placement="left-end">
+                    <h2 slot="heading">placement="left-end"</h2>
+                    <p>Popover opens to the left-end of the trigger.</p>
+                </sp-contextual-help>
+            </div>
+
+            <!-- `offset` is a Lit `type: Number` property, so only a single-number value can be
+                 set via the HTML attribute (Lit coerces the attribute string with Number()); the
+                 2-tuple form ([skidding, distance]) can only be set as a JS property, wired
+                 below via attach-event-helper.js -->
+            <div id="variantLabel">offset (single number via attribute, 2-tuple via JS property)</div>
+            <div class="demo-example demo-flex-row">
+                <sp-contextual-help offset="24">
+                    <h2 slot="heading">offset="24"</h2>
+                    <p>A single number offsets the popover away from the trigger.</p>
+                </sp-contextual-help>
+                <sp-contextual-help id="contextual-help-offset-tuple">
+                    <h2 slot="heading">offset = [8, 16] (JS property)</h2>
+                    <p>A [skidding, distance] tuple offsets along both axes; set via JS since
+                        the attribute form only accepts a single number.</p>
+                </sp-contextual-help>
+            </div>
+
+            <div id="variantLabel">open (initially open)</div>
+            <div class="demo-example" style="display: flex; align-items: center">
+                <sp-contextual-help open>
+                    <h2 slot="heading">Initially open</h2>
+                    <p>The open attribute renders the popover open on load.</p>
+                </sp-contextual-help>
+                <span style="margin-left: 8px">open</span>
+            </div>
+
             <div id="variantLabel">no link slot</div>
             <div class="demo-example" style="display: flex; align-items: center">
                 <sp-contextual-help>

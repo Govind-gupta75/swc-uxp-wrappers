@@ -110,6 +110,54 @@ governing permissions and limitations under the License.
                     </sp-menu>
                 </sp-popover>
             </div>
+            <div id="variantLabel">active / focused (visual states)</div>
+            <div class="demo-example">
+                <sp-menu style="width: 200px">
+                    <sp-menu-item active>Active item</sp-menu-item>
+                    <sp-menu-item focused>Focused item</sp-menu-item>
+                </sp-menu>
+            </div>
+
+            <!-- href/target/rel/download come from the LikeAnchor mixin -->
+            <div id="variantLabel">href / target / rel / download (LikeAnchor)</div>
+            <div class="demo-example">
+                <sp-menu style="width: 220px">
+                    <sp-menu-item
+                        href="https://opensource.adobe.com/spectrum-web-components"
+                        target="_blank"
+                        rel="noopener"
+                    >Opens in new tab</sp-menu-item>
+                    <sp-menu-item
+                        href="https://opensource.adobe.com/spectrum-web-components"
+                        download="menu-doc"
+                    >Downloadable link</sp-menu-item>
+                </sp-menu>
+            </div>
+
+            <!-- has-submenu is computed automatically from whether the "submenu" slot has
+                 content; open reflects the submenu's current expanded state -->
+            <div id="variantLabel">has-submenu / submenu slot / open</div>
+            <div class="demo-example">
+                <sp-popover open style="position: relative">
+                    <sp-menu style="width: 200px">
+                        <sp-menu-item>
+                            Export As
+                            <sp-menu slot="submenu">
+                                <sp-menu-item>PNG</sp-menu-item>
+                                <sp-menu-item>JPEG</sp-menu-item>
+                                <sp-menu-item>SVG</sp-menu-item>
+                            </sp-menu>
+                        </sp-menu-item>
+                        <sp-menu-item open>
+                            Share (open)
+                            <sp-menu slot="submenu">
+                                <sp-menu-item>Email</sp-menu-item>
+                                <sp-menu-item>Copy Link</sp-menu-item>
+                            </sp-menu>
+                        </sp-menu-item>
+                    </sp-menu>
+                </sp-popover>
+            </div>
         </div>
         <input type="text" style="width: 2px" />
         <div id="right">

@@ -44,8 +44,10 @@ governing permissions and limitations under the License.
     </sp-dialog>
 
     <div style="margin-top: 16px;"></div>
-    <sp-field-label>size="medium" dismissable no-divider (hero)</sp-field-label>
-    <sp-dialog size="medium" dismissable no-divider>
+    <!-- fixed during this audit: `size="medium"` is not a valid Dialog size (only s/m/l) and
+         previously fell through to the default; changed to the intended `size="m"` -->
+    <sp-field-label>size="m" dismissable no-divider (hero)</sp-field-label>
+    <sp-dialog size="m" dismissable no-divider>
         <div
             slot="hero"
             style="background-image: url(https://picsum.photos/500/280)"
@@ -366,6 +368,24 @@ governing permissions and limitations under the License.
             Cancel
         </sp-button>
         <sp-button variant="accent" slot="button">Enable</sp-button>
+    </sp-dialog>
+
+    <div style="margin-top: 16px;"></div>
+    <!-- Dialog inherits `variant` from AlertDialog; distinct from `error`, which is Dialog's
+         own boolean flag -->
+    <sp-field-label>variant="warning" (inherited from AlertDialog)</sp-field-label>
+    <sp-dialog variant="warning">
+        <h2 slot="heading">Unverified Format</h2>
+        This format has not been verified and may not be viewable for some users.
+        <sp-button variant="secondary" treatment="outline" slot="button">Cancel</sp-button>
+        <sp-button variant="accent" slot="button">Continue</sp-button>
+    </sp-dialog>
+
+    <div style="margin-top: 16px;"></div>
+    <sp-field-label>dismiss-label (custom accessible name for the close button)</sp-field-label>
+    <sp-dialog size="m" dismissable dismiss-label="Close this dialog">
+        <h2 slot="heading">Custom dismiss label</h2>
+        The close button's accessible name comes from dismiss-label instead of the default.
     </sp-dialog>
 
     <div style="margin-top: 16px;"></div>

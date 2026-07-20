@@ -240,6 +240,69 @@ governing permissions and limitations under the License.
                 </sp-button-group>
             </div>
 
+            <div id="variantLabel">quiet</div>
+            <div class="demo-example" style="display: flex">
+                <sp-button-group style="min-width: max-content">
+                    <sp-button variant="primary" quiet>Quiet primary</sp-button>
+                    <sp-button variant="secondary" quiet>Quiet secondary</sp-button>
+                </sp-button-group>
+            </div>
+
+            <div id="variantLabel">active</div>
+            <div class="demo-example" style="display: flex">
+                <sp-button-group style="min-width: max-content">
+                    <sp-button variant="primary" active>Active (pressed)</sp-button>
+                </sp-button-group>
+            </div>
+
+            <div id="variantLabel">disabled</div>
+            <div class="demo-example" style="display: flex">
+                <sp-button-group style="min-width: max-content">
+                    <sp-button variant="primary" disabled>Disabled</sp-button>
+                </sp-button-group>
+            </div>
+
+            <!-- v1.12.1: `no-wrap` is deprecated in favor of `truncate` upstream, but `truncate`
+                 is not yet implemented on the SWC Button in this version so only `no-wrap` is
+                 demoed here. -->
+            <div id="variantLabel">no-wrap (deprecated, replaced by truncate in a future SWC release)</div>
+            <div class="demo-example" style="display: flex">
+                <sp-button-group style="min-width: max-content">
+                    <sp-button variant="primary" no-wrap style="width: 100px">
+                        A long label that would otherwise wrap
+                    </sp-button>
+                </sp-button-group>
+            </div>
+
+            <div id="variantLabel">type (submit / reset)</div>
+            <div class="demo-example" style="display: flex">
+                <form>
+                    <sp-button-group style="min-width: max-content">
+                        <sp-button variant="primary" type="submit">Submit</sp-button>
+                        <sp-button variant="secondary" type="reset">Reset</sp-button>
+                    </sp-button-group>
+                </form>
+            </div>
+
+            <!-- href/target/rel/download come from the LikeAnchor mixin applied to ButtonBase;
+                 setting href causes the button to proxy clicks through an internal anchor -->
+            <div id="variantLabel">href / target / rel / download (LikeAnchor mixin)</div>
+            <div class="demo-example" style="display: flex">
+                <sp-button-group style="min-width: max-content">
+                    <sp-button
+                        variant="primary"
+                        href="https://opensource.adobe.com/spectrum-web-components"
+                        target="_blank"
+                        rel="noopener"
+                    >Link button</sp-button>
+                    <sp-button
+                        variant="secondary"
+                        href="https://opensource.adobe.com/spectrum-web-components"
+                        download="swc-docs"
+                    >Download button</sp-button>
+                </sp-button-group>
+            </div>
+
             <div id="variantLabel">close button</div>
             <div class="demo-example" style="display: flex">
                 <div class="size-div" style="display: block">

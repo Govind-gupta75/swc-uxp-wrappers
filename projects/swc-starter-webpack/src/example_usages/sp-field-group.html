@@ -61,6 +61,24 @@ governing permissions and limitations under the License.
                 </sp-help-text>
             </sp-field-group>
 
+            <div class="sub-heading">invalid</div>
+            <sp-divider class="demo-separator"></sp-divider>
+            <sp-field-group
+                horizontal
+                invalid
+                id="fieldgroup-invalid"
+                label="What are your favorite fruits?"
+            >
+                <sp-checkbox value="apple">Apple</sp-checkbox>
+                <sp-checkbox id="lettuce-invalid" value="not-a-fruit">
+                    Lettuce
+                </sp-checkbox>
+                <sp-checkbox value="strawberry" checked>Strawberry</sp-checkbox>
+                <sp-help-text slot="negative-help-text" icon>
+                    Choose actual fruit(s).
+                </sp-help-text>
+            </sp-field-group>
+
             <div class="sub-heading">Managed from above - helpText</div>
             <sp-divider class="demo-separator"></sp-divider>
             <sp-field-label for="above">

@@ -60,6 +60,36 @@ governing permissions and limitations under the License.
                 <sp-radio emphasized value="kittens">Kittens</sp-radio>
                 <sp-radio emphasized value="puppies" checked>Puppies</sp-radio>
             </div>
+            <div style="display: flex; flex-direction: column">
+                <h4 class="spectrum-Heading--subtitle1">Readonly</h4>
+                <sp-radio readonly value="kittens">Kittens</sp-radio>
+                <sp-radio readonly value="puppies" checked>Puppies</sp-radio>
+            </div>
+            <div style="display: flex; flex-direction: column">
+                <h4 class="spectrum-Heading--subtitle1">Autofocus</h4>
+                <sp-radio autofocus value="kittens">Kittens (autofocus)</sp-radio>
+                <sp-radio value="puppies">Puppies</sp-radio>
+            </div>
+            <sp-field-label for="medium">Medium Size</sp-field-label>
+            <sp-radio-group
+                label="Medium"
+                selected="first"
+                name="example-m"
+                id="medium"
+            >
+                <sp-radio value="first" size="m">Option 1</sp-radio>
+                <sp-radio value="second" size="m">Option 2</sp-radio>
+            </sp-radio-group>
+            <sp-field-label for="large">Large Size</sp-field-label>
+            <sp-radio-group
+                label="Large"
+                selected="first"
+                name="example-l"
+                id="large"
+            >
+                <sp-radio value="first" size="l">Option 1</sp-radio>
+                <sp-radio value="second" size="l">Option 2</sp-radio>
+            </sp-radio-group>
         </div>
         <input type="text" style="width: 2px" />
         <div id="right">

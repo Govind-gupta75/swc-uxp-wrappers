@@ -169,6 +169,47 @@ governing permissions and limitations under the License.
                     </sp-sidenav>
                 </div>
             </div>
+            <div
+                style="
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: 20px;
+                "
+            >
+                <div style="display: flex; flex-direction: column">
+                    <h4 class="spectrum-Heading--subtitle1">
+                        label / manage-tab-index / rel / download
+                    </h4>
+                    <!-- `label` is the sidenav's accessible name (applied to aria-label, not
+                         rendered visually). `manage-tab-index` lets consumers control the
+                         roving tabindex themselves instead of sp-sidenav managing it. -->
+                    <sp-sidenav
+                        label="Secondary navigation"
+                        manage-tab-index
+                        value="Docs"
+                    >
+                        <sp-sidenav-item
+                            value="Docs"
+                            href="/components/SideNav"
+                            label="Docs"
+                            selected
+                        ></sp-sidenav-item>
+                        <sp-sidenav-item
+                            value="Download"
+                            href="/downloads/spec.pdf"
+                            download="spec.pdf"
+                            label="Download spec (download attribute)"
+                        ></sp-sidenav-item>
+                        <sp-sidenav-item
+                            value="External"
+                            href="https://opensource.adobe.com/spectrum-web-components"
+                            target="_blank"
+                            rel="noopener"
+                            label="External (target + rel attributes)"
+                        ></sp-sidenav-item>
+                    </sp-sidenav>
+                </div>
+            </div>
         </div>
         <input type="text" style="width: 2px" />
         <div id="right">

@@ -85,6 +85,7 @@ import '@swc-uxp-wrappers/action-menu/sp-action-menu.js';
 
 import '@spectrum-web-components/picker/sp-picker.js';
 
+import '@spectrum-web-components/infield-button/sp-infield-button.js';
 import '@spectrum-web-components/number-field/sp-number-field.js';
 import '@spectrum-web-components/progress-circle/sp-progress-circle.js';
 import '@spectrum-web-components/search/sp-search.js';
@@ -93,6 +94,7 @@ import '@spectrum-web-components/icons/sp-icons-medium.js';
 import '@spectrum-web-components/icons/sp-icons-large.js';
 import '@spectrum-web-components/icon/sp-icon.js';
 import '@spectrum-web-components/icons-ui/icons/sp-icon-arrow75.js';
+import '@spectrum-web-components/icons-ui/icons/sp-icon-chevron100.js';
 import '@spectrum-web-components/icons-workflow/icons/sp-icon-abc.js';
 import '@spectrum-web-components/icons-workflow/icons/sp-icon-actions.js';
 import '@spectrum-web-components/icons-workflow/icons/sp-icon-add.js';

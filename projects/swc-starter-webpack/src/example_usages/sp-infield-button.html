@@ -1,0 +1,129 @@
+<!--
+Copyright 2026 Adobe. All rights reserved.
+This file is licensed to you under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License. You may obtain a copy
+of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under
+the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+OF ANY KIND, either express or implied. See the License for the specific language
+governing permissions and limitations under the License.
+-->
+
+<h3>sp-infield-button</h3>
+
+<!--
+    Outer wrapper uses a unique id (not #content/#playground) to avoid inheriting the
+    legacy grid layout rules in styles.css.
+-->
+<div id="infield-button-demo-wrap" style="display: flex; flex-direction: column;">
+
+    <!-- ═══════════════════════════════════════════════════════
+         Sizes (inherited SizedMixin call site: s / m / l / xl)
+         ═══════════════════════════════════════════════════════ -->
+    <div id="subtitle">Sizes</div>
+    <div class="infield-button-demo-row">
+        <sp-infield-button size="s">
+            <sp-icon-chevron100 slot="icon"></sp-icon-chevron100>
+        </sp-infield-button>
+        <sp-infield-button size="m">
+            <sp-icon-chevron100 slot="icon"></sp-icon-chevron100>
+        </sp-infield-button>
+        <sp-infield-button size="l">
+            <sp-icon-chevron100 slot="icon"></sp-icon-chevron100>
+        </sp-infield-button>
+        <sp-infield-button size="xl">
+            <sp-icon-chevron100 slot="icon"></sp-icon-chevron100>
+        </sp-infield-button>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         quiet
+         ═══════════════════════════════════════════════════════ -->
+    <div id="subtitle">quiet</div>
+    <div class="infield-button-demo-row">
+        <sp-infield-button size="m">
+            <sp-icon-chevron100 slot="icon"></sp-icon-chevron100>
+        </sp-infield-button>
+        <sp-infield-button size="m" quiet>
+            <sp-icon-chevron100 slot="icon"></sp-icon-chevron100>
+        </sp-infield-button>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         block (styles the button as if it sits at the start/end of a
+         vertical stack, e.g. stacked increment/decrement steppers)
+         ═══════════════════════════════════════════════════════ -->
+    <div id="subtitle">block ("start" / "end") — vertical stepper stack</div>
+    <div class="infield-button-demo-row" style="align-items: flex-start;">
+        <div style="display: flex; flex-direction: column;">
+            <sp-infield-button size="m" block="start">
+                <sp-icon-chevron100 slot="icon" style="transform: rotate(180deg);"></sp-icon-chevron100>
+            </sp-infield-button>
+            <sp-infield-button size="m" block="end">
+                <sp-icon-chevron100 slot="icon"></sp-icon-chevron100>
+            </sp-infield-button>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         inline (styles the button as if it sits at the start/end of a
+         horizontal group, e.g. side-by-side increment/decrement buttons
+         next to a textfield)
+         ═══════════════════════════════════════════════════════ -->
+    <div id="subtitle">inline ("start" / "end") — horizontal group next to a textfield</div>
+    <div class="infield-button-demo-row">
+        <sp-textfield placeholder="Quantity" value="1" style="width: 120px;"></sp-textfield>
+        <sp-infield-button size="m" inline="start">
+            <sp-icon-chevron100 slot="icon" style="transform: rotate(-90deg);"></sp-icon-chevron100>
+        </sp-infield-button>
+        <sp-infield-button size="m" inline="end">
+            <sp-icon-chevron100 slot="icon" style="transform: rotate(90deg);"></sp-icon-chevron100>
+        </sp-infield-button>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         disabled / active / type (inherited from ButtonBase → Focusable)
+         ═══════════════════════════════════════════════════════ -->
+    <div id="subtitle">disabled / active</div>
+    <div class="infield-button-demo-row">
+        <sp-infield-button size="m" disabled>
+            <sp-icon-chevron100 slot="icon"></sp-icon-chevron100>
+        </sp-infield-button>
+        <sp-infield-button size="m" active>
+            <sp-icon-chevron100 slot="icon"></sp-icon-chevron100>
+        </sp-infield-button>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         href / target / rel / download (LikeAnchor, via ButtonBase)
+         ═══════════════════════════════════════════════════════ -->
+    <div id="subtitle">href / target / rel / download (LikeAnchor mixin, via ButtonBase)</div>
+    <div class="infield-button-demo-row">
+        <sp-infield-button
+            size="m"
+            href="https://opensource.adobe.com/spectrum-web-components"
+            target="_blank"
+            rel="noopener"
+        >
+            <sp-icon-chevron100 slot="icon"></sp-icon-chevron100>
+        </sp-infield-button>
+    </div>
+
+</div>
+
+<style>
+/* UXP does not support `gap` on flex containers (UXP-21294). Use margin-right/
+   margin-bottom on children instead — consistent with the workaround used across
+   all swc-uxp-wrappers demo files. */
+.infield-button-demo-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 24px;
+}
+.infield-button-demo-row > * {
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+</style>

@@ -74,6 +74,38 @@ governing permissions and limitations under the License.
                     is over a background.
                 </p>
             </div>
+            <div
+                style="
+                    background-color: var(--spectrum-seafoam-600, #1b959a);
+                    padding: 15px 20px;
+                    display: inline-block;
+                    margin-top: 8px;
+                "
+            >
+                <p>
+                    This is a
+                    <sp-link static-color="black" href="#">
+                        static black link
+                    </sp-link>
+                    over a colored background.
+                </p>
+            </div>
+            <p>
+                This link
+                <sp-link
+                    href="https://www.adobe.com"
+                    target="_blank"
+                    rel="noopener"
+                >opens in a new tab</sp-link>
+                (target / rel from the LikeAnchor mixin).
+            </p>
+            <p>
+                This
+                <sp-link href="https://www.adobe.com" download="link-target">
+                    link triggers a download
+                </sp-link>
+                (download attribute from the LikeAnchor mixin).
+            </p>
         </div>
         <input type="text" style="width: 2px" />
         <div id="right">

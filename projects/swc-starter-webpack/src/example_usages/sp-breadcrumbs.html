@@ -73,6 +73,44 @@ governing permissions and limitations under the License.
                 </sp-breadcrumbs>
             </div>
 
+            <div id="variantLabel">Custom overflow menu-label (accessible name)</div>
+            <div class="demo-example">
+                <sp-breadcrumbs label="Custom menu-label breadcrumbs" menu-label="More pages" max-visible-items="2">
+                    <sp-breadcrumb-item value="l1">Level 1</sp-breadcrumb-item>
+                    <sp-breadcrumb-item value="l2">Level 2</sp-breadcrumb-item>
+                    <sp-breadcrumb-item value="l3">Level 3</sp-breadcrumb-item>
+                    <sp-breadcrumb-item value="current">Current</sp-breadcrumb-item>
+                </sp-breadcrumbs>
+            </div>
+
+            <div id="variantLabel">Item target / rel / download (LikeAnchor mixin)</div>
+            <div class="demo-example">
+                <sp-breadcrumbs label="Anchor options breadcrumbs">
+                    <sp-breadcrumb-item
+                        href="https://opensource.adobe.com/spectrum-web-components"
+                        target="_blank"
+                        rel="noopener"
+                        value="home"
+                    >Opens in new tab</sp-breadcrumb-item>
+                    <sp-breadcrumb-item
+                        href="https://opensource.adobe.com/spectrum-web-components/components/breadcrumbs"
+                        download="breadcrumbs-doc"
+                        value="breadcrumbs"
+                    >Downloadable link</sp-breadcrumb-item>
+                    <sp-breadcrumb-item value="current">Current Page</sp-breadcrumb-item>
+                </sp-breadcrumbs>
+            </div>
+
+            <!-- disabled comes from the Focusable base class applied to BreadcrumbItem -->
+            <div id="variantLabel">Disabled item</div>
+            <div class="demo-example">
+                <sp-breadcrumbs label="Disabled item breadcrumbs">
+                    <sp-breadcrumb-item value="home">Home</sp-breadcrumb-item>
+                    <sp-breadcrumb-item value="disabled" disabled>Disabled</sp-breadcrumb-item>
+                    <sp-breadcrumb-item value="current">Current Page</sp-breadcrumb-item>
+                </sp-breadcrumbs>
+            </div>
+
             <div id="variantLabel">With href links</div>
             <div class="demo-example">
                 <sp-breadcrumbs label="Navigation with links">

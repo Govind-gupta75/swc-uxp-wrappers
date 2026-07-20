@@ -60,6 +60,34 @@ governing permissions and limitations under the License.
                     Everyone likes ice cream.
                 </sp-help-text>
             </sp-radio-group>
+            <b>horizontal / name / selected / invalid (static)</b>
+            <sp-field-label for="radiogroup4">
+                Choose a size (horizontal, name="size", pre-selected, invalid)
+            </sp-field-label>
+            <sp-radio-group
+                id="radiogroup4"
+                horizontal
+                name="size"
+                selected="m"
+                invalid
+            >
+                <sp-radio value="s">Small</sp-radio>
+                <sp-radio value="m">Medium</sp-radio>
+                <sp-radio value="l">Large</sp-radio>
+                <sp-help-text slot="negative-help-text" icon>
+                    Please confirm your size selection.
+                </sp-help-text>
+            </sp-radio-group>
+
+            <b>vertical</b>
+            <sp-field-label for="radiogroup5">
+                Choose a size (vertical)
+            </sp-field-label>
+            <sp-radio-group id="radiogroup5" vertical name="size-vertical" selected="m">
+                <sp-radio value="s">Small</sp-radio>
+                <sp-radio value="m">Medium</sp-radio>
+                <sp-radio value="l">Large</sp-radio>
+            </sp-radio-group>
         </div>
         <input type="text" style="width: 2px" />
         <div id="right">

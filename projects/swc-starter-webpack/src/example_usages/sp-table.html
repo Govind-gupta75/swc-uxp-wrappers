@@ -133,6 +133,117 @@ governing permissions and limitations under the License.
                         </sp-table-row>
                     </sp-table-body>
                 </sp-table>
+                <div style="margin-top: 8px">size=xl</div>
+                <sp-table size="xl">
+                    <sp-table-head>
+                        <sp-table-head-cell>Column A</sp-table-head-cell>
+                        <sp-table-head-cell>Column B</sp-table-head-cell>
+                    </sp-table-head>
+                    <sp-table-body>
+                        <sp-table-row>
+                            <sp-table-cell>Alpha</sp-table-cell>
+                            <sp-table-cell>Bravo</sp-table-cell>
+                        </sp-table-row>
+                    </sp-table-body>
+                </sp-table>
+            </div>
+
+            <div id="subtitle" style="margin-top: 16px">selects="single" / select-all-label / active sort / desc</div>
+            <div>
+                <sp-table size="m" selects="single" select-all-label="Select all rows">
+                    <sp-table-head>
+                        <sp-table-head-cell sortable sort-key="name" sort-direction="desc" active>Name</sp-table-head-cell>
+                        <sp-table-head-cell>Type</sp-table-head-cell>
+                    </sp-table-head>
+                    <sp-table-body>
+                        <sp-table-row value="single-row1" selectable selected>
+                            <sp-table-cell>Asset Alpha</sp-table-cell>
+                            <sp-table-cell>Image</sp-table-cell>
+                        </sp-table-row>
+                        <sp-table-row value="single-row2" selectable>
+                            <sp-table-cell>Asset Bravo</sp-table-cell>
+                            <sp-table-cell>Video</sp-table-cell>
+                        </sp-table-row>
+                    </sp-table-body>
+                </sp-table>
+            </div>
+
+            <div id="subtitle" style="margin-top: 16px">emphasized / quiet</div>
+            <div style="display: flex; flex-direction: column">
+                <div>emphasized</div>
+                <sp-table size="m" emphasized selects="multiple">
+                    <sp-table-head>
+                        <sp-table-head-cell>Name</sp-table-head-cell>
+                        <sp-table-head-cell>Type</sp-table-head-cell>
+                    </sp-table-head>
+                    <sp-table-body>
+                        <sp-table-row value="emph-row1">
+                            <sp-table-cell>Asset Alpha</sp-table-cell>
+                            <sp-table-cell>Image</sp-table-cell>
+                        </sp-table-row>
+                    </sp-table-body>
+                </sp-table>
+                <div style="margin-top: 8px">quiet</div>
+                <sp-table size="m" quiet>
+                    <sp-table-head>
+                        <sp-table-head-cell>Name</sp-table-head-cell>
+                        <sp-table-head-cell>Type</sp-table-head-cell>
+                    </sp-table-head>
+                    <sp-table-body>
+                        <sp-table-row>
+                            <sp-table-cell>Asset Alpha</sp-table-cell>
+                            <sp-table-cell>Image</sp-table-cell>
+                        </sp-table-row>
+                    </sp-table-body>
+                </sp-table>
+            </div>
+
+            <div id="subtitle" style="margin-top: 16px">density ("compact" / "spacious")</div>
+            <div style="display: flex; flex-direction: column">
+                <div>density="compact"</div>
+                <sp-table size="m" density="compact">
+                    <sp-table-head>
+                        <sp-table-head-cell>Name</sp-table-head-cell>
+                        <sp-table-head-cell>Type</sp-table-head-cell>
+                    </sp-table-head>
+                    <sp-table-body>
+                        <sp-table-row>
+                            <sp-table-cell>Asset Alpha</sp-table-cell>
+                            <sp-table-cell>Image</sp-table-cell>
+                        </sp-table-row>
+                    </sp-table-body>
+                </sp-table>
+                <div style="margin-top: 8px">density="spacious"</div>
+                <sp-table size="m" density="spacious">
+                    <sp-table-head>
+                        <sp-table-head-cell>Name</sp-table-head-cell>
+                        <sp-table-head-cell>Type</sp-table-head-cell>
+                    </sp-table-head>
+                    <sp-table-body>
+                        <sp-table-row>
+                            <sp-table-cell>Asset Alpha</sp-table-cell>
+                            <sp-table-cell>Image</sp-table-cell>
+                        </sp-table-row>
+                    </sp-table-body>
+                </sp-table>
+            </div>
+
+            <!-- scroller constrains the table body to a fixed height with internal scrolling -->
+            <div id="subtitle" style="margin-top: 16px">scroller</div>
+            <div style="height: 120px;">
+                <sp-table size="m" scroller style="height: 120px;">
+                    <sp-table-head>
+                        <sp-table-head-cell>Name</sp-table-head-cell>
+                        <sp-table-head-cell>Type</sp-table-head-cell>
+                    </sp-table-head>
+                    <sp-table-body>
+                        <sp-table-row><sp-table-cell>Alpha</sp-table-cell><sp-table-cell>Image</sp-table-cell></sp-table-row>
+                        <sp-table-row><sp-table-cell>Bravo</sp-table-cell><sp-table-cell>Video</sp-table-cell></sp-table-row>
+                        <sp-table-row><sp-table-cell>Charlie</sp-table-cell><sp-table-cell>Document</sp-table-cell></sp-table-row>
+                        <sp-table-row><sp-table-cell>Delta</sp-table-cell><sp-table-cell>Image</sp-table-cell></sp-table-row>
+                        <sp-table-row><sp-table-cell>Echo</sp-table-cell><sp-table-cell>Video</sp-table-cell></sp-table-row>
+                    </sp-table-body>
+                </sp-table>
             </div>
         </div>
         <input type="text" style="width: 2px" />

@@ -90,8 +90,10 @@ governing permissions and limitations under the License.
             </div>
 
             <div id="variantLabel">sizes</div>
-            <div class="demo-example" style="display: flex; gap: 16px; flex-direction: column">
-                <div>
+            <!-- UXP does not support `gap` on flex containers (UXP-21294); fixed here from a
+                 pre-existing `gap` usage found during this audit -->
+            <div class="demo-example" style="display: flex; flex-direction: column">
+                <div style="margin-bottom: 16px;">
                     <sp-field-label>Small (s)</sp-field-label>
                     <sp-tabs selected="1" size="s">
                         <sp-tab value="1">Tab 1</sp-tab>
@@ -100,7 +102,7 @@ governing permissions and limitations under the License.
                         <sp-tab-panel value="2">Small panel 2</sp-tab-panel>
                     </sp-tabs>
                 </div>
-                <div>
+                <div style="margin-bottom: 16px;">
                     <sp-field-label>Medium (m)</sp-field-label>
                     <sp-tabs selected="1" size="m">
                         <sp-tab value="1">Tab 1</sp-tab>
@@ -109,7 +111,7 @@ governing permissions and limitations under the License.
                         <sp-tab-panel value="2">Medium panel 2</sp-tab-panel>
                     </sp-tabs>
                 </div>
-                <div>
+                <div style="margin-bottom: 16px;">
                     <sp-field-label>Large (l)</sp-field-label>
                     <sp-tabs selected="1" size="l">
                         <sp-tab value="1">Tab 1</sp-tab>
@@ -127,6 +129,45 @@ governing permissions and limitations under the License.
                         <sp-tab-panel value="2">XL panel 2</sp-tab-panel>
                     </sp-tabs>
                 </div>
+            </div>
+
+            <div id="variantLabel">direction="vertical-right"</div>
+            <div class="demo-example">
+                <sp-tabs selected="1" direction="vertical-right" size="m">
+                    <sp-tab value="1">Tab 1</sp-tab>
+                    <sp-tab value="2">Tab 2</sp-tab>
+                    <sp-tab value="3">Tab 3</sp-tab>
+                    <sp-tab-panel value="1">Content for Tab 1</sp-tab-panel>
+                    <sp-tab-panel value="2">Content for Tab 2</sp-tab-panel>
+                    <sp-tab-panel value="3">Content for Tab 3</sp-tab-panel>
+                </sp-tabs>
+            </div>
+
+            <div id="variantLabel">auto (auto-selects on focus, no click needed) / label (accessible name)</div>
+            <div class="demo-example">
+                <sp-tabs selected="1" auto label="Auto-selecting tabs" size="m">
+                    <sp-tab value="1">Tab 1</sp-tab>
+                    <sp-tab value="2">Tab 2</sp-tab>
+                    <sp-tab value="3">Tab 3</sp-tab>
+                    <sp-tab-panel value="1">Content for Tab 1</sp-tab-panel>
+                    <sp-tab-panel value="2">Content for Tab 2</sp-tab-panel>
+                    <sp-tab-panel value="3">Content for Tab 3</sp-tab-panel>
+                </sp-tabs>
+            </div>
+
+            <!-- Tab's own `label` attribute (distinct from slotted text) -->
+            <div id="variantLabel">sp-tab label attribute (icon-only tab with accessible name)</div>
+            <div class="demo-example">
+                <sp-tabs selected="1" size="m">
+                    <sp-tab value="1" label="Star tab">
+                        <sp-icon-star slot="icon"></sp-icon-star>
+                    </sp-tab>
+                    <sp-tab value="2" label="Edit tab">
+                        <sp-icon-edit slot="icon"></sp-icon-edit>
+                    </sp-tab>
+                    <sp-tab-panel value="1">Content for the star tab</sp-tab-panel>
+                    <sp-tab-panel value="2">Content for the edit tab</sp-tab-panel>
+                </sp-tabs>
             </div>
         </div>
         <input type="text" style="width: 2px" />

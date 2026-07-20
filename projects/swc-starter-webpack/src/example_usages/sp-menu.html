@@ -181,6 +181,48 @@ governing permissions and limitations under the License.
                     </sp-menu>
                 </sp-menu>
             </div>
+            <div id="variantLabel">label (accessible name)</div>
+            <div class="demo-example">
+                <sp-popover open style="position: relative">
+                    <sp-menu label="Text formatting options" style="width: 200px">
+                        <sp-menu-item>Bold</sp-menu-item>
+                        <sp-menu-item>Italic</sp-menu-item>
+                        <sp-menu-item>Underline</sp-menu-item>
+                    </sp-menu>
+                </sp-popover>
+            </div>
+
+            <!-- ignore excludes this menu's items from a parent selection-managing menu -->
+            <div id="variantLabel">ignore</div>
+            <div class="demo-example">
+                <sp-popover open style="position: relative">
+                    <sp-menu selects="multiple" style="width: 220px">
+                        <sp-menu-item selected>Selectable Item 1</sp-menu-item>
+                        <sp-menu-item selected>Selectable Item 2</sp-menu-item>
+                        <sp-menu-divider></sp-menu-divider>
+                        <sp-menu ignore>
+                            <sp-menu-item>Ignored (not selectable) Item</sp-menu-item>
+                        </sp-menu>
+                    </sp-menu>
+                </sp-popover>
+            </div>
+
+            <!-- mobile-view / mobile-back-label drive the drill-down mobile presentation for
+                 nested submenus -->
+            <div id="variantLabel">mobile-view / mobile-back-label</div>
+            <div class="demo-example">
+                <sp-popover open style="position: relative">
+                    <sp-menu mobile-view mobile-back-label="Back" style="width: 220px">
+                        <sp-menu-item>
+                            Export As
+                            <sp-menu slot="submenu">
+                                <sp-menu-item>PNG</sp-menu-item>
+                                <sp-menu-item>JPEG</sp-menu-item>
+                            </sp-menu>
+                        </sp-menu-item>
+                    </sp-menu>
+                </sp-popover>
+            </div>
         </div>
         <input type="text" style="width: 2px" />
         <div id="right">

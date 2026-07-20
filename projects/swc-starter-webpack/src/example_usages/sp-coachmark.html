@@ -140,6 +140,83 @@ governing permissions and limitations under the License.
                 </div>
             </div>
 
+            <!-- placement (inherited from sp-popover) -->
+            <div id="variantLabel">Placement variants</div>
+            <div class="demo-example demo-flex-row">
+                <div style="position: relative; width: 296px; height: 140px;">
+                    <sp-coachmark open placement="top" primary-cta="Next">
+                        <div slot="title">placement="top"</div>
+                        <div slot="content">Anchored above its target.</div>
+                    </sp-coachmark>
+                </div>
+                <div style="position: relative; width: 296px; height: 140px;">
+                    <sp-coachmark open placement="bottom-start" primary-cta="Next">
+                        <div slot="title">placement="bottom-start"</div>
+                        <div slot="content">Anchored below-start of its target.</div>
+                    </sp-coachmark>
+                </div>
+                <div style="position: relative; width: 296px; height: 140px;">
+                    <sp-coachmark open placement="left" primary-cta="Next">
+                        <div slot="title">placement="left"</div>
+                        <div slot="content">Anchored to the left of its target.</div>
+                    </sp-coachmark>
+                </div>
+            </div>
+
+            <!-- tip (inherited from sp-popover) -->
+            <div id="variantLabel">tip (pointer triangle, inherited from sp-popover)</div>
+            <div class="demo-example">
+                <div style="position: relative; width: 296px;">
+                    <sp-coachmark open tip placement="bottom" primary-cta="Got it">
+                        <div slot="title">With tip</div>
+                        <div slot="content">
+                            The tip attribute draws the pointer triangle toward the anchor.
+                        </div>
+                    </sp-coachmark>
+                </div>
+            </div>
+
+            <!-- modifierKeys is a Lit `type: Array` property; set as a JSON-string attribute -->
+            <div id="variantLabel">Shortcut key with modifierKeys (Cmd+Shift+Z)</div>
+            <div class="demo-example">
+                <div style="position: relative; width: 296px;">
+                    <sp-coachmark
+                        open
+                        primary-cta="Next"
+                        shortcut-key="Z"
+                        modifierKeys='["Cmd", "Shift"]'
+                    >
+                        <div slot="title">Shortcut with modifiers</div>
+                        <div slot="content">
+                            modifierKeys renders extra keyboard-shortcut chips before the
+                            shortcut-key badge.
+                        </div>
+                    </sp-coachmark>
+                </div>
+            </div>
+
+            <!-- media-type + src render through an internal <sp-asset>, distinct from the
+                 slot="asset" path used elsewhere on this page -->
+            <div id="variantLabel">media-type="image" + src (renders via internal sp-asset)</div>
+            <div class="demo-example">
+                <div style="position: relative; width: 296px;">
+                    <sp-coachmark
+                        open
+                        has-asset
+                        primary-cta="Next"
+                        media-type="image"
+                        src="https://picsum.photos/seed/coachmark-src/296/222"
+                    >
+                        <div slot="title">Attribute-driven media</div>
+                        <div slot="content">
+                            Set via the media-type/src/has-asset attributes instead of the
+                            asset slot. Note: external URLs do not load inside the UXP sandbox
+                            due to network restrictions.
+                        </div>
+                    </sp-coachmark>
+                </div>
+            </div>
+
         </div>
 
         <div id="right">

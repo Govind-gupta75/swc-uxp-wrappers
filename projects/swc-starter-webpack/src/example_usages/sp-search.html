@@ -147,6 +147,42 @@ governing permissions and limitations under the License.
                     disabled
                 ></sp-search>
             </div>
+            <div id="variantLabel">value (shows the clear button) / label / invalid / readonly</div>
+            <div class="demo-example">
+                <sp-field-label for="search-value">Pre-filled value</sp-field-label>
+                <sp-search id="search-value" value="Existing search term"></sp-search>
+
+                <sp-field-label for="search-label">label attribute (accessible name)</sp-field-label>
+                <sp-search id="search-label" label="Search the site" placeholder="Search"></sp-search>
+
+                <sp-field-label for="search-invalid">Invalid</sp-field-label>
+                <sp-search id="search-invalid" invalid value="bad query"></sp-search>
+
+                <sp-field-label for="search-readonly">Readonly</sp-field-label>
+                <sp-search id="search-readonly" readonly value="Cannot be edited"></sp-search>
+            </div>
+
+            <!-- action/method configure this element's native <form> submission behavior;
+                 holdValueOnEscape (real HTML attribute name: all-lowercase holdvalueonescape,
+                 per Lit's default camelCase-to-attribute conversion) keeps the typed value on
+                 Escape instead of clearing it -->
+            <div id="variantLabel">action / method / holdvalueonescape</div>
+            <div class="demo-example">
+                <sp-field-label for="search-form">action="/search" method="get"</sp-field-label>
+                <sp-search
+                    id="search-form"
+                    action="/search"
+                    method="get"
+                    placeholder="Submits to /search"
+                ></sp-search>
+
+                <sp-field-label for="search-hold-escape">holdvalueonescape</sp-field-label>
+                <sp-search
+                    id="search-hold-escape"
+                    holdvalueonescape
+                    value="Press Escape here"
+                ></sp-search>
+            </div>
         </div>
         <input type="text" style="width: 2px" />
         <div id="right">

@@ -11,6 +11,15 @@ governing permissions and limitations under the License.
 */
 
 function attachEvents(tabName) {
+    if (tabName === 'sp-contextual-help') {
+        // `offset` is a Lit `type: Number` property — a 2-tuple ([skidding, distance]) can
+        // only be set as a JS property, not via the HTML attribute (Number() coercion would
+        // otherwise turn a tuple string into NaN).
+        const offsetTupleDemo = document.getElementById('contextual-help-offset-tuple');
+        if (offsetTupleDemo) {
+            offsetTupleDemo.offset = [8, 16];
+        }
+    }
     if (tabName === 'sp-slider') {
         const logSlider = document.getElementById('log-slider');
         const sliderLog = document.getElementById('slider-log');

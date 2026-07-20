@@ -70,3 +70,32 @@
 <p class="sub-heading">Change event log</p>
 <sp-slider id="log-slider" label="Drag me" value="50" size="m"></sp-slider>
 <div id="slider-log" style="margin-top:8px;font-size:12px;color:#666">—</div>
+
+<p class="sub-heading">Quiet</p>
+<sp-slider label="Quiet" value="50" size="m" quiet></sp-slider>
+
+<p class="sub-heading">fill-start (fills from a point other than the track start)</p>
+<sp-slider label="Fill from 20" min="0" max="100" value="60" size="m" fill-start="20"></sp-slider>
+
+<p class="sub-heading">default-value (reset target, distinct from the current value)</p>
+<sp-slider label="Default 30" value="70" default-value="30" size="m"></sp-slider>
+
+<p class="sub-heading">name (form association)</p>
+<sp-slider label="Brightness" name="brightness" value="50" size="m"></sp-slider>
+
+<p class="sub-heading">format-options (percent display)</p>
+<sp-slider
+    label="Opacity"
+    min="0"
+    max="1"
+    step="0.01"
+    value="0.5"
+    size="m"
+    format-options='{"style": "percent"}'
+></sp-slider>
+
+<p class="sub-heading">highlight (range handle emphasis)</p>
+<sp-slider label="Highlighted range" min="0" max="100" size="m" variant="range">
+    <sp-slider-handle slot="handle" name="start" value="30" label="Start" highlight></sp-slider-handle>
+    <sp-slider-handle slot="handle" name="end" value="70" label="End"></sp-slider-handle>
+</sp-slider>

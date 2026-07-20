@@ -262,6 +262,30 @@ governing permissions and limitations under the License.
                 </div>
             </div>
 
+            <div id="variantLabel">sizes / border = "light"</div>
+            <div class="demo-example" style="display: flex">
+                <div class="size-div">
+                    <sp-field-label for="border-light-xs">XS</sp-field-label>
+                    <sp-swatch border="light" id="border-light-xs" size="xs" color="white"></sp-swatch>
+                </div>
+                <div class="size-div">
+                    <sp-field-label for="border-light-m">M</sp-field-label>
+                    <sp-swatch border="light" id="border-light-m" color="white"></sp-swatch>
+                </div>
+            </div>
+
+            <div id="variantLabel">label / role (accessibility)</div>
+            <div class="demo-example" style="display: flex">
+                <div class="size-div">
+                    <sp-field-label for="labeled-swatch">Labeled</sp-field-label>
+                    <sp-swatch id="labeled-swatch" color="rgb(255 0 0 / 0.7)" label="Tomato red"></sp-swatch>
+                </div>
+                <div class="size-div">
+                    <sp-field-label for="role-swatch">role="img"</sp-field-label>
+                    <sp-swatch id="role-swatch" color="rgb(255 0 0 / 0.7)" role="img" label="Tomato red swatch"></sp-swatch>
+                </div>
+            </div>
+
             <div id="variantLabel">sizes / disabled</div>
             <div class="demo-example" style="display: flex">
                 <div class="size-div">
@@ -366,6 +390,16 @@ governing permissions and limitations under the License.
                     <sp-swatch nothing></sp-swatch>
                     <sp-swatch disabled></sp-swatch>
                     <sp-swatch shape="rectangle" mixed-value></sp-swatch>
+                </sp-swatch-group>
+            </div>
+
+            <!-- group-level border/rounding/shape cascade to child swatches that don't set
+                 their own value -->
+            <div id="variantLabel">group-level border / rounding / shape</div>
+            <div class="demo-example" style="padding: 20px 20px">
+                <sp-swatch-group size="m" border="light" rounding="full" shape="rectangle">
+                    <sp-swatch color="var(--spectrum-blue-500)"></sp-swatch>
+                    <sp-swatch color="var(--spectrum-fuchsia-500)"></sp-swatch>
                 </sp-swatch-group>
             </div>
 

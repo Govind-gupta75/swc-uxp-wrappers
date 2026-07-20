@@ -43,6 +43,15 @@ governing permissions and limitations under the License.
                     <sp-icon-magnify slot="icon"></sp-icon-magnify>
                 </sp-action-button>
             </div>
+            <div id="variantLabel">static-color</div>
+            <div style="background: #1a1a1a; padding: 12px; display: flex; flex-direction: column;">
+                <p style="color: white; margin: 0 0 4px 0;">static-color="white"</p>
+                <sp-divider size="m" static-color="white"></sp-divider>
+            </div>
+            <div style="background: var(--spectrum-seafoam-600, #1b959a); padding: 12px; margin-top: 8px; display: flex; flex-direction: column;">
+                <p style="color: black; margin: 0 0 4px 0;">static-color="black"</p>
+                <sp-divider size="m" static-color="black"></sp-divider>
+            </div>
         </div>
         <input type="text" style="width: 2px" />
         <div id="right">
