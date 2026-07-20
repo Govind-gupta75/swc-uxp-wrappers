@@ -133,6 +133,12 @@ governing permissions and limitations under the License.
                     </button>
                     <button
                         class="tablinks"
+                        onclick="openTab(event, 'sp-action-menu')"
+                    >
+                        sp-action-menu
+                    </button>
+                    <button
+                        class="tablinks"
                         onclick="openTab(event, 'sp-alert-banner')"
                     >
                         sp-alert-banner
@@ -193,6 +199,12 @@ governing permissions and limitations under the License.
                     </button>
                     <button
                         class="tablinks"
+                        onclick="openTab(event, 'sp-coachmark')"
+                    >
+                        sp-coachmark
+                    </button>
+                    <button
+                        class="tablinks"
                         onclick="openTab(event, 'sp-combobox')"
                     >
                         sp-combobox
@@ -202,12 +214,6 @@ governing permissions and limitations under the License.
                         onclick="openTab(event, 'sp-contextual-help')"
                     >
                         sp-contextual-help
-                    </button>
-                    <button
-                        class="tablinks"
-                        onclick="openTab(event, 'sp-coachmark')"
-                    >
-                        sp-coachmark
                     </button>
                     <button
                         class="tablinks"
@@ -294,29 +300,11 @@ governing permissions and limitations under the License.
                         sp-number-field
                     </button>
                     <button
-                        class="tablinks"
-                        onclick="openTab(event, 'sp-progress-bar')"
-                    >
-                        sp-progress-bar
-                    </button>
-                    <button
-                        class="tablinks"
-                        onclick="openTab(event, 'sp-progress-circle')"
-                    >
-                        sp-progress-circle
-                    </button>
-                    <button
                         id="trigger-imperative"
                         class="tablinks"
                         onclick="openTab(event, 'sp-overlay')"
                     >
                         sp-overlay
-                    </button>
-                    <button
-                        class="tablinks"
-                        onclick="openTab(event, 'sp-action-menu')"
-                    >
-                        sp-action-menu
                     </button>
                     <button
                         class="tablinks"
@@ -335,6 +323,18 @@ governing permissions and limitations under the License.
                         onclick="openTab(event, 'sp-popover')"
                     >
                         sp-popover
+                    </button>
+                    <button
+                        class="tablinks"
+                        onclick="openTab(event, 'sp-progress-bar')"
+                    >
+                        sp-progress-bar
+                    </button>
+                    <button
+                        class="tablinks"
+                        onclick="openTab(event, 'sp-progress-circle')"
+                    >
+                        sp-progress-circle
                     </button>
                     <button
                         class="tablinks"
@@ -368,15 +368,15 @@ governing permissions and limitations under the License.
                     </button>
                     <button
                         class="tablinks"
-                        onclick="openTab(event, 'sp-switch')"
-                    >
-                        sp-switch
-                    </button>
-                    <button
-                        class="tablinks"
                         onclick="openTab(event, 'sp-swatch')"
                     >
                         sp-swatch
+                    </button>
+                    <button
+                        class="tablinks"
+                        onclick="openTab(event, 'sp-switch')"
+                    >
+                        sp-switch
                     </button>
                     <button
                         class="tablinks"
@@ -486,6 +486,10 @@ governing permissions and limitations under the License.
                 <!--#include sp-action-group.html -->
             </div>
 
+            <div id="sp-action-menu" class="tabcontent">
+                <!--#include sp-action-menu.html -->
+            </div>
+
             <div id="sp-alert-banner" class="tabcontent">
                 <!--#include sp-alert-banner.html -->
             </div>
@@ -499,10 +503,6 @@ governing permissions and limitations under the License.
 
             <div id="sp-avatar" class="tabcontent">
                 <!--#include sp-avatar.html -->
-            </div>
-
-            <div id="sp-badge" class="tabcontent">
-                <!--#include sp-badge.html -->
             </div>
 
             <div id="sp-badge" class="tabcontent">
@@ -529,16 +529,16 @@ governing permissions and limitations under the License.
                 <!--#include sp-checkbox.html -->
             </div>
 
+            <div id="sp-coachmark" class="tabcontent">
+                <!--#include sp-coachmark.html -->
+            </div>
+
             <div id="sp-combobox" class="tabcontent">
                 <!--#include sp-combobox.html -->
             </div>
 
             <div id="sp-contextual-help" class="tabcontent">
                 <!--#include sp-contextual-help.html -->
-            </div>
-
-            <div id="sp-coachmark" class="tabcontent">
-                <!--#include sp-coachmark.html -->
             </div>
 
             <div id="sp-dialog" class="tabcontent">
@@ -597,20 +597,8 @@ governing permissions and limitations under the License.
                 <!--#include sp-number-field.html -->
             </div>
 
-            <div id="sp-progress-bar" class="tabcontent">
-                <!--#include sp-progress-bar.html -->
-            </div>
-
-            <div id="sp-progress-circle" class="tabcontent">
-                <!--#include sp-progress-circle.html -->
-            </div>
-
             <div id="sp-overlay" class="tabcontent">
                 <!--#include sp-overlay.html -->
-            </div>
-
-            <div id="sp-action-menu" class="tabcontent">
-                <!--#include sp-action-menu.html -->
             </div>
 
             <div id="sp-picker" class="tabcontent">
@@ -623,6 +611,14 @@ governing permissions and limitations under the License.
 
             <div id="sp-popover" class="tabcontent">
                 <!--#include sp-popover.html -->
+            </div>
+
+            <div id="sp-progress-bar" class="tabcontent">
+                <!--#include sp-progress-bar.html -->
+            </div>
+
+            <div id="sp-progress-circle" class="tabcontent">
+                <!--#include sp-progress-circle.html -->
             </div>
 
             <div id="sp-radio" class="tabcontent">
@@ -645,12 +641,12 @@ governing permissions and limitations under the License.
                 <!--#include sp-slider.html -->
             </div>
 
-            <div id="sp-switch" class="tabcontent">
-                <!--#include sp-switch.html -->
-            </div>
-
             <div id="sp-swatch" class="tabcontent">
                 <!--#include sp-swatch.html -->
+            </div>
+
+            <div id="sp-switch" class="tabcontent">
+                <!--#include sp-switch.html -->
             </div>
 
             <div id="sp-table" class="tabcontent">
