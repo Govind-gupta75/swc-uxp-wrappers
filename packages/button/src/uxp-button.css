@@ -68,13 +68,7 @@ governing permissions and limitations under the License.
 }
 
 /* :is(:active,[active]) expansion — UXP :is() support is partial */
-:host(:active) {
-    color: var(--highcontrast-button-content-color-down, var(--mod-button-content-color-down, var(--spectrum-button-content-color-down)));
-    background-color: var(--highcontrast-button-background-color-down, var(--mod-button-background-color-down, var(--spectrum-button-background-color-down)));
-    border-color: var(--highcontrast-button-border-color-down, var(--mod-button-border-color-down, var(--spectrum-button-border-color-down)));
-    box-shadow: none;
-}
-
+:host(:active),
 :host([active]) {
     color: var(--highcontrast-button-content-color-down, var(--mod-button-content-color-down, var(--spectrum-button-content-color-down)));
     background-color: var(--highcontrast-button-background-color-down, var(--mod-button-background-color-down, var(--spectrum-button-background-color-down)));
