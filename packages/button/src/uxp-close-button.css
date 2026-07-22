@@ -41,4 +41,5 @@ governing permissions and limitations under the License.
 :host([static-color=white]:active:not([disabled])),
 :host([static-color=white][active]:not([disabled])) {
     background-color: var(--mod-closebutton-static-background-color-down, var(--spectrum-closebutton-static-background-color-down));
+    color: var(--highcontrast-closebutton-icon-color-default, var(--mod-closebutton-icon-color-default, var(--spectrum-closebutton-icon-color-default)));
 }
