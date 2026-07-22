@@ -99,8 +99,3 @@ governing permissions and limitations under the License.
 :host([emphasized]:hover) #input:checked + #box:before {
     border-color: var(--highcontrast-checkbox-highlight-color-hover, var(--mod-checkbox-emphasized-color-hover, var(--spectrum-checkbox-emphasized-color-hover)));
 }
-
-/* Logical property overrides removed — UXP handles logical properties
-   (max-inline-size, min-block-size, block-size, inline-size, margin-block-*,
-   margin-inline-*, inset-block, inset-inline) automatically via the logical
-   properties mapper (enableLogicalProperties). */
