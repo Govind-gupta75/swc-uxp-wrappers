@@ -11,12 +11,3 @@ governing permissions and limitations under the License.
 */
 
 /* write uxp style overrides */
-
-/* No UXP-specific overrides needed for v1.12.0.
-   Previously overridden (UXP-21328):
-   - .icon margin-right/margin-top/margin-bottom → replaced margin-inline-end /
-     padding-block-start / padding-block-end, which SWC v1.12.0 now uses directly.
-     These logical properties are translated automatically by UXP's
-     enableLogicalProperties mapper.
-   - .text padding-top/padding-bottom → same: padding-block-start / padding-block-end
-     are handled by the mapper. */
