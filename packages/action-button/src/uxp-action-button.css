@@ -53,21 +53,7 @@ governing permissions and limitations under the License.
 
 /* :is(:active,[active]) expansion — UXP :is() support is partial.
    SWC v1.12.0 uses :host(:is(:active,[active])) inside @media (hover:hover). */
-:host(:active) {
-    --mod-actionbutton-background-color-default: var(
-        --mod-actionbutton-background-color-down,
-        var(--spectrum-actionbutton-background-color-down)
-    );
-    --mod-actionbutton-border-color-default: var(
-        --mod-actionbutton-border-color-down,
-        var(--spectrum-actionbutton-border-color-down)
-    );
-    --mod-actionbutton-content-color-default: var(
-        --mod-actionbutton-content-color-down,
-        var(--spectrum-neutral-content-color-down)
-    );
-}
-
+:host(:active),
 :host([active]) {
     --mod-actionbutton-background-color-default: var(
         --mod-actionbutton-background-color-down,

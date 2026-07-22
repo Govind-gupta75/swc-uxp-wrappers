@@ -68,12 +68,7 @@ governing permissions and limitations under the License.
 }
 
 /* ─── UXP-2: active/pressed state (expands :is(:active,[active])) ─────── */
-#button:active {
-    --mod-actionbutton-background-color-default: var(--mod-actionbutton-background-color-down, var(--spectrum-actionbutton-background-color-down));
-    --mod-actionbutton-border-color-default: var(--mod-actionbutton-border-color-down, var(--spectrum-actionbutton-border-color-down));
-    --mod-actionbutton-content-color-default: var(--mod-actionbutton-content-color-down, var(--spectrum-neutral-content-color-down));
-}
-
+#button:active,
 #button[active] {
     --mod-actionbutton-background-color-default: var(--mod-actionbutton-background-color-down, var(--spectrum-actionbutton-background-color-down));
     --mod-actionbutton-border-color-default: var(--mod-actionbutton-border-color-down, var(--spectrum-actionbutton-border-color-down));
