@@ -11,7 +11,3 @@ governing permissions and limitations under the License.
 */
 
 /* write uxp style overrides */
-
-/* No UXP-specific overrides needed for v1.12.0.
-   block-size / inline-size on :host and :host([vertical]) are translated
-   automatically by UXP's enableLogicalProperties mapper. */
