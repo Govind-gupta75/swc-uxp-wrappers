@@ -1,0 +1,48 @@
+{
+    "name": "SWC Storybook",
+    "id": "swc-storybook",
+    "version": "1.0.0",
+    "main": "index.html",
+    "manifestVersion": 5,
+    "featureFlags": {
+        "enableSWCSupport": true,
+        "enableLogicalProperties": true,
+        "unhandledRejection": true,
+        "uncaughtException": true
+    },
+    "entrypoints": [
+        {
+            "type": "panel",
+            "id": "storybook-panel",
+            "minimumSize": {
+                "width": 320,
+                "height": 240
+            },
+            "maximumSize": {
+                "width": 2000,
+                "height": 2000
+            },
+            "preferredDockedSize": {
+                "width": 400,
+                "height": 600
+            },
+            "preferredFloatingSize": {
+                "width": 480,
+                "height": 720
+            },
+            "label": {
+                "default": "SWC Storybook"
+            }
+        }
+    ],
+    "host": [
+        {
+            "app": "PS",
+            "minVersion": "1.0.0"
+        },
+        {
+            "app": "UXPS",
+            "minVersion": "1.0.0"
+        }
+    ]
+}

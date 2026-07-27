@@ -1,0 +1,404 @@
+@import '@spectrum-web-components/styles/all-medium-light.css';
+
+body {
+    font-family: adobe-clean, 'Source Sans Pro', Arial, sans-serif;
+    margin: 0;
+    max-height: 100vh;
+    background: var(--spectrum-gray-50);
+    color: var(--spectrum-gray-800);
+}
+
+.docs-chrome {
+    background: var(--spectrum-gray-50);
+}
+
+#global {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.control-bar {
+    flex: 0 0 200px;
+    padding: 20px 16px;
+    border-right: 1px solid var(--spectrum-gray-200);
+}
+
+.theme-control-title {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 12px;
+    color: var(--spectrum-gray-600);
+}
+
+.theme-control-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.theme-control-label {
+    font-size: 11px;
+    margin-bottom: 4px;
+    color: var(--spectrum-gray-600);
+}
+
+.theme-control-field select {
+    width: 100%;
+}
+
+.tab {
+    flex: 0 0 180px;
+    padding: 16px 12px;
+    border-right: 1px solid var(--spectrum-gray-200);
+    overflow-y: auto;
+}
+
+.tab button {
+    display: block;
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 4px;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--spectrum-gray-800);
+    text-align: left;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.tab button:hover {
+    background: var(--spectrum-gray-200);
+}
+
+.tab button.active {
+    background: var(--spectrum-gray-300);
+    font-weight: 600;
+}
+
+#component-tab-panels {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 20px 24px 220px;
+}
+
+.tabcontent {
+    min-height: 100%;
+}
+
+.comp-header {
+    margin-bottom: 20px;
+}
+
+.comp-title-row {
+    display: flex;
+    align-items: baseline;
+}
+
+/* This UXP renderer doesn't apply flexbox `gap` (items sit flush with zero
+   space) — use adjacent-sibling margins instead everywhere gap was used. */
+.comp-title-row > * + * {
+    margin-left: 10px;
+}
+
+.comp-title {
+    font-size: 22px;
+    margin: 0;
+}
+
+.comp-tag-pill {
+    font-family: monospace;
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: var(--spectrum-gray-200);
+    color: var(--spectrum-gray-700);
+}
+
+.comp-meta {
+    font-size: 12px;
+    color: var(--spectrum-gray-600);
+    margin-top: 4px;
+}
+
+.matrix-block {
+    margin-bottom: 24px;
+}
+
+.matrix-block-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.matrix-block-desc {
+    font-size: 12px;
+    color: var(--spectrum-gray-600);
+    margin-left: 8px;
+}
+
+.matrix-grid {
+    display: flex;
+    flex-direction: column;
+    margin-top: 12px;
+    border: 1px solid var(--spectrum-gray-300);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.matrix-grid-row {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid var(--spectrum-gray-200);
+}
+
+.matrix-grid-row:last-child {
+    border-bottom: none;
+}
+
+.matrix-grid-header {
+    background: var(--spectrum-gray-100);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--spectrum-gray-700);
+}
+
+.matrix-grid-cell {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid var(--spectrum-gray-200);
+}
+
+.matrix-grid-cell:first-child {
+    border-left: none;
+}
+
+.matrix-axis-cell {
+    flex: 0 0 140px;
+    justify-content: flex-start;
+    background: var(--spectrum-gray-75);
+    font-weight: 600;
+}
+
+.live-controls {
+    background: var(--spectrum-gray-75);
+    border-radius: 8px;
+    padding: 16px 20px;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.live-controls-title {
+    font-size: 14px;
+    font-weight: 700;
+    flex-basis: 100%;
+    margin-bottom: 12px;
+}
+
+/* Fixed 48% basis (not gap, which this UXP renderer's flexbox doesn't apply —
+   items end up flush with zero space) packs exactly two groups per row, with
+   justify-content: space-between opening a visual gutter between them. shrink:0
+   keeps the box a strict 48% regardless of content, so a wide pill-row clips /
+   scrolls internally instead of bleeding into the next column. */
+.control-group {
+    flex: 0 0 48%;
+    min-width: 0;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+/* Toggles usually has the most pills of any group — give it the full row
+   width so it needs the fewest wrapped sub-rows (fewer wraps = shorter page =
+   less chance of the page-level scroll we're trying to eliminate). */
+.control-group-wide {
+    flex-basis: 100%;
+}
+
+/* "Events" label/text and the Clear button are appended directly to
+   .live-controls (not wrapped in a .control-group) — force them onto their
+   own full-width row instead of packing into the control-group grid above. */
+.live-controls > .control-group-label,
+.live-controls > .live-controls-events,
+.live-controls > .clear-btn {
+    flex-basis: 100%;
+}
+
+.control-group-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--spectrum-gray-600);
+    margin-bottom: 6px;
+}
+
+/* Wrap onto sub-rows within the group's own box instead of scrolling — no
+   scroll is allowed anywhere in the controls section. Item margins (rather
+   than `> * + *`) plus a matching negative margin on the row keep spacing
+   even on both axes once pills wrap onto more than one line. */
+.pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -4px;
+}
+
+.pill-row > * {
+    margin: 4px;
+}
+
+.pill {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    padding: 5px 10px;
+    font-size: 12px;
+    border: 1px solid var(--spectrum-gray-300);
+    border-radius: 4px;
+    background: var(--spectrum-gray-75);
+    color: var(--spectrum-gray-800);
+    cursor: pointer;
+    white-space: nowrap;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.pill > * + * {
+    margin-left: 6px;
+}
+
+.pill-active {
+    border-color: var(--spectrum-gray-700);
+    background: var(--spectrum-gray-200);
+    color: var(--spectrum-gray-900);
+    font-weight: 600;
+}
+
+.pill-badge {
+    font-size: 9px;
+    font-weight: 700;
+    padding: 2px 5px;
+    border-radius: 3px;
+    background: var(--spectrum-gray-300);
+    color: var(--spectrum-gray-900);
+}
+
+.control-group input[type='text'] {
+    width: 100%;
+    max-width: 320px;
+    box-sizing: border-box;
+}
+
+.control-group-hint {
+    font-size: 11px;
+    color: var(--spectrum-gray-600);
+    margin-top: 4px;
+    max-width: 320px;
+}
+
+.live-controls-events {
+    font-size: 12px;
+    color: var(--spectrum-gray-700);
+    margin-bottom: 14px;
+}
+
+.clear-btn {
+    padding: 6px 14px;
+    font-size: 12px;
+    border: 1px solid var(--spectrum-gray-400);
+    border-radius: 6px;
+    background: var(--spectrum-gray-75);
+    color: var(--spectrum-gray-800);
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+#event-console {
+    position: fixed;
+    left: 380px;
+    right: 0;
+    bottom: 0;
+    height: 200px;
+    display: flex;
+    border-top: 1px solid var(--spectrum-gray-300);
+    background: var(--spectrum-gray-50);
+    z-index: 2;
+}
+
+#console-panel {
+    flex: 0 0 280px;
+    padding: 12px 16px;
+    border-right: 1px solid var(--spectrum-gray-300);
+}
+
+.event-filters {
+    display: flex;
+    flex-direction: column;
+    margin-top: 12px;
+}
+
+.event-filters > * + * {
+    margin-top: 4px;
+}
+
+.filter {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+}
+
+.filter > * + * {
+    margin-left: 6px;
+}
+
+.console-output {
+    flex: 1 1 auto;
+    padding: 12px 16px;
+    overflow-y: auto;
+    background: var(--spectrum-gray-75);
+    color: var(--spectrum-gray-800);
+    font-family: monospace;
+    font-size: 11px;
+}
+
+.log-line {
+    margin-bottom: 4px;
+}
+
+.action-group {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.action-group > * + * {
+    margin-left: 8px;
+}
+
+.console-btn {
+    padding: 6px 14px;
+    font-size: 12px;
+    border: 1px solid var(--spectrum-gray-400);
+    border-radius: 6px;
+    background: var(--spectrum-gray-75);
+    color: var(--spectrum-gray-800);
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.console-btn.active {
+    border-color: var(--spectrum-gray-700);
+    background: var(--spectrum-gray-200);
+    font-weight: 600;
+}

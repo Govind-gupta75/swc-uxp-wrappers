@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 1024px">
+    <head>
+        <meta charset="utf-8" />
+        <title>SWC Storybook</title>
+        <link rel="stylesheet" type="text/css" href="main.bundle.css" />
+    </head>
+    <body>
+        <script defer src="main.bundle.js"></script>
+
+        <sp-theme
+            id="theme-block"
+            system="spectrum-two"
+            color="light"
+            scale="medium"
+            dir="ltr"
+        >
+            <div id="global" class="docs-chrome">
+                <div class="control-bar">
+                    <div class="theme-control-panel">
+                        <div class="theme-control-title">Theme</div>
+                        <div id="theme-control">
+                            <label class="theme-control-field">
+                                <span class="theme-control-label">System</span>
+                                <select name="system" id="system-select">
+                                    <option value="spectrum">Spectrum</option>
+                                    <option value="spectrum-two" selected>
+                                        Spectrum Two
+                                    </option>
+                                </select>
+                            </label>
+                            <label class="theme-control-field">
+                                <span class="theme-control-label">Color</span>
+                                <select name="color" id="color-select"></select>
+                            </label>
+                            <label class="theme-control-field">
+                                <span class="theme-control-label">Scale</span>
+                                <select name="scale" id="scale-select"></select>
+                            </label>
+                        </div>
+                    </div>
+                    <sp-divider size="s"></sp-divider>
+                </div>
+
+                <div class="tab" id="component-tabs"></div>
+
+                <div id="component-tab-panels" class="docs-chrome"></div>
+            </div>
+
+            <div id="event-console" class="docs-chrome">
+                <div id="console-panel">
+                    <div class="action-group">
+                        <button type="button" class="console-btn" id="toggle-console">
+                            Enable event logging
+                        </button>
+                        <button type="button" class="console-btn" id="clear-console">
+                            Clear console
+                        </button>
+                    </div>
+                    <div class="event-filters" id="event-filters"></div>
+                </div>
+                <div id="console" class="console-output">
+                    <div id="logs"></div>
+                </div>
+            </div>
+        </sp-theme>
+    </body>
+</html>
