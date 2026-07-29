@@ -45,6 +45,7 @@
         "@swc-uxp-wrappers/tags": "*",
         "@swc-uxp-wrappers/thumbnail": "*",
         "@swc-uxp-wrappers/help-text": "*",
+        "@swc-uxp-wrappers/icon": "*",
         "@swc-uxp-wrappers/picker-button": "*",
         "@swc-uxp-wrappers/dialog": "*",
         "@swc-uxp-wrappers/field-group": "*",
