@@ -1,0 +1,58 @@
+{
+    "name": "@swc-uxp-wrappers/icon",
+    "version": "3.0.0",
+    "publishConfig": {
+        "access": "public"
+    },
+    "description": "UXP wrapper of the @spectrum-web-components/icon component",
+    "license": "Apache-2.0",
+    "repository": {
+        "type": "git",
+        "url": "https://git.corp.adobe.com/torq/swc-uxp-wrappers.git",
+        "directory": "packages/icon"
+    },
+    "author": "Adobe Inc",
+    "main": "src/index.js",
+    "module": "src/index.js",
+    "type": "module",
+    "exports": {
+        ".": "./src/index.js",
+        "./package.json": "./package.json",
+        "./src/Icon.js": "./src/Icon.js",
+        "./src/IconBase.js": "./src/IconBase.js",
+        "./src/uxp-icon.css.js": "./src/uxp-icon.css.js",
+        "./sp-icon.js": "./sp-icon.js",
+        "./src/icon-arrow-overrides.css.js": "./src/icon-arrow-overrides.css.js",
+        "./src/icon-asterisk-overrides.css.js": "./src/icon-asterisk-overrides.css.js",
+        "./src/icon-checkmark-overrides.css.js": "./src/icon-checkmark-overrides.css.js",
+        "./src/icon-chevron-overrides.css.js": "./src/icon-chevron-overrides.css.js",
+        "./src/icon-corner-triangle-overrides.css.js": "./src/icon-corner-triangle-overrides.css.js",
+        "./src/icon-cross-overrides.css.js": "./src/icon-cross-overrides.css.js",
+        "./src/icon-dash-overrides.css.js": "./src/icon-dash-overrides.css.js",
+        "./src/icon-overrides.css.js": "./src/icon-overrides.css.js",
+        "./src/icon-single-gripper-overrides.css.js": "./src/icon-single-gripper-overrides.css.js",
+        "./src/icon-triple-gripper-overrides.css.js": "./src/icon-triple-gripper-overrides.css.js",
+        "./src/icon.css.js": "./src/icon.css.js",
+        "./src/spectrum-icon-arrow.css.js": "./src/spectrum-icon-arrow.css.js",
+        "./src/spectrum-icon-asterisk.css.js": "./src/spectrum-icon-asterisk.css.js",
+        "./src/spectrum-icon-checkmark.css.js": "./src/spectrum-icon-checkmark.css.js",
+        "./src/spectrum-icon-chevron.css.js": "./src/spectrum-icon-chevron.css.js",
+        "./src/spectrum-icon-corner-triangle.css.js": "./src/spectrum-icon-corner-triangle.css.js",
+        "./src/spectrum-icon-cross.css.js": "./src/spectrum-icon-cross.css.js",
+        "./src/spectrum-icon-dash.css.js": "./src/spectrum-icon-dash.css.js",
+        "./src/spectrum-icon-double-gripper.css.js": "./src/spectrum-icon-double-gripper.css.js",
+        "./src/spectrum-icon-single-gripper.css.js": "./src/spectrum-icon-single-gripper.css.js",
+        "./src/spectrum-icon-triple-gripper.css.js": "./src/spectrum-icon-triple-gripper.css.js"
+    },
+    "dependencies": {
+        "@swc-uxp-internal/icon": "npm:@spectrum-web-components/icon@1.12.1"
+    },
+    "files": [
+        "**/*.js"
+    ],
+    "keywords": [
+        "UXP",
+        "Spectrum Web Components",
+        "@spectrum-web-components/icon"
+    ]
+}
