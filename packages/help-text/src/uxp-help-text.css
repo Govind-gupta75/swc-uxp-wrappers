@@ -12,11 +12,31 @@ governing permissions and limitations under the License.
 
 /* write uxp style overrides */
 
-/* No UXP-specific overrides needed for v1.12.0.
-   Previously overridden (UXP-21328):
-   - .icon margin-right/margin-top/margin-bottom → replaced margin-inline-end /
-     padding-block-start / padding-block-end, which SWC v1.12.0 now uses directly.
-     These logical properties are translated automatically by UXP's
-     enableLogicalProperties mapper.
-   - .text padding-top/padding-bottom → same: padding-block-start / padding-block-end
-     are handled by the mapper. */
+/* Upstream :host sets display:flex with no align-items, so the icon (fixed cross-axis size,
+   flex-shrink:0) aligns to flex-start (top) instead of centering against .text. */
+:host {
+    align-items: center;
+}
+
+/* sp-icon-alert sizes ITSELF via its own shadow-root :host CSS (inline-size/block-size driven
+   by the inherited --spectrum-icon-size custom property). Setting width/height (or inline-
+   size/block-size) on `.icon` from help-text's shadow root tries to size that descendant
+   custom element's own box from outside its shadow root, which does not resolve in UXP (same
+   class of bug as sp-button's :host sizing) — custom properties, unlike standard box
+   properties, do inherit reliably across the shadow boundary in UXP (uxp-button.css relies on
+   this too, for its slotted icon). Override --spectrum-icon-size instead so sp-icon-alert
+   computes its own size internally.
+
+   Upstream .icon also sets padding-block-start/end on sp-icon-alert — same externally-set
+   box-model problem: it renders inconsistently on top of uxp-icon.css's fix (which sizes the
+   icon's content to exactly fill --spectrum-icon-size, leaving no room for extra padding in
+   the same box), shrinking/shifting the visible icon within its own border. Zero it, logical
+   and physical both, per the logical-mapper post-cascade behavior (a physical-only override
+   can be re-overridden by a surviving logical value). */
+.icon {
+    --spectrum-icon-size: var(--mod-helptext-icon-size, var(--spectrum-helptext-icon-size));
+    padding-block-start: 0;
+    padding-block-end: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
