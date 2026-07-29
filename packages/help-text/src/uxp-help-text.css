@@ -12,11 +12,21 @@ governing permissions and limitations under the License.
 
 /* write uxp style overrides */
 
-/* No UXP-specific overrides needed for v1.12.0.
-   Previously overridden (UXP-21328):
-   - .icon margin-right/margin-top/margin-bottom → replaced margin-inline-end /
-     padding-block-start / padding-block-end, which SWC v1.12.0 now uses directly.
-     These logical properties are translated automatically by UXP's
-     enableLogicalProperties mapper.
-   - .text padding-top/padding-bottom → same: padding-block-start / padding-block-end
-     are handled by the mapper. */
+/* Upstream :host sets display:flex with no align-items, so the icon aligns to flex-start
+   (top) instead of centering against .text. */
+:host {
+    align-items: center;
+}
+
+/* sp-icon-alert sizes itself from the inherited --spectrum-icon-size custom property (see
+   packages/icon) — set it here rather than width/height on .icon directly, which does not
+   resolve across the shadow boundary in UXP. Also zero .icon's padding-block-start/end
+   (logical + physical): upstream sets it, but it applies inconsistently on top of the icon's
+   own exact content sizing and shrinks/shifts the rendered icon within its border. */
+.icon {
+    --spectrum-icon-size: var(--mod-helptext-icon-size, var(--spectrum-helptext-icon-size));
+    padding-block-start: 0;
+    padding-block-end: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
