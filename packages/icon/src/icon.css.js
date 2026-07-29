@@ -10,7 +10,13 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-// Pass-through: this file is not customized by the UXP wrapper. Re-export the vendored
-// original so consumers that import it via the aliased '@spectrum-web-components/icon'
-// specifier keep working unchanged.
-export { default } from '@swc-uxp-internal/icon/src/icon.css.js';
+import { unsafeCSS } from '@spectrum-web-components/base';
+import swcIconStyles from '@swc-uxp-internal/icon/src/icon.css.js';
+
+import uxpIconStyles from './uxp-icon.css.js';
+
+const combinedIconStyles = unsafeCSS(
+    swcIconStyles.toString() + '\n' + uxpIconStyles.toString()
+);
+
+export default combinedIconStyles;
