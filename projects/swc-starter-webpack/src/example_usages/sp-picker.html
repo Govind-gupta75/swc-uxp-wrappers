@@ -10,6 +10,13 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 -->
 
+<!-- UXP: gap in flex containers is unreliable (UXP-21294); use margin instead -->
+<style>
+    .picker-side-label-row > *:not(:last-child) {
+        margin-right: 8px;
+    }
+</style>
+
 <h3>sp-picker</h3>
 
 <div id="picker-demo-wrap" style="display: flex; flex-direction: column;">
@@ -274,7 +281,7 @@ governing permissions and limitations under the License.
         <code>side-aligned="start"</code> on <code>sp-field-label</code> places the label
         to the left of the picker instead of above it.
     </p>
-    <div style="display: flex; align-items: center; gap: 8px; padding-bottom: 32px;">
+    <div class="picker-side-label-row" style="display: flex; align-items: center; padding-bottom: 32px;">
         <sp-field-label side-aligned="start" for="picker-side-label" size="m">
             Favorite fruit?
         </sp-field-label>
@@ -295,7 +302,7 @@ governing permissions and limitations under the License.
         <code>slot="label"</code> instead of as an external sibling with <code>for=</code>.
         Visual output is identical — the difference is DOM structure.
     </p>
-    <div style="display: flex; align-items: flex-start; gap: 40px; padding-bottom: 32px;">
+    <div style="display: flex; align-items: flex-start; padding-bottom: 32px;">
         <div style="display: flex; flex-direction: column;">
             <span style="font-size: var(--spectrum-font-size-75, 12px); color: gray; margin-bottom: 4px;">External (sp-field-label for=)</span>
             <sp-field-label for="picker-label-ext">Favorite fruit?</sp-field-label>
@@ -327,7 +334,7 @@ governing permissions and limitations under the License.
     <p style="margin: 4px 0 8px; font-size: var(--spectrum-font-size-75, 12px); color: gray;">
         Hover over the picker to see the tooltip.
     </p>
-    <div style="display: flex; align-items: flex-end; gap: 24px; padding-bottom: 32px;">
+    <div style="display: flex; align-items: flex-end; padding-bottom: 32px;">
         <div style="display: flex; flex-direction: column;">
             <sp-field-label for="picker-tooltip">Font size</sp-field-label>
             <sp-picker id="picker-tooltip" label="Select size">

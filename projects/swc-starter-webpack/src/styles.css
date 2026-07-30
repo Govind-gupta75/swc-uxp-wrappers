@@ -168,6 +168,27 @@ p {
     margin: 8px;
 }
 
+/* sp-button-group's own :host CSS sets `gap` (ignored by UXP, honored by a
+   browser preview) alongside a margin-based fallback for the same spacing —
+   so a browser preview double-applies both, while UXP only applies the
+   margin. This is a demo-only fix so the browser preview matches UXP,
+   without adding a `gap` reference inside the wrapper package itself. A
+   plain `sp-button-group { gap: 0 }` selector here can't win: :host has
+   pseudo-class specificity (0,1,0), higher than this page-level type
+   selector's (0,0,1), regardless of source order — !important is required
+   to override it from outside the component's own shadow DOM. */
+sp-button-group {
+    gap: 0 !important;
+}
+
+/* Same double-application, this time for sp-button's own icon-to-label
+   spacing: button.css sets `gap: var(--spectrum-button-padding-label-to-icon)`
+   on :host, and uxp-button.css adds the equivalent margin-inline-start on
+   #label as the UXP-compatible replacement. */
+sp-button {
+    gap: 0 !important;
+}
+
 #theme-control {
     display: flex;
     flex-direction: column;

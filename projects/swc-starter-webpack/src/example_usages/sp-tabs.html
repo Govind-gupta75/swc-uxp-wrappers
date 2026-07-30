@@ -10,6 +10,17 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 -->
 
+<!-- UXP: gap in flex containers is unreliable (UXP-21294); use margin instead -->
+<style>
+    .tabs-sizes-row {
+        display: flex;
+        flex-direction: column;
+    }
+    .tabs-sizes-row > * {
+        margin-bottom: 16px;
+    }
+</style>
+
 <h3>sp-tabs</h3>
 
 <div id="content">
@@ -90,7 +101,7 @@ governing permissions and limitations under the License.
             </div>
 
             <div id="variantLabel">sizes</div>
-            <div class="demo-example" style="display: flex; gap: 16px; flex-direction: column">
+            <div class="demo-example tabs-sizes-row">
                 <div>
                     <sp-field-label>Small (s)</sp-field-label>
                     <sp-tabs selected="1" size="s">
