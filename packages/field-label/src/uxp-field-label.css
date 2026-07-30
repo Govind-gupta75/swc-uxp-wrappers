@@ -20,15 +20,13 @@ governing permissions and limitations under the License.
     justify-content: flex-end;
 }
 
-/* Previously overridden:
-   - :host([side-aligned]) margin-top/margin-right (UXP-20846 side-padding-top/right)
-     → tokens renamed to --spectrum-field-label-side-margin-block-start /
-       --spectrum-field-label-side-padding-right in v1.12.0; margin-block-start and
-       margin-inline-end are now handled by UXP's enableLogicalProperties mapper.
-   - .required-icon margin-left (UXP-21327 asterisk-gap)
-     → token renamed to --spectrum-field-label-text-to-asterisk; margin-inline is
-       now handled by the mapper.
-   - :host min-height / padding (UXP-21381)
-     → tokens renamed to --spectrum-field-label-min-height / --spectrum-field-label-top-to-text
-       / --spectrum-field-label-bottom-to-text; min-block-size and padding-block are
-       now handled by the mapper. */
+/* Workaround: upstream sets spacing between the label text and the
+   required asterisk via the margin-inline shorthand on .required-icon,
+   which UXP does not reliably honor. Add an explicit physical margin-left
+   fallback. */
+.required-icon {
+    margin-left: var(
+        --mod-field-label-text-to-asterisk,
+        var(--spectrum-field-label-text-to-asterisk)
+    );
+}
