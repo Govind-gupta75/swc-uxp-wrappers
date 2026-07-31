@@ -1,4 +1,4 @@
-<!-- 
+<!--
 Copyright 2023 Adobe. All rights reserved.
 This file is licensed to you under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License. You may obtain a copy
@@ -7,7 +7,7 @@ of the License at http://www.apache.org/licenses/LICENSE-2.0
 Unless required by applicable law or agreed to in writing, software distributed under
 the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
 OF ANY KIND, either express or implied. See the License for the specific language
-governing permissions and limitations under the License. 
+governing permissions and limitations under the License.
 -->
 
 <h3>sp-link</h3>
@@ -16,35 +16,35 @@ governing permissions and limitations under the License.
     <div id="playground">
         <div id="left">
             <div id="subtitle">sp-link</div>
-            <p>
+            <div>
                 This is a
                 <sp-link id="lifestory-1" href="https://www.adobe.com">
                     primary link
                 </sp-link>
                 .
-            </p>
-            <p>
+            </div>
+            <div>
                 This is a
                 <sp-link href="#" variant="secondary">secondary link</sp-link>
                 .
-            </p>
-            <p>
+            </div>
+            <div>
                 This is a
                 <sp-link quiet href="#">quiet primary link</sp-link>
                 .
-            </p>
-            <p>
+            </div>
+            <div>
                 This is a
                 <sp-link quiet variant="secondary" href="#">
                     quiet secondary link
                 </sp-link>
                 .
-            </p>
-            <p>
+            </div>
+            <div>
                 This is a
                 <sp-link disabled href="#">disabled link</sp-link>
                 .
-            </p>
+            </div>
             <div
                 style="
                     background-color: var(--spectrum-gray-800);
@@ -52,13 +52,13 @@ governing permissions and limitations under the License.
                     display: inline-block;
                 "
             >
-                <p style="color: var(--spectrum-gray-50)">
+                <div style="color: var(--spectrum-gray-50)">
                     This is a
                     <sp-link static-color="white" quiet href="#">
                         quiet static white link
                     </sp-link>
                     over a background.
-                </p>
+                </div>
             </div>
             <div
                 style="
@@ -68,11 +68,11 @@ governing permissions and limitations under the License.
                     margin-top: 8px;
                 "
             >
-                <p style="color: var(--spectrum-gray-50)">
+                <div style="color: var(--spectrum-gray-50)">
                     This
                     <sp-link static-color="white" href="#">link</sp-link>
                     is over a background.
-                </p>
+                </div>
             </div>
             <div
                 style="
@@ -82,15 +82,15 @@ governing permissions and limitations under the License.
                     margin-top: 8px;
                 "
             >
-                <p>
+                <div>
                     This is a
                     <sp-link static-color="black" href="#">
                         static black link
                     </sp-link>
                     over a colored background.
-                </p>
+                </div>
             </div>
-            <p>
+            <div>
                 This link
                 <sp-link
                     href="https://www.adobe.com"
@@ -98,16 +98,16 @@ governing permissions and limitations under the License.
                     rel="noopener"
                 >opens in a new tab</sp-link>
                 (target / rel from the LikeAnchor mixin).
-            </p>
-            <p>
+            </div>
+            <div>
                 This
                 <sp-link href="https://www.adobe.com" download="link-target">
                     link triggers a download
                 </sp-link>
                 (download attribute from the LikeAnchor mixin).
-            </p>
+            </div>
         </div>
-        
+
         <div id="right">
             <div id="subtitle">my-link</div>
             This is a
