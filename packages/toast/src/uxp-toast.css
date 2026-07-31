@@ -12,6 +12,17 @@ governing permissions and limitations under the License.
 
 /* write uxp style overrides */
 
+/* Workaround for UXP-21230: upstream sets pointer-events:none on :host by
+   default and only flips it to auto via :host([open]) — this toggle does not
+   reliably resolve in UXP, leaving the host (and every shadow/slotted button
+   descendant, including the close button and any slot="action" button)
+   permanently non-interactive/non-hoverable. Force pointer-events auto
+   unconditionally; this is safe because visibility:hidden on the closed
+   state already prevents interaction regardless of pointer-events. */
+:host {
+    pointer-events: auto;
+}
+
 /* Workarounds for - https://jira.corp.adobe.com/browse/UXP-21295 */
 :host {
     --uxp-swc-toast-button-border-left-width: 1px;
