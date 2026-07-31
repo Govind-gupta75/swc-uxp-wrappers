@@ -12,6 +12,23 @@ governing permissions and limitations under the License.
 
 /* write uxp style overrides */
 
+/* Workaround: SWC 1.12.x made #label's white-space:nowrap opt-in via the new
+   no-wrap attribute (default off), so a button's label is now wrappable by
+   default — regardless of flex/shrink context, once the button's rendered
+   width drops below the label's natural width for any reason (container
+   narrowing, sibling layout, panel resize), the label wraps to a second line.
+   Fix in two parts: min-width:max-content on :host is a hard floor enforced
+   by box layout itself (works in any container — flex, block, grid — unlike
+   flex-shrink, which only helps when the button is a direct flex item), so
+   the button never renders narrower than its own unwrapped content needs.
+   white-space:nowrap on #label is a defense-in-depth line-break guard should
+   something else ever force the box narrower anyway; since min-width should
+   prevent that from happening, overflow/ellipsis truncation is intentionally
+   omitted — the goal is full label text always visible, not a clipped label. */
+:host {
+    min-width: max-content;
+}
+
 #label {
     margin: auto;
     /* spectrum-button.css sets align-self:start in v1.12.0; UXP ignores place-self so override explicitly */
