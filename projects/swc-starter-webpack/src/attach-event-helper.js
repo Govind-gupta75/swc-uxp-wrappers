@@ -88,6 +88,16 @@ function attachEvents(tabName) {
         eval(eventListener1);
     }
 
+    if (tabName === 'sp-action-menu') {
+        const actionMenu = document.getElementById('action-menu-single-select');
+        const selectionValue = document.getElementById('selection-value');
+        if (actionMenu && selectionValue) {
+            actionMenu.addEventListener('change', function (e) {
+                selectionValue.textContent = e.target.value;
+            });
+        }
+    }
+
     if (tabName === 'sp-table') {
         const sortHandler = `
             const sortableTable = document.getElementById('sortable-table');

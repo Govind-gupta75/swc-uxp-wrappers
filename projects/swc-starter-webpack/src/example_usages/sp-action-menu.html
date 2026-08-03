@@ -268,8 +268,8 @@ governing permissions and limitations under the License.
         <div style="display: flex; flex-direction: column; align-items: flex-start;">
             <sp-field-label>Selected: <span id="selection-value">(none)</span></sp-field-label>
             <sp-action-menu
+                id="action-menu-single-select"
                 selects="single"
-                onchange="document.getElementById('selection-value').textContent = this.value"
             >
                 <span slot="label">Available shapes</span>
                 <sp-menu-item value="shape-1-square">Square</sp-menu-item>
