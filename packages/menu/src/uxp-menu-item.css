@@ -139,3 +139,5 @@ governing permissions and limitations under the License.
     color: var(--highcontrast-menu-item-color-focus, var(--mod-menu-drillin-icon-color-down, var(--spectrum-menu-drillin-icon-color-down)));
     fill: var(--highcontrast-menu-item-color-focus, var(--mod-menu-drillin-icon-color-down, var(--spectrum-menu-drillin-icon-color-down)));
 }
+
+.spectrum-Menu-back.focus-visible{border-radius:var(--spectrum-menu-item-corner-radius);box-shadow:var(--spectrum-menu-item-focus-indicator-shadow)var(--spectrum-menu-item-focus-indicator-border-width)0 0 0 var(--spectrum-menu-item-focus-indicator-color-default);outline:var(--spectrum-menu-item-focus-indicator-width)var(--spectrum-menu-item-focus-indicator-outline-style)var(--spectrum-menu-item-focus-indicator-color-default);outline-offset:var(--spectrum-menu-item-focus-indicator-offset)}.spectrum-Menu-backButton.focus-visible{outline:var(--spectrum-focus-indicator-thickness)solid var(--spectrum-focus-indicator-color);outline-offset:calc((var(--spectrum-focus-indicator-thickness) + 1px)*-1)}:host([focused]:not(.focus-visible)){box-shadow:none;outline:none}

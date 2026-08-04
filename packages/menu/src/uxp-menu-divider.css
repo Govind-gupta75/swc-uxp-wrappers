@@ -22,3 +22,5 @@ governing permissions and limitations under the License.
     );
     margin-block: var(--uxp-swc-menu-divider-margin-block);
 }
+
+.spectrum-Menu-back.focus-visible{border-radius:var(--spectrum-menu-item-corner-radius);box-shadow:var(--spectrum-menu-item-focus-indicator-shadow)var(--spectrum-menu-item-focus-indicator-border-width)0 0 0 var(--spectrum-menu-item-focus-indicator-color-default);outline:var(--spectrum-menu-item-focus-indicator-width)var(--spectrum-menu-item-focus-indicator-outline-style)var(--spectrum-menu-item-focus-indicator-color-default);outline-offset:var(--spectrum-menu-item-focus-indicator-offset)}.spectrum-Menu-backButton.focus-visible{outline:var(--spectrum-focus-indicator-thickness)solid var(--spectrum-focus-indicator-color);outline-offset:calc((var(--spectrum-focus-indicator-thickness) + 1px)*-1)}
