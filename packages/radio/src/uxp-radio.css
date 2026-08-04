@@ -33,3 +33,9 @@ governing permissions and limitations under the License.
 :host([emphasized][checked]:hover) #input + #button:before {
     border-color: var(--highcontrast-radio-emphasized-accent-color-hover, var(--mod-radio-emphasized-accent-color-hover, var(--spectrum-radio-emphasized-accent-color-hover)));
 }
+
+:host(.focus-visible) #button:before{border-color:var(--highcontrast-radio-button-border-color-focus,var(--mod-radio-button-border-color-focus,var(--spectrum-radio-button-border-color-focus)))}
+:host(.focus-visible) #button:after{inline-size:calc(var(--spectrum-radio-button-control-size) + var(--spectrum-radio-focus-indicator-gap)*2);block-size:calc(var(--spectrum-radio-button-control-size) + var(--spectrum-radio-focus-indicator-gap)*2);border-color:var(--highcontrast-radio-focus-indicator-color,var(--mod-radio-focus-indicator-color,var(--spectrum-radio-focus-indicator-color)));border-style:solid;border-width:var(--mod-radio-focus-indicator-thickness,var(--spectrum-radio-focus-indicator-thickness))}
+:host(.focus-visible[checked]) #input+#button:before{border-color:var(--highcontrast-radio-button-checked-border-color-focus,var(--mod-radio-button-checked-border-color-focus,var(--spectrum-radio-button-checked-border-color-focus)))}
+:host(.focus-visible) #label{color:var(--highcontrast-radio-neutral-content-color-focus,var(--mod-radio-neutral-content-color-focus,var(--spectrum-radio-neutral-content-color-focus)))}
+:host([emphasized].focus-visible[checked]) #input+#button:before{border-color:var(--highcontrast-radio-emphasized-accent-color-focus,var(--mod-radio-emphasized-accent-color-focus,var(--spectrum-radio-emphasized-accent-color-focus)))}

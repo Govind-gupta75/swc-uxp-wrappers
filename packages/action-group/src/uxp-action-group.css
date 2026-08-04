@@ -131,3 +131,6 @@ governing permissions and limitations under the License.
         var(--spectrum-actiongroup-horizontal-spacing-compact)
     );
 }
+
+::slotted(.focus-visible){z-index:3}
+:host([compact]:not([quiet])) ::slotted(.focus-visible){z-index:3}
