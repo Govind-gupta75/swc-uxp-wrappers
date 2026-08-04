@@ -25,3 +25,5 @@ governing permissions and limitations under the License.
 :host([filled]) {
     background-color: var(--mod-drop-zone-background-color, rgba(20, 122, 243, 0.3));
 }
+
+:host(.focus-visible){--mod-drop-zone-border-style:solid;--mod-drop-zone-border-color:var(--highcontrast-drop-zone-border-color-hover,var(--mod-drop-zone-border-color-hover,var(--spectrum-drop-zone-border-color-hover)));outline:0}
