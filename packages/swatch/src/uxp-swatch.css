@@ -90,3 +90,5 @@ governing permissions and limitations under the License.
 .disabledIcon {
     stroke: var(--uxp-spectrum-swatch-disabled-icon-color);
 }
+
+:host(.focus-visible):after{opacity:1}
