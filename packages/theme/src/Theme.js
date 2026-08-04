@@ -45,6 +45,10 @@ class UxpTheme extends Theme {
             style.textContent = s.cssText;
             this.shadowRoot.appendChild(style);
         });
+
+        //force a layout flush so already-rendered descendants pick up the new tokens.
+        // eslint-disable-next-line no-unused-expressions
+        this.offsetHeight;
     }
 }
 
