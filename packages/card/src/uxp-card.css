@@ -83,3 +83,7 @@ governing permissions and limitations under the License.
 #cover-photo ::slotted(*) {
     height: 100%;
 }
+
+:host(.focus-visible){outline:none}
+:host(.focus-visible):after{border-color:var(--spectrum-card-focus-indicator-color);border-width:var(--spectrum-card-focus-indicator-width)}
+:host(.focus-visible) #cover-photo,:host(.focus-visible) #preview{border-start-start-radius:calc(var(--spectrum-card-corner-radius) - var(--spectrum-card-focus-indicator-width));border-start-end-radius:calc(var(--spectrum-card-corner-radius) - var(--spectrum-card-focus-indicator-width))}
