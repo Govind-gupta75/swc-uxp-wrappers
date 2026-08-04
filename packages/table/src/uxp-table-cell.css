@@ -40,3 +40,4 @@ governing permissions and limitations under the License.
         );
 }
 
+:host([focused]),:host(.focus-visible){outline-width:var(--mod-table-focus-indicator-thickness,var(--spectrum-table-focus-indicator-thickness));outline-style:solid;outline-color:var(--highcontrast-table-cell-focus-indicator-color,var(--highcontrast-table-focus-indicator-color,var(--mod-table-focus-indicator-color,var(--spectrum-table-focus-indicator-color))));outline-offset:calc(var(--mod-table-focus-indicator-thickness,var(--spectrum-table-focus-indicator-thickness))*-1);outline-offset:calc(var(--mod-table-focus-indicator-thickness,var(--spectrum-table-focus-indicator-thickness))*-1 - var(--highcontrast-table-cell-focus-extra-offset,0px))}
