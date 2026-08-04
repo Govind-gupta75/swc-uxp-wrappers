@@ -167,3 +167,5 @@ governing permissions and limitations under the License.
         var(--spectrum-combobox-readonly-input-border-color)
     );
 }
+
+:host([keyboard-focused]) .button:not(:disabled,.is-invalid,.spectrum-PickerButton--quiet),.button:not(:disabled,.is-invalid,[quiet]).focus-visible,:host([keyboard-focused]) .button:not(:disabled,.is-invalid,[quiet]){--mod-picker-button-border-color:var(--mod-combobox-border-color-key-focus,var(--spectrum-combobox-border-color-key-focus))}:host([invalid][keyboard-focused]) .button:not(:disabled,.spectrum-PickerButton--quiet),:host([invalid]) .button:not(:disabled,.spectrum-PickerButton--quiet).focus-visible,:host([keyboard-focused][invalid]) .button:not(:disabled,.spectrum-PickerButton--quiet){--mod-picker-button-border-color:var(--highcontrast-combobox-border-color-invalid,var(--mod-combobox-border-color-invalid-key-focus,var(--spectrum-combobox-border-color-invalid-key-focus)))}
