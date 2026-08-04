@@ -237,3 +237,5 @@ governing permissions and limitations under the License.
     );
     background-color: transparent;
 }
+
+:host([invalid]) .input.focus-visible,:host([invalid][focused]) .input{border-color:var(--highcontrast-textfield-border-color-invalid-keyboard-focus,var(--mod-textfield-border-color-invalid-keyboard-focus,var(--spectrum-textfield-border-color-invalid-keyboard-focus)))}:host([disabled].focus-visible){outline:none}

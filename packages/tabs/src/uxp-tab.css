@@ -14,3 +14,5 @@ governing permissions and limitations under the License.
 :host(:hover) {
     color: var(--highcontrast-tabs-color-hover, var(--mod-tabs-color-hover, var(--spectrum-tabs-color-hover)));
 }
+
+:host(.focus-visible){color:var(--highcontrast-tabs-color-key-focus,var(--mod-tabs-color-key-focus,var(--spectrum-tabs-color-key-focus)))}:host(.focus-visible):before{border-color:var(--highcontrast-tabs-focus-indicator-color,var(--mod-tabs-focus-indicator-color,var(--spectrum-tabs-focus-indicator-color)))}

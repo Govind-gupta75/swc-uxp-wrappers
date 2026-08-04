@@ -121,3 +121,8 @@ governing permissions and limitations under the License.
         var(--spectrum-toast-spacing-text-and-action-button-to-divider)
     );
 }
+
+:host([variant=negative]),:host([variant=negative]) .closeButton.focus-visible:not(:active){color:var(--mod-toast-negative-background-color-default,var(--spectrum-toast-negative-background-color-default))}
+:host([variant=info]),:host([variant=info]) .closeButton.focus-visible:not(:active){color:var(--mod-toast-informative-background-color-default,var(--spectrum-toast-informative-background-color-default))}
+:host([variant=positive]),:host([variant=positive]) .closeButton.focus-visible:not(:active){color:var(--mod-toast-positive-background-color-default,var(--spectrum-toast-positive-background-color-default))}
+:host([variant=negative]),:host([variant=negative]) .closeButton.focus-visible:not(:active),:host([variant=warning]),:host([variant=warning]) .closeButton.focus-visible:not(:active){color:var(--highcontrast-toast-negative-background-color-default,var(--mod-toast-negative-background-color-default,var(--spectrum-toast-negative-background-color-default)))}

@@ -52,3 +52,5 @@ governing permissions and limitations under the License.
         var(--spectrum-picker-button-icon-color-down)
     );
 }
+
+:host([focused]) .root,.root.is-keyboardFocused,.root:focus,.root.focus-visible{--mod-picker-button-background-color:var(--mod-picker-button-background-color-key-focus,var(--spectrum-picker-button-background-color-key-focus));--mod-picker-button-font-color:var(--mod-picker-button-font-color-key-focus,var(--spectrum-picker-button-font-color-key-focus));--mod-picker-button-icon-color:var(--mod-picker-button-icon-color-key-focus,var(--spectrum-picker-button-icon-color-key-focus))}
