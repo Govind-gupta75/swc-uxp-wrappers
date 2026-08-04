@@ -11,14 +11,14 @@ governing permissions and limitations under the License.
 */
 
 export * from './first-focusable-in.js';
-export * from '@swc-uxp-internal/shared/src/focus-visible.js';
-export * from '@swc-uxp-internal/shared/src/focusable.js';
+export * from './focus-visible.js';
+export * from './focusable.js';
 export * from './focusable-selectors.js';
-export * from '@swc-uxp-internal/shared/src/get-active-element.js';
-export * from '@swc-uxp-internal/shared/src/like-anchor.js';
+export * from './get-active-element.js';
+export * from './like-anchor.js';
 export * from './observe-slot-presence.js';
-export * from '@swc-uxp-internal/shared/src/observe-slot-text.js';
-export * from '@swc-uxp-internal/shared/src/platform.js';
-export * from '@swc-uxp-internal/shared/src/reparent-children.js';
-export * from '@swc-uxp-internal/shared/src/get-label-from-slot.js';
-export * from '@swc-uxp-internal/shared/src/random-id.js';
+export * from './observe-slot-text.js';
+export * from './platform.js';
+export * from './reparent-children.js';
+export * from './get-label-from-slot.js';
+export * from './random-id.js';
