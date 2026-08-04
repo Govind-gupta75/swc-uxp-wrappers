@@ -10,6 +10,24 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* No UXP-specific overrides required for status-light.
-   Logical properties (min-block-size, padding-block-*, margin-block-*, margin-inline-*)
+/* Logical properties (min-block-size, padding-block-*, margin-block-*, margin-inline-*)
    are handled automatically by the UXP logical properties mapper (enableLogicalProperties). */
+
+/* UXP-24433: upstream aligns the dot (:before) to the label's cap-height via
+   align-items:flex-start plus a calc()'d margin-block-start
+   (top-to-dot minus top-to-label). That offset assumes specific browser font
+   metrics and renders visibly off-center against UXP's text rendering.
+   Use simple flex centering instead, which is robust regardless of font
+   metrics, and zero out the now-unneeded calculated offset. */
+/* white-space:nowrap: the label should never wrap to a second line
+   regardless of available container width. white-space is inherited, and
+   the slotted label text's actual DOM parent is the host itself, so this
+   cascades to it the same way font-size/color already do. */
+:host {
+    align-items: center;
+    white-space: nowrap;
+}
+
+:host:before {
+    margin-block-start: 0;
+}
