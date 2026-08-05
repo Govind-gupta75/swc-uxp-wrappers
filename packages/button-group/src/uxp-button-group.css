@@ -34,7 +34,7 @@ governing permissions and limitations under the License.
 }
 
 :host([vertical]) ::slotted(:not(:last-child)) {
-    margin-bottom: var(--spectrum-buttongroup-spacing);
+    margin-bottom: var(--mod-buttongroup-spacing-vertical, var(--spectrum-spacing-300));
 }
 
 /* :dir(rtl) pseudo-class not supported in UXP — v1.12.0 changed from [dir=rtl]
