@@ -64,27 +64,45 @@ governing permissions and limitations under the License.
     right: 0;
 }
 
+/* UXP always renders ::before/::after pseudo-elements with a forced background of
+   rgb(175,175,175), regardless of any CSS rule -- even `background: transparent
+   !important` cannot override it (same root cause documented in
+   packages/slider/README.md, Known Issues 5-6). Upstream paints the swatch's picked
+   color via .fill:before's background-color, so the real color never shows in UXP;
+   only the forced gray (or, once occluded by the checkerboard fallback below, blank
+   white) is visible. Suppress that pseudo-element entirely and apply the same fill
+   color and border-ring box-shadow directly to the real .fill element, whose
+   background UXP renders correctly. */
 .fill:before {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    display: none !important;
 }
 
 .fill {
-    border: 1px solid black;
+    background-color: var(--spectrum-picked-color, transparent);
+    box-shadow: inset 0 0 0
+        var(--mod-swatch-border-thickness, var(--spectrum-swatch-border-thickness))
+        var(--mod-swatch-border-color, var(--spectrum-swatch-border-color));
+}
+
+:host([border='none']) .fill {
+    box-shadow: none;
+}
+
+:host([border='light']) .fill {
+    box-shadow: inset 0 0 0
+        var(--mod-swatch-border-thickness, var(--spectrum-swatch-border-thickness))
+        var(
+            --mod-swatch-border-color-light,
+            var(--spectrum-swatch-border-color-light)
+        );
+}
+
+:host([selected]) .fill {
+    box-shadow: none;
 }
 
 :host([selected]) {
     padding: var(--uxp-polyfill-for-clip-path);
-}
-
-:host([selected]) .fill {
-    border: none;
-}
-
-:host([border]) .fill {
-    border: none;
 }
 
 .disabledIcon {
