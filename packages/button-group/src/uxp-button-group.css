@@ -12,20 +12,6 @@ governing permissions and limitations under the License.
 
 /* write uxp style overrides */
 
-/* SWC v1.12.0 sets display:var(--spectrum-buttongroup-display) and
-   flex-direction:var(--spectrum-buttongroup-flex-direction) via custom properties.
-   Provide explicit values as a safety fallback in case UXP does not resolve
-   display/flex-direction through custom property substitution. */
-:host {
-    display: flex;
-    flex-direction: row;
-}
-
-:host([vertical]) {
-    display: inline-flex;
-    flex-direction: column;
-}
-
 /* gap workaround — UXP does not support gap in flex containers (UXP-21294).
    v0.37.0 used --spectrum-buttongroup-spacing-horizontal/vertical; those tokens
    were removed in v1.12.0 and replaced by the unified --spectrum-buttongroup-spacing. */
