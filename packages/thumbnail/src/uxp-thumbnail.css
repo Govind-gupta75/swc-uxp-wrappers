@@ -12,7 +12,19 @@ governing permissions and limitations under the License.
 
 /* write uxp style overrides */
 
-/* No UXP-specific overrides needed for v1.12.0.
-   All logical properties (inline-size, block-size, inset-block-*, inset-inline-*)
-   are translated automatically by UXP's enableLogicalProperties mapper.
-   No :is(), hover media query, revert-layer, or text-align:start/end present. */
+/* UXP-24453: max-inline-size/max-block-size:100% doesn't clamp the slotted <img> in UXP,
+   so it renders at intrinsic size and covers the .background div. Pin max-width/max-height
+   to the same absolute token used by :host. */
+::slotted(*) {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+    max-width: var(--spectrum-thumbnail-size);
+    max-height: var(--spectrum-thumbnail-size);
+}
+
+:host([cover]) ::slotted(*) {
+    inline-size: 100%;
+    block-size: 100%;
+    width: var(--spectrum-thumbnail-size);
+    height: var(--spectrum-thumbnail-size);
+}
