@@ -12,11 +12,11 @@ governing permissions and limitations under the License.
 
 /* write uxp style overrides */
 
-/* UXP does not support repeating-conic-gradient() or any gradient background functions
-   (background-image only accepts 'none'). The checkerboard pattern used to indicate
-   transparency is therefore invisible. Fall back to a solid neutral background using the
-   lighter of the two checkerboard tokens so semi-transparent swatch colors are still
-   visible against a contrasting backdrop. */
+/* UXP does not support repeating-conic-gradient() (only linear-gradient()/radial-gradient()
+   are supported). The checkerboard pattern used to indicate transparency is therefore
+   invisible. Fall back to a solid neutral background using the lighter of the two
+   checkerboard tokens so semi-transparent swatch colors are still visible against a
+   contrasting backdrop. */
 .opacity-checkerboard {
     background-color: var(
         --mod-opacity-checkerboard-light,
@@ -68,17 +68,19 @@ governing permissions and limitations under the License.
    rgb(175,175,175), regardless of any CSS rule -- even `background: transparent
    !important` cannot override it (same root cause documented in
    packages/slider/README.md, Known Issues 5-6). Upstream paints the swatch's picked
-   color via .fill:before's background-color, so the real color never shows in UXP;
+   color via .fill:before's background, so the real color never shows in UXP;
    only the forced gray (or, once occluded by the checkerboard fallback below, blank
    white) is visible. Suppress that pseudo-element entirely and apply the same fill
    color and border-ring box-shadow directly to the real .fill element, whose
-   background UXP renders correctly. */
+   background UXP renders correctly. Use the `background` shorthand (not
+   `background-color`) since `color` may be a linear-gradient()/radial-gradient() --
+   background-color can never hold a gradient function per the CSS spec. */
 .fill:before {
     display: none !important;
 }
 
 .fill {
-    background-color: var(--spectrum-picked-color, transparent);
+    background: var(--spectrum-picked-color, transparent);
     box-shadow: inset 0 0 0
         var(--mod-swatch-border-thickness, var(--spectrum-swatch-border-thickness))
         var(--mod-swatch-border-color, var(--spectrum-swatch-border-color));
