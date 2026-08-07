@@ -71,36 +71,44 @@ governing permissions and limitations under the License.
    color via .fill:before's background, so the real color never shows in UXP;
    only the forced gray (or, once occluded by the checkerboard fallback below, blank
    white) is visible. Suppress that pseudo-element entirely and apply the same fill
-   color and border-ring box-shadow directly to the real .fill element, whose
-   background UXP renders correctly. Use the `background` shorthand (not
-   `background-color`) since `color` may be a linear-gradient()/radial-gradient() --
-   background-color can never hold a gradient function per the CSS spec. */
+   color and border ring directly to the real .fill element, whose background UXP
+   renders correctly. Use the `background` shorthand (not `background-color`) since
+   `color` may be a linear-gradient()/radial-gradient() -- background-color can never
+   hold a gradient function per the CSS spec.
+
+   The border ring itself must be a real `border`, not `box-shadow`: UXP does not
+   support box-shadow, so the inset shadow upstream uses to draw it does not resolve
+   its color token correctly and always renders black regardless of theme
+   (UXP-24441). `.fill` already has box-sizing: border-box and is sized to 100% of
+   the host (see base swatch styles), so a border produces the same inset ring
+   without changing .fill's outer footprint. */
 .fill:before {
     display: none !important;
 }
 
 .fill {
     background: var(--spectrum-picked-color, transparent);
-    box-shadow: inset 0 0 0
-        var(--mod-swatch-border-thickness, var(--spectrum-swatch-border-thickness))
+    border: var(
+            --mod-swatch-border-thickness,
+            var(--spectrum-swatch-border-thickness)
+        )
+        solid
         var(--mod-swatch-border-color, var(--spectrum-swatch-border-color));
 }
 
 :host([border='none']) .fill {
-    box-shadow: none;
+    border: none;
 }
 
 :host([border='light']) .fill {
-    box-shadow: inset 0 0 0
-        var(--mod-swatch-border-thickness, var(--spectrum-swatch-border-thickness))
-        var(
-            --mod-swatch-border-color-light,
-            var(--spectrum-swatch-border-color-light)
-        );
+    border-color: var(
+        --mod-swatch-border-color-light,
+        var(--spectrum-swatch-border-color-light)
+    );
 }
 
 :host([selected]) .fill {
-    box-shadow: none;
+    border: none;
 }
 
 :host([selected]) {
@@ -111,4 +119,6 @@ governing permissions and limitations under the License.
     stroke: var(--uxp-spectrum-swatch-disabled-icon-color);
 }
 
-:host(.focus-visible):after{opacity:1}
+:host(.focus-visible):after {
+    opacity: 1;
+}
