@@ -260,6 +260,12 @@ governing permissions and limitations under the License.
                     </button>
                     <button
                         class="tablinks"
+                        onclick="openTab(event, 'sp-action-menu')"
+                    >
+                        sp-action-menu
+                    </button>
+                    <button
+                        class="tablinks"
                         onclick="openTab(event, 'sp-picker-button')"
                     >
                         sp-picker-button
@@ -490,6 +496,10 @@ governing permissions and limitations under the License.
 
             <div id="sp-overlay" class="tabcontent">
                 <!--#include sp-overlay.html -->
+            </div>
+
+            <div id="sp-action-menu" class="tabcontent">
+                <!--#include sp-action-menu.html -->
             </div>
 
             <div id="sp-picker-button" class="tabcontent">
