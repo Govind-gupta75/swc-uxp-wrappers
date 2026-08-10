@@ -70,6 +70,40 @@ function attachEvents(tabName) {
         eval(eventListener1);
     }
 
+    if (tabName === 'sp-table') {
+        const sortHandler = `
+            const sortableTable = document.getElementById('sortable-table');
+            const sortableBody = document.getElementById('sortable-body');
+            if (sortableTable) {
+                sortableTable.addEventListener('sorted', function(e) {
+                    const sortDirection = e.detail.sortDirection;
+                    const sortKey = e.detail.sortKey;
+                    const headCells = Array.from(sortableTable.querySelectorAll('sp-table-head-cell[sortable]'));
+                    const colIndex = headCells.findIndex(function(cell) {
+                        return cell.getAttribute('sort-key') === sortKey;
+                    });
+                    if (colIndex < 0) return;
+                    headCells.forEach(function(cell) {
+                        if (cell.getAttribute('sort-key') !== sortKey) {
+                            cell.removeAttribute('sort-direction');
+                        }
+                    });
+                    const rows = Array.from(sortableBody.querySelectorAll('sp-table-row'));
+                    rows.sort(function(a, b) {
+                        const aCells = a.querySelectorAll('sp-table-cell');
+                        const bCells = b.querySelectorAll('sp-table-cell');
+                        const aText = aCells[colIndex] ? aCells[colIndex].textContent.trim() : '';
+                        const bText = bCells[colIndex] ? bCells[colIndex].textContent.trim() : '';
+                        const cmp = aText.localeCompare(bText);
+                        return sortDirection === 'asc' ? cmp : -cmp;
+                    });
+                    rows.forEach(function(row) { sortableBody.appendChild(row); });
+                });
+            }
+        `;
+        eval(sortHandler);
+    }
+
     if (tabName === 'sp-checkbox') {
         const spCheckboxSizes = `
             const sizes = document.getElementById('checkbox-sizes');
