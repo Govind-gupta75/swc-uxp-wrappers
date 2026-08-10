@@ -12,6 +12,18 @@ governing permissions and limitations under the License.
 
 /* write uxp style overrides */
 
+/* UXP does not support repeating-conic-gradient() (only linear-gradient()/radial-gradient()
+   are supported). The checkerboard pattern used to indicate transparency is therefore
+   invisible. Fall back to a solid neutral background using the lighter of the two
+   checkerboard tokens so semi-transparent swatch colors are still visible against a
+   contrasting backdrop. */
+.opacity-checkerboard {
+    background-color: var(
+        --mod-opacity-checkerboard-light,
+        var(--spectrum-opacity-checkerboard-square-light, #e4e4e4)
+    );
+}
+
 :host {
     --uxp-spectrum-swatch-disabled-icon-color: transparent;
     --uxp-polyfill-for-clip-path: calc(
@@ -52,29 +64,51 @@ governing permissions and limitations under the License.
     right: 0;
 }
 
+/* UXP always renders ::before/::after pseudo-elements with a forced background of
+   rgb(175,175,175), regardless of any CSS rule -- even `background: transparent
+   !important` cannot override it (same root cause documented in
+   packages/slider/README.md, Known Issues 5-6). Upstream paints the swatch's picked
+   color via .fill:before's background, so the real color never shows in UXP;
+   only the forced gray (or, once occluded by the checkerboard fallback below, blank
+   white) is visible. Suppress that pseudo-element entirely and apply the same fill
+   color and border-ring box-shadow directly to the real .fill element, whose
+   background UXP renders correctly. Use the `background` shorthand (not
+   `background-color`) since `color` may be a linear-gradient()/radial-gradient() --
+   background-color can never hold a gradient function per the CSS spec. */
 .fill:before {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    display: none !important;
 }
 
 .fill {
-    border: 1px solid black;
+    background: var(--spectrum-picked-color, transparent);
+    box-shadow: inset 0 0 0
+        var(--mod-swatch-border-thickness, var(--spectrum-swatch-border-thickness))
+        var(--mod-swatch-border-color, var(--spectrum-swatch-border-color));
+}
+
+:host([border='none']) .fill {
+    box-shadow: none;
+}
+
+:host([border='light']) .fill {
+    box-shadow: inset 0 0 0
+        var(--mod-swatch-border-thickness, var(--spectrum-swatch-border-thickness))
+        var(
+            --mod-swatch-border-color-light,
+            var(--spectrum-swatch-border-color-light)
+        );
+}
+
+:host([selected]) .fill {
+    box-shadow: none;
 }
 
 :host([selected]) {
     padding: var(--uxp-polyfill-for-clip-path);
 }
 
-:host([selected]) .fill {
-    border: none;
-}
-
-:host([border]) .fill {
-    border: none;
-}
-
 .disabledIcon {
     stroke: var(--uxp-spectrum-swatch-disabled-icon-color);
 }
+
+:host(.focus-visible):after{opacity:1}
