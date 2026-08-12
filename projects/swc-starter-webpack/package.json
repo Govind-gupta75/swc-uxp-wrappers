@@ -47,6 +47,7 @@
         "@swc-uxp-wrappers/field-group": "*",
         "@swc-uxp-wrappers/button-group": "*",
         "@swc-uxp-wrappers/overlay": "*",
+        "@swc-uxp-wrappers/progress-circle": "*",
         "@spectrum-web-components/theme": "0.37.0",
         "@spectrum-web-components/icon": "0.37.0",
         "@spectrum-web-components/icons": "0.37.0",
@@ -107,7 +108,7 @@
         "@spectrum-web-components/slider": "0.37.0",
         "@spectrum-web-components/progress-bar": "0.37.0",
         "@spectrum-web-components/split-view": "0.37.0",
-        "@spectrum-web-components/progress-circle": "0.37.0"
+        "@spectrum-web-components/progress-circle": "1.12.2"
     },
     "devDependencies": {
         "clean-webpack-plugin": "^4.0.0",

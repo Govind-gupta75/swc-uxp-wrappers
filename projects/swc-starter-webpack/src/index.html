@@ -272,6 +272,12 @@ governing permissions and limitations under the License.
                     </button>
                     <button
                         class="tablinks"
+                        onclick="openTab(event, 'sp-progress-circle')"
+                    >
+                        sp-progress-circle
+                    </button>
+                    <button
+                        class="tablinks"
                         onclick="openTab(event, 'sp-quick-actions')"
                     >
                         sp-quick-actions
@@ -498,6 +504,10 @@ governing permissions and limitations under the License.
 
             <div id="sp-popover" class="tabcontent">
                 <!--#include sp-popover.html -->
+            </div>
+
+            <div id="sp-progress-circle" class="tabcontent">
+                <!--#include sp-progress-circle.html -->
             </div>
 
             <div id="sp-quick-actions" class="tabcontent">
