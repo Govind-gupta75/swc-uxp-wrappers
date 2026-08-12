@@ -41,6 +41,18 @@ class UxpProgressCircle extends ProgressCircleUpstream {
         return [...super.styles, styles];
     }
 
+    // [UXP] @query('slot') (renderRoot.querySelector('slot')) returns null in UXP even when
+    // the template renders a <slot>. The inherited ProgressCircleBase.updated()/hasAccessibleName()
+    // dereference this.slotEl unguarded, which crashes. Return the real slot when found,
+    // otherwise a harmless stub so assignedNodes() is always callable.
+    get slotEl() {
+        return (
+            (this.renderRoot && this.renderRoot.querySelector('slot')) || {
+                assignedNodes: () => [],
+            }
+        );
+    }
+
     // [UXP] The upstream rendering uses overflow:hidden + CSS rotation masks to clip a fill
     // arc — this technique does not work in UXP. stroke-dasharray/dashoffset (the typical SVG
     // progress trick) is also not supported in UXP SVG. Override render() to use explicit SVG
@@ -68,7 +80,7 @@ class UxpProgressCircle extends ProgressCircleUpstream {
         // - Stroke colors: .uxp-track / .uxp-fill CSS classes (uxp-progress-circle.css),
         //   including :host([static-color=white]) overrides.
         // - Spin animation: 'uxp-indeterminate' class on the SVG triggers @keyframes in CSS.
-        return html`${svg`
+        return html`<slot @slotchange=${this.handleSlotchange}></slot>${svg`
             <svg
                 aria-hidden="true"
                 class="${isIndeterminate ? 'uxp-indeterminate' : ''}"
