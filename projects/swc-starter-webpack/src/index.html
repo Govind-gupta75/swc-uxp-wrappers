@@ -252,6 +252,12 @@ governing permissions and limitations under the License.
                         sp-number-field
                     </button>
                     <button
+                        class="tablinks"
+                        onclick="openTab(event, 'sp-progress-bar')"
+                    >
+                        sp-progress-bar
+                    </button>
+                    <button
                         id="trigger-imperative"
                         class="tablinks"
                         onclick="openTab(event, 'sp-overlay')"
@@ -486,6 +492,10 @@ governing permissions and limitations under the License.
 
             <div id="sp-number-field" class="tabcontent">
                 <!--#include sp-number-field.html -->
+            </div>
+
+            <div id="sp-progress-bar" class="tabcontent">
+                <!--#include sp-progress-bar.html -->
             </div>
 
             <div id="sp-overlay" class="tabcontent">
