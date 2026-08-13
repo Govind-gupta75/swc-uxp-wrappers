@@ -68,6 +68,7 @@
         "@spectrum-web-components/picker": "0.37.0",
         "@spectrum-web-components/tabs": "0.37.0",
         "@spectrum-web-components/accordion": "0.37.0",
+        "@spectrum-web-components/breadcrumbs": "1.12.2",
         "@spectrum-web-components/slider": "0.37.0",
         "@spectrum-web-components/progress-bar": "0.37.0",
         "@spectrum-web-components/split-view": "0.37.0",
