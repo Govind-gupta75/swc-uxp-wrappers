@@ -17,7 +17,6 @@ import '@spectrum-web-components/theme/sp-theme.js';
 import '@spectrum-web-components/theme/src/themes.js';
 import '@spectrum-web-components/theme/src/spectrum-two/themes.js';
 
-import '@spectrum-web-components/banner/sp-banner.js';
 import '@spectrum-web-components/divider/sp-divider.js';
 import '@spectrum-web-components/illustrated-message/sp-illustrated-message.js';
 import '@spectrum-web-components/link/sp-link.js';
@@ -46,7 +45,6 @@ import '@spectrum-web-components/sidenav/sp-sidenav-item.js';
 import '@spectrum-web-components/radio/sp-radio.js';
 import '@spectrum-web-components/radio/sp-radio-group.js';
 import '@spectrum-web-components/asset/sp-asset.js';
-import '@spectrum-web-components/quick-actions/sp-quick-actions.js';
 import '@spectrum-web-components/meter/sp-meter.js';
 import '@spectrum-web-components/tags/sp-tags.js';
 import '@spectrum-web-components/tags/sp-tag.js';
@@ -90,7 +88,6 @@ import '@spectrum-web-components/icons-workflow/icons/sp-icon-stopwatch.js';
 import '@spectrum-web-components/icons-workflow/icons/sp-icon-user-activity.js';
 
 // Importing custom elements (my-*) extended from the respective Spectrum Web Components
-import './extended_swc_samples/my-banner.js';
 import './extended_swc_samples/my-divider.js';
 import './extended_swc_samples/my-avatar.js';
 import './extended_swc_samples/my-illustrated-message.js';
@@ -123,7 +120,6 @@ import './extended_swc_samples/my-field-group.js';
 import './extended_swc_samples/my-tags.js';
 import './extended_swc_samples/my-sidenav.js';
 import './extended_swc_samples/my-asset.js';
-import './extended_swc_samples/my-quick-actions.js';
 import './extended_swc_samples/my-meter.js';
 import './extended_swc_samples/my-swatch.js';
 import './extended_swc_samples/my-overlay.js';
