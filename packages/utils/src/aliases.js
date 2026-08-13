@@ -15,7 +15,6 @@ governing permissions and limitations under the License.
  *  integrator have to import these aliases list in the bundler/package manager and pass on to aliasing module.
  */
 export const aliases = {
-    '@spectrum-web-components/banner': '@swc-uxp-wrappers/banner',
     '@spectrum-web-components/divider': '@swc-uxp-wrappers/divider',
     '@spectrum-web-components/illustrated-message':
         '@swc-uxp-wrappers/illustrated-message',
@@ -45,7 +44,6 @@ export const aliases = {
     '@spectrum-web-components/search': '@swc-uxp-wrappers/search',
     '@spectrum-web-components/tags': '@swc-uxp-wrappers/tags',
     '@spectrum-web-components/asset': '@swc-uxp-wrappers/asset',
-    '@spectrum-web-components/quick-actions': '@swc-uxp-wrappers/quick-actions',
     '@spectrum-web-components/meter': '@swc-uxp-wrappers/meter',
     '@spectrum-web-components/sidenav': '@swc-uxp-wrappers/sidenav',
     '@spectrum-web-components/swatch': '@swc-uxp-wrappers/swatch',
