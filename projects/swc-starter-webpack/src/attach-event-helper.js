@@ -11,6 +11,15 @@ governing permissions and limitations under the License.
 */
 
 function attachEvents(tabName) {
+    if (tabName === 'sp-slider') {
+        const logSlider = document.getElementById('log-slider');
+        const sliderLog = document.getElementById('slider-log');
+        if (logSlider && sliderLog) {
+            logSlider.addEventListener('change', function (e) {
+                sliderLog.textContent = 'change: value = ' + e.target.value;
+            });
+        }
+    }
     if (tabName === 'sp-radio-group') {
         const eventListener1 = `
             const radiogroup1 = document.getElementById("radiogroup1");
