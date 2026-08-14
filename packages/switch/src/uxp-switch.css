@@ -159,13 +159,6 @@ governing permissions and limitations under the License.
     );
 }
 
-/* Logical property overrides removed — UXP handles logical properties
-   (min-block-size, inline-size, block-size, inset-*, margin-block-*, margin-inline-*)
-   automatically via the logical properties mapper (enableLogicalProperties). */
-
-/* UXP has no native :focus-visible support (see @swc-uxp-wrappers/utils
-   focus-visible-uxp.js); FocusVisiblePolyfillMixin falls back to toggling a
-   .focus-visible class instead, so only the class selector is needed here. */
 #input.focus-visible + #switch:after {
     margin: calc(
         (
