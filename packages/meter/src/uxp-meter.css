@@ -22,7 +22,3 @@ governing permissions and limitations under the License.
 :host([side-label]) .percentage {
     text-align: right;
 }
-
-/* Logical property overrides removed — UXP handles logical properties
-   (max-inline-size, min-inline-size, block-size, inline-size, margin-block-*, margin-inline-*)
-   automatically via the logical properties mapper (enableLogicalProperties). */
