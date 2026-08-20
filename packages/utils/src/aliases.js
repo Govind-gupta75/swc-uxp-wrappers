@@ -57,7 +57,7 @@ export const aliases = {
     '@spectrum-web-components/styles': '@swc-uxp-internal/styles',
     '@spectrum-web-components/reactive-controllers':
         '@swc-uxp-internal/reactive-controllers',
-    '@spectrum-web-components/icon': '@swc-uxp-internal/icon',
+    '@spectrum-web-components/icon': '@swc-uxp-wrappers/icon',
     '@spectrum-web-components/icons': '@swc-uxp-internal/icons',
     '@spectrum-web-components/icons-ui': '@swc-uxp-internal/icons-ui',
     '@spectrum-web-components/iconset': '@swc-uxp-internal/iconset',
