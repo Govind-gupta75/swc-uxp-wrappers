@@ -22,15 +22,21 @@ class UxpAsset extends Asset {
 
     updated(changes) {
         super.updated(changes);
-        this._syncAssetHeight();
-        this._observeAssetSize();
+        if (this._uxpAssetSyncFrame) {
+            cancelAnimationFrame(this._uxpAssetSyncFrame);
+        }
+        this._uxpAssetSyncFrame = requestAnimationFrame(() => {
+            this._uxpAssetSyncFrame = null;
+            this._syncAssetHeight();
+        });
     }
 
     disconnectedCallback() {
         super.disconnectedCallback?.();
-        this._uxpAssetResizeObserver?.disconnect();
-        this._uxpAssetResizeObserver = null;
-        this._uxpObservedAsset = null;
+        if (this._uxpAssetSyncFrame) {
+            cancelAnimationFrame(this._uxpAssetSyncFrame);
+        }
+        this._uxpAssetSyncFrame = null;
     }
 
     _syncAssetHeight() {
@@ -41,23 +47,6 @@ class UxpAsset extends Asset {
         if (width > 0) {
             asset.style.height = `${width}px`;
         }
-    }
-
-    _observeAssetSize() {
-        const asset = this.shadowRoot?.querySelector('.file, .folder');
-        if (
-            asset === this._uxpObservedAsset ||
-            typeof ResizeObserver === 'undefined'
-        ) {
-            return;
-        }
-
-        this._uxpAssetResizeObserver?.disconnect();
-        this._uxpObservedAsset = asset;
-        this._uxpAssetResizeObserver = new ResizeObserver(() =>
-            this._syncAssetHeight()
-        );
-        this._uxpAssetResizeObserver.observe(asset);
     }
 }
 
