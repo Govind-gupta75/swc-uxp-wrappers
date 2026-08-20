@@ -19,6 +19,46 @@ class UxpAsset extends Asset {
         // We are combining our styles to make all super class styles available along with the transitive dependent classes styles.
         return [...super.styles, styles];
     }
+
+    updated(changes) {
+        super.updated(changes);
+        this._syncAssetHeight();
+        this._observeAssetSize();
+    }
+
+    disconnectedCallback() {
+        super.disconnectedCallback?.();
+        this._uxpAssetResizeObserver?.disconnect();
+        this._uxpAssetResizeObserver = null;
+        this._uxpObservedAsset = null;
+    }
+
+    _syncAssetHeight() {
+        const asset = this.shadowRoot?.querySelector('.file, .folder');
+        if (!asset) return;
+
+        const width = asset.getBoundingClientRect().width;
+        if (width > 0) {
+            asset.style.height = `${width}px`;
+        }
+    }
+
+    _observeAssetSize() {
+        const asset = this.shadowRoot?.querySelector('.file, .folder');
+        if (
+            asset === this._uxpObservedAsset ||
+            typeof ResizeObserver === 'undefined'
+        ) {
+            return;
+        }
+
+        this._uxpAssetResizeObserver?.disconnect();
+        this._uxpObservedAsset = asset;
+        this._uxpAssetResizeObserver = new ResizeObserver(() =>
+            this._syncAssetHeight()
+        );
+        this._uxpAssetResizeObserver.observe(asset);
+    }
 }
 
 export { UxpAsset as Asset };
