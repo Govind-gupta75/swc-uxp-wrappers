@@ -116,7 +116,19 @@ The `.value-tooltip::after` element creates the triangular caret via the CSS bor
 
 **Fix required in upstream:** UXP platform — honour `::after` background CSS rules in shadow DOM stylesheets and support `rgba(var())` token syntax.
 
-### 7. Ghost drag state when pointer released outside plugin window
+### 7. Label-to-track vertical gap larger than Chrome — fixed
+
+Three combined bugs caused extra space between the label and track in UXP:
+
+1. **`#label-container` margin-top** — UXP applied `--spectrum-slider-label-top-to-text` (4–9px by size) as `margin-top`. Chrome resolves this to 0 because `sp-field-label`'s internal padding covers the spacing. Fixed in `uxp-slider.css`: `margin-top: 0`.
+
+2. **Negative `margin-top` on flex children ignored in UXP shadow DOM** — `#track`'s `margin-block-start: calc(var(--spectrum-slider-control-to-field-label) * -1)` is computed correctly but not applied to the layout box (C++ bug). Fixed in `uxp-slider.css`: equivalent negative `margin-bottom` on `#label-container` uses a different layout code path that works correctly. Chrome already handles this via the base CSS rule, so the `margin-bottom` is reset to `0` via `@supports`.
+
+3. **`sp-field-label` padding-block tokens resolved at the wrong size scale** — `collectSlot0Updaters()` in `CssStyleBase.cpp` propagated non-inherited properties (including `padding`) to child elements, writing the wrong scale's token value. Fixed in `uxp-swc` `CssStyleBase.cpp` with an `!propertyId->inherited()` guard.
+
+Re-verify after each UXP runtime upgrade — if UXP fixes shadow DOM flex `margin-top` layout, remove the `margin-bottom` workaround and `margin-top: 0` reset from `uxp-slider.css`.
+
+### 8. Ghost drag state when pointer released outside plugin window
 
 If the user starts dragging a handle and releases the mouse button outside the plugin window (e.g. over the OS desktop or another application), UXP may not deliver the `pointerup` event to the slider's `#track` element even though `setPointerCapture` was called. The drag state is never cancelled, and the handle continues to track subsequent mouse movements (ghost drag).
 
