@@ -18,7 +18,9 @@ class MyContextualHelp extends ContextualHelp {
         ContextualHelp.styles,
         css`
             :host {
-                outline: 2px solid var(--spectrum-blue-500);
+                /* outline does not follow border-radius in UXP; use box-shadow instead
+                   so the ring stays rounded (matches the pattern used across the wrapper packages). */
+                box-shadow: 0 0 0 2px var(--spectrum-blue-500);
                 border-radius: 4px;
             }
         `,

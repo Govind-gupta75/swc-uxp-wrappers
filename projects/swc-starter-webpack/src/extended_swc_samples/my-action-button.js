@@ -17,7 +17,7 @@ class MyActionButton extends ActionButton {
     static styles = [
         ActionButton.styles,
         css`
-            :host([class='my-action-button']) {
+            :host(.my-action-button) {
                 font-size: 20px;
                 font-family: system-ui;
                 font-style: italic;
