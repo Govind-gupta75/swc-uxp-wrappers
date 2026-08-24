@@ -10,15 +10,6 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* UXP: user-select is not in UXP CSS data. -webkit-user-select is also confirmed not
-   in uxp-css-data.json. The upstream spectrum-slider.css already declares both
-   unconditionally. This rule is a defensive duplicate in case upstream ever moves them
-   into a @media (hover:hover) block. Re-verify -webkit-user-select on each UXP runtime
-   upgrade and remove if upstream coverage is sufficient. */
-:host {
-    -webkit-user-select: none;
-}
-
 /* UXP: margin-inline-start: calc(size/-2) does not apply correctly in UXP even with
    enableLogicalProperties:true — the calc() value is mapped but does not produce the
    correct negative offset in shadow DOM. Verified: without this override the handle
@@ -63,7 +54,11 @@ governing permissions and limitations under the License.
     );
 }
 
-/* UXP: ghost drag visual fix */
+/* UXP: upstream .handle:active sets -down token variants (wider border, pressed color)
+   and z-index:3. In UXP the .dragging class is applied with a frame delay, so during
+   the initial mousedown the handle briefly shows the -down active state before drag
+   starts, creating a visual flash. Applying the neutral (non-down) border values while
+   :not(.dragging) prevents the flash; z-index:2 keeps the active handle above siblings. */
 .handle:not(.dragging):active {
     border-width: var(
         --mod-slider-handle-border-width,
@@ -207,6 +202,24 @@ governing permissions and limitations under the License.
     /* Chrome only: same padding-inline/right reasoning as .uxp-fill above. */
     padding-inline: 0 !important;
     right: auto !important;
+}
+
+/* UXP layout bugs that inflate label→track gap vs Chrome:
+   (A) margin-block-start on #label-container resolves to 4–9px in UXP but 0 in Chrome
+       (sp-field-label's internal paddingTop already covers the spacing). Reset to 0.
+   (B) margin-top on flex children is computed but not applied to the layout box in UXP
+       shadow DOM (C++ bug). Negative margin-BOTTOM on the preceding flex item uses a
+       different code path and does affect layout — shifts #track up by the same amount.
+       @supports resets to 0 in Chrome (which already has margin-block-start:-Xpx on #track
+       via the base CSS). :host([label-visibility=none]) #label-container{margin:0} in the
+       base CSS (specificity 2,1,0 > our 1,0,0) prevents clipping the track for no-label sliders. */
+#label-container {
+    margin-top: 0;
+    margin-block-start: 0;
+    margin-bottom: calc(-1 * var(--spectrum-slider-control-to-field-label, 8px));
+}
+@supports (display: block) {
+    #label-container { margin-bottom: 0; }
 }
 
 /* UXP: .value-tooltip (added in v1.12.0) uses inset-inline-start:50% for centering.
