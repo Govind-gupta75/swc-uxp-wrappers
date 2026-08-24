@@ -10,6 +10,30 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* No UXP-specific overrides required for status-light.
-   Logical properties (min-block-size, padding-block-*, margin-block-*, margin-inline-*)
+/* Logical properties (min-block-size, padding-block-*, margin-block-*, margin-inline-*)
    are handled automatically by the UXP logical properties mapper (enableLogicalProperties). */
+
+/* UXP-24433: the host is display:flex wrapping the slotted label text. When the
+   label text is a flex item, UXP stops re-rasterizing its glyphs on a scale-driven
+   font-size change — the label doesn't visually resize until an unrelated repaint
+   (navigating away/back, or a theme color change) is forced. This is the same root
+   cause as the sp-table cell text (UXP-24556), and it happens for a flex row
+   regardless of align-items (flex-start does NOT fix it).
+   Fix: take the label out of the flex context — use display:block so the label is
+   normal inline text (which repaints correctly), and let the dot (:before), which is
+   display:inline-block, flow inline beside it, vertically centered via
+   vertical-align:middle (supported on inline-block in UXP). Mirrors how the
+   sp-table-head-cell keeps its inline-block sort icon beside block text. */
+/* white-space:nowrap: the label should never wrap to a second line
+   regardless of available container width. white-space is inherited, and
+   the slotted label text's actual DOM parent is the host itself, so this
+   cascades to it the same way font-size/color already do. */
+:host {
+    display: block;
+    white-space: nowrap;
+}
+
+:host:before {
+    vertical-align: middle;
+    margin-block-start: 0;
+}
