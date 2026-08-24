@@ -17,7 +17,12 @@ governing permissions and limitations under the License.
    Row cells use the padding-block-start/-end longhands, which the mapper handles,
    so only the header was compressed. (UXP-24555) */
 /* text-align: start not supported in UXP */
-/* vertical-align has no effect on display:block; use flex for vertical centering */
+/* UXP-24556: do NOT use `display:flex; align-items:center` here. Flex-centering the
+   header text stops UXP re-rasterizing the glyphs when the scale-driven font-size
+   changes (scale changes then don't visually resize the header until an unrelated
+   repaint). `display:block` repaints correctly; the header text is positioned by the
+   padding-top/padding-bottom tokens above, and the sort icon is display:inline-block
+   so it still flows inline beside the title. */
 :host {
     padding-top: var(
         --mod-table-header-top-to-text,
@@ -36,8 +41,7 @@ governing permissions and limitations under the License.
         var(--spectrum-table-cell-inline-space)
     );
     text-align: left;
-    display: flex;
-    align-items: center;
+    display: block;
 }
 
 /* border-block-end shorthand not supported in UXP; expand to border-bottom */
