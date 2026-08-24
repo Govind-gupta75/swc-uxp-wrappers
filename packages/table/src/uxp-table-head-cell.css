@@ -11,11 +11,30 @@ governing permissions and limitations under the License.
 */
 
 /* padding-inline shorthand not supported in UXP; expand to physical properties */
+/* padding-block shorthand (two-value) is not reliably expanded by the UXP mapper
+   (cf. inset-block in uxp-search.css); expand to padding-top/padding-bottom so the
+   header keeps its top-to-text / bottom-to-text spacing above the first data row.
+   Row cells use the padding-block-start/-end longhands, which the mapper handles,
+   so only the header was compressed. (UXP-24555) */
 /* text-align: start not supported in UXP */
 /* vertical-align has no effect on display:block; use flex for vertical centering */
 :host {
-    padding-left: var(--mod-table-cell-inline-space, var(--spectrum-table-cell-inline-space));
-    padding-right: var(--mod-table-cell-inline-space, var(--spectrum-table-cell-inline-space));
+    padding-top: var(
+        --mod-table-header-top-to-text,
+        var(--spectrum-table-header-top-to-text)
+    );
+    padding-bottom: var(
+        --mod-table-header-bottom-to-text,
+        var(--spectrum-table-header-bottom-to-text)
+    );
+    padding-left: var(
+        --mod-table-cell-inline-space,
+        var(--spectrum-table-cell-inline-space)
+    );
+    padding-right: var(
+        --mod-table-cell-inline-space,
+        var(--spectrum-table-cell-inline-space)
+    );
     text-align: left;
     display: flex;
     align-items: center;
@@ -23,7 +42,11 @@ governing permissions and limitations under the License.
 
 /* border-block-end shorthand not supported in UXP; expand to border-bottom */
 :host .spectrum-Table-scroller {
-    border-bottom: var(--mod-table-border-width, var(--spectrum-table-border-width)) solid
+    border-bottom: var(
+            --mod-table-border-width,
+            var(--spectrum-table-border-width)
+        )
+        solid
         var(
             --highcontrast-table-border-color,
             var(--mod-table-border-color, var(--spectrum-table-border-color))
@@ -35,15 +58,60 @@ governing permissions and limitations under the License.
 :host([sortable]:hover) {
     --spectrum-table-icon-color: var(
         --highcontrast-table-icon-color-focus,
-        var(--mod-table-icon-color-hover, var(--spectrum-table-icon-color-hover))
+        var(
+            --mod-table-icon-color-hover,
+            var(--spectrum-table-icon-color-hover)
+        )
     );
 }
 
 :host([sortable]:focus):hover {
     --spectrum-table-icon-color: var(
         --highcontrast-table-icon-color-focus,
-        var(--mod-table-icon-color-focus-hover, var(--spectrum-table-icon-color-focus-hover))
+        var(
+            --mod-table-icon-color-focus-hover,
+            var(--spectrum-table-icon-color-focus-hover)
+        )
     );
 }
 
-:host([sortable]) .is-keyboardFocused,:host([sortable].focus-visible){--spectrum-table-icon-color:var(--highcontrast-table-icon-color-focus,var(--mod-table-icon-color-key-focus,var(--spectrum-table-icon-color-key-focus)))}:host([focused]),:host(.focus-visible){outline-width:var(--mod-table-focus-indicator-thickness,var(--spectrum-table-focus-indicator-thickness));outline-style:solid;outline-color:var(--highcontrast-table-cell-focus-indicator-color,var(--highcontrast-table-focus-indicator-color,var(--mod-table-focus-indicator-color,var(--spectrum-table-focus-indicator-color))));outline-offset:calc(var(--mod-table-focus-indicator-thickness,var(--spectrum-table-focus-indicator-thickness))*-1);outline-offset:calc(var(--mod-table-focus-indicator-thickness,var(--spectrum-table-focus-indicator-thickness))*-1 - var(--highcontrast-table-cell-focus-extra-offset,0px))}
+:host([sortable]) .is-keyboardFocused,
+:host([sortable].focus-visible) {
+    --spectrum-table-icon-color: var(
+        --highcontrast-table-icon-color-focus,
+        var(
+            --mod-table-icon-color-key-focus,
+            var(--spectrum-table-icon-color-key-focus)
+        )
+    );
+}
+:host([focused]),
+:host(.focus-visible) {
+    outline-width: var(
+        --mod-table-focus-indicator-thickness,
+        var(--spectrum-table-focus-indicator-thickness)
+    );
+    outline-style: solid;
+    outline-color: var(
+        --highcontrast-table-cell-focus-indicator-color,
+        var(
+            --highcontrast-table-focus-indicator-color,
+            var(
+                --mod-table-focus-indicator-color,
+                var(--spectrum-table-focus-indicator-color)
+            )
+        )
+    );
+    outline-offset: calc(
+        var(
+                --mod-table-focus-indicator-thickness,
+                var(--spectrum-table-focus-indicator-thickness)
+            ) * -1
+    );
+    outline-offset: calc(
+        var(
+                --mod-table-focus-indicator-thickness,
+                var(--spectrum-table-focus-indicator-thickness)
+            ) * -1 - var(--highcontrast-table-cell-focus-extra-offset, 0px)
+    );
+}
