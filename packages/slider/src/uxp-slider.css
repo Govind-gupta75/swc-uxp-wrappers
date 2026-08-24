@@ -43,6 +43,33 @@ governing permissions and limitations under the License.
     visibility: hidden;
 }
 
+/* UXP: position:absolute on flex children is not fully removed from flex formatting
+   context in UXP — the element remains as a 0px-wide flex item, causing
+   justify-content:space-between to push the visible sibling to the right.
+   display:none removes it from flex layout entirely, matching Chrome behavior.
+   Accessibility is not affected: the slider's accessible name comes from
+   aria-label/aria-labelledby on the input elements, not from these labels. */
+#label-container > .visually-hidden {
+    display: none;
+}
+
+/* UXP: upstream uses :host([label-visibility=value]:dir(ltr)) #value { margin-left: auto }
+   to right-align the value when only the value label is shown. :dir() is not in
+   uxp-css-data — the rule is never applied, leaving justify-content:space-between
+   to position the lone value sp-field-label incorrectly. flex-start matches Chrome. */
+:host([label-visibility=value]) #label-container {
+    justify-content: flex-start;
+}
+
+/* UXP: upstream resets the 16px margin-inline-start on #value via
+   :host([label-visibility=value]:dir(ltr)) #value { margin-left: auto }
+   (auto on an inline element resolves to 0, removing the gap).
+   :dir() is not in uxp-css-data — reset explicitly. */
+:host([label-visibility=value]) #value {
+    margin-inline-start: 0;
+    margin-left: 0;
+}
+
 /* @media (hover: hover) unwrap */
 .handle:hover {
     border-color: var(
