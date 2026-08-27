@@ -148,6 +148,7 @@ function renderMatrix(doc) {
     }
 
     const grid = el('div', 'matrix-grid');
+    grid.id = `matrix-grid-${doc.slug}`;
     const cols = colAxis ? colAxis.values : [null];
 
     const cornerLabel = colAxis ? `${rowAxis.name} \\ ${colAxis.name}` : rowAxis.name;

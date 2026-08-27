@@ -102,7 +102,7 @@ const shared = () => {
         entry: {
             main: './src/index.js',
         },
-        devtool: 'eval-cheap-source-map',
+        devtool: 'cheap-source-map',
         mode: ENV,
         output: {
             path: OUTPUT_PATH,
