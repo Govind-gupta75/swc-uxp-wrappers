@@ -24,7 +24,7 @@
         "./src/spectrum-two/themes.js": "./src/spectrum-two/themes.js"
     },
     "dependencies": {
-        "@swc-uxp-internal/theme": "npm:@spectrum-web-components/theme@1.12.1"
+        "@swc-uxp-internal/theme": "npm:@spectrum-web-components/theme@1.12.2"
     },
     "files": [
         "**/*.js"

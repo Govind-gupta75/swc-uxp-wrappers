@@ -24,7 +24,7 @@
         "./sp-number-field.js": "./sp-number-field.js"
     },
     "dependencies": {
-        "@swc-uxp-internal/number-field": "npm:@spectrum-web-components/number-field@1.12.1",
+        "@swc-uxp-internal/number-field": "npm:@spectrum-web-components/number-field@1.12.2",
         "@swc-uxp-wrappers/textfield": "3.0.0",
         "@swc-uxp-wrappers/infield-button": "3.0.0"
     },

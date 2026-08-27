@@ -47,3 +47,25 @@ Previously `static="white"`, now `static-color="white"` — no wrapper change ne
 - `version`: `2.0.0` → `3.0.0`
 - `@swc-uxp-internal/divider`: `0.37.0` → `1.12.0`
 - Added export: `./src/divider-overrides.css.js`
+
+---
+
+# Divider — Upgrade Analysis: v1.12.1 → v1.12.2
+
+The `npm pack` diff between `@spectrum-web-components/divider@1.12.1` and
+`@spectrum-web-components/divider@1.12.2` is pin-only: the only content that changed inside the
+tarball is the version pins of *other* `@spectrum-web-components/*` packages listed in divider's
+own `package.json` dependencies. No compiled JS, no CSS, and no `.d.ts`/`custom-elements.json`
+content changed between the two versions.
+
+Because there is no functional change in the upstream component, no UXP-compatibility review or
+wrapper-source review was performed or is expected to be needed for this bump. This is a
+mechanical dependency-pin update only: `packages/divider/package.json`'s
+`@swc-uxp-internal/divider` value was bumped from
+`npm:@spectrum-web-components/divider@1.12.1` to `npm:@spectrum-web-components/divider@1.12.2`.
+The wrapper's own package version (`3.0.0`) was intentionally left unchanged, matching this
+repo's convention for pure SWC patch-pin bumps (see the badge/progress-bar/coachmark 1.12.1 ->
+1.12.2 bumps). No demo, CSS, or JS wrapper source files required changes.
+
+Future readers: if you land here investigating a divider regression around 1.12.2, it did not
+originate in this pin bump — look elsewhere.

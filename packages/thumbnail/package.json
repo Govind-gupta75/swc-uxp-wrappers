@@ -24,7 +24,7 @@
         "./src/thumbnail.css.js": "./src/thumbnail.css.js"
     },
     "dependencies": {
-        "@swc-uxp-internal/thumbnail": "npm:@spectrum-web-components/thumbnail@1.12.1"
+        "@swc-uxp-internal/thumbnail": "npm:@spectrum-web-components/thumbnail@1.12.2"
     },
     "files": [
         "**/*.js"

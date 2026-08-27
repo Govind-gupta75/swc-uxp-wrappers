@@ -73,3 +73,19 @@
   }
 }
 ```
+
+## 2026-08-27 — 1.12.1 -> 1.12.2 bump (pin-only, no review performed)
+
+Per the `1.12.2-upgrade-plan.md` scope table and the parent EXECUTE run's `npm pack` diff of
+`@spectrum-web-components/thumbnail@1.12.1` vs `@1.12.2`, the only difference between the two
+tarballs is inside thumbnail's own `package.json`: other-package `@spectrum-web-components/*`
+dependency version pins bumped from 1.12.1 to 1.12.2. No compiled `.js`, `.d.ts`, or
+`custom-elements.json` content changed at all — `Thumbnail.js`, `thumbnail.css.js`, and every
+other file in the tarball are byte-identical between the two versions. Because there is no
+functional or CSS/JS-compatibility surface to inspect, this bump skipped the `swc-uxp-upgrade`
+and `swc-uxp-review` skills entirely and was applied mechanically: only the
+`@swc-uxp-internal/thumbnail` dependency pin in `packages/thumbnail/package.json` was changed to
+`npm:@spectrum-web-components/thumbnail@1.12.2`. The wrapper's own package version (`3.0.0`) was
+left untouched, per this repo's established convention for pure SWC patch-pin bumps. No demo
+page, CSS, or wrapper source changes were made or are expected. Future readers: do not re-run a
+full analysis for this bump unless a future diff shows real content changes.

@@ -86,3 +86,68 @@ All v0.37.0 overrides in `uxp-action-button.css` were physical-property mirrors 
 3. `packages/action-button/src/uxp-action-button.css` — rewrote: removed all redundant logical-property mirrors; added hover/active media-query unwrap and `:is()` expansion
 4. `packages/action-button/package.json` — version `3.0.0`, dep `1.12.0`, added overrides export
 5. Root `package.json` resolutions — `action-button` → `1.12.0`
+
+---
+
+# Action-Button — Upgrade Analysis: v1.12.1 → v1.12.2 (2026-08-27)
+
+## Full package diff
+
+`npm pack` of `@spectrum-web-components/action-button@1.12.1` vs `@1.12.2` was extracted and
+diffed per Step 1 of the upgrade skill:
+
+- **File inventory** — identical file list in both versions. No new/removed files or exports.
+- **CSS** — `action-button.css.js` is byte-identical between 1.12.1 and 1.12.2. No CSS review
+  needed; existing `uxp-action-button.css` overrides need no changes.
+- **`package.json`** — only `version` and the pinned versions of peer deps (`base`, `button`,
+  `icon`, `icons-ui`, `shared`) changed, all lockstep-bumped to `1.12.2`.
+- **Compiled `ActionButton.js`** — real, non-cosmetic diff this time (unlike the tooltip 1.12.2
+  bump, which was doc-only). `emphasized`, `selected`, and `toggles` were converted from plain
+  `@property`-decorated fields to explicit getter/setter pairs with `_emphasized`/`_selected`/
+  `_toggles` backing fields. Each setter does exactly what Lit's own `@property` accessor would
+  have done (`this._x = value; this.requestUpdate('x', oldValue)`) — **functionally equivalent**,
+  not a behavior change.
+
+## Real diff found: getter/setter conversion + deprecation signal
+
+Confirmed in three places:
+
+1. **`src/ActionButton.d.ts`** — all three properties gained `@deprecated` JSDoc tags:
+   `emphasized`: "is deprecated and will be removed in a future release." `selected`: "...Use
+   `swc-toggle-button` for selectable button behavior." `toggles`: "...Use `swc-toggle-button` or
+   `swc-toggle-button-group` for toggle button behavior."
+2. **`custom-elements.json`** — matching `"deprecated"` manifest keys added for all three fields.
+3. **`src/ActionButton.dev.js` only** (not the production build) — each new setter fires
+   `window.__swc.warn(...)` at `level: "deprecation"` when the property is set (`emphasized`/
+   `toggles` only warn when set `true`; `selected` warns unconditionally on any set, matching
+   upstream's own inconsistency between the three — not a wrapper concern). The constructor
+   assigns the backing fields directly (`this._emphasized = false`, etc.), bypassing the setters,
+   so no warning fires during construction/default-init.
+
+**Runtime/UXP-breaking-behavior verdict: none.** Same conditional-exports resolution mechanism
+already documented for the `tooltip` 1.12.2 bump applies here — production webpack builds never
+pull in `ActionButton.dev.js`, so the warning code doesn't exist in the shipped bundle at all;
+dev-server builds get the warning but it's a safe, tree-shaken-in-dev-only diagnostic
+(`window.__swc.warn` is guaranteed defined via `base`'s `Base.dev.js` init), not a thrown error or
+UI change.
+
+## Decision: propagating the deprecation notice
+
+- `packages/action-button/src/ActionButton.js` — grep for `emphasized`, `selected`, `toggles`:
+  zero matches. The wrapper class inherits all three directly with no local JSDoc to update.
+- No wrapper-owned `.d.ts` exists (`find packages/action-button -iname "*.d.ts"` → empty).
+- **Decision: do not add JSDoc inside `ActionButton.js`** — same rationale as tooltip: no existing
+  local JSDoc to update, and no structural home for a comment on inherited, non-redeclared fields.
+- **Decision: add a `## Known Issues` section to `packages/action-button/README.md`** — matches
+  the tooltip/badge/progress-circle convention. Documents all three deprecations, notes there is
+  no 2nd-gen UXP wrapper yet, and states behavior is unchanged in this wrapper.
+
+## package.json Changes (this bump)
+
+- `version`: left at `3.0.0` (unchanged) — pure SWC pin bump, no wrapper-source change.
+- `@swc-uxp-internal/action-button`: `npm:@spectrum-web-components/action-button@1.12.1` →
+  `@1.12.2`.
+- No export changes.
+- `README.md`: npm README link bumped `v/1.12.1` → `v/1.12.2`; added `## Known Issues` section.
+- No changes to `packages/action-button/src/*.js`, `uxp-action-button.css`,
+  `packages/utils/src/aliases.js`, or root `package.json`.

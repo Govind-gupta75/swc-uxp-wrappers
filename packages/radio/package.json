@@ -26,7 +26,7 @@
         "./sp-radio-group.js": "./sp-radio-group.js"
     },
     "dependencies": {
-        "@swc-uxp-internal/radio": "npm:@spectrum-web-components/radio@1.12.1",
+        "@swc-uxp-internal/radio": "npm:@spectrum-web-components/radio@1.12.2",
         "@swc-uxp-wrappers/field-group": "3.0.0",
         "@swc-uxp-wrappers/help-text": "3.0.0"
     },

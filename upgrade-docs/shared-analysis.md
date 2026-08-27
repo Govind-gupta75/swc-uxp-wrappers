@@ -101,3 +101,16 @@ packages/shared/
 This ensures every SWC component that imports from `@spectrum-web-components/shared`
 (overlay, tooltip, popover, focusable, etc.) gets the UXP-safe `userFocusableSelector`
 automatically — no per-component changes needed.
+
+## Addendum: 1.12.1 -> 1.12.2 (2026-08-27)
+
+The `npm pack` diff between `@spectrum-web-components/shared@1.12.1` and `@1.12.2` showed only
+pin-only changes: the tarball's own `package.json` had other-package dependency version bumps
+inside it, and no compiled JS or `.d.ts` content changed at all. In particular, `focusable.js`
+and `focusable-selectors.js` upstream are unchanged from 1.12.1, so the local UXP-safe overrides
+documented above (UXP-24418 fix, `:not([inert])` removal) remain correct and current for 1.12.2 —
+no re-audit action needed.
+
+This was a mechanical pin bump only: `packages/shared/package.json`'s `@swc-uxp-internal/shared`
+dependency value was updated from `npm:@spectrum-web-components/shared@1.12.1` to `@1.12.2`. The
+wrapper's own `version` field (`3.0.0`) was left unchanged. No wrapper source files were touched.

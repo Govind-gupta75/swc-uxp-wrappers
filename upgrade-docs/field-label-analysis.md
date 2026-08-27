@@ -58,3 +58,20 @@ Contains `--system-field-label-*` tokens — **already bundled** in `field-label
 - `version`: `2.0.0` → `3.0.0`
 - `@swc-uxp-internal/field-label`: `0.37.0` → `1.12.0`
 - Added export: `./src/field-label-overrides.css.js`
+
+## 7. Addendum: v1.12.1 → v1.12.2 (pin-only, no upstream changes)
+
+The `npm pack` diff between `@spectrum-web-components/field-label@1.12.1` and `@1.12.2` showed
+**no content change** in the field-label tarball itself: no compiled `.js`, `.d.ts`, or
+`custom-elements.json` differences at all. The only diff was version-pin bumps for *other*
+`@spectrum-web-components/*` packages listed inside field-label's own `package.json`
+`dependencies`/`devDependencies` (i.e. transitive pins, not field-label's own code).
+
+Because there was nothing functional or UXP-relevant to review, this bump was treated as a
+mechanical pin update only: `packages/field-label/package.json`'s
+`@swc-uxp-internal/field-label` dependency value was changed from
+`npm:@spectrum-web-components/field-label@1.12.1` to `...@1.12.2`. No `swc-uxp-upgrade` or
+`swc-uxp-review` skill pass was run, none is needed, and none should be re-run for this specific
+1.12.1→1.12.2 step by a future reader — the wrapper's own `version` field was deliberately left
+at `3.0.0` (matching this repo's convention of not bumping wrapper semver for a pure SWC
+patch-pin bump), and no wrapper source, CSS, or demo files were touched.

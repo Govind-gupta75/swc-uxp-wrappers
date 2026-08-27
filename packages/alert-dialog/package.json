@@ -24,7 +24,7 @@
         "./src/alert-dialog.css.js": "./src/alert-dialog.css.js"
     },
     "dependencies": {
-        "@swc-uxp-internal/alert-dialog": "npm:@spectrum-web-components/alert-dialog@1.12.1",
+        "@swc-uxp-internal/alert-dialog": "npm:@spectrum-web-components/alert-dialog@1.12.2",
         "@swc-uxp-wrappers/button": "3.0.0",
         "@swc-uxp-wrappers/button-group": "3.0.0",
         "@swc-uxp-wrappers/divider": "3.0.0"

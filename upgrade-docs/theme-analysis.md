@@ -432,3 +432,20 @@ The removal of `@spectrum-web-components/shared` dependency is consistent with t
 | **No action** | Spectrum 2 CSS files are UXP-clean (no `:is()`, `@layer`, `hover:hover`, `revert-layer`, `text-align:start/end`). |
 | **No action** | `@media (forced-colors:active)` was present in v0.37.0 `typography.css.js` and is removed in v1.12.0 — a positive change for UXP. |
 | **No action** | `theme` → `system` attribute rename is handled transparently by the static fragment registration; consumers using `<sp-theme system="express">` work as expected. |
+
+---
+
+## Addendum — 2026-08-27: v1.12.1 → v1.12.2 (pin-only bump)
+
+The `npm pack` diff between `@spectrum-web-components/theme@1.12.1` and `@1.12.2` shows **no
+change to any compiled `.js`, `.d.ts`, or `custom-elements.json` content in the `theme` tarball
+itself.** The only difference is version-pin bumps for *other* `@spectrum-web-components/*`
+packages listed inside `theme`'s own `package.json` `dependencies`/`peerDependencies` (i.e.
+`theme` itself did not change behaviorally between these two releases). Because of this, no
+functional or UXP-compatibility review was performed or is expected to be needed for this bump —
+the `swc-uxp-upgrade` and `swc-uxp-review` skills were deliberately skipped for this cycle. The
+only change made in the wrapper was bumping `packages/theme/package.json`'s
+`@swc-uxp-internal/theme` dependency pin from
+`npm:@spectrum-web-components/theme@1.12.1` to `npm:@spectrum-web-components/theme@1.12.2`; the
+wrapper's own `version` field (`3.0.0`) was left unchanged per repo convention for pure SWC
+patch-pin bumps. No wrapper source, demo, or CSS files were touched.

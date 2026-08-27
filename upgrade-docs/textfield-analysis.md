@@ -142,3 +142,14 @@ SWC 1.12.0 uses `background-color: initial` for quiet, disabled-quiet, and reado
 ## Demo Plugin Changes
 
 - `resolutions["@spectrum-web-components/textfield"]`: `0.37.0` → `1.12.0`
+
+---
+
+## Addendum: 1.12.1 -> 1.12.2 (2026-08-27)
+
+The `npm pack` diff between `@spectrum-web-components/textfield@1.12.1` and `@1.12.2` showed only
+pin-only changes: the tarball's own `package.json` had other-package dependency version bumps
+inside it, and no compiled JS or CSS content changed at all. No functional or UXP-compatibility
+review was needed. Mechanical pin bump only: `packages/textfield/package.json`'s
+`@swc-uxp-internal/textfield` dependency value updated from `1.12.1` to `1.12.2`. Wrapper
+`version` (`3.0.0`) left unchanged. No wrapper source, CSS, or demo files touched.

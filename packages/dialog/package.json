@@ -28,7 +28,7 @@
         "./src/dialog-overrides.css.js": "./src/dialog-overrides.css.js"
     },
     "dependencies": {
-        "@swc-uxp-internal/dialog": "npm:@spectrum-web-components/dialog@1.12.1",
+        "@swc-uxp-internal/dialog": "npm:@spectrum-web-components/dialog@1.12.2",
         "@swc-uxp-wrappers/button": "3.0.0",
         "@swc-uxp-wrappers/button-group": "3.0.0",
         "@swc-uxp-wrappers/divider": "3.0.0",

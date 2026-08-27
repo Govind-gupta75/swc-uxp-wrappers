@@ -76,3 +76,15 @@ All existing overrides remain valid. Additionally need to add `:is()` expansions
 - `@swc-uxp-internal/tags`: `0.37.0` → `1.12.0`
 - `@swc-uxp-wrappers/button`: `2.0.0` → `3.0.0`
 - Add exports: `./src/tag-overrides.css.js`, `./src/tags-overrides.css.js`
+
+---
+
+## Addendum: 1.12.1 -> 1.12.2 (2026-08-27)
+
+The `npm pack` diff between `@spectrum-web-components/tags@1.12.1` and `@1.12.2` showed only
+pin-only changes: the tarball's own `package.json` had other-package dependency version bumps
+inside it, and no compiled JS or CSS content changed at all (`tag.css.js`, `tags.css.js`
+byte-identical). No functional or UXP-compatibility review was needed. Mechanical pin bump only:
+`packages/tags/package.json`'s `@swc-uxp-internal/tags` dependency value updated from `1.12.1` to
+`1.12.2`. Wrapper `version` (`3.0.0`) left unchanged. No wrapper source, CSS, or demo files
+touched.

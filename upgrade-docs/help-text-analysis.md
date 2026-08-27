@@ -47,3 +47,14 @@ Contains `--system-helptext-*` tokens — **already bundled** in `help-text.css.
 - `version`: `2.0.0` → `3.0.0`
 - `@swc-uxp-internal/help-text`: `0.37.0` → `1.12.0`
 - Added export: `./src/help-text-overrides.css.js`
+
+## 7. Addendum: 1.12.1 -> 1.12.2 (2026-08-27)
+
+The `npm pack` diff between `@spectrum-web-components/help-text@1.12.1` and `@1.12.2` showed only
+pin-only changes: the tarball's own `package.json` had other-package dependency version bumps
+inside it, and no compiled JS, CSS, or `.d.ts`/`custom-elements.json` content changed at all.
+
+No functional or UXP-compatibility review was needed. This was a mechanical pin bump only:
+`packages/help-text/package.json`'s `@swc-uxp-internal/help-text` dependency value was updated
+from `npm:@spectrum-web-components/help-text@1.12.1` to `@1.12.2`. The wrapper's own `version`
+field (`3.0.0`) was left unchanged. No wrapper source, CSS, or demo files were touched.

@@ -102,3 +102,14 @@ All existing overrides in `uxp-radio.css` (v0.37.0) were **removed** as redundan
 - `@swc-uxp-wrappers/field-group`: `2.0.0` → `3.0.0`
 - `@swc-uxp-wrappers/help-text`: `2.0.0` → `3.0.0`
 - Added export: `./src/radio-overrides.css.js`
+
+---
+
+## Addendum: 1.12.1 -> 1.12.2 (2026-08-27)
+
+The `npm pack` diff between `@spectrum-web-components/radio@1.12.1` and `@1.12.2` showed only
+pin-only changes: the tarball's own `package.json` had other-package dependency version bumps
+inside it, and no compiled JS or CSS content changed at all. No functional or UXP-compatibility
+review was needed. Mechanical pin bump only: `packages/radio/package.json`'s
+`@swc-uxp-internal/radio` dependency value updated from `1.12.1` to `1.12.2`. Wrapper `version`
+(`3.0.0`) left unchanged. No wrapper source, CSS, or demo files touched.

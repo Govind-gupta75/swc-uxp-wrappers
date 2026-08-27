@@ -298,3 +298,14 @@ const combinedToastStyles = unsafeCSS(
 | Required | `src/toast-overrides.css.js` | Create pass-through wrapper file that re-exports from `@swc-uxp-internal/toast/src/toast-overrides.css.js` (or mirrors the two-rule CSS directly) |
 | Verify | — | Confirm `@swc-uxp-wrappers/button` upgrade is applied so `sp-close-button` accepts `static-color="white"` |
 | Pre-existing bug | `src/toast.css.js` | `unsafeCSS()` called with two arguments — only first is used; UXP overlay styles are not actually merged here |
+
+---
+
+## Addendum: 1.12.1 -> 1.12.2 (2026-08-27)
+
+The `npm pack` diff between `@spectrum-web-components/toast@1.12.1` and `@1.12.2` showed only
+pin-only changes: the tarball's own `package.json` had other-package dependency version bumps
+inside it, and no compiled JS or CSS content changed at all. No functional or UXP-compatibility
+review was needed. Mechanical pin bump only: `packages/toast/package.json`'s
+`@swc-uxp-internal/toast` dependency value updated from `1.12.1` to `1.12.2`. Wrapper `version`
+(`3.0.0`) left unchanged. No wrapper source, CSS, or demo files touched.

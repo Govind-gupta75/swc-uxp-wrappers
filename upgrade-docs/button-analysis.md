@@ -188,3 +188,22 @@ No new UXP-breaking patterns.
 - **Pending state (`[pending]`)** is not supported in UXP. The UXP override applies disabled appearance immediately and suppresses the broken `sp-progress-circle` element. Consumers must not use `[pending]` attribute until a `sp-progress-circle` UXP wrapper is added.
 - **Link API (`href`, `target`, etc.)** is deprecated upstream in v1.12.0 and will be removed in a future release. UXP consumers should migrate to native `<a>` with Spectrum CSS classes.
 - **`noWrap` property** on Button — no UXP-specific concern identified; CSS `white-space: nowrap` is supported.
+
+---
+
+## Addendum: 1.12.1 -> 1.12.2 (pin-only, no functional or UXP-compatibility review needed)
+
+The `npm pack` tarball diff of `@spectrum-web-components/button` between 1.12.1 and 1.12.2
+shows exactly one change: `package.json`'s `dependencies`/`peerDependencies` block bumping
+*other* `@spectrum-web-components/*` version pins from 1.12.1 to 1.12.2. No compiled `.js`,
+`.d.ts`, or `custom-elements.json` content changed in the tarball — button's own runtime
+behavior, public API, and markup/attribute surface are byte-identical between the two versions.
+
+Because there is no upstream diff to react to, no `swc-uxp-upgrade` skill run, no
+`swc-uxp-review` self-review, and no wrapper source/demo change was performed for this bump —
+there is nothing to analyze or review. The only change made on this branch is the mechanical
+pin bump of `packages/button/package.json`'s `@swc-uxp-internal/button` dependency string from
+`npm:@spectrum-web-components/button@1.12.1` to `@1.12.2`. The wrapper's own package `version`
+field was left unchanged per repo convention (pure SWC patch-pin bumps do not increment the
+wrapper's own semver). Future readers can treat this component as fully covered for the 1.12.2
+bump with no further action required.

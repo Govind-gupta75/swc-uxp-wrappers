@@ -24,7 +24,7 @@
         "./src/toast-overrides.css.js": "./src/toast-overrides.css.js"
     },
     "dependencies": {
-        "@swc-uxp-internal/toast": "npm:@spectrum-web-components/toast@1.12.1",
+        "@swc-uxp-internal/toast": "npm:@spectrum-web-components/toast@1.12.2",
         "@swc-uxp-wrappers/button": "3.0.0"
     },
     "files": [

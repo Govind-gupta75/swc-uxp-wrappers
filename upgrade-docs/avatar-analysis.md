@@ -44,3 +44,18 @@ Empty (no `--system-*` tokens). Added as a pass-through export for API parity. N
 - `version`: `2.0.0` → `3.0.0`
 - `@swc-uxp-internal/avatar`: `0.37.0` → `1.12.0`
 - Added export: `./src/avatar-overrides.css.js`
+
+## 7. Update — v1.12.1 → v1.12.2 (pin-only, no review needed)
+
+The parent EXECUTE run's `npm pack` diff of `@spectrum-web-components/avatar` between 1.12.1
+and 1.12.2 found no functional change in avatar's own tarball: the only delta in its
+`package.json` was the bump of *other* `@spectrum-web-components/*` version pins inside its own
+`dependencies`/`peerDependencies` block (expected, mechanical noise on every version bump). No
+compiled `.js`, `.d.ts`, or `custom-elements.json` content changed. Accordingly this bump is a
+mechanical pin-only update: `packages/avatar/package.json`'s
+`@swc-uxp-internal/avatar` value was changed from
+`npm:@spectrum-web-components/avatar@1.12.1` to `npm:@spectrum-web-components/avatar@1.12.2`,
+with no wrapper source, CSS, demo, or test changes. The wrapper's own `version` field stays at
+`3.0.0` per repo convention for pure SWC patch-pin bumps. No functional or UXP-compatibility
+review was performed and none is expected to be needed for this bump; future readers should not
+re-derive this — it has already been confirmed via tarball diff.

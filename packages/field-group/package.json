@@ -24,7 +24,7 @@
         "./src/field-group-overrides.css.js": "./src/field-group-overrides.css.js"
     },
     "dependencies": {
-        "@swc-uxp-internal/field-group": "npm:@spectrum-web-components/field-group@1.12.1",
+        "@swc-uxp-internal/field-group": "npm:@spectrum-web-components/field-group@1.12.2",
         "@swc-uxp-wrappers/help-text": "3.0.0"
     },
     "files": [

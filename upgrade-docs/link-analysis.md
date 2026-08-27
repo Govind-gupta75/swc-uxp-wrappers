@@ -64,3 +64,9 @@ Affected variants:
 - `version`: `2.0.0` → `3.0.0`
 - `@swc-uxp-internal/link`: `0.37.0` → `1.12.0`
 - Added export: `./src/link-overrides.css.js`
+
+---
+
+# Link — Upgrade Analysis: v1.12.1 → v1.12.2 (2026-08-27)
+
+Pin-only bump, no functional review performed. An `npm pack` diff between `@spectrum-web-components/link@1.12.1` and `@1.12.2` tarballs was run prior to this dispatch and confirmed the only difference is other-package dependency version bumps inside link's own `package.json` — no compiled `.js`, `.d.ts`, or `custom-elements.json` content changed between the two versions. Since there is no functional or structural change to review, no UXP-compatibility or CSS/JS analysis was performed for this bump, and none is expected to be needed. Action taken was limited to updating the `@swc-uxp-internal/link` dependency pin in `packages/link/package.json` from `npm:@spectrum-web-components/link@1.12.1` to `@1.12.2`; the wrapper's own `version` field (`3.0.0`) was left unchanged per repo convention for pure SWC patch-pin bumps. No wrapper source, CSS, or demo files were touched.
