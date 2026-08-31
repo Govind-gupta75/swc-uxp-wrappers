@@ -17,12 +17,6 @@ class MyMeter extends Meter {
     static styles = [
         Meter.styles,
         css`
-            :host {
-                background: aquamarine;
-                padding: 20px;
-                border-top-left-radius: 20px;
-                border-bottom-right-radius: 20px;
-            }
             .label,
             .percentage {
                 font-style: italic;
