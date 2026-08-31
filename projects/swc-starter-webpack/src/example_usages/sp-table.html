@@ -168,6 +168,49 @@ governing permissions and limitations under the License.
                 </sp-table>
             </div>
 
+            <div id="subtitle" style="margin-top: 16px">Selectable rows (single) — mutual exclusion regression check for UXP-24562</div>
+            <div>
+                <!--
+                    selects="single" must enforce mutual exclusion: checking a
+                    row's checkbox should automatically uncheck any other
+                    currently-selected row, so at most one row is ever checked.
+                    This exercises the same handleChange() path touched by the
+                    UXP-24562 fix (Table.js), which only overrides behavior for
+                    selects="multiple" — this section verifies selects="single"
+                    still goes through the untouched upstream logic correctly.
+
+                    Manual test:
+                    1. Check row1 -> only row1 becomes checked.
+                    2. Check row2 -> row1 auto-unchecks, only row2 is checked.
+                    3. Check row3 -> row2 auto-unchecks, only row3 is checked.
+                    At no point should more than one row show as checked.
+                -->
+                <sp-table size="m" selects="single">
+                    <sp-table-head>
+                        <sp-table-head-cell>Name</sp-table-head-cell>
+                        <sp-table-head-cell>Type</sp-table-head-cell>
+                        <sp-table-head-cell>Status</sp-table-head-cell>
+                    </sp-table-head>
+                    <sp-table-body>
+                        <sp-table-row value="single-excl-row1">
+                            <sp-table-cell>Asset Alpha</sp-table-cell>
+                            <sp-table-cell>Image</sp-table-cell>
+                            <sp-table-cell>Published</sp-table-cell>
+                        </sp-table-row>
+                        <sp-table-row value="single-excl-row2">
+                            <sp-table-cell>Asset Bravo</sp-table-cell>
+                            <sp-table-cell>Video</sp-table-cell>
+                            <sp-table-cell>Draft</sp-table-cell>
+                        </sp-table-row>
+                        <sp-table-row value="single-excl-row3">
+                            <sp-table-cell>Asset Charlie</sp-table-cell>
+                            <sp-table-cell>Document</sp-table-cell>
+                            <sp-table-cell>Review</sp-table-cell>
+                        </sp-table-row>
+                    </sp-table-body>
+                </sp-table>
+            </div>
+
             <div id="subtitle" style="margin-top: 16px">emphasized / quiet</div>
             <div style="display: flex; flex-direction: column">
                 <div>emphasized</div>
