@@ -43,8 +43,17 @@ governing permissions and limitations under the License.
 /* text-align:start is unreliable in UXP — SWC v1.12.0 sets this on [name=icon]+#label.
    gap is not supported in UXP flex containers (UXP-21294) — SWC sets
    gap:var(--spectrum-button-padding-label-to-icon) on :host to space the icon from the
-   label. Replace with margin-inline-start on #label as the equivalent. */
-[name='icon'] + #label {
+   label. Replace with margin-inline-start on #label as the equivalent.
+   The [name='icon'] + #label sibling selector is not conditioned on the icon slot
+   actually having assigned content — the <slot name="icon"> is always rendered by
+   the base template, so this always matches, even on icon-less buttons. That is
+   harmless upstream because an empty slot is display:contents (no box, so "gap" has
+   nothing to space) — but UXP maps display:contents to display:block, so the empty
+   icon slot still generates a box and the sibling selector still applies, wrongly
+   shifting the label off-center (e.g. a toast action button with no icon). Gate on
+   an explicit has-icon attribute (reflected from actual slotted content in Button.js)
+   instead of DOM structure. */
+:host([has-icon]) #label {
     text-align: left;
     margin-inline-start: var(--spectrum-button-padding-label-to-icon);
 }
