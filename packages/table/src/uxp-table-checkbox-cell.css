@@ -10,4 +10,30 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* write uxp style overrides */
+/* padding-inline shorthand not supported in UXP; expand to physical properties */
+/* text-align: start not supported in UXP */
+:host([head-cell]) {
+    padding-left: var(--mod-table-cell-inline-space, var(--spectrum-table-cell-inline-space));
+    padding-right: var(--mod-table-cell-inline-space, var(--spectrum-table-cell-inline-space));
+    text-align: left;
+}
+
+/* padding-inline shorthand not supported in UXP; expand to physical properties */
+/* border-block-start shorthand not supported in UXP; expand to border-top */
+:host(:not([head-cell])) {
+    padding-left: calc(
+        var(--mod-table-edge-to-content, var(--spectrum-table-edge-to-content)) -
+            var(--mod-table-outer-border-inline-width, var(--spectrum-table-outer-border-inline-width))
+    );
+    padding-right: calc(
+        var(--mod-table-edge-to-content, var(--spectrum-table-edge-to-content)) -
+            var(--mod-table-outer-border-inline-width, var(--spectrum-table-outer-border-inline-width))
+    );
+    border-top: var(--mod-table-border-width, var(--spectrum-table-border-width)) solid
+        var(
+            --highcontrast-table-divider-color,
+            var(--mod-table-divider-color, var(--spectrum-table-divider-color))
+        );
+}
+
+:host(:not([head-cell])[focused]),:host(:not([head-cell]).focus-visible),:host([head-cell][focused]),:host([head-cell].focus-visible){outline-width:var(--mod-table-focus-indicator-thickness,var(--spectrum-table-focus-indicator-thickness));outline-style:solid;outline-color:var(--highcontrast-table-cell-focus-indicator-color,var(--highcontrast-table-focus-indicator-color,var(--mod-table-focus-indicator-color,var(--spectrum-table-focus-indicator-color))));outline-offset:calc(var(--mod-table-focus-indicator-thickness,var(--spectrum-table-focus-indicator-thickness))*-1);outline-offset:calc(var(--mod-table-focus-indicator-thickness,var(--spectrum-table-focus-indicator-thickness))*-1 - var(--highcontrast-table-cell-focus-extra-offset,0px))}

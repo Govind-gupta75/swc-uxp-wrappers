@@ -17,7 +17,23 @@ import styles from './uxp-table-body.css.js';
 class UxpTableBody extends TableBody {
     static get styles() {
         // We are combining our styles to make all super class styles available along with the transitive dependent classes styles.
-        return [super.styles, styles];
+        return [...super.styles, styles];
+    }
+
+    connectedCallback() {
+        super.connectedCallback();
+        // The base class only recalculates tabIndex (which gates overflow:auto)
+        // from a MutationObserver, which never fires for rows already present in
+        // markup at connect. Re-run the check on every actual size change instead.
+        this._resizeObserver = new ResizeObserver(() =>
+            this.shouldHaveTabIndex()
+        );
+        this._resizeObserver.observe(this);
+    }
+
+    disconnectedCallback() {
+        this._resizeObserver?.disconnect();
+        super.disconnectedCallback();
     }
 }
 

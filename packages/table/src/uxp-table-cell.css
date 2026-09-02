@@ -10,4 +10,86 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* write uxp style overrides */
+/* padding-inline shorthand not supported in UXP; expand to physical properties */
+/* border-block-start shorthand not supported in UXP; expand to border-top */
+/* UXP-24556: do NOT use `display:flex; align-items:center` here. Flex CROSS-axis
+   centering (align-items:center) of the slotted cell text stops UXP re-rasterizing
+   the glyphs when the inherited, scale-driven font-size changes — scale changes then
+   don't visually resize the text until an unrelated repaint (hover / theme color
+   change) is forced. `display:flex; flex-direction:column; justify-content:center`
+   centers the text on the MAIN axis instead, which repaints correctly AND keeps the
+   cell vertically centered so it stays aligned with the checkbox cell (which centers
+   its non-text checkbox via align-items:center). Plain block would repaint too but
+   top-aligns the text, breaking alignment with the checkbox. */
+:host {
+    padding-left: calc(
+        var(--mod-table-edge-to-content, var(--spectrum-table-edge-to-content)) -
+            var(
+                --mod-table-outer-border-inline-width,
+                var(--spectrum-table-outer-border-inline-width)
+            )
+    );
+    padding-right: calc(
+        var(--mod-table-edge-to-content, var(--spectrum-table-edge-to-content)) -
+            var(
+                --mod-table-outer-border-inline-width,
+                var(--spectrum-table-outer-border-inline-width)
+            )
+    );
+    border-top: var(
+            --mod-table-border-width,
+            var(--spectrum-table-border-width)
+        )
+        solid
+        var(
+            --highcontrast-table-divider-color,
+            var(--mod-table-divider-color, var(--spectrum-table-divider-color))
+        );
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* border-inline-end shorthand not supported in UXP; expand to border-right */
+.divider {
+    border-right: var(
+            --mod-table-border-width,
+            var(--spectrum-table-border-width)
+        )
+        solid
+        var(
+            --highcontrast-table-divider-color,
+            var(--mod-table-divider-color, var(--spectrum-table-divider-color))
+        );
+}
+
+:host([focused]),
+:host(.focus-visible) {
+    outline-width: var(
+        --mod-table-focus-indicator-thickness,
+        var(--spectrum-table-focus-indicator-thickness)
+    );
+    outline-style: solid;
+    outline-color: var(
+        --highcontrast-table-cell-focus-indicator-color,
+        var(
+            --highcontrast-table-focus-indicator-color,
+            var(
+                --mod-table-focus-indicator-color,
+                var(--spectrum-table-focus-indicator-color)
+            )
+        )
+    );
+    outline-offset: calc(
+        var(
+                --mod-table-focus-indicator-thickness,
+                var(--spectrum-table-focus-indicator-thickness)
+            ) * -1
+    );
+    outline-offset: calc(
+        var(
+                --mod-table-focus-indicator-thickness,
+                var(--spectrum-table-focus-indicator-thickness)
+            ) * -1 - var(--highcontrast-table-cell-focus-extra-offset, 0px)
+    );
+}

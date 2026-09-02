@@ -10,4 +10,118 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* write uxp style overrides */
+/* padding-inline shorthand not supported in UXP; expand to physical properties */
+/* padding-block shorthand (two-value) is not reliably expanded by the UXP mapper
+   (cf. inset-block in uxp-search.css); expand to padding-top/padding-bottom so the
+   header keeps its top-to-text / bottom-to-text spacing above the first data row.
+   Row cells use the padding-block-start/-end longhands, which the mapper handles,
+   so only the header was compressed. (UXP-24555) */
+/* text-align: start not supported in UXP */
+/* UXP-24556: do NOT use `display:flex; align-items:center` here. Flex-centering the
+   header text stops UXP re-rasterizing the glyphs when the scale-driven font-size
+   changes (scale changes then don't visually resize the header until an unrelated
+   repaint). `display:block` repaints correctly; the header text is positioned by the
+   padding-top/padding-bottom tokens above, and the sort icon is display:inline-block
+   so it still flows inline beside the title. */
+:host {
+    padding-top: var(
+        --mod-table-header-top-to-text,
+        var(--spectrum-table-header-top-to-text)
+    );
+    padding-bottom: var(
+        --mod-table-header-bottom-to-text,
+        var(--spectrum-table-header-bottom-to-text)
+    );
+    padding-left: var(
+        --mod-table-cell-inline-space,
+        var(--spectrum-table-cell-inline-space)
+    );
+    padding-right: var(
+        --mod-table-cell-inline-space,
+        var(--spectrum-table-cell-inline-space)
+    );
+    text-align: left;
+    display: block;
+}
+
+/* border-block-end shorthand not supported in UXP; expand to border-bottom */
+:host .spectrum-Table-scroller {
+    border-bottom: var(
+            --mod-table-border-width,
+            var(--spectrum-table-border-width)
+        )
+        solid
+        var(
+            --highcontrast-table-border-color,
+            var(--mod-table-border-color, var(--spectrum-table-border-color))
+        );
+}
+
+/* UXP-24603: UXP has no CSS transition engine at all, so the sort arrow can't animate
+   smoothly. Known platform limitation, not fixable via CSS — made explicit here. */
+.sortedIcon {
+    transition: none;
+}
+
+/* @media (hover:hover) unwrap — UXP does not support hover media query;
+   rules moved here unconditionally from 1.12.0 SWC table-head-cell.css.js */
+:host([sortable]:hover) {
+    --spectrum-table-icon-color: var(
+        --highcontrast-table-icon-color-focus,
+        var(
+            --mod-table-icon-color-hover,
+            var(--spectrum-table-icon-color-hover)
+        )
+    );
+}
+
+:host([sortable]:focus):hover {
+    --spectrum-table-icon-color: var(
+        --highcontrast-table-icon-color-focus,
+        var(
+            --mod-table-icon-color-focus-hover,
+            var(--spectrum-table-icon-color-focus-hover)
+        )
+    );
+}
+
+:host([sortable]) .is-keyboardFocused,
+:host([sortable].focus-visible) {
+    --spectrum-table-icon-color: var(
+        --highcontrast-table-icon-color-focus,
+        var(
+            --mod-table-icon-color-key-focus,
+            var(--spectrum-table-icon-color-key-focus)
+        )
+    );
+}
+:host([focused]),
+:host(.focus-visible) {
+    outline-width: var(
+        --mod-table-focus-indicator-thickness,
+        var(--spectrum-table-focus-indicator-thickness)
+    );
+    outline-style: solid;
+    outline-color: var(
+        --highcontrast-table-cell-focus-indicator-color,
+        var(
+            --highcontrast-table-focus-indicator-color,
+            var(
+                --mod-table-focus-indicator-color,
+                var(--spectrum-table-focus-indicator-color)
+            )
+        )
+    );
+    outline-offset: calc(
+        var(
+                --mod-table-focus-indicator-thickness,
+                var(--spectrum-table-focus-indicator-thickness)
+            ) * -1
+    );
+    outline-offset: calc(
+        var(
+                --mod-table-focus-indicator-thickness,
+                var(--spectrum-table-focus-indicator-thickness)
+            ) * -1 - var(--highcontrast-table-cell-focus-extra-offset, 0px)
+    );
+}
