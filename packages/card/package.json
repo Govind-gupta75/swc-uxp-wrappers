@@ -24,7 +24,7 @@
         "./src/card-overrides.css.js": "./src/card-overrides.css.js"
     },
     "dependencies": {
-        "@swc-uxp-internal/card": "npm:@spectrum-web-components/card@1.12.1",
+        "@swc-uxp-internal/card": "npm:@spectrum-web-components/card@1.12.2",
         "@swc-uxp-wrappers/checkbox": "3.0.0",
         "@swc-uxp-wrappers/asset": "3.0.0",
         "@swc-uxp-wrappers/popover": "3.0.0",
