@@ -45,7 +45,7 @@
         "./src/spectrum-icon-triple-gripper.css.js": "./src/spectrum-icon-triple-gripper.css.js"
     },
     "dependencies": {
-        "@swc-uxp-internal/icon": "npm:@spectrum-web-components/icon@1.12.1"
+        "@swc-uxp-internal/icon": "npm:@spectrum-web-components/icon@1.12.2"
     },
     "files": [
         "**/*.js"
