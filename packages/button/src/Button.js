@@ -18,6 +18,26 @@ class UxpButton extends Button {
     static get styles() {
         return [...super.styles, styles];
     }
+
+    firstUpdated(changed) {
+        super.firstUpdated(changed);
+        this._iconSlot = this.shadowRoot.querySelector('slot[name="icon"]');
+        if (this._iconSlot) {
+            this._iconSlot.addEventListener('slotchange', () =>
+                this._syncHasIcon()
+            );
+        }
+        this._syncHasIcon();
+    }
+
+    // Reflects real icon-slot content as an attribute for uxp-button.css to gate on.
+    // Reads light DOM (not assignedNodes()) since UXP can report it empty right after first render.
+    _syncHasIcon() {
+        const hasIcon = Array.from(this.children).some(
+            (el) => el.getAttribute('slot') === 'icon'
+        );
+        this.toggleAttribute('has-icon', hasIcon);
+    }
 }
 
 export { UxpButton as Button };

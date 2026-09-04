@@ -12,6 +12,12 @@ governing permissions and limitations under the License.
 
 /* write uxp style overrides */
 
+/* SWC 1.12.x made #label wrapping the default (no-wrap is now opt-in); min-width:max-content
+   keeps the button from narrowing below its label's unwrapped width. */
+:host {
+    min-width: max-content;
+}
+
 #label {
     margin: auto;
     /* spectrum-button.css sets align-self:start in v1.12.0; UXP ignores place-self so override explicitly */
@@ -23,11 +29,9 @@ governing permissions and limitations under the License.
     display: none;
 }
 
-/* text-align:start is unreliable in UXP — SWC v1.12.0 sets this on [name=icon]+#label.
-   gap is not supported in UXP flex containers (UXP-21294) — SWC sets
-   gap:var(--spectrum-button-padding-label-to-icon) on :host to space the icon from the
-   label. Replace with margin-inline-start on #label as the equivalent. */
-[name='icon'] + #label {
+/* gap replacement (UXP-21294) for icon-to-label spacing; gated on has-icon (Button.js)
+   since the icon <slot> always renders and would otherwise misalign icon-less buttons. */
+:host([has-icon]) #label {
     text-align: left;
     margin-inline-start: var(--spectrum-button-padding-label-to-icon);
 }
