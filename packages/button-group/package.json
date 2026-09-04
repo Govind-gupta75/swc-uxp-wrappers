@@ -24,7 +24,7 @@
         "./sp-button-group.js": "./sp-button-group.js"
     },
     "dependencies": {
-        "@swc-uxp-internal/button-group": "npm:@spectrum-web-components/button-group@1.12.1",
+        "@swc-uxp-internal/button-group": "npm:@spectrum-web-components/button-group@1.12.2",
         "@swc-uxp-wrappers/button": "3.0.0"
     },
     "files": [
