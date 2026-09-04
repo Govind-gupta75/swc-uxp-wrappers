@@ -6,7 +6,7 @@
 This is UXP wrapper for `@spectrum-web-components/icon` package 
 <br />
 
--   For detailed README regarding `@spectrum-web-components/icon` [refer this link](https://www.npmjs.com/package/@spectrum-web-components/icon/v/1.12.1)
+-   For detailed README regarding `@spectrum-web-components/icon` [refer this link](https://www.npmjs.com/package/@spectrum-web-components/icon/v/1.12.2)
 
 -   Detailed specification regarding `@spectrum-web-components/icon` support in UXP through `@swc-uxp-wrappers/icon` [refer this link](https://developer.adobe.com/photoshop/uxp/2022/uxp-api/reference-spectrum/swc/)
 
