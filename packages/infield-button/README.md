@@ -6,7 +6,7 @@
 This is UXP wrapper for `@spectrum-web-components/infield-button` package
 <br />
 
--   For detailed README regarding `@spectrum-web-components/infield-button` [refer this link](https://www.npmjs.com/package/@spectrum-web-components/infield-button/v/1.12.1)
+-   For detailed README regarding `@spectrum-web-components/infield-button` [refer this link](https://www.npmjs.com/package/@spectrum-web-components/infield-button/v/1.12.2)
 
 -   Detailed specification regarding `@spectrum-web-components/infield-button` support in UXP through `@swc-uxp-wrappers/infield-button` [refer this link](https://developer.adobe.com/photoshop/uxp/2022/uxp-api/reference-spectrum/swc/)
 
