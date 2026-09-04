@@ -6,7 +6,7 @@
 This is UXP wrapper for `@spectrum-web-components/toast` package 
 <br />
 
--   For detailed README regarding `@spectrum-web-components/toast` [refer this link](https://www.npmjs.com/package/@spectrum-web-components/toast/v/1.12.1)
+-   For detailed README regarding `@spectrum-web-components/toast` [refer this link](https://www.npmjs.com/package/@spectrum-web-components/toast/v/1.12.2)
 
 -   Detailed specification regarding `@spectrum-web-components/toast` support in UXP through `@swc-uxp-wrappers/toast` [refer this link](https://developer.adobe.com/photoshop/uxp/2022/uxp-api/reference-spectrum/swc/)
 
