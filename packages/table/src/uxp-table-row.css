@@ -28,13 +28,9 @@ governing permissions and limitations under the License.
     outline: var(--highcontrast-table-row-text-color-hover) 1px solid;
 }
 
-/* UXP-24557: do NOT assign --highcontrast-table-row-text-color / -icon-color here.
-   These highcontrast-* vars are only defined under @media (forced-colors:active),
-   which UXP does not implement, so they are undefined with no fallback. On the web
-   the assignment is guaranteed-invalid and the downstream color falls through to the
-   spectrum default; UXP instead clobbers the text-color var, turning row text black
-   on hover/selected/focus in Dark theme. Keep only the background-color changes
-   (which carry proper fallbacks). */
+/* UXP-24557 / UXP-24602: UXP doesn't propagate IACVT through var() chains (platform
+   bug UXP-24605; see also packages/combobox/src/uxp-combobox.css), so these
+   highcontrast-* vars must be reset to a concrete fallback value, not omitted/initial. */
 :host(:hover) {
     --spectrum-table-cell-background-color: var(
         --highcontrast-table-row-background-color-hover,
@@ -68,6 +64,14 @@ governing permissions and limitations under the License.
 }
 :host([focused]),
 :host(.focus-visible) {
+    --highcontrast-table-row-text-color: var(
+        --mod-table-row-text-color,
+        var(--spectrum-table-row-text-color)
+    );
+    --highcontrast-table-icon-color: var(
+        --mod-table-icon-color-default,
+        var(--spectrum-table-icon-color-default)
+    );
     --spectrum-table-cell-background-color: var(
         --highcontrast-table-row-background-color-hover,
         var(
@@ -78,8 +82,46 @@ governing permissions and limitations under the License.
 }
 :host([selected][focused]),
 :host([selected].focus-visible) {
+    --highcontrast-table-row-text-color: var(
+        --mod-table-row-text-color,
+        var(--spectrum-table-row-text-color)
+    );
+    --highcontrast-table-icon-color: var(
+        --mod-table-icon-color-default,
+        var(--spectrum-table-icon-color-default)
+    );
     --spectrum-table-cell-background-color: var(
         --highcontrast-table-selected-row-background-color-focus,
         var(--spectrum-table-selected-cell-background-color-focus)
+    );
+}
+
+:host:active {
+    --highcontrast-table-row-text-color: var(
+        --mod-table-row-text-color,
+        var(--spectrum-table-row-text-color)
+    );
+    --highcontrast-table-icon-color: var(
+        --mod-table-icon-color-default,
+        var(--spectrum-table-icon-color-default)
+    );
+    --spectrum-table-cell-background-color: var(
+        --highcontrast-table-row-background-color-hover,
+        var(--mod-table-row-active-color, var(--spectrum-table-row-active-color))
+    );
+}
+
+:host([selected]) {
+    --highcontrast-table-row-text-color: var(
+        --mod-table-row-text-color,
+        var(--spectrum-table-row-text-color)
+    );
+    --highcontrast-table-icon-color: var(
+        --mod-table-icon-color-default,
+        var(--spectrum-table-icon-color-default)
+    );
+    --spectrum-table-cell-background-color: var(
+        --highcontrast-table-selected-row-background-color,
+        var(--spectrum-table-selected-cell-background-color)
     );
 }

@@ -72,3 +72,13 @@ governing permissions and limitations under the License.
 :host(.focus-visible){--mod-actionbutton-background-color-default:var(--mod-actionbutton-background-color-focus,var(--spectrum-actionbutton-background-color-focus));--mod-actionbutton-border-color-default:var(--mod-actionbutton-border-color-focus,var(--spectrum-actionbutton-border-color-focus));--mod-actionbutton-content-color-default:var(--mod-actionbutton-content-color-focus,var(--spectrum-neutral-content-color-key-focus))}
 :host(.focus-visible){box-shadow:none;outline:none}
 :host(.focus-visible):after{box-shadow:0 0 0 var(--spectrum-actionbutton-focus-indicator-thickness)var(--spectrum-actionbutton-focus-indicator-color)}
+
+:host(.selected-disabled) {
+    /* Theme token chain for selected-disabled bg doesn't resolve in UXP
+       (root cause: UXP-24605 — var() fallback doesn't rescue a declared-but-
+       internally-invalid custom property); --spectrum-gray-100 is the same
+       token family as --spectrum-gray-800, which the working [selected]
+       background confirms does resolve. */
+    --mod-actionbutton-background-color-default: var(--spectrum-gray-100);
+    --mod-actionbutton-border-color-default: transparent;
+}

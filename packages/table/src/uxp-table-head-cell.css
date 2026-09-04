@@ -57,6 +57,12 @@ governing permissions and limitations under the License.
         );
 }
 
+/* UXP-24603: UXP has no CSS transition engine at all, so the sort arrow can't animate
+   smoothly. Known platform limitation, not fixable via CSS — made explicit here. */
+.sortedIcon {
+    transition: none;
+}
+
 /* @media (hover:hover) unwrap — UXP does not support hover media query;
    rules moved here unconditionally from 1.12.0 SWC table-head-cell.css.js */
 :host([sortable]:hover) {

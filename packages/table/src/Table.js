@@ -36,6 +36,88 @@ class UxpTable extends Table {
         }
         super.willUpdate(changedProperties);
     }
+
+    handleChange(changeEvent) {
+        // Only override the base implementation for the two cases confirmed
+        // broken under UXP: a row's own checkbox while selects="multiple" or
+        // selects="single". The head "Select All" checkbox (parentElement is
+        // sp-table-head, so isRowCheckbox is false) was confirmed working
+        // correctly on-device: it has no TableRow listener in its bubble path
+        // to race with, so it was never actually affected by the bug below.
+        const target = changeEvent.target;
+        const rowItem = target.parentElement;
+        const isRowCheckbox = rowItem?.localName === 'sp-table-row';
+        if (
+            (this.selects !== 'multiple' && this.selects !== 'single') ||
+            !isRowCheckbox
+        ) {
+            super.handleChange(changeEvent);
+            return;
+        }
+
+        // The base implementation tracks selection via rowItem.selected
+        // (single mode also uses it to decide whether to deselect every other
+        // row) and, for single mode, relies on TableRow's own async
+        // manageSelected() to visually uncheck the previously-selected row's
+        // checkbox-cell. Both depend on TableRow's own handleChange /
+        // reactive update cycle having already completed for this same
+        // event — an ordering/timing UXP doesn't reliably preserve, so both
+        // can silently drift or lag. Instead: read the clicked checkbox's own
+        // ground-truth `checked` state directly (no ordering dependency,
+        // since it's set synchronously and self-contained by the click), and
+        // — for single mode — directly and synchronously set every row
+        // checkbox-cell's `checked` property ourselves rather than trusting
+        // the indirect async chain to do it.
+        changeEvent.stopPropagation();
+        const previousSelectedSet = new Set(this.selectedSet);
+        const previousSelected = [...this.selected];
+        const rows = this.tableRows;
+
+        if (this.selects === 'single') {
+            const checked = !!(target.checkbox && target.checkbox.checked);
+            rows.forEach((row) => {
+                const shouldBeSelected = checked && row === rowItem;
+                row.selected = shouldBeSelected;
+                const [cell] = row.checkboxCells || [];
+                if (cell) {
+                    cell.checked = shouldBeSelected;
+                }
+            });
+            this.selectedSet = checked ? new Set([rowItem.value]) : new Set();
+            this.selected = [...this.selectedSet];
+        } else {
+            const selectedValues = rows
+                .filter((row) => {
+                    const [cell] = row.checkboxCells || [];
+                    return !!(cell && cell.checkbox && cell.checkbox.checked);
+                })
+                .map((row) => row.value);
+            this.selectedSet = new Set(selectedValues);
+            this.selected = selectedValues;
+
+            if (this.tableHeadCheckboxCell) {
+                const total = rows.length;
+                const selectedCount = selectedValues.length;
+                this.tableHeadCheckboxCell.checked =
+                    total > 0 && selectedCount === total;
+                this.tableHeadCheckboxCell.indeterminate =
+                    selectedCount > 0 && selectedCount < total;
+            }
+        }
+
+        const applyDefault = this.dispatchEvent(
+            new Event('change', {
+                cancelable: true,
+                bubbles: true,
+                composed: true,
+            })
+        );
+        if (!applyDefault) {
+            changeEvent.preventDefault();
+            this.selectedSet = previousSelectedSet;
+            this.selected = previousSelected;
+        }
+    }
 }
 
 export { UxpTable as Table };
