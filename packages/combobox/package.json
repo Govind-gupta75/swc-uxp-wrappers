@@ -25,7 +25,7 @@
     "./sp-combobox.js": "./sp-combobox.js"
   },
   "dependencies": {
-    "@swc-uxp-internal/combobox": "npm:@spectrum-web-components/combobox@1.12.1",
+    "@swc-uxp-internal/combobox": "npm:@spectrum-web-components/combobox@1.12.2",
     "@swc-uxp-wrappers/textfield": "3.0.0",
     "@swc-uxp-wrappers/picker-button": "3.0.0",
     "@swc-uxp-wrappers/menu": "3.0.0",
