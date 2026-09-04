@@ -6,7 +6,7 @@
 This is UXP wrapper for `@spectrum-web-components/tabs` package
 <br />
 
--   For detailed README regarding `@spectrum-web-components/tabs` [refer this link](https://www.npmjs.com/package/@spectrum-web-components/tabs/v/1.12.1)
+-   For detailed README regarding `@spectrum-web-components/tabs` [refer this link](https://www.npmjs.com/package/@spectrum-web-components/tabs/v/1.12.2)
 
 -   Detailed specification regarding `@spectrum-web-components/tabs` support in UXP through `@swc-uxp-wrappers/tabs` [refer this link](https://developer.adobe.com/photoshop/uxp/2022/uxp-api/reference-spectrum/swc/)
 
