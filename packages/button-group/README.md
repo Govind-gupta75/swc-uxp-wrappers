@@ -6,7 +6,7 @@
 This is UXP wrapper for `@spectrum-web-components/button-group` package 
 <br />
 
--   For detailed README regarding `@spectrum-web-components/button-group` [refer this link](https://www.npmjs.com/package/@spectrum-web-components/button-group/v/1.12.1)
+-   For detailed README regarding `@spectrum-web-components/button-group` [refer this link](https://www.npmjs.com/package/@spectrum-web-components/button-group/v/1.12.2)
 
 -   Detailed specification regarding `@spectrum-web-components/button-group` support in UXP through `@swc-uxp-wrappers/button-group` [refer this link](https://wiki.corp.adobe.com/pages/viewpage.action?spaceKey=UXP&title=Support+for+Spectrum+Web+Components+in+UXP)
 
@@ -43,3 +43,11 @@ import { ButtonGroup } from '@swc-uxp-wrappers/button-group';
 ```html
 <sp-button-group></sp-button-group>
 ```
+
+## Known Issues
+
+---
+
+<br />
+
+-   **`vertical` attribute deprecated upstream**: As of `@spectrum-web-components/button-group@1.12.2`, the upstream component emits a deprecation warning (`window.__swc.DEBUG` mode) when `vertical` is used, noting it "will not be carried forward to 2nd-gen" in favor of `orientation="vertical"` on `<swc-button-group>`. No 2nd-gen UXP wrapper exists yet. The attribute continues to function identically in this wrapper for both Chrome and UXP; this is a heads-up for future migration only, not a behavior change.
