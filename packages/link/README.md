@@ -6,7 +6,7 @@
 This is UXP wrapper for `@spectrum-web-components/link` package 
 <br />
 
--   For detailed README regarding `@spectrum-web-components/link` [refer this link](https://www.npmjs.com/package/@spectrum-web-components/link/v/1.12.1)
+-   For detailed README regarding `@spectrum-web-components/link` [refer this link](https://www.npmjs.com/package/@spectrum-web-components/link/v/1.12.2)
 
 -   Detailed specification regarding `@spectrum-web-components/link` support in UXP through `@swc-uxp-wrappers/link` [refer this link](https://wiki.corp.adobe.com/pages/viewpage.action?spaceKey=UXP&title=Support+for+Spectrum+Web+Components+in+UXP)
 
