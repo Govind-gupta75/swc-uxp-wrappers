@@ -24,7 +24,7 @@
         "./sp-asset.js": "./sp-asset.js"
     },
     "dependencies": {
-        "@swc-uxp-internal/asset": "npm:@spectrum-web-components/asset@1.12.1"
+        "@swc-uxp-internal/asset": "npm:@spectrum-web-components/asset@1.12.2"
     },
     "files": [
         "**/*.js"
