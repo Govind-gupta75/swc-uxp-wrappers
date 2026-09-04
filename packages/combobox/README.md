@@ -6,7 +6,7 @@
 This is UXP wrapper for `@spectrum-web-components/combobox` package
 <br />
 
--   For detailed README regarding `@spectrum-web-components/combobox` [refer this link](https://www.npmjs.com/package/@spectrum-web-components/combobox/v/1.12.1)
+-   For detailed README regarding `@spectrum-web-components/combobox` [refer this link](https://www.npmjs.com/package/@spectrum-web-components/combobox/v/1.12.2)
 
 -   Detailed specification regarding `@spectrum-web-components/combobox` support in UXP through `@swc-uxp-wrappers/combobox` [refer this link](https://developer.adobe.com/photoshop/uxp/2022/uxp-api/reference-spectrum/swc/)
 
