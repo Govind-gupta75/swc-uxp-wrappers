@@ -6,7 +6,7 @@
 This is UXP wrapper for `@spectrum-web-components/alert-banner` package
 <br />
 
--   For detailed README regarding `@spectrum-web-components/alert-banner` [refer this link](https://www.npmjs.com/package/@spectrum-web-components/alert-banner/v/1.12.1)
+-   For detailed README regarding `@spectrum-web-components/alert-banner` [refer this link](https://www.npmjs.com/package/@spectrum-web-components/alert-banner/v/1.12.2)
 
 -   Detailed specification regarding `@spectrum-web-components/alert-banner` support in UXP through `@swc-uxp-wrappers/alert-banner` [refer this link](https://developer.adobe.com/photoshop/uxp/2022/uxp-api/reference-spectrum/swc/)
 
