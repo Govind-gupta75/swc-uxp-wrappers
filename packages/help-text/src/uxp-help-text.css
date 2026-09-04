@@ -11,3 +11,16 @@ governing permissions and limitations under the License.
 */
 
 /* write uxp style overrides */
+
+/* .icon has a definite block-size, so flex's default stretch degrades to
+   flex-start (top) for it while .text (no definite size) stretches full height. */
+:host {
+    align-items: center;
+}
+
+/* UXP's layout engine has no content-box support (UXP-20782, border-box only),
+   so any padding here eats into .icon's block-size and shrinks the icon. */
+.icon {
+    padding-top: 0;
+    padding-bottom: 0;
+}
