@@ -24,7 +24,7 @@
         "./sp-tooltip.js": "./sp-tooltip.js"
     },
     "dependencies": {
-        "@swc-uxp-internal/tooltip": "npm:@spectrum-web-components/tooltip@1.12.1"
+        "@swc-uxp-internal/tooltip": "npm:@spectrum-web-components/tooltip@1.12.2"
     },
     "files": [
         "**/*.js"
