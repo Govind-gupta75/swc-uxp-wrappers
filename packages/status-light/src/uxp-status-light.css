@@ -21,18 +21,22 @@ governing permissions and limitations under the License.
    regardless of align-items (flex-start does NOT fix it).
    Fix: take the label out of the flex context — use display:block so the label is
    normal inline text (which repaints correctly), and let the dot (:before), which is
-   display:inline-block, flow inline beside it, vertically centered via
-   vertical-align:middle (supported on inline-block in UXP). Mirrors how the
-   sp-table-head-cell keeps its inline-block sort icon beside block text. */
-/* white-space:nowrap: the label should never wrap to a second line
-   regardless of available container width. white-space is inherited, and
-   the slotted label text's actual DOM parent is the host itself, so this
-   cascades to it the same way font-size/color already do. */
+   display:inline-block, flow inline beside it (vertically centered below via
+   vertical-align:middle on :host:before). Mirrors how the sp-table-head-cell keeps
+   its inline-block sort icon beside block text. */
 :host {
     display: block;
+
+    /* The label should never wrap to a second line regardless of available
+       container width. white-space is inherited, and the slotted label text's
+       actual DOM parent is the host itself, so this cascades to it the same
+       way font-size/color already do. */
     white-space: nowrap;
 }
 
+/* The dot now flows inline beside the block-level label (see display:block
+   above); vertical-align:middle keeps it centered against the text
+   (supported on inline-block in UXP). */
 :host:before {
     vertical-align: middle;
     margin-block-start: 0;
