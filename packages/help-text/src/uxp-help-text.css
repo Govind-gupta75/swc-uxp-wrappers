@@ -11,30 +11,3 @@ governing permissions and limitations under the License.
 */
 
 /* write uxp style overrides */
-
-/* Workaround for - https://jira.corp.adobe.com/browse/UXP-21328 */
-.icon {
-    margin-right: var(
-        --mod-helptext-text-to-visual,
-        var(--spectrum-helptext-text-to-visual)
-    );
-    margin-bottom: var(
-        --mod-helptext-bottom-to-workflow-icon,
-        var(--spectrum-helptext-bottom-to-workflow-icon)
-    );
-    margin-top: var(
-        --mod-helptext-top-to-workflow-icon,
-        var(--spectrum-helptext-top-to-workflow-icon)
-    );
-}
-
-.text {
-    padding-bottom: var(
-        --mod-helptext-bottom-to-text,
-        var(--spectrum-helptext-bottom-to-text)
-    );
-    padding-top: var(
-        --mod-helptext-top-to-text,
-        var(--spectrum-helptext-top-to-text)
-    );
-}

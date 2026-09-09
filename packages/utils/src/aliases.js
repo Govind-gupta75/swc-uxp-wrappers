@@ -15,12 +15,12 @@ governing permissions and limitations under the License.
  *  integrator have to import these aliases list in the bundler/package manager and pass on to aliasing module.
  */
 export const aliases = {
-    '@spectrum-web-components/banner': '@swc-uxp-wrappers/banner',
     '@spectrum-web-components/divider': '@swc-uxp-wrappers/divider',
     '@spectrum-web-components/illustrated-message':
         '@swc-uxp-wrappers/illustrated-message',
     '@spectrum-web-components/link': '@swc-uxp-wrappers/link',
     '@spectrum-web-components/avatar': '@swc-uxp-wrappers/avatar',
+    '@spectrum-web-components/thumbnail': '@swc-uxp-wrappers/thumbnail',
     '@spectrum-web-components/field-label': '@swc-uxp-wrappers/field-label',
     '@spectrum-web-components/card': '@swc-uxp-wrappers/card',
     '@spectrum-web-components/button': '@swc-uxp-wrappers/button',
@@ -41,18 +41,19 @@ export const aliases = {
     '@spectrum-web-components/field-group': '@swc-uxp-wrappers/field-group',
     '@spectrum-web-components/switch': '@swc-uxp-wrappers/switch',
     '@spectrum-web-components/radio': '@swc-uxp-wrappers/radio',
+    '@spectrum-web-components/infield-button': '@swc-uxp-wrappers/infield-button',
     '@spectrum-web-components/number-field': '@swc-uxp-wrappers/number-field',
     '@spectrum-web-components/search': '@swc-uxp-wrappers/search',
     '@spectrum-web-components/tags': '@swc-uxp-wrappers/tags',
     '@spectrum-web-components/asset': '@swc-uxp-wrappers/asset',
-    '@spectrum-web-components/quick-actions': '@swc-uxp-wrappers/quick-actions',
     '@spectrum-web-components/meter': '@swc-uxp-wrappers/meter',
+    '@spectrum-web-components/status-light': '@swc-uxp-wrappers/status-light',
     '@spectrum-web-components/sidenav': '@swc-uxp-wrappers/sidenav',
     '@spectrum-web-components/swatch': '@swc-uxp-wrappers/swatch',
     '@spectrum-web-components/overlay': '@swc-uxp-wrappers/overlay',
-    '@spectrum-web-components/theme': '@swc-uxp-internal/theme',
+    '@spectrum-web-components/theme': '@swc-uxp-wrappers/theme',
     '@spectrum-web-components/base': '@swc-uxp-internal/base',
-    '@spectrum-web-components/shared': '@swc-uxp-internal/shared',
+    '@spectrum-web-components/shared': '@swc-uxp-wrappers/shared',
     '@spectrum-web-components/styles': '@swc-uxp-internal/styles',
     '@spectrum-web-components/reactive-controllers':
         '@swc-uxp-internal/reactive-controllers',

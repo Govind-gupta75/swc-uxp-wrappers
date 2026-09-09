@@ -14,7 +14,6 @@ import './App.css';
 
 import { Theme } from '@swc-react/theme';
 import { Button } from '@swc-react/button';
-import { Banner } from '@swc-react/banner';
 import { Menu } from '@swc-react/menu';
 import { MenuItem } from '@swc-react/menu';
 import { MenuGroup } from '@swc-react/menu';
@@ -35,13 +34,6 @@ function App() {
                         Wrappers
                     </h1>
                     <div style={{ margin: '20px' }}>
-                        <div style={{ margin: '20px' }}>
-                            <Banner>
-                                <div slot="header">Header text</div>
-                                <div slot="content">Content of the banner</div>
-                            </Banner>
-                        </div>
-
                         <div style={{ margin: '20px' }}>
                             <Menu selects="single">
                                 <MenuItem selected>Deselect</MenuItem>
