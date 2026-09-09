@@ -16,6 +16,28 @@ governing permissions and limitations under the License.
     background-color: transparent;
 }
 
+/* Icon-vanishing bug: upstream sets --spectrum-icon-size:inherit on the
+   slotted disclosure icon, meaning "inherit from whatever ancestor sets it" — but nothing
+   here does, and in UXP an unresolved inherited custom property causes any later
+   var(--spectrum-icon-size, fallback) to silently skip the fallback instead of using it
+   (same UXP custom-property-inherit bug already fixed for sp-button — see uxp-button.css).
+   Icon's own :host sizing chain depends on --spectrum-icon-size resolving to something, so
+   this collapses the icon to 0 size. Override with a concrete value per infield-button's
+   own size attribute instead, mirroring icon.css's own s/m/l/xl -> workflow-icon-size
+   mapping so the disclosure icon still scales with the button. */
+::slotted(*) {
+    --spectrum-icon-size: var(--mod-infield-button-icon-size, var(--spectrum-workflow-icon-size-100));
+}
+:host([size=s]) ::slotted(*) {
+    --spectrum-icon-size: var(--mod-infield-button-icon-size, var(--spectrum-workflow-icon-size-75));
+}
+:host([size=l]) ::slotted(*) {
+    --spectrum-icon-size: var(--mod-infield-button-icon-size, var(--spectrum-workflow-icon-size-200));
+}
+:host([size=xl]) ::slotted(*) {
+    --spectrum-icon-size: var(--mod-infield-button-icon-size, var(--spectrum-workflow-icon-size-300));
+}
+
 /* @media (hover:hover) unwrap — UXP does not support hover media query */
 :host(:hover) {
     --mod-infield-button-background-color: var(
