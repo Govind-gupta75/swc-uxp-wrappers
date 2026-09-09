@@ -12,9 +12,34 @@ governing permissions and limitations under the License.
 
 /* write uxp style overrides */
 
-/* UXP does not reliably support the min()/max() functions used by SWC 1.12.0 for the
-    responsive inline size. Preserve the host-provided width and restore the physical min/max
-    rules that UXP can apply. Asset.js synchronizes the generated SVG height to its width. */
+/* UXP-24439: sp-asset/sp-dropzone icons rendered visibly smaller in UXP than in SWC Web,
+   even though an earlier fix already restored the icon's width. Root cause has two parts:
+
+   1. Upstream 1.12.0 sizes the icon wrapper (.file/.folder) with
+        inline-size: max(var(--mod-asset-icon-min-width,48px), min(100%, var(--mod-asset-icon-max-width,80px)))
+      UXP does not support the CSS max()/min() math functions, so the whole declaration
+      is invalid and dropped. That part is already handled below by restoring physical
+      width/min-width/max-width rules using the same tokens (no max()/min()).
+
+   2. Upstream sizes the SAME element's height with block-size:100% — a percentage of the
+      *host's* content box — while the host itself only has a min-height floor (no max, no
+      fixed value; see the min-height rule below, which exists to stop block-size:100% from
+      collapsing to 0 when the host's parent has no explicit height). So width is now
+      clamped against the icon's own available inline space, while height is a percentage
+      of the host's block size, floored at 48px — two independent calculations against two
+      different boxes, with no guaranteed relationship. In the actual UXP host layout,
+      height was settling near that 48px floor even when width correctly clamped to 80px,
+      producing a visibly smaller, non-square icon. Simply duplicating the same width
+      tokens onto height/min-height/max-height (the previous approach) doesn't fix this —
+      it makes both axes clamp to the same *tokens*, not the same *resolved value*, since
+      each axis is still computed against its own separate reference box.
+
+   Fix: stop trying to make CSS alone keep the two axes in sync. Keep a static height
+   below only as a pre-layout fallback (so the icon isn't 0px before JS runs); the real
+   sync happens in Asset.js, which reads the icon's actual rendered width via
+   getBoundingClientRect() after layout and force-sets height to match it in pixels —
+   file/folder icons are square, so tying height to the real measured width keeps them
+   square at whatever value the width clamp actually produces, in any container. */
 :host {
     min-height: var(--mod-asset-icon-min-width, 48px);
 }
@@ -24,5 +49,7 @@ governing permissions and limitations under the License.
     width: 100%;
     min-width: var(--mod-asset-icon-min-width, 48px);
     max-width: var(--mod-asset-icon-max-width, 80px);
+    /* Pre-layout fallback only, in pixels close to the common case — overwritten by
+       Asset.js's _syncAssetHeight() as soon as the real rendered width is known. */
     height: var(--mod-asset-icon-max-width, 80px);
 }
