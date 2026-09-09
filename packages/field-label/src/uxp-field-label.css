@@ -19,3 +19,30 @@ governing permissions and limitations under the License.
     display: inline-flex;
     justify-content: flex-end;
 }
+
+/* Workaround: upstream sets :host's spacing via the padding-block and
+   padding-inline shorthands, which UXP does not reliably apply. Add
+   explicit physical fallbacks with the same token values. */
+:host {
+    padding-top: var(
+        --mod-field-label-top-to-text,
+        var(--spectrum-field-label-top-to-text)
+    );
+    padding-bottom: var(
+        --mod-field-label-bottom-to-text,
+        var(--spectrum-field-label-bottom-to-text)
+    );
+    padding-left: var(--mod-fieldlabel-padding-inline, 0);
+    padding-right: var(--mod-fieldlabel-padding-inline, 0);
+}
+
+/* Workaround: upstream sets spacing between the label text and the
+   required asterisk via the margin-inline shorthand on .required-icon,
+   which UXP does not reliably honor. Add an explicit physical margin-left
+   fallback. */
+.required-icon {
+    margin-left: var(
+        --mod-field-label-text-to-asterisk,
+        var(--spectrum-field-label-text-to-asterisk)
+    );
+}
