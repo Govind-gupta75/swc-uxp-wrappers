@@ -2590,7 +2590,7 @@
     "@spectrum-web-components/icons-workflow" "1.12.2"
     "@spectrum-web-components/shared" "1.12.2"
 
-"@spectrum-web-components/icon@1.12.1", "@spectrum-web-components/icon@1.12.2":
+"@spectrum-web-components/icon@1.12.2":
   version "1.12.2"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/icon/-/icon-1.12.2.tgz#a7593f1de902e18c0756420ca9f50315e17ce688"
   integrity sha512-mvnP1wcjdRVQCV73Le0rKJ22EhPi2jb5xAktRaPdYQebH0yjqVV1EvRNB5ZQPLqVzzDz9UzBm2RzOoGDupu+Jg==
@@ -2599,7 +2599,7 @@
     "@spectrum-web-components/iconset" "1.12.2"
     "@spectrum-web-components/reactive-controllers" "1.12.2"
 
-"@spectrum-web-components/icons-ui@1.12.1", "@spectrum-web-components/icons-ui@1.12.2":
+"@spectrum-web-components/icons-ui@1.12.2":
   version "1.12.2"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/icons-ui/-/icons-ui-1.12.2.tgz#e2202cfd15ab7a44dabe6fe4d044e0411482ccf0"
   integrity sha512-ibSFBD1gM6NkU+88g7QOPcee8E2JpClwiI/VZ/6EXbvOa/9QvQR23NfcYZIWHu8p3Wh7Lyas4MO+NdKlt6b09g==
@@ -2608,7 +2608,7 @@
     "@spectrum-web-components/icon" "1.12.2"
     "@spectrum-web-components/iconset" "1.12.2"
 
-"@spectrum-web-components/icons-workflow@1.12.1", "@spectrum-web-components/icons-workflow@1.12.2", "@spectrum-web-components/icons-workflow@^0.9.4":
+"@spectrum-web-components/icons-workflow@1.12.2", "@spectrum-web-components/icons-workflow@^0.9.4":
   version "1.12.2"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/icons-workflow/-/icons-workflow-1.12.2.tgz#d20db7c3cffa0ddff6928c46ae51a43edb6703d6"
   integrity sha512-r8r5YhaCwlw8D839HIbqZ+G3J1H49/ibbnp4golnfa96u9oY0OTkQIrdpPefrDxgk4eLXAjwovCMQk7hCWtuNw==
@@ -2616,7 +2616,7 @@
     "@spectrum-web-components/base" "1.12.2"
     "@spectrum-web-components/icon" "1.12.2"
 
-"@spectrum-web-components/icons@1.12.1", "@spectrum-web-components/icons@1.12.2":
+"@spectrum-web-components/icons@1.12.2":
   version "1.12.2"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/icons/-/icons-1.12.2.tgz#9b6c3c2b26b875927e5bc5cf9f1e708d9c00690a"
   integrity sha512-Lw2TwIGcJ7Kc8GbsCdQ0f98wvTI01iOzdNwhiRB4WStHr9Wtg2Kh2Fcq0SfvV2+A1o8vZaCjPOy1IKtoZ7qRyQ==
