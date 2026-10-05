@@ -24,17 +24,26 @@ governing permissions and limitations under the License.
                     <sp-button size="s">Small</sp-button>
                 </div>
 
-                <div class="size-div" style="display: block; flex-shrink: 0; margin-left: 10px">
+                <div
+                    class="size-div"
+                    style="display: block; flex-shrink: 0; margin-left: 10px"
+                >
                     <sp-field-label for="m">Medium</sp-field-label>
                     <sp-button size="m">Medium</sp-button>
                 </div>
 
-                <div class="size-div" style="display: block; flex-shrink: 0; margin-left: 10px">
+                <div
+                    class="size-div"
+                    style="display: block; flex-shrink: 0; margin-left: 10px"
+                >
                     <sp-field-label for="L">Large</sp-field-label>
                     <sp-button size="l">Large</sp-button>
                 </div>
 
-                <div class="size-div" style="display: block; flex-shrink: 0; margin-left: 10px">
+                <div
+                    class="size-div"
+                    style="display: block; flex-shrink: 0; margin-left: 10px"
+                >
                     <sp-field-label for="XL">Extra large</sp-field-label>
                     <sp-button size="xl">Extra large</sp-button>
                 </div>
@@ -228,13 +237,19 @@ governing permissions and limitations under the License.
                 </sp-button-group>
             </div>
 
-            <div id="variantLabel">pending (UXP degraded)</div>
+            <div id="variantLabel">pending</div>
             <div class="demo-example" style="display: flex">
                 <sp-button-group style="min-width: max-content">
+                    <sp-button size="m" variant="primary">Normal</sp-button>
                     <sp-button size="m" variant="primary" pending>
                         Pending
                     </sp-button>
-                    <sp-button size="m" variant="secondary" pending pending-label="Saving">
+                    <sp-button
+                        size="m"
+                        variant="secondary"
+                        pending
+                        pending-label="Saving"
+                    >
                         Custom label
                     </sp-button>
                 </sp-button-group>
@@ -244,14 +259,18 @@ governing permissions and limitations under the License.
             <div class="demo-example" style="display: flex">
                 <sp-button-group style="min-width: max-content">
                     <sp-button variant="primary" quiet>Quiet primary</sp-button>
-                    <sp-button variant="secondary" quiet>Quiet secondary</sp-button>
+                    <sp-button variant="secondary" quiet>
+                        Quiet secondary
+                    </sp-button>
                 </sp-button-group>
             </div>
 
             <div id="variantLabel">active</div>
             <div class="demo-example" style="display: flex">
                 <sp-button-group style="min-width: max-content">
-                    <sp-button variant="primary" active>Active (pressed)</sp-button>
+                    <sp-button variant="primary" active>
+                        Active (pressed)
+                    </sp-button>
                 </sp-button-group>
             </div>
 
@@ -265,7 +284,10 @@ governing permissions and limitations under the License.
             <!-- v1.12.1: `no-wrap` is deprecated in favor of `truncate` upstream, but `truncate`
                  is not yet implemented on the SWC Button in this version so only `no-wrap` is
                  demoed here. -->
-            <div id="variantLabel">no-wrap (deprecated, replaced by truncate in a future SWC release)</div>
+            <div id="variantLabel">
+                no-wrap (deprecated, replaced by truncate in a future SWC
+                release)
+            </div>
             <div class="demo-example" style="display: flex">
                 <sp-button-group style="min-width: max-content">
                     <sp-button variant="primary" no-wrap style="width: 100px">
@@ -278,15 +300,21 @@ governing permissions and limitations under the License.
             <div class="demo-example" style="display: flex">
                 <form>
                     <sp-button-group style="min-width: max-content">
-                        <sp-button variant="primary" type="submit">Submit</sp-button>
-                        <sp-button variant="secondary" type="reset">Reset</sp-button>
+                        <sp-button variant="primary" type="submit">
+                            Submit
+                        </sp-button>
+                        <sp-button variant="secondary" type="reset">
+                            Reset
+                        </sp-button>
                     </sp-button-group>
                 </form>
             </div>
 
             <!-- href/target/rel/download come from the LikeAnchor mixin applied to ButtonBase;
                  setting href causes the button to proxy clicks through an internal anchor -->
-            <div id="variantLabel">href / target / rel / download (LikeAnchor mixin)</div>
+            <div id="variantLabel">
+                href / target / rel / download (LikeAnchor mixin)
+            </div>
             <div class="demo-example" style="display: flex">
                 <sp-button-group style="min-width: max-content">
                     <sp-button
@@ -294,12 +322,16 @@ governing permissions and limitations under the License.
                         href="https://opensource.adobe.com/spectrum-web-components"
                         target="_blank"
                         rel="noopener"
-                    >Link button</sp-button>
+                    >
+                        Link button
+                    </sp-button>
                     <sp-button
                         variant="secondary"
                         href="https://opensource.adobe.com/spectrum-web-components"
                         download="swc-docs"
-                    >Download button</sp-button>
+                    >
+                        Download button
+                    </sp-button>
                 </sp-button-group>
             </div>
 
@@ -349,7 +381,7 @@ governing permissions and limitations under the License.
                 </div>
             </div>
         </div>
-        
+
         <div id="right">
             <div id="subtitle">my-button</div>
             <my-button class="my-button">My Button</my-button>
