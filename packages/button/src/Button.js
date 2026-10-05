@@ -19,6 +19,80 @@ class UxpButton extends Button {
         return [...super.styles, styles];
     }
 
+    constructor() {
+        super();
+        this.addEventListener(
+            'click',
+            (event) => {
+                if (this.pending) {
+                    event.preventDefault();
+                    event.stopImmediatePropagation();
+                }
+            },
+            true
+        );
+    }
+
+    connectedCallback() {
+        super.connectedCallback();
+        this.requestUpdate();
+    }
+
+    disconnectedCallback() {
+        this._clearPending();
+        super.disconnectedCallback();
+    }
+
+    updated(changed) {
+        super.updated(changed);
+        if (!this.pending || this.disabled || !this.isConnected) {
+            this._clearPending();
+        } else if (!this._pendingDelay && !this._pendingAnimation) {
+            const value = getComputedStyle(this)
+                .getPropertyValue('--pending-delay')
+                .trim();
+            const delay = value
+                ? parseFloat(value) * (value.endsWith('ms') ? 1 : 1000)
+                : 1000;
+            this._pendingDelay = setTimeout(
+                () => {
+                    this._pendingDelay = undefined;
+                    this.setAttribute('pending-visible', '');
+                    let angle = 0;
+                    // #loader/.uxp-fill and the r=7 (size="s", 16px) arc geometry
+                    // are internals of ProgressCircle's UXP render() override
+                    // (packages/progress-circle/src/ProgressCircle.js) — CSS
+                    // animations aren't supported in UXP, so this drives the
+                    // indeterminate spin manually. Keep in sync if either changes.
+                    this._pendingAnimation = setInterval(() => {
+                        const loader = this.shadowRoot.querySelector('#loader');
+                        const fill =
+                            loader?.shadowRoot?.querySelector('.uxp-fill');
+                        if (!fill) return;
+                        angle = (angle + Math.PI / 8) % (2 * Math.PI);
+                        const startX = 8 + 7 * Math.cos(angle);
+                        const startY = 8 + 7 * Math.sin(angle);
+                        const endX = 8 + 7 * Math.cos(angle + Math.PI / 2);
+                        const endY = 8 + 7 * Math.sin(angle + Math.PI / 2);
+                        fill.setAttribute(
+                            'd',
+                            `M ${startX} ${startY} A 7 7 0 0 1 ${endX} ${endY}`
+                        );
+                    }, 50);
+                },
+                Number.isFinite(delay) ? Math.max(0, delay) : 1000
+            );
+        }
+    }
+
+    _clearPending() {
+        clearTimeout(this._pendingDelay);
+        clearInterval(this._pendingAnimation);
+        this._pendingDelay = undefined;
+        this._pendingAnimation = undefined;
+        this.removeAttribute('pending-visible');
+    }
+
     firstUpdated(changed) {
         super.firstUpdated(changed);
         this._iconSlot = this.shadowRoot.querySelector('slot[name="icon"]');

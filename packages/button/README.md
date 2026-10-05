@@ -50,18 +50,18 @@ import { Button } from '@swc-uxp-wrappers/button';
 
 <br />
 
-### `pending` variant not supported
+### `pending` state
 
-The `pending` attribute/variant is **not supported** in UXP.
+Pending buttons block clicks immediately. After a one-second delay, the wrapper
+applies faded colors, hides the label and icon without changing the button's
+width, and displays the UXP progress circle. JavaScript updates the SVG arc to
+animate the spinner without CSS animation support.
 
-SWC's pending state relies on two mechanisms that are unavailable in UXP:
-
-- **`sp-progress-circle`** — the loading spinner injected by SWC's `PendingStateController` has no UXP wrapper and cannot render.
-- **Animation-as-state-trigger** — SWC uses a `0s forwards` CSS animation to coordinate the pending transition; CSS animations are not supported in UXP.
-
-The UXP wrapper applies the disabled visual appearance immediately when `pending` is set and hides the broken `sp-progress-circle` element, but **no spinner or loading indicator will be shown**.
+Override the delay with `--pending-delay` (for example, `200ms` or `0.5s`).
+Removing `pending`, disabling the button, or disconnecting it cancels the timers.
+`pending-label` supplies the accessible label while pending; it does not replace
+the visible button text.
 
 ```html
-<!-- Not supported in UXP — button will look disabled, no spinner -->
-<sp-button pending>Save</sp-button>
+<sp-button pending pending-label="Saving">Save</sp-button>
 ```
