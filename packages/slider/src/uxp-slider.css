@@ -1,0 +1,282 @@
+/*
+Copyright 2026 Adobe. All rights reserved.
+This file is licensed to you under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License. You may obtain a copy
+of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under
+the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+OF ANY KIND, either express or implied. See the License for the specific language
+governing permissions and limitations under the License.
+*/
+
+/* UXP: user-select is not in UXP CSS data. -webkit-user-select is also confirmed not
+   in uxp-css-data.json. The upstream spectrum-slider.css already declares both
+   unconditionally. This rule is a defensive duplicate in case upstream ever moves them
+   into a @media (hover:hover) block. Re-verify -webkit-user-select on each UXP runtime
+   upgrade and remove if upstream coverage is sufficient. */
+:host {
+    -webkit-user-select: none;
+}
+
+/* UXP: margin-inline-start: calc(size/-2) does not apply correctly in UXP even with
+   enableLogicalProperties:true — the calc() value is mapped but does not produce the
+   correct negative offset in shadow DOM. Verified: without this override the handle
+   overhangs the right edge instead of centering on the track endpoint.
+   Re-verify after each UXP runtime upgrade — remove if mapper fixes this. */
+.handle {
+    margin-left: calc(var(--mod-slider-handle-size, var(--spectrum-slider-handle-size)) / -2);
+}
+
+/* UXP: .handle::before serves as the focus-ring container (expanded circle with box-shadow).
+   The element has no background in the upstream CSS, but UXP always renders ::before with
+   background rgb(175,175,175), placing a gray disc on top of the handle's own background.
+   Result: the handle interior appears gray in both light and dark themes regardless of the
+   correct surface color that .handle itself would show.
+   Fix: hide ::before entirely. Consequence: the focus ring (box-shadow on .handle-highlight::before)
+   is also gone. In UXP there is no keyboard focus visual indicator on the handle:
+   (a) ::before is hidden (this rule), (b) hasVisibleFocusInTree() returns false so
+   handle-highlight is never set, (c) :focus-within is not in uxp-css-data. */
+.handle::before {
+    display: none !important;
+}
+
+/* UXP: clip-path is not in uxp-css-data. The upstream .visually-hidden pattern uses
+   clip-path:inset(50%) + width:1px + height:1px to hide elements while keeping them
+   in the accessibility tree. Without clip-path, the 1px element remains visible and
+   appears as a small mark at the left edge (e.g. when label-visibility="value"/"none"
+   hides the text/value label). visibility:hidden is supported in UXP and removes the
+   visual artifact. The slider's inputs carry aria-label/aria-labelledby directly,
+   so hiding these clipped label elements does not break UXP accessibility. */
+.visually-hidden {
+    visibility: hidden;
+}
+
+/* @media (hover: hover) unwrap */
+.handle:hover {
+    border-color: var(
+        --highcontrast-slider-handle-border-color-hover,
+        var(
+            --mod-slider-handle-border-color-hover,
+            var(--spectrum-slider-handle-border-color-hover)
+        )
+    );
+}
+
+/* UXP: ghost drag visual fix */
+.handle:not(.dragging):active {
+    border-width: var(
+        --mod-slider-handle-border-width,
+        var(--spectrum-slider-handle-border-width)
+    );
+    border-color: var(
+        --highcontrast-slider-handle-border-color,
+        var(
+            --mod-slider-handle-border-color,
+            var(--spectrum-slider-handle-border-color)
+        )
+    );
+    z-index: 2;
+}
+
+/* @media (hover: hover) unwrap — disabled */
+:host([disabled]) .handle:hover {
+    background: var(
+        --highcontrast-slider-handle-background-color-disabled,
+        var(
+            --mod-slider-handle-background-color-disabled,
+            var(--spectrum-slider-handle-background-color-disabled)
+        )
+    );
+    border-color: var(
+        --mod-disabled-border-color,
+        var(--spectrum-disabled-border-color)
+    );
+}
+
+/* UXP: upstream .ticks{display:flex} with absolutely-positioned .tick children.
+   inset-inline-start:X% (used by upstream to position ticks) is unsupported in UXP
+   shadow DOM (not in uxp-css-data) and resolves to 0, collapsing all ticks to the left.
+   display:block ensures .ticks reliably establishes a containing block for .tick
+   [position:absolute]; JS _applyPixelPositions() then sets physical left:Xpx.
+   NOTE: the prior claim "#controls.width=0 because of inline-size" was incorrect —
+   with enableLogicalProperties:true, inline-size maps correctly to width in UXP. */
+.ticks {
+    display: block;
+}
+
+/* UXP: In the tick variant, tracks live inside .trackContainer (position:absolute,
+   margin-inline: -handleSize/2 upstream). In UXP, margin-inline is not applied in
+   shadow DOM stylesheets, so .trackContainer.width = #controls.width (= tw) instead
+   of the correct tw + hs. This causes track left:V% to resolve against tw rather than
+   tw+hs, making the gray track end hs/2 px short of the last tick mark.
+   Fix: physical margin-left/right so trackContainer extends hs/2 past each endpoint,
+   matching Chrome behavior and allowing upstream left:V% positioning to reach tick[last]. */
+.trackContainer {
+    margin-left: calc(var(--mod-slider-handle-size, var(--spectrum-slider-handle-size)) / -2);
+    margin-right: calc(var(--mod-slider-handle-size, var(--spectrum-slider-handle-size)) / -2);
+}
+
+/* UXP: inset-inline-start:X% (tick horizontal position) is unsupported in shadow DOM —
+   physical left:Xpx is set by JS _applyPixelPositions(). left:0 is just a placeholder.
+   inset-block-start (tick vertical centering) is also NOT in uxp-css-data → ticks render
+   at top:0 in UXP. Physical top: is added as the UXP fallback; inset-block-start is kept
+   for Chrome, which ignores the redundant physical property when the logical one applies. */
+.tick {
+    position: absolute;
+    top: calc(
+        var(--mod-slider-control-height, var(--spectrum-slider-control-height)) / 2
+        - var(--mod-slider-tick-mark-height, var(--spectrum-slider-tick-mark-height)) / 2
+    );
+    left: 0;
+    inset-block-start: calc(
+        var(--mod-slider-control-height, var(--spectrum-slider-control-height)) / 2
+        - var(--mod-slider-tick-mark-height, var(--spectrum-slider-tick-mark-height)) / 2
+    );
+}
+
+/* UXP: ::before background in shadow DOM stylesheets is silently ignored in UXP —
+   getComputedStyle always returns rgb(175,175,175) regardless of CSS rules applied.
+   Solution: hide ::before and apply background directly to the div.
+   The .track div is position:absolute with block-size = track fill thickness (2px),
+   so its own background IS the visible colored line. Works in both UXP and Chrome.
+
+   .uxp-fill is applied by renderTrackSegment() to two cases:
+   (a) range variant — middle fill track between the two handles.
+   (b) filled variant (no fill-start) — first track from min to current value;
+       upstream colors this via :host([variant=filled]) .track:first-child::before,
+       which UXP forces to gray. renderTrackSegment detects start===0 for filled
+       and assigns uxp-fill so the correct accent color is applied here instead.
+
+   background-clip:content-box prevents the background from filling the padding area
+   (padding-inline creates handle gaps in Chrome; padding-inline is NOT in uxp-css-data
+   so it is a no-op in UXP — JS sets the exact pixel position instead). */
+.track.uxp-fill::before {
+    display: none !important;
+}
+.track.uxp-fill {
+    background: var(
+        --highcontrast-slider-filled-track-fill-color,
+        var(
+            --mod-slider-track-fill-color,
+            /* Last-resort fallback: --spectrum-slider-track-fill-color resolves to
+               --spectrum-accent-color-700 (light: #1473e6 / dark: #4b9cf5 via sp-theme tokens).
+               This hardcoded value is only reached when the entire var() chain is missing —
+               i.e. no sp-theme ancestor in the document. In that no-theme scenario the
+               dark/light state is also unknown, so a dark-theme CSS override cannot be added
+               here (it would require :host-context(sp-theme[color="dark"]) which contradicts
+               the "no sp-theme" condition). In normal plugin usage sp-theme is always present
+               and the token chain resolves correctly. */
+            var(--spectrum-slider-track-fill-color, #1473e6)
+        )
+    ) !important;
+    /* Chrome only: resets upstream padding-inline-end that creates handle gap via
+       background-clip. padding-inline is NOT in uxp-css-data — this is a no-op in UXP;
+       JS pixel positioning handles the gap instead. */
+    padding-inline: 0 !important;
+    /* Chrome only: upstream .track~.track sets inset-inline-end:0 which over-constrains
+       right when JS also sets left+width. right:auto is the physical reset; inset-inline-end
+       is intentionally NOT relied on in UXP (not in uxp-css-data — JS sets right:auto
+       via setProperty and the spec's over-constrained resolution drops it anyway). */
+    right: auto !important;
+}
+
+/* UXP: .track~.track::before (range sibling rule) incorrectly applies fill-color to
+   ALL sibling tracks including the last one (right of handle 2).
+   :last-of-type cannot be used here because UXP ignores class selectors when evaluating
+   structural pseudo-classes, causing the style to bleed onto handle::before inside
+   div#handles (which is also a sibling container with its own :last-of-type element).
+   Instead renderTrackSegment adds class uxp-track-last to the last segment so we can
+   target it with a simple class selector.
+
+   Same ::before treatment as .uxp-fill: the upstream ::before has negative inset-inline
+   to extend beyond the track element, relying on background-clip:content-box to clip
+   the background back to the content area. In UXP, background-clip:content-box acts as
+   border-box, so ::before bleeds into the handle zone. Fix: hide ::before and apply the
+   track background directly to the element (same pattern as .uxp-fill). */
+.uxp-track-first::before,
+.uxp-track-last::before {
+    display: none !important;
+}
+.uxp-track-first,
+.uxp-track-last {
+    background: var(
+        --highcontrast-slider-track-color,
+        var(--mod-slider-track-color, var(--spectrum-slider-track-color))
+    ) !important;
+    /* Chrome only: same padding-inline/right reasoning as .uxp-fill above. */
+    padding-inline: 0 !important;
+    right: auto !important;
+}
+
+/* UXP: .value-tooltip (added in v1.12.0) uses inset-inline-start:50% for centering.
+   Like .handle's margin-inline-start and .trackContainer's margin-inline, logical
+   properties are not applied correctly in UXP shadow DOM even with
+   enableLogicalProperties:true. Without the physical left: fallback the tooltip
+   anchors at left:0 and appears misaligned. */
+.value-tooltip {
+    left: 50%;
+}
+
+/* UXP: .value-tooltip::after is the triangular caret rendered via the CSS border trick
+   (border-color: gray transparent transparent; width:0; height:0).
+   UXP forces ::after background to rgb(175,175,175) — the same issue as ::before —
+   causing the zero-size border triangle to appear as a gray filled square block.
+   Fix: hide by default; restore only in Chrome via @supports.
+   @supports is NOT in uxp-css-data — UXP ignores the entire @supports block,
+   so display:none applies in UXP only. Chrome evaluates @supports and overrides
+   with display:block, restoring the correct triangular caret. */
+.value-tooltip::after {
+    display: none !important;
+}
+@supports (display: block) {
+    .value-tooltip::after {
+        display: block !important;
+    }
+}
+
+/* UXP: .uxp-tip is a real <div> injected by updated() as a replacement for the
+   ::after caret in UXP. Mirrors the @swc-uxp-wrappers/tooltip #tip pattern:
+   clip-path is not in uxp-css-data, but background-color on a real DOM element
+   works correctly. A square rotated 45° appears as a diamond/triangle, giving
+   the same visual result as the upstream CSS border trick.
+   Positioned at the bottom-center of .value-tooltip, peeking 3px below the edge,
+   matching the ::after approach (border-width: 4px, top: 100%).
+   Chrome: hidden via @supports since Chrome's native ::after caret works correctly. */
+.value-tooltip > .uxp-tip {
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    background-color: var(--spectrum-gray-900, #1d1d1d);
+    transform: translateX(-50%) rotate(45deg);
+    pointer-events: none;
+}
+@supports (display: block) {
+    .value-tooltip > .uxp-tip {
+        display: none;
+    }
+}
+
+/* Chrome: --spectrum-slider-ramp-handle-background-color is not defined in any
+   sp-theme file, so the ramp handle background resolves to transparent. The gray ramp
+   SVG then shows through the transparent handle, making it appear gray in all themes.
+   Fix: restore the correct surface-color fill via the full Spectrum token cascade.
+   Note: in UXP, !important CSS in shadow DOM cannot override inline styles set by the
+   handle controller; the JS fix (setting --spectrum-slider-handle-background-color-0 on
+   the host) handles UXP, this rule covers Chrome.
+   box-shadow: none suppresses the upstream 4px dark ring (ramp-handle-border-color-active)
+   that creates a "double ring" appearance on the dark ramp gradient. The CSS border alone
+   provides sufficient contrast and matches the official SWC visual. */
+:host([variant=ramp]) .handle {
+    background: var(
+        --mod-slider-ramp-handle-background-color,
+        var(
+            --highcontrast-slider-ramp-handle-background-color,
+            var(--spectrum-slider-ramp-handle-background-color,
+                var(--spectrum-gray-75, var(--spectrum-global-color-gray-75, #fafafa)))
+        )
+    ) !important;
+    box-shadow: none !important;
+}
