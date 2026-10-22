@@ -26,31 +26,4 @@ governing permissions and limitations under the License.
     );
 }
 
-.header {
-    min-width: var(
-        --mod-menu-section-header-min-width,
-        var(--spectrum-menu-section-header-min-width)
-    );
-    padding-bottom: var(
-        --mod-menu-section-header-bottom-edge-to-text,
-        var(
-            --mod-menu-item-bottom-edge-to-text,
-            var(--spectrum-menu-item-bottom-edge-to-text)
-        )
-    );
-    padding-top: var(
-        --mod-menu-section-header-top-edge-to-text,
-        var(
-            --mod-menu-item-top-edge-to-text,
-            var(--spectrum-menu-item-top-edge-to-text)
-        )
-    );
-    padding-left: var(
-        --mod-menu-item-label-inline-edge-to-content,
-        var(--spectrum-menu-item-label-inline-edge-to-content)
-    );
-    padding-right: var(
-        --mod-menu-item-label-inline-edge-to-content,
-        var(--spectrum-menu-item-label-inline-edge-to-content)
-    );
-}
+.spectrum-Menu-back.focus-visible{border-radius:var(--spectrum-menu-item-corner-radius);box-shadow:var(--spectrum-menu-item-focus-indicator-shadow)var(--spectrum-menu-item-focus-indicator-border-width)0 0 0 var(--spectrum-menu-item-focus-indicator-color-default);outline:var(--spectrum-menu-item-focus-indicator-width)var(--spectrum-menu-item-focus-indicator-outline-style)var(--spectrum-menu-item-focus-indicator-color-default);outline-offset:var(--spectrum-menu-item-focus-indicator-offset)}.spectrum-Menu-backButton.focus-visible{outline:var(--spectrum-focus-indicator-thickness)solid var(--spectrum-focus-indicator-color);outline-offset:calc((var(--spectrum-focus-indicator-thickness) + 1px)*-1)}
