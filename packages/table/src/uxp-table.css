@@ -10,4 +10,11 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* write uxp style overrides */
+/* Upstream's flex layout (needed for the scrollable body) is gated behind a
+   ".spectrum-Table-scroller" class that no component code ever applies, so
+   sp-table always stays in its higher-specificity display:table fallback.
+   Re-enable flex layout off the scroller attribute instead. */
+:host([scroller]) {
+    display: flex;
+    flex-direction: column;
+}

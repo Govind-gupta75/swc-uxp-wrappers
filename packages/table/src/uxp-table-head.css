@@ -10,4 +10,9 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* write uxp style overrides */
+/* Without this, sp-table-head shrinks alongside sp-table-body when a
+   scroller table's content exceeds its fixed height, compressing the
+   header below its own content's height. Let the body absorb it instead. */
+:host {
+    flex-shrink: 0;
+}
