@@ -48,6 +48,15 @@ governing permissions and limitations under the License.
     display: flex;
     flex-direction: column;
     justify-content: center;
+    flex: var(--uxp-table-cell-flex, 1);
+    min-width: var(--uxp-table-cell-min-width, auto);
+}
+
+slot {
+    display: block;
+    min-width: 0;
+    white-space: normal;
+    word-break: normal;
 }
 
 /* border-inline-end shorthand not supported in UXP; expand to border-right */
