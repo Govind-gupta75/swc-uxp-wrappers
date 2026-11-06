@@ -13,8 +13,24 @@ governing permissions and limitations under the License.
 /* Upstream's flex layout (needed for the scrollable body) is gated behind a
    ".spectrum-Table-scroller" class that no component code ever applies, so
    sp-table always stays in its higher-specificity display:table fallback.
-   Re-enable flex layout off the scroller attribute instead. */
-:host([scroller]) {
+   Enable flex layout for scroller and selectable tables instead. */
+:host([scroller]),
+:host([selects]) {
     display: flex;
     flex-direction: column;
+}
+
+:host([selects]) {
+    --uxp-table-cell-flex: 1 1 0px;
+    --uxp-table-cell-min-width: 0px;
+    overflow-x: auto;
+}
+
+/* Keep header and body together when their minimum content width requires scrolling. */
+:host([selects]) slot {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: min-content;
+    min-height: 0;
 }

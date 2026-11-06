@@ -42,6 +42,10 @@ governing permissions and limitations under the License.
     );
     text-align: left;
     display: block;
+    flex: var(--uxp-table-cell-flex, 1);
+    min-width: var(--uxp-table-cell-min-width, auto);
+    white-space: normal;
+    word-break: normal;
 }
 
 /* border-block-end shorthand not supported in UXP; expand to border-bottom */
