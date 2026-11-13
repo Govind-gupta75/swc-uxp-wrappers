@@ -10,11 +10,25 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* padding-inline shorthand not supported in UXP; expand to physical properties */
+/* Expand padding-inline and two-value padding-block to physical properties in UXP. */
 /* text-align: start not supported in UXP */
 :host([head-cell]) {
-    padding-left: var(--mod-table-cell-inline-space, var(--spectrum-table-cell-inline-space));
-    padding-right: var(--mod-table-cell-inline-space, var(--spectrum-table-cell-inline-space));
+    padding-top: var(
+        --mod-table-header-top-to-text,
+        var(--spectrum-table-header-top-to-text)
+    );
+    padding-bottom: var(
+        --mod-table-header-bottom-to-text,
+        var(--spectrum-table-header-bottom-to-text)
+    );
+    padding-left: var(
+        --mod-table-cell-inline-space,
+        var(--spectrum-table-cell-inline-space)
+    );
+    padding-right: var(
+        --mod-table-cell-inline-space,
+        var(--spectrum-table-cell-inline-space)
+    );
     text-align: left;
 }
 
