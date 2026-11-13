@@ -1,0 +1,24 @@
+/*
+Copyright 2026 Adobe. All rights reserved.
+This file is licensed to you under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License. You may obtain a copy
+of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under
+the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+OF ANY KIND, either express or implied. See the License for the specific language
+governing permissions and limitations under the License.
+*/
+
+/* write uxp style overrides */
+
+/* UXP does not reliably apply CSS custom properties set on :host to
+   ::slotted() var() chains. Override width/height with a concrete fallback
+   so the icon is sized correctly even if the token chain does not resolve.
+   Also set --spectrum-icon-size so the slotted icon component sizes itself
+   correctly. */
+::slotted([slot=icon]) {
+    width: var(--mod-badge-workflow-icon-size, var(--spectrum-badge-workflow-icon-size, var(--spectrum-workflow-icon-size-100)));
+    height: var(--mod-badge-workflow-icon-size, var(--spectrum-badge-workflow-icon-size, var(--spectrum-workflow-icon-size-100)));
+    --spectrum-icon-size: var(--mod-badge-workflow-icon-size, var(--spectrum-badge-workflow-icon-size, var(--spectrum-workflow-icon-size-100)));
+}
