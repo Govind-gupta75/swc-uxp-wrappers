@@ -10,4 +10,18 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* write uxp style overrides */
+import { css } from 'lit';
+import { Thumbnail } from '@spectrum-web-components/thumbnail';
+
+class MyThumbnail extends Thumbnail {
+    static styles = [
+        Thumbnail.styles,
+        css`
+            :host([class='my-thumbnail']) {
+                --spectrum-thumbnail-border-radius: 0px;
+            }
+        `,
+    ];
+}
+
+customElements.define('my-thumbnail', MyThumbnail);

@@ -34,7 +34,7 @@
         "./src/reparent-children.js": "./src/reparent-children.js"
     },
     "dependencies": {
-        "@swc-uxp-internal/shared": "npm:@spectrum-web-components/shared@1.12.0"
+        "@swc-uxp-internal/shared": "npm:@spectrum-web-components/shared@1.12.1"
     },
     "files": [
         "**/*.js"

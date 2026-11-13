@@ -1,5 +1,5 @@
 /*
-Copyright 2023 Adobe. All rights reserved.
+Copyright 2026 Adobe. All rights reserved.
 This file is licensed to you under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License. You may obtain a copy
 of the License at http://www.apache.org/licenses/LICENSE-2.0
@@ -10,19 +10,4 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-import { css } from 'lit';
-import { QuickActions } from '@spectrum-web-components/quick-actions';
-
-class MyQuickActions extends QuickActions {
-    static styles = [
-        QuickActions.styles,
-        css`
-            :host {
-                border: solid 2px grey;
-                border-radius: 5px;
-            }
-        `,
-    ];
-}
-
-customElements.define('my-quick-actions', MyQuickActions);
+export { default } from '@swc-uxp-internal/asset/src/asset-overrides.css.js';

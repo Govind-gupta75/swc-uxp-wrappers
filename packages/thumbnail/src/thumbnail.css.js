@@ -1,5 +1,5 @@
 /*
-Copyright 2023 Adobe. All rights reserved.
+Copyright 2026 Adobe. All rights reserved.
 This file is licensed to you under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License. You may obtain a copy
 of the License at http://www.apache.org/licenses/LICENSE-2.0
@@ -11,13 +11,9 @@ governing permissions and limitations under the License.
 */
 
 import { unsafeCSS } from '@spectrum-web-components/base';
-import swcBannerStyles from '@swc-uxp-internal/banner/src/banner.css.js';
-
-import uxpBannerStyles from './uxp-banner.css.js';
-
-const combinedBannerStyles = unsafeCSS(
-    swcBannerStyles.toString(),
-    uxpBannerStyles.toString()
+import swcThumbnailStyles from '@swc-uxp-internal/thumbnail/src/thumbnail.css.js';
+import uxpThumbnailStyles from './uxp-thumbnail.css.js';
+const combinedThumbnailStyles = unsafeCSS(
+    swcThumbnailStyles.toString() + '\n' + uxpThumbnailStyles.toString()
 );
-
-export default combinedBannerStyles;
+export default combinedThumbnailStyles;
